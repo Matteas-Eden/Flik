@@ -1,0 +1,5 @@
+D:\TT2 Code - Second Edition - TT2 line following\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn\CS301_Class.cyprj|49ef1c1b-1954-4ecd-9160-b7ea9a57b72f
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|204ed21d-efd6-4af2-be1d-9359365b9252
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|75297306-274a-4c2e-b916-334021c80068
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7c17b9f1-c749-4889-8107-626409ea307f
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9b596008-1814-42e4-b0ee-efd6d000b663

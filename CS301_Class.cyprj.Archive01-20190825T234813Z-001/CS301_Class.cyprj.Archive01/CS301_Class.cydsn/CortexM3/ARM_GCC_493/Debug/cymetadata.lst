@@ -1,0 +1,4874 @@
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"cymetadata.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	cy_meta_configecc
+  19              		.section	.cyconfigecc,"a",%progbits
+  20              		.align	2
+  21              		.type	cy_meta_configecc, %object
+  22              		.size	cy_meta_configecc, 4136
+  23              	cy_meta_configecc:
+  24 0000 01       		.byte	1
+  25 0001 45       		.byte	69
+  26 0002 00       		.byte	0
+  27 0003 40       		.byte	64
+  28 0004 06       		.byte	6
+  29 0005 4F       		.byte	79
+  30 0006 00       		.byte	0
+  31 0007 40       		.byte	64
+  32 0008 07       		.byte	7
+  33 0009 52       		.byte	82
+  34 000a 00       		.byte	0
+  35 000b 40       		.byte	64
+  36 000c 01       		.byte	1
+  37 000d 5B       		.byte	91
+  38 000e 00       		.byte	0
+  39 000f 40       		.byte	64
+  40 0010 06       		.byte	6
+  41 0011 64       		.byte	100
+  42 0012 00       		.byte	0
+  43 0013 40       		.byte	64
+  44 0014 03       		.byte	3
+  45 0015 65       		.byte	101
+  46 0016 00       		.byte	0
+  47 0017 40       		.byte	64
+  48 0018 44       		.byte	68
+  49 0019 00       		.byte	0
+  50 001a 01       		.byte	1
+  51 001b 40       		.byte	64
+  52 001c 39       		.byte	57
+  53 001d 01       		.byte	1
+  54 001e 01       		.byte	1
+  55 001f 40       		.byte	64
+  56 0020 68       		.byte	104
+  57 0021 02       		.byte	2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 2
+
+
+  58 0022 01       		.byte	1
+  59 0023 40       		.byte	64
+  60 0024 56       		.byte	86
+  61 0025 03       		.byte	3
+  62 0026 01       		.byte	1
+  63 0027 40       		.byte	64
+  64 0028 3A       		.byte	58
+  65 0029 04       		.byte	4
+  66 002a 01       		.byte	1
+  67 002b 40       		.byte	64
+  68 002c 4E       		.byte	78
+  69 002d 05       		.byte	5
+  70 002e 01       		.byte	1
+  71 002f 40       		.byte	64
+  72 0030 4E       		.byte	78
+  73 0031 06       		.byte	6
+  74 0032 01       		.byte	1
+  75 0033 40       		.byte	64
+  76 0034 4C       		.byte	76
+  77 0035 07       		.byte	7
+  78 0036 01       		.byte	1
+  79 0037 40       		.byte	64
+  80 0038 54       		.byte	84
+  81 0039 08       		.byte	8
+  82 003a 01       		.byte	1
+  83 003b 40       		.byte	64
+  84 003c 58       		.byte	88
+  85 003d 09       		.byte	9
+  86 003e 01       		.byte	1
+  87 003f 40       		.byte	64
+  88 0040 4E       		.byte	78
+  89 0041 0A       		.byte	10
+  90 0042 01       		.byte	1
+  91 0043 40       		.byte	64
+  92 0044 51       		.byte	81
+  93 0045 0B       		.byte	11
+  94 0046 01       		.byte	1
+  95 0047 40       		.byte	64
+  96 0048 43       		.byte	67
+  97 0049 0C       		.byte	12
+  98 004a 01       		.byte	1
+  99 004b 40       		.byte	64
+ 100 004c 4F       		.byte	79
+ 101 004d 0D       		.byte	13
+ 102 004e 01       		.byte	1
+ 103 004f 40       		.byte	64
+ 104 0050 31       		.byte	49
+ 105 0051 0E       		.byte	14
+ 106 0052 01       		.byte	1
+ 107 0053 40       		.byte	64
+ 108 0054 38       		.byte	56
+ 109 0055 0F       		.byte	15
+ 110 0056 01       		.byte	1
+ 111 0057 40       		.byte	64
+ 112 0058 2C       		.byte	44
+ 113 0059 14       		.byte	20
+ 114 005a 01       		.byte	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 3
+
+
+ 115 005b 40       		.byte	64
+ 116 005c 4E       		.byte	78
+ 117 005d 15       		.byte	21
+ 118 005e 01       		.byte	1
+ 119 005f 40       		.byte	64
+ 120 0060 58       		.byte	88
+ 121 0061 16       		.byte	22
+ 122 0062 01       		.byte	1
+ 123 0063 40       		.byte	64
+ 124 0064 52       		.byte	82
+ 125 0065 17       		.byte	23
+ 126 0066 01       		.byte	1
+ 127 0067 40       		.byte	64
+ 128 0068 42       		.byte	66
+ 129 0069 18       		.byte	24
+ 130 006a 01       		.byte	1
+ 131 006b 40       		.byte	64
+ 132 006c 53       		.byte	83
+ 133 006d 19       		.byte	25
+ 134 006e 01       		.byte	1
+ 135 006f 40       		.byte	64
+ 136 0070 3E       		.byte	62
+ 137 0071 1A       		.byte	26
+ 138 0072 01       		.byte	1
+ 139 0073 40       		.byte	64
+ 140 0074 50       		.byte	80
+ 141 0075 1B       		.byte	27
+ 142 0076 01       		.byte	1
+ 143 0077 40       		.byte	64
+ 144 0078 11       		.byte	17
+ 145 0079 40       		.byte	64
+ 146 007a 01       		.byte	1
+ 147 007b 40       		.byte	64
+ 148 007c 12       		.byte	18
+ 149 007d 41       		.byte	65
+ 150 007e 01       		.byte	1
+ 151 007f 40       		.byte	64
+ 152 0080 12       		.byte	18
+ 153 0081 42       		.byte	66
+ 154 0082 01       		.byte	1
+ 155 0083 40       		.byte	64
+ 156 0084 0C       		.byte	12
+ 157 0085 43       		.byte	67
+ 158 0086 01       		.byte	1
+ 159 0087 40       		.byte	64
+ 160 0088 01       		.byte	1
+ 161 0089 44       		.byte	68
+ 162 008a 01       		.byte	1
+ 163 008b 40       		.byte	64
+ 164 008c 13       		.byte	19
+ 165 008d 45       		.byte	69
+ 166 008e 01       		.byte	1
+ 167 008f 40       		.byte	64
+ 168 0090 0A       		.byte	10
+ 169 0091 46       		.byte	70
+ 170 0092 01       		.byte	1
+ 171 0093 40       		.byte	64
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 4
+
+
+ 172 0094 0A       		.byte	10
+ 173 0095 47       		.byte	71
+ 174 0096 01       		.byte	1
+ 175 0097 40       		.byte	64
+ 176 0098 06       		.byte	6
+ 177 0099 48       		.byte	72
+ 178 009a 01       		.byte	1
+ 179 009b 40       		.byte	64
+ 180 009c 04       		.byte	4
+ 181 009d 49       		.byte	73
+ 182 009e 01       		.byte	1
+ 183 009f 40       		.byte	64
+ 184 00a0 14       		.byte	20
+ 185 00a1 4C       		.byte	76
+ 186 00a2 01       		.byte	1
+ 187 00a3 40       		.byte	64
+ 188 00a4 04       		.byte	4
+ 189 00a5 4D       		.byte	77
+ 190 00a6 01       		.byte	1
+ 191 00a7 40       		.byte	64
+ 192 00a8 05       		.byte	5
+ 193 00a9 50       		.byte	80
+ 194 00aa 01       		.byte	1
+ 195 00ab 40       		.byte	64
+ 196 00ac 04       		.byte	4
+ 197 00ad 51       		.byte	81
+ 198 00ae 01       		.byte	1
+ 199 00af 40       		.byte	64
+ 200 00b0 7E       		.byte	126
+ 201 00b1 02       		.byte	2
+ 202 00b2 01       		.byte	1
+ 203 00b3 10       		.byte	16
+ 204 00b4 0A       		.byte	10
+ 205 00b5 4B       		.byte	75
+ 206 00b6 0D       		.byte	13
+ 207 00b7 40       		.byte	64
+ 208 00b8 16       		.byte	22
+ 209 00b9 4B       		.byte	75
+ 210 00ba 19       		.byte	25
+ 211 00bb 40       		.byte	64
+ 212 00bc 22       		.byte	34
+ 213 00bd 4B       		.byte	75
+ 214 00be 00       		.byte	0
+ 215 00bf 80       		.byte	-128
+ 216 00c0 08       		.byte	8
+ 217 00c1 A0       		.byte	-96
+ 218 00c2 09       		.byte	9
+ 219 00c3 60       		.byte	96
+ 220 00c4 11       		.byte	17
+ 221 00c5 10       		.byte	16
+ 222 00c6 19       		.byte	25
+ 223 00c7 20       		.byte	32
+ 224 00c8 61       		.byte	97
+ 225 00c9 04       		.byte	4
+ 226 00ca 7C       		.byte	124
+ 227 00cb 40       		.byte	64
+ 228 00cc 2F       		.byte	47
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 5
+
+
+ 229 00cd 84       		.byte	-124
+ 230 00ce 81       		.byte	-127
+ 231 00cf 38       		.byte	56
+ 232 00d0 83       		.byte	-125
+ 233 00d1 0D       		.byte	13
+ 234 00d2 85       		.byte	-123
+ 235 00d3 72       		.byte	114
+ 236 00d4 88       		.byte	-120
+ 237 00d5 0F       		.byte	15
+ 238 00d6 8D       		.byte	-115
+ 239 00d7 6F       		.byte	111
+ 240 00d8 8F       		.byte	-113
+ 241 00d9 0F       		.byte	15
+ 242 00da 84       		.byte	-124
+ 243 00db 6F       		.byte	111
+ 244 00dc 85       		.byte	-123
+ 245 00dd 0F       		.byte	15
+ 246 00de 8B       		.byte	-117
+ 247 00df 05       		.byte	5
+ 248 00e0 52       		.byte	82
+ 249 00e1 80       		.byte	-128
+ 250 00e2 58       		.byte	88
+ 251 00e3 04       		.byte	4
+ 252 00e4 59       		.byte	89
+ 253 00e5 04       		.byte	4
+ 254 00e6 5B       		.byte	91
+ 255 00e7 04       		.byte	4
+ 256 00e8 5C       		.byte	92
+ 257 00e9 22       		.byte	34
+ 258 00ea 5D       		.byte	93
+ 259 00eb 10       		.byte	16
+ 260 00ec 5F       		.byte	95
+ 261 00ed 01       		.byte	1
+ 262 00ee 80       		.byte	-128
+ 263 00ef 40       		.byte	64
+ 264 00f0 82       		.byte	-126
+ 265 00f1 11       		.byte	17
+ 266 00f2 84       		.byte	-124
+ 267 00f3 F3       		.byte	-13
+ 268 00f4 86       		.byte	-122
+ 269 00f5 08       		.byte	8
+ 270 00f6 87       		.byte	-121
+ 271 00f7 04       		.byte	4
+ 272 00f8 88       		.byte	-120
+ 273 00f9 F3       		.byte	-13
+ 274 00fa 8A       		.byte	-118
+ 275 00fb 04       		.byte	4
+ 276 00fc 8B       		.byte	-117
+ 277 00fd 08       		.byte	8
+ 278 00fe 8E       		.byte	-114
+ 279 00ff 0C       		.byte	12
+ 280 0100 94       		.byte	-108
+ 281 0101 30       		.byte	48
+ 282 0102 96       		.byte	-106
+ 283 0103 C3       		.byte	-61
+ 284 0104 97       		.byte	-105
+ 285 0105 08       		.byte	8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 6
+
+
+ 286 0106 9B       		.byte	-101
+ 287 0107 04       		.byte	4
+ 288 0108 9C       		.byte	-100
+ 289 0109 80       		.byte	-128
+ 290 010a 9E       		.byte	-98
+ 291 010b 22       		.byte	34
+ 292 010c 9F       		.byte	-97
+ 293 010d 01       		.byte	1
+ 294 010e A3       		.byte	-93
+ 295 010f 01       		.byte	1
+ 296 0110 A5       		.byte	-91
+ 297 0111 02       		.byte	2
+ 298 0112 A9       		.byte	-87
+ 299 0113 02       		.byte	2
+ 300 0114 AC       		.byte	-84
+ 301 0115 51       		.byte	81
+ 302 0116 AD       		.byte	-83
+ 303 0117 02       		.byte	2
+ 304 0118 AE       		.byte	-82
+ 305 0119 A2       		.byte	-94
+ 306 011a B0       		.byte	-80
+ 307 011b 0F       		.byte	15
+ 308 011c B1       		.byte	-79
+ 309 011d 04       		.byte	4
+ 310 011e B2       		.byte	-78
+ 311 011f F0       		.byte	-16
+ 312 0120 B3       		.byte	-77
+ 313 0121 01       		.byte	1
+ 314 0122 B5       		.byte	-75
+ 315 0123 08       		.byte	8
+ 316 0124 B7       		.byte	-73
+ 317 0125 02       		.byte	2
+ 318 0126 BA       		.byte	-70
+ 319 0127 02       		.byte	2
+ 320 0128 BF       		.byte	-65
+ 321 0129 15       		.byte	21
+ 322 012a C0       		.byte	-64
+ 323 012b 64       		.byte	100
+ 324 012c C1       		.byte	-63
+ 325 012d 02       		.byte	2
+ 326 012e C2       		.byte	-62
+ 327 012f 03       		.byte	3
+ 328 0130 C4       		.byte	-60
+ 329 0131 05       		.byte	5
+ 330 0132 C5       		.byte	-59
+ 331 0133 EC       		.byte	-20
+ 332 0134 C8       		.byte	-56
+ 333 0135 03       		.byte	3
+ 334 0136 C9       		.byte	-55
+ 335 0137 FF       		.byte	-1
+ 336 0138 CA       		.byte	-54
+ 337 0139 FF       		.byte	-1
+ 338 013a CB       		.byte	-53
+ 339 013b FF       		.byte	-1
+ 340 013c CC       		.byte	-52
+ 341 013d 62       		.byte	98
+ 342 013e CD       		.byte	-51
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 7
+
+
+ 343 013f A0       		.byte	-96
+ 344 0140 CE       		.byte	-50
+ 345 0141 F0       		.byte	-16
+ 346 0142 CF       		.byte	-49
+ 347 0143 41       		.byte	65
+ 348 0144 D0       		.byte	-48
+ 349 0145 0C       		.byte	12
+ 350 0146 D4       		.byte	-44
+ 351 0147 18       		.byte	24
+ 352 0148 D6       		.byte	-42
+ 353 0149 04       		.byte	4
+ 354 014a D8       		.byte	-40
+ 355 014b 04       		.byte	4
+ 356 014c D9       		.byte	-39
+ 357 014d 04       		.byte	4
+ 358 014e DA       		.byte	-38
+ 359 014f 04       		.byte	4
+ 360 0150 DB       		.byte	-37
+ 361 0151 04       		.byte	4
+ 362 0152 DC       		.byte	-36
+ 363 0153 33       		.byte	51
+ 364 0154 DD       		.byte	-35
+ 365 0155 33       		.byte	51
+ 366 0156 DF       		.byte	-33
+ 367 0157 01       		.byte	1
+ 368 0158 E6       		.byte	-26
+ 369 0159 40       		.byte	64
+ 370 015a E7       		.byte	-25
+ 371 015b 02       		.byte	2
+ 372 015c E9       		.byte	-23
+ 373 015d 10       		.byte	16
+ 374 015e EA       		.byte	-22
+ 375 015f 30       		.byte	48
+ 376 0160 EB       		.byte	-21
+ 377 0161 10       		.byte	16
+ 378 0162 ED       		.byte	-19
+ 379 0163 10       		.byte	16
+ 380 0164 EE       		.byte	-18
+ 381 0165 10       		.byte	16
+ 382 0166 EF       		.byte	-17
+ 383 0167 12       		.byte	18
+ 384 0168 00       		.byte	0
+ 385 0169 80       		.byte	-128
+ 386 016a 04       		.byte	4
+ 387 016b 69       		.byte	105
+ 388 016c 06       		.byte	6
+ 389 016d 08       		.byte	8
+ 390 016e 08       		.byte	8
+ 391 016f 80       		.byte	-128
+ 392 0170 0A       		.byte	10
+ 393 0171 40       		.byte	64
+ 394 0172 0E       		.byte	14
+ 395 0173 10       		.byte	16
+ 396 0174 0F       		.byte	15
+ 397 0175 01       		.byte	1
+ 398 0176 10       		.byte	16
+ 399 0177 0A       		.byte	10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 8
+
+
+ 400 0178 11       		.byte	17
+ 401 0179 05       		.byte	5
+ 402 017a 15       		.byte	21
+ 403 017b 40       		.byte	64
+ 404 017c 1C       		.byte	28
+ 405 017d 40       		.byte	64
+ 406 017e 1E       		.byte	30
+ 407 017f 10       		.byte	16
+ 408 0180 1F       		.byte	31
+ 409 0181 01       		.byte	1
+ 410 0182 25       		.byte	37
+ 411 0183 04       		.byte	4
+ 412 0184 26       		.byte	38
+ 413 0185 81       		.byte	-127
+ 414 0186 27       		.byte	39
+ 415 0187 05       		.byte	5
+ 416 0188 29       		.byte	41
+ 417 0189 21       		.byte	33
+ 418 018a 2A       		.byte	42
+ 419 018b 80       		.byte	-128
+ 420 018c 2C       		.byte	44
+ 421 018d 80       		.byte	-128
+ 422 018e 2E       		.byte	46
+ 423 018f 08       		.byte	8
+ 424 0190 2F       		.byte	47
+ 425 0191 0A       		.byte	10
+ 426 0192 30       		.byte	48
+ 427 0193 0A       		.byte	10
+ 428 0194 34       		.byte	52
+ 429 0195 14       		.byte	20
+ 430 0196 37       		.byte	55
+ 431 0197 40       		.byte	64
+ 432 0198 39       		.byte	57
+ 433 0199 05       		.byte	5
+ 434 019a 3F       		.byte	63
+ 435 019b 14       		.byte	20
+ 436 019c 44       		.byte	68
+ 437 019d 10       		.byte	16
+ 438 019e 47       		.byte	71
+ 439 019f 11       		.byte	17
+ 440 01a0 49       		.byte	73
+ 441 01a1 40       		.byte	64
+ 442 01a2 4A       		.byte	74
+ 443 01a3 01       		.byte	1
+ 444 01a4 4C       		.byte	76
+ 445 01a5 80       		.byte	-128
+ 446 01a6 4E       		.byte	78
+ 447 01a7 09       		.byte	9
+ 448 01a8 4F       		.byte	79
+ 449 01a9 04       		.byte	4
+ 450 01aa 5C       		.byte	92
+ 451 01ab 02       		.byte	2
+ 452 01ac 65       		.byte	101
+ 453 01ad 40       		.byte	64
+ 454 01ae 66       		.byte	102
+ 455 01af 20       		.byte	32
+ 456 01b0 67       		.byte	103
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 9
+
+
+ 457 01b1 80       		.byte	-128
+ 458 01b2 71       		.byte	113
+ 459 01b3 02       		.byte	2
+ 460 01b4 83       		.byte	-125
+ 461 01b5 10       		.byte	16
+ 462 01b6 85       		.byte	-123
+ 463 01b7 14       		.byte	20
+ 464 01b8 86       		.byte	-122
+ 465 01b9 80       		.byte	-128
+ 466 01ba 88       		.byte	-120
+ 467 01bb 82       		.byte	-126
+ 468 01bc 89       		.byte	-119
+ 469 01bd 20       		.byte	32
+ 470 01be 8E       		.byte	-114
+ 471 01bf 10       		.byte	16
+ 472 01c0 C0       		.byte	-64
+ 473 01c1 F1       		.byte	-15
+ 474 01c2 C2       		.byte	-62
+ 475 01c3 A9       		.byte	-87
+ 476 01c4 C4       		.byte	-60
+ 477 01c5 8F       		.byte	-113
+ 478 01c6 CA       		.byte	-54
+ 479 01c7 FD       		.byte	-3
+ 480 01c8 CC       		.byte	-52
+ 481 01c9 73       		.byte	115
+ 482 01ca CE       		.byte	-50
+ 483 01cb 63       		.byte	99
+ 484 01cc D0       		.byte	-48
+ 485 01cd E0       		.byte	-32
+ 486 01ce D2       		.byte	-46
+ 487 01cf 30       		.byte	48
+ 488 01d0 D6       		.byte	-42
+ 489 01d1 80       		.byte	-128
+ 490 01d2 D8       		.byte	-40
+ 491 01d3 B0       		.byte	-80
+ 492 01d4 E0       		.byte	-32
+ 493 01d5 40       		.byte	64
+ 494 01d6 E2       		.byte	-30
+ 495 01d7 84       		.byte	-124
+ 496 01d8 E6       		.byte	-26
+ 497 01d9 07       		.byte	7
+ 498 01da 01       		.byte	1
+ 499 01db D1       		.byte	-47
+ 500 01dc 03       		.byte	3
+ 501 01dd 04       		.byte	4
+ 502 01de 04       		.byte	4
+ 503 01df 73       		.byte	115
+ 504 01e0 09       		.byte	9
+ 505 01e1 AD       		.byte	-83
+ 506 01e2 0A       		.byte	10
+ 507 01e3 0F       		.byte	15
+ 508 01e4 0B       		.byte	11
+ 509 01e5 10       		.byte	16
+ 510 01e6 0C       		.byte	12
+ 511 01e7 CF       		.byte	-49
+ 512 01e8 0E       		.byte	14
+ 513 01e9 30       		.byte	48
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 10
+
+
+ 514 01ea 0F       		.byte	15
+ 515 01eb 1D       		.byte	29
+ 516 01ec 10       		.byte	16
+ 517 01ed 30       		.byte	48
+ 518 01ee 11       		.byte	17
+ 519 01ef D1       		.byte	-47
+ 520 01f0 12       		.byte	18
+ 521 01f1 C9       		.byte	-55
+ 522 01f2 13       		.byte	19
+ 523 01f3 08       		.byte	8
+ 524 01f4 14       		.byte	20
+ 525 01f5 FD       		.byte	-3
+ 526 01f6 15       		.byte	21
+ 527 01f7 01       		.byte	1
+ 528 01f8 16       		.byte	22
+ 529 01f9 02       		.byte	2
+ 530 01fa 17       		.byte	23
+ 531 01fb 04       		.byte	4
+ 532 01fc 18       		.byte	24
+ 533 01fd 94       		.byte	-108
+ 534 01fe 19       		.byte	25
+ 535 01ff 7C       		.byte	124
+ 536 0200 1A       		.byte	26
+ 537 0201 60       		.byte	96
+ 538 0202 1C       		.byte	28
+ 539 0203 9E       		.byte	-98
+ 540 0204 1E       		.byte	30
+ 541 0205 60       		.byte	96
+ 542 0206 27       		.byte	39
+ 543 0207 02       		.byte	2
+ 544 0208 31       		.byte	49
+ 545 0209 1D       		.byte	29
+ 546 020a 33       		.byte	51
+ 547 020b E0       		.byte	-32
+ 548 020c 36       		.byte	54
+ 549 020d FF       		.byte	-1
+ 550 020e 37       		.byte	55
+ 551 020f 03       		.byte	3
+ 552 0210 39       		.byte	57
+ 553 0211 08       		.byte	8
+ 554 0212 3E       		.byte	62
+ 555 0213 40       		.byte	64
+ 556 0214 40       		.byte	64
+ 557 0215 60       		.byte	96
+ 558 0216 41       		.byte	65
+ 559 0217 02       		.byte	2
+ 560 0218 49       		.byte	73
+ 561 0219 FF       		.byte	-1
+ 562 021a 4A       		.byte	74
+ 563 021b FF       		.byte	-1
+ 564 021c 4B       		.byte	75
+ 565 021d FF       		.byte	-1
+ 566 021e 4D       		.byte	77
+ 567 021f A0       		.byte	-96
+ 568 0220 4F       		.byte	79
+ 569 0221 04       		.byte	4
+ 570 0222 50       		.byte	80
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 11
+
+
+ 571 0223 18       		.byte	24
+ 572 0224 56       		.byte	86
+ 573 0225 08       		.byte	8
+ 574 0226 58       		.byte	88
+ 575 0227 04       		.byte	4
+ 576 0228 59       		.byte	89
+ 577 0229 04       		.byte	4
+ 578 022a 5A       		.byte	90
+ 579 022b 04       		.byte	4
+ 580 022c 5B       		.byte	91
+ 581 022d 04       		.byte	4
+ 582 022e 5D       		.byte	93
+ 583 022f 91       		.byte	-111
+ 584 0230 5F       		.byte	95
+ 585 0231 01       		.byte	1
+ 586 0232 60       		.byte	96
+ 587 0233 40       		.byte	64
+ 588 0234 62       		.byte	98
+ 589 0235 C0       		.byte	-64
+ 590 0236 64       		.byte	100
+ 591 0237 40       		.byte	64
+ 592 0238 65       		.byte	101
+ 593 0239 40       		.byte	64
+ 594 023a 66       		.byte	102
+ 595 023b C0       		.byte	-64
+ 596 023c 68       		.byte	104
+ 597 023d C0       		.byte	-64
+ 598 023e 6A       		.byte	106
+ 599 023f C0       		.byte	-64
+ 600 0240 6C       		.byte	108
+ 601 0241 C0       		.byte	-64
+ 602 0242 6E       		.byte	110
+ 603 0243 C0       		.byte	-64
+ 604 0244 82       		.byte	-126
+ 605 0245 08       		.byte	8
+ 606 0246 86       		.byte	-122
+ 607 0247 02       		.byte	2
+ 608 0248 8B       		.byte	-117
+ 609 0249 02       		.byte	2
+ 610 024a 8C       		.byte	-116
+ 611 024b 08       		.byte	8
+ 612 024c 8E       		.byte	-114
+ 613 024d 10       		.byte	16
+ 614 024e 8F       		.byte	-113
+ 615 024f 0E       		.byte	14
+ 616 0250 92       		.byte	-110
+ 617 0251 10       		.byte	16
+ 618 0252 93       		.byte	-109
+ 619 0253 01       		.byte	1
+ 620 0254 96       		.byte	-106
+ 621 0255 18       		.byte	24
+ 622 0256 99       		.byte	-103
+ 623 0257 08       		.byte	8
+ 624 0258 9A       		.byte	-102
+ 625 0259 01       		.byte	1
+ 626 025a 9E       		.byte	-98
+ 627 025b 04       		.byte	4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 12
+
+
+ 628 025c A4       		.byte	-92
+ 629 025d 01       		.byte	1
+ 630 025e B0       		.byte	-80
+ 631 025f 1C       		.byte	28
+ 632 0260 B1       		.byte	-79
+ 633 0261 08       		.byte	8
+ 634 0262 B3       		.byte	-77
+ 635 0263 01       		.byte	1
+ 636 0264 B4       		.byte	-76
+ 637 0265 03       		.byte	3
+ 638 0266 B5       		.byte	-75
+ 639 0267 04       		.byte	4
+ 640 0268 B6       		.byte	-74
+ 641 0269 1C       		.byte	28
+ 642 026a B7       		.byte	-73
+ 643 026b 02       		.byte	2
+ 644 026c BE       		.byte	-66
+ 645 026d 41       		.byte	65
+ 646 026e C0       		.byte	-64
+ 647 026f 60       		.byte	96
+ 648 0270 C1       		.byte	-63
+ 649 0271 02       		.byte	2
+ 650 0272 C5       		.byte	-59
+ 651 0273 D0       		.byte	-48
+ 652 0274 C6       		.byte	-58
+ 653 0275 01       		.byte	1
+ 654 0276 C7       		.byte	-57
+ 655 0277 02       		.byte	2
+ 656 0278 C8       		.byte	-56
+ 657 0279 16       		.byte	22
+ 658 027a C9       		.byte	-55
+ 659 027b FF       		.byte	-1
+ 660 027c CA       		.byte	-54
+ 661 027d FF       		.byte	-1
+ 662 027e CB       		.byte	-53
+ 663 027f FF       		.byte	-1
+ 664 0280 CD       		.byte	-51
+ 665 0281 AF       		.byte	-81
+ 666 0282 CE       		.byte	-50
+ 667 0283 0F       		.byte	15
+ 668 0284 CF       		.byte	-49
+ 669 0285 04       		.byte	4
+ 670 0286 D0       		.byte	-48
+ 671 0287 18       		.byte	24
+ 672 0288 D4       		.byte	-44
+ 673 0289 05       		.byte	5
+ 674 028a D8       		.byte	-40
+ 675 028b 04       		.byte	4
+ 676 028c D9       		.byte	-39
+ 677 028d 04       		.byte	4
+ 678 028e DA       		.byte	-38
+ 679 028f 04       		.byte	4
+ 680 0290 DB       		.byte	-37
+ 681 0291 04       		.byte	4
+ 682 0292 DC       		.byte	-36
+ 683 0293 19       		.byte	25
+ 684 0294 DD       		.byte	-35
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 13
+
+
+ 685 0295 11       		.byte	17
+ 686 0296 DF       		.byte	-33
+ 687 0297 01       		.byte	1
+ 688 0298 E0       		.byte	-32
+ 689 0299 40       		.byte	64
+ 690 029a E2       		.byte	-30
+ 691 029b C0       		.byte	-64
+ 692 029c E4       		.byte	-28
+ 693 029d 40       		.byte	64
+ 694 029e E5       		.byte	-27
+ 695 029f 40       		.byte	64
+ 696 02a0 E6       		.byte	-26
+ 697 02a1 C0       		.byte	-64
+ 698 02a2 E8       		.byte	-24
+ 699 02a3 C0       		.byte	-64
+ 700 02a4 EA       		.byte	-22
+ 701 02a5 C0       		.byte	-64
+ 702 02a6 EC       		.byte	-20
+ 703 02a7 C0       		.byte	-64
+ 704 02a8 EE       		.byte	-18
+ 705 02a9 C0       		.byte	-64
+ 706 02aa 00       		.byte	0
+ 707 02ab 01       		.byte	1
+ 708 02ac 01       		.byte	1
+ 709 02ad 40       		.byte	64
+ 710 02ae 02       		.byte	2
+ 711 02af 20       		.byte	32
+ 712 02b0 04       		.byte	4
+ 713 02b1 40       		.byte	64
+ 714 02b2 06       		.byte	6
+ 715 02b3 02       		.byte	2
+ 716 02b4 07       		.byte	7
+ 717 02b5 28       		.byte	40
+ 718 02b6 08       		.byte	8
+ 719 02b7 01       		.byte	1
+ 720 02b8 0A       		.byte	10
+ 721 02b9 14       		.byte	20
+ 722 02ba 0B       		.byte	11
+ 723 02bb 02       		.byte	2
+ 724 02bc 0D       		.byte	13
+ 725 02bd 08       		.byte	8
+ 726 02be 0E       		.byte	14
+ 727 02bf 4A       		.byte	74
+ 728 02c0 0F       		.byte	15
+ 729 02c1 20       		.byte	32
+ 730 02c2 13       		.byte	19
+ 731 02c3 04       		.byte	4
+ 732 02c4 14       		.byte	20
+ 733 02c5 40       		.byte	64
+ 734 02c6 15       		.byte	21
+ 735 02c7 02       		.byte	2
+ 736 02c8 1A       		.byte	26
+ 737 02c9 06       		.byte	6
+ 738 02ca 1B       		.byte	27
+ 739 02cb 01       		.byte	1
+ 740 02cc 1F       		.byte	31
+ 741 02cd 40       		.byte	64
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 14
+
+
+ 742 02ce 21       		.byte	33
+ 743 02cf 21       		.byte	33
+ 744 02d0 22       		.byte	34
+ 745 02d1 80       		.byte	-128
+ 746 02d2 23       		.byte	35
+ 747 02d3 10       		.byte	16
+ 748 02d4 25       		.byte	37
+ 749 02d5 84       		.byte	-124
+ 750 02d6 26       		.byte	38
+ 751 02d7 01       		.byte	1
+ 752 02d8 27       		.byte	39
+ 753 02d9 20       		.byte	32
+ 754 02da 2F       		.byte	47
+ 755 02db 10       		.byte	16
+ 756 02dc 31       		.byte	49
+ 757 02dd 22       		.byte	34
+ 758 02de 36       		.byte	54
+ 759 02df 05       		.byte	5
+ 760 02e0 37       		.byte	55
+ 761 02e1 20       		.byte	32
+ 762 02e2 38       		.byte	56
+ 763 02e3 80       		.byte	-128
+ 764 02e4 3B       		.byte	59
+ 765 02e5 10       		.byte	16
+ 766 02e6 3E       		.byte	62
+ 767 02e7 42       		.byte	66
+ 768 02e8 3F       		.byte	63
+ 769 02e9 20       		.byte	32
+ 770 02ea 42       		.byte	66
+ 771 02eb 08       		.byte	8
+ 772 02ec 44       		.byte	68
+ 773 02ed 06       		.byte	6
+ 774 02ee 45       		.byte	69
+ 775 02ef 40       		.byte	64
+ 776 02f0 46       		.byte	70
+ 777 02f1 0C       		.byte	12
+ 778 02f2 49       		.byte	73
+ 779 02f3 02       		.byte	2
+ 780 02f4 4B       		.byte	75
+ 781 02f5 10       		.byte	16
+ 782 02f6 4F       		.byte	79
+ 783 02f7 10       		.byte	16
+ 784 02f8 50       		.byte	80
+ 785 02f9 40       		.byte	64
+ 786 02fa 52       		.byte	82
+ 787 02fb 04       		.byte	4
+ 788 02fc 58       		.byte	88
+ 789 02fd 40       		.byte	64
+ 790 02fe 59       		.byte	89
+ 791 02ff 02       		.byte	2
+ 792 0300 5B       		.byte	91
+ 793 0301 04       		.byte	4
+ 794 0302 5E       		.byte	94
+ 795 0303 80       		.byte	-128
+ 796 0304 64       		.byte	100
+ 797 0305 01       		.byte	1
+ 798 0306 67       		.byte	103
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 15
+
+
+ 799 0307 01       		.byte	1
+ 800 0308 69       		.byte	105
+ 801 0309 40       		.byte	64
+ 802 030a 86       		.byte	-122
+ 803 030b 44       		.byte	68
+ 804 030c 91       		.byte	-111
+ 805 030d 10       		.byte	16
+ 806 030e 92       		.byte	-110
+ 807 030f 30       		.byte	48
+ 808 0310 93       		.byte	-109
+ 809 0311 02       		.byte	2
+ 810 0312 94       		.byte	-108
+ 811 0313 29       		.byte	41
+ 812 0314 95       		.byte	-107
+ 813 0315 41       		.byte	65
+ 814 0316 96       		.byte	-106
+ 815 0317 02       		.byte	2
+ 816 0318 97       		.byte	-105
+ 817 0319 11       		.byte	17
+ 818 031a 99       		.byte	-103
+ 819 031b 01       		.byte	1
+ 820 031c 9B       		.byte	-101
+ 821 031d 14       		.byte	20
+ 822 031e 9C       		.byte	-100
+ 823 031f 16       		.byte	22
+ 824 0320 9F       		.byte	-97
+ 825 0321 40       		.byte	64
+ 826 0322 A0       		.byte	-96
+ 827 0323 0A       		.byte	10
+ 828 0324 A1       		.byte	-95
+ 829 0325 02       		.byte	2
+ 830 0326 A6       		.byte	-90
+ 831 0327 08       		.byte	8
+ 832 0328 A7       		.byte	-89
+ 833 0329 0A       		.byte	10
+ 834 032a A8       		.byte	-88
+ 835 032b 08       		.byte	8
+ 836 032c A9       		.byte	-87
+ 837 032d 04       		.byte	4
+ 838 032e AA       		.byte	-86
+ 839 032f 20       		.byte	32
+ 840 0330 AC       		.byte	-84
+ 841 0331 40       		.byte	64
+ 842 0332 AE       		.byte	-82
+ 843 0333 80       		.byte	-128
+ 844 0334 AF       		.byte	-81
+ 845 0335 40       		.byte	64
+ 846 0336 B5       		.byte	-75
+ 847 0337 01       		.byte	1
+ 848 0338 B6       		.byte	-74
+ 849 0339 40       		.byte	64
+ 850 033a C0       		.byte	-64
+ 851 033b ED       		.byte	-19
+ 852 033c C2       		.byte	-62
+ 853 033d FF       		.byte	-1
+ 854 033e C4       		.byte	-60
+ 855 033f 04       		.byte	4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 16
+
+
+ 856 0340 CA       		.byte	-54
+ 857 0341 40       		.byte	64
+ 858 0342 CC       		.byte	-52
+ 859 0343 E5       		.byte	-27
+ 860 0344 CE       		.byte	-50
+ 861 0345 BC       		.byte	-68
+ 862 0346 D0       		.byte	-48
+ 863 0347 24       		.byte	36
+ 864 0348 D2       		.byte	-46
+ 865 0349 24       		.byte	36
+ 866 034a D6       		.byte	-42
+ 867 034b 1B       		.byte	27
+ 868 034c D8       		.byte	-40
+ 869 034d 10       		.byte	16
+ 870 034e E0       		.byte	-32
+ 871 034f 02       		.byte	2
+ 872 0350 E6       		.byte	-26
+ 873 0351 22       		.byte	34
+ 874 0352 EA       		.byte	-22
+ 875 0353 03       		.byte	3
+ 876 0354 EE       		.byte	-18
+ 877 0355 02       		.byte	2
+ 878 0356 06       		.byte	6
+ 879 0357 01       		.byte	1
+ 880 0358 1E       		.byte	30
+ 881 0359 02       		.byte	2
+ 882 035a 32       		.byte	50
+ 883 035b 01       		.byte	1
+ 884 035c 34       		.byte	52
+ 885 035d 02       		.byte	2
+ 886 035e 58       		.byte	88
+ 887 035f 04       		.byte	4
+ 888 0360 59       		.byte	89
+ 889 0361 04       		.byte	4
+ 890 0362 5C       		.byte	92
+ 891 0363 20       		.byte	32
+ 892 0364 5F       		.byte	95
+ 893 0365 01       		.byte	1
+ 894 0366 80       		.byte	-128
+ 895 0367 04       		.byte	4
+ 896 0368 81       		.byte	-127
+ 897 0369 21       		.byte	33
+ 898 036a 84       		.byte	-124
+ 899 036b 30       		.byte	48
+ 900 036c 85       		.byte	-123
+ 901 036d 02       		.byte	2
+ 902 036e 88       		.byte	-120
+ 903 036f 7C       		.byte	124
+ 904 0370 89       		.byte	-119
+ 905 0371 61       		.byte	97
+ 906 0372 8A       		.byte	-118
+ 907 0373 82       		.byte	-126
+ 908 0374 8B       		.byte	-117
+ 909 0375 06       		.byte	6
+ 910 0376 8C       		.byte	-116
+ 911 0377 20       		.byte	32
+ 912 0378 8D       		.byte	-115
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 17
+
+
+ 913 0379 07       		.byte	7
+ 914 037a 8F       		.byte	-113
+ 915 037b 60       		.byte	96
+ 916 037c 90       		.byte	-112
+ 917 037d 3C       		.byte	60
+ 918 037e 92       		.byte	-110
+ 919 037f C1       		.byte	-63
+ 920 0380 93       		.byte	-109
+ 921 0381 08       		.byte	8
+ 922 0382 95       		.byte	-107
+ 923 0383 06       		.byte	6
+ 924 0384 96       		.byte	-106
+ 925 0385 0C       		.byte	12
+ 926 0386 98       		.byte	-104
+ 927 0387 CF       		.byte	-49
+ 928 0388 99       		.byte	-103
+ 929 0389 67       		.byte	103
+ 930 038a 9A       		.byte	-102
+ 931 038b 30       		.byte	48
+ 932 038c 9C       		.byte	-100
+ 933 038d 08       		.byte	8
+ 934 038e 9D       		.byte	-99
+ 935 038f 04       		.byte	4
+ 936 0390 A1       		.byte	-95
+ 937 0391 08       		.byte	8
+ 938 0392 A2       		.byte	-94
+ 939 0393 C3       		.byte	-61
+ 940 0394 A3       		.byte	-93
+ 941 0395 10       		.byte	16
+ 942 0396 A4       		.byte	-92
+ 943 0397 10       		.byte	16
+ 944 0398 A5       		.byte	-91
+ 945 0399 06       		.byte	6
+ 946 039a A7       		.byte	-89
+ 947 039b 61       		.byte	97
+ 948 039c A8       		.byte	-88
+ 949 039d FF       		.byte	-1
+ 950 039e AB       		.byte	-85
+ 951 039f 21       		.byte	33
+ 952 03a0 AC       		.byte	-84
+ 953 03a1 04       		.byte	4
+ 954 03a2 AE       		.byte	-82
+ 955 03a3 08       		.byte	8
+ 956 03a4 AF       		.byte	-81
+ 957 03a5 10       		.byte	16
+ 958 03a6 B0       		.byte	-80
+ 959 03a7 B0       		.byte	-80
+ 960 03a8 B1       		.byte	-79
+ 961 03a9 40       		.byte	64
+ 962 03aa B2       		.byte	-78
+ 963 03ab 70       		.byte	112
+ 964 03ac B3       		.byte	-77
+ 965 03ad 07       		.byte	7
+ 966 03ae B4       		.byte	-76
+ 967 03af 3F       		.byte	63
+ 968 03b0 B5       		.byte	-75
+ 969 03b1 18       		.byte	24
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 18
+
+
+ 970 03b2 B7       		.byte	-73
+ 971 03b3 20       		.byte	32
+ 972 03b4 B9       		.byte	-71
+ 973 03b5 02       		.byte	2
+ 974 03b6 BA       		.byte	-70
+ 975 03b7 22       		.byte	34
+ 976 03b8 BB       		.byte	-69
+ 977 03b9 08       		.byte	8
+ 978 03ba D6       		.byte	-42
+ 979 03bb 02       		.byte	2
+ 980 03bc D7       		.byte	-41
+ 981 03bd 11       		.byte	17
+ 982 03be D8       		.byte	-40
+ 983 03bf 04       		.byte	4
+ 984 03c0 D9       		.byte	-39
+ 985 03c1 04       		.byte	4
+ 986 03c2 DB       		.byte	-37
+ 987 03c3 04       		.byte	4
+ 988 03c4 DC       		.byte	-36
+ 989 03c5 33       		.byte	51
+ 990 03c6 DD       		.byte	-35
+ 991 03c7 30       		.byte	48
+ 992 03c8 DF       		.byte	-33
+ 993 03c9 01       		.byte	1
+ 994 03ca 03       		.byte	3
+ 995 03cb 20       		.byte	32
+ 996 03cc 04       		.byte	4
+ 997 03cd 01       		.byte	1
+ 998 03ce 05       		.byte	5
+ 999 03cf 50       		.byte	80
+ 1000 03d0 06       		.byte	6
+ 1001 03d1 20       		.byte	32
+ 1002 03d2 08       		.byte	8
+ 1003 03d3 10       		.byte	16
+ 1004 03d4 0A       		.byte	10
+ 1005 03d5 01       		.byte	1
+ 1006 03d6 0B       		.byte	11
+ 1007 03d7 08       		.byte	8
+ 1008 03d8 0D       		.byte	13
+ 1009 03d9 22       		.byte	34
+ 1010 03da 0E       		.byte	14
+ 1011 03db 20       		.byte	32
+ 1012 03dc 0F       		.byte	15
+ 1013 03dd 01       		.byte	1
+ 1014 03de 14       		.byte	20
+ 1015 03df 40       		.byte	64
+ 1016 03e0 15       		.byte	21
+ 1017 03e1 44       		.byte	68
+ 1018 03e2 16       		.byte	22
+ 1019 03e3 02       		.byte	2
+ 1020 03e4 17       		.byte	23
+ 1021 03e5 14       		.byte	20
+ 1022 03e6 1A       		.byte	26
+ 1023 03e7 10       		.byte	16
+ 1024 03e8 1B       		.byte	27
+ 1025 03e9 20       		.byte	32
+ 1026 03ea 1C       		.byte	28
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 19
+
+
+ 1027 03eb 80       		.byte	-128
+ 1028 03ec 1D       		.byte	29
+ 1029 03ed 12       		.byte	18
+ 1030 03ee 1E       		.byte	30
+ 1031 03ef 04       		.byte	4
+ 1032 03f0 1F       		.byte	31
+ 1033 03f1 04       		.byte	4
+ 1034 03f2 25       		.byte	37
+ 1035 03f3 40       		.byte	64
+ 1036 03f4 26       		.byte	38
+ 1037 03f5 18       		.byte	24
+ 1038 03f6 27       		.byte	39
+ 1039 03f7 40       		.byte	64
+ 1040 03f8 29       		.byte	41
+ 1041 03f9 01       		.byte	1
+ 1042 03fa 2A       		.byte	42
+ 1043 03fb 40       		.byte	64
+ 1044 03fc 2C       		.byte	44
+ 1045 03fd 01       		.byte	1
+ 1046 03fe 2D       		.byte	45
+ 1047 03ff 10       		.byte	16
+ 1048 0400 2E       		.byte	46
+ 1049 0401 06       		.byte	6
+ 1050 0402 30       		.byte	48
+ 1051 0403 0A       		.byte	10
+ 1052 0404 34       		.byte	52
+ 1053 0405 02       		.byte	2
+ 1054 0406 35       		.byte	53
+ 1055 0407 44       		.byte	68
+ 1056 0408 37       		.byte	55
+ 1057 0409 10       		.byte	16
+ 1058 040a 39       		.byte	57
+ 1059 040b 21       		.byte	33
+ 1060 040c 3B       		.byte	59
+ 1061 040d 40       		.byte	64
+ 1062 040e 3C       		.byte	60
+ 1063 040f 80       		.byte	-128
+ 1064 0410 3D       		.byte	61
+ 1065 0411 04       		.byte	4
+ 1066 0412 3F       		.byte	63
+ 1067 0413 12       		.byte	18
+ 1068 0414 4A       		.byte	74
+ 1069 0415 08       		.byte	8
+ 1070 0416 4B       		.byte	75
+ 1071 0417 10       		.byte	16
+ 1072 0418 5D       		.byte	93
+ 1073 0419 20       		.byte	32
+ 1074 041a 6C       		.byte	108
+ 1075 041b 14       		.byte	20
+ 1076 041c 6F       		.byte	111
+ 1077 041d 0A       		.byte	10
+ 1078 041e 75       		.byte	117
+ 1079 041f 44       		.byte	68
+ 1080 0420 76       		.byte	118
+ 1081 0421 20       		.byte	32
+ 1082 0422 77       		.byte	119
+ 1083 0423 04       		.byte	4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 20
+
+
+ 1084 0424 80       		.byte	-128
+ 1085 0425 80       		.byte	-128
+ 1086 0426 84       		.byte	-124
+ 1087 0427 40       		.byte	64
+ 1088 0428 85       		.byte	-123
+ 1089 0429 11       		.byte	17
+ 1090 042a 88       		.byte	-120
+ 1091 042b C0       		.byte	-64
+ 1092 042c 91       		.byte	-111
+ 1093 042d 50       		.byte	80
+ 1094 042e 92       		.byte	-110
+ 1095 042f 20       		.byte	32
+ 1096 0430 93       		.byte	-109
+ 1097 0431 81       		.byte	-127
+ 1098 0432 94       		.byte	-108
+ 1099 0433 69       		.byte	105
+ 1100 0434 95       		.byte	-107
+ 1101 0435 01       		.byte	1
+ 1102 0436 96       		.byte	-106
+ 1103 0437 40       		.byte	64
+ 1104 0438 97       		.byte	-105
+ 1105 0439 20       		.byte	32
+ 1106 043a 98       		.byte	-104
+ 1107 043b 01       		.byte	1
+ 1108 043c 99       		.byte	-103
+ 1109 043d 01       		.byte	1
+ 1110 043e 9B       		.byte	-101
+ 1111 043f 10       		.byte	16
+ 1112 0440 9C       		.byte	-100
+ 1113 0441 10       		.byte	16
+ 1114 0442 9F       		.byte	-97
+ 1115 0443 48       		.byte	72
+ 1116 0444 A0       		.byte	-96
+ 1117 0445 0A       		.byte	10
+ 1118 0446 A1       		.byte	-95
+ 1119 0447 84       		.byte	-124
+ 1120 0448 A2       		.byte	-94
+ 1121 0449 81       		.byte	-127
+ 1122 044a A3       		.byte	-93
+ 1123 044b 01       		.byte	1
+ 1124 044c A5       		.byte	-91
+ 1125 044d 48       		.byte	72
+ 1126 044e A6       		.byte	-90
+ 1127 044f 2C       		.byte	44
+ 1128 0450 A7       		.byte	-89
+ 1129 0451 0A       		.byte	10
+ 1130 0452 AF       		.byte	-81
+ 1131 0453 04       		.byte	4
+ 1132 0454 C0       		.byte	-64
+ 1133 0455 F4       		.byte	-12
+ 1134 0456 C2       		.byte	-62
+ 1135 0457 F1       		.byte	-15
+ 1136 0458 C4       		.byte	-60
+ 1137 0459 F0       		.byte	-16
+ 1138 045a CA       		.byte	-54
+ 1139 045b F9       		.byte	-7
+ 1140 045c CC       		.byte	-52
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 21
+
+
+ 1141 045d F3       		.byte	-13
+ 1142 045e CE       		.byte	-50
+ 1143 045f FD       		.byte	-3
+ 1144 0460 D6       		.byte	-42
+ 1145 0461 20       		.byte	32
+ 1146 0462 E2       		.byte	-30
+ 1147 0463 0C       		.byte	12
+ 1148 0464 EA       		.byte	-22
+ 1149 0465 22       		.byte	34
+ 1150 0466 03       		.byte	3
+ 1151 0467 01       		.byte	1
+ 1152 0468 04       		.byte	4
+ 1153 0469 7F       		.byte	127
+ 1154 046a 09       		.byte	9
+ 1155 046b 2C       		.byte	44
+ 1156 046c 0B       		.byte	11
+ 1157 046d 10       		.byte	16
+ 1158 046e 0C       		.byte	12
+ 1159 046f A3       		.byte	-93
+ 1160 0470 0D       		.byte	13
+ 1161 0471 40       		.byte	64
+ 1162 0472 0E       		.byte	14
+ 1163 0473 5C       		.byte	92
+ 1164 0474 0F       		.byte	15
+ 1165 0475 80       		.byte	-128
+ 1166 0476 10       		.byte	16
+ 1167 0477 96       		.byte	-106
+ 1168 0478 11       		.byte	17
+ 1169 0479 30       		.byte	48
+ 1170 047a 12       		.byte	18
+ 1171 047b 68       		.byte	104
+ 1172 047c 13       		.byte	19
+ 1173 047d 04       		.byte	4
+ 1174 047e 14       		.byte	20
+ 1175 047f FE       		.byte	-2
+ 1176 0480 15       		.byte	21
+ 1177 0481 80       		.byte	-128
+ 1178 0482 16       		.byte	22
+ 1179 0483 01       		.byte	1
+ 1180 0484 17       		.byte	23
+ 1181 0485 7C       		.byte	124
+ 1182 0486 18       		.byte	24
+ 1183 0487 0E       		.byte	14
+ 1184 0488 19       		.byte	25
+ 1185 0489 40       		.byte	64
+ 1186 048a 1A       		.byte	26
+ 1187 048b F0       		.byte	-16
+ 1188 048c 1B       		.byte	27
+ 1189 048d 80       		.byte	-128
+ 1190 048e 1C       		.byte	28
+ 1191 048f C5       		.byte	-59
+ 1192 0490 1E       		.byte	30
+ 1193 0491 3A       		.byte	58
+ 1194 0492 21       		.byte	33
+ 1195 0493 30       		.byte	48
+ 1196 0494 23       		.byte	35
+ 1197 0495 08       		.byte	8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 22
+
+
+ 1198 0496 25       		.byte	37
+ 1199 0497 1C       		.byte	28
+ 1200 0498 26       		.byte	38
+ 1201 0499 01       		.byte	1
+ 1202 049a 29       		.byte	41
+ 1203 049b 40       		.byte	64
+ 1204 049c 2B       		.byte	43
+ 1205 049d 82       		.byte	-126
+ 1206 049e 2D       		.byte	45
+ 1207 049f 20       		.byte	32
+ 1208 04a0 2F       		.byte	47
+ 1209 04a1 04       		.byte	4
+ 1210 04a2 31       		.byte	49
+ 1211 04a3 3C       		.byte	60
+ 1212 04a4 33       		.byte	51
+ 1213 04a5 C0       		.byte	-64
+ 1214 04a6 34       		.byte	52
+ 1215 04a7 FF       		.byte	-1
+ 1216 04a8 35       		.byte	53
+ 1217 04a9 02       		.byte	2
+ 1218 04aa 37       		.byte	55
+ 1219 04ab 01       		.byte	1
+ 1220 04ac 3B       		.byte	59
+ 1221 04ad 08       		.byte	8
+ 1222 04ae 3E       		.byte	62
+ 1223 04af 10       		.byte	16
+ 1224 04b0 56       		.byte	86
+ 1225 04b1 08       		.byte	8
+ 1226 04b2 58       		.byte	88
+ 1227 04b3 04       		.byte	4
+ 1228 04b4 59       		.byte	89
+ 1229 04b5 04       		.byte	4
+ 1230 04b6 5B       		.byte	91
+ 1231 04b7 04       		.byte	4
+ 1232 04b8 5D       		.byte	93
+ 1233 04b9 90       		.byte	-112
+ 1234 04ba 5F       		.byte	95
+ 1235 04bb 01       		.byte	1
+ 1236 04bc 81       		.byte	-127
+ 1237 04bd 01       		.byte	1
+ 1238 04be 84       		.byte	-124
+ 1239 04bf 01       		.byte	1
+ 1240 04c0 86       		.byte	-122
+ 1241 04c1 02       		.byte	2
+ 1242 04c2 89       		.byte	-119
+ 1243 04c3 01       		.byte	1
+ 1244 04c4 8C       		.byte	-116
+ 1245 04c5 08       		.byte	8
+ 1246 04c6 8D       		.byte	-115
+ 1247 04c7 01       		.byte	1
+ 1248 04c8 90       		.byte	-112
+ 1249 04c9 02       		.byte	2
+ 1250 04ca 92       		.byte	-110
+ 1251 04cb 01       		.byte	1
+ 1252 04cc 93       		.byte	-109
+ 1253 04cd 01       		.byte	1
+ 1254 04ce 94       		.byte	-108
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 23
+
+
+ 1255 04cf 01       		.byte	1
+ 1256 04d0 95       		.byte	-107
+ 1257 04d1 01       		.byte	1
+ 1258 04d2 96       		.byte	-106
+ 1259 04d3 02       		.byte	2
+ 1260 04d4 98       		.byte	-104
+ 1261 04d5 08       		.byte	8
+ 1262 04d6 9C       		.byte	-100
+ 1263 04d7 01       		.byte	1
+ 1264 04d8 9E       		.byte	-98
+ 1265 04d9 02       		.byte	2
+ 1266 04da A0       		.byte	-96
+ 1267 04db 04       		.byte	4
+ 1268 04dc A1       		.byte	-95
+ 1269 04dd 01       		.byte	1
+ 1270 04de A4       		.byte	-92
+ 1271 04df 08       		.byte	8
+ 1272 04e0 AD       		.byte	-83
+ 1273 04e1 01       		.byte	1
+ 1274 04e2 AE       		.byte	-82
+ 1275 04e3 10       		.byte	16
+ 1276 04e4 B0       		.byte	-80
+ 1277 04e5 03       		.byte	3
+ 1278 04e6 B1       		.byte	-79
+ 1279 04e7 01       		.byte	1
+ 1280 04e8 B2       		.byte	-78
+ 1281 04e9 10       		.byte	16
+ 1282 04ea B4       		.byte	-76
+ 1283 04eb 08       		.byte	8
+ 1284 04ec B6       		.byte	-74
+ 1285 04ed 04       		.byte	4
+ 1286 04ee B8       		.byte	-72
+ 1287 04ef 20       		.byte	32
+ 1288 04f0 BA       		.byte	-70
+ 1289 04f1 02       		.byte	2
+ 1290 04f2 BE       		.byte	-66
+ 1291 04f3 50       		.byte	80
+ 1292 04f4 D6       		.byte	-42
+ 1293 04f5 08       		.byte	8
+ 1294 04f6 D8       		.byte	-40
+ 1295 04f7 04       		.byte	4
+ 1296 04f8 D9       		.byte	-39
+ 1297 04f9 04       		.byte	4
+ 1298 04fa DB       		.byte	-37
+ 1299 04fb 04       		.byte	4
+ 1300 04fc DC       		.byte	-36
+ 1301 04fd 20       		.byte	32
+ 1302 04fe DD       		.byte	-35
+ 1303 04ff 90       		.byte	-112
+ 1304 0500 DF       		.byte	-33
+ 1305 0501 01       		.byte	1
+ 1306 0502 02       		.byte	2
+ 1307 0503 02       		.byte	2
+ 1308 0504 03       		.byte	3
+ 1309 0505 20       		.byte	32
+ 1310 0506 04       		.byte	4
+ 1311 0507 40       		.byte	64
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 24
+
+
+ 1312 0508 06       		.byte	6
+ 1313 0509 12       		.byte	18
+ 1314 050a 0A       		.byte	10
+ 1315 050b 51       		.byte	81
+ 1316 050c 0B       		.byte	11
+ 1317 050d 08       		.byte	8
+ 1318 050e 0D       		.byte	13
+ 1319 050f 08       		.byte	8
+ 1320 0510 0E       		.byte	14
+ 1321 0511 4A       		.byte	74
+ 1322 0512 0F       		.byte	15
+ 1323 0513 1A       		.byte	26
+ 1324 0514 10       		.byte	16
+ 1325 0515 90       		.byte	-112
+ 1326 0516 11       		.byte	17
+ 1327 0517 88       		.byte	-120
+ 1328 0518 12       		.byte	18
+ 1329 0519 10       		.byte	16
+ 1330 051a 15       		.byte	21
+ 1331 051b 04       		.byte	4
+ 1332 051c 1A       		.byte	26
+ 1333 051d 40       		.byte	64
+ 1334 051e 1B       		.byte	27
+ 1335 051f 98       		.byte	-104
+ 1336 0520 1F       		.byte	31
+ 1337 0521 10       		.byte	16
+ 1338 0522 20       		.byte	32
+ 1339 0523 80       		.byte	-128
+ 1340 0524 24       		.byte	36
+ 1341 0525 40       		.byte	64
+ 1342 0526 25       		.byte	37
+ 1343 0527 40       		.byte	64
+ 1344 0528 26       		.byte	38
+ 1345 0529 14       		.byte	20
+ 1346 052a 27       		.byte	39
+ 1347 052b 40       		.byte	64
+ 1348 052c 29       		.byte	41
+ 1349 052d 01       		.byte	1
+ 1350 052e 2A       		.byte	42
+ 1351 052f 40       		.byte	64
+ 1352 0530 2C       		.byte	44
+ 1353 0531 10       		.byte	16
+ 1354 0532 2E       		.byte	46
+ 1355 0533 42       		.byte	66
+ 1356 0534 2F       		.byte	47
+ 1357 0535 08       		.byte	8
+ 1358 0536 30       		.byte	48
+ 1359 0537 0A       		.byte	10
+ 1360 0538 36       		.byte	54
+ 1361 0539 15       		.byte	21
+ 1362 053a 39       		.byte	57
+ 1363 053b 21       		.byte	33
+ 1364 053c 3A       		.byte	58
+ 1365 053d 80       		.byte	-128
+ 1366 053e 3B       		.byte	59
+ 1367 053f 40       		.byte	64
+ 1368 0540 3D       		.byte	61
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 25
+
+
+ 1369 0541 80       		.byte	-128
+ 1370 0542 3F       		.byte	63
+ 1371 0543 11       		.byte	17
+ 1372 0544 58       		.byte	88
+ 1373 0545 80       		.byte	-128
+ 1374 0546 5A       		.byte	90
+ 1375 0547 20       		.byte	32
+ 1376 0548 5E       		.byte	94
+ 1377 0549 80       		.byte	-128
+ 1378 054a 60       		.byte	96
+ 1379 054b 03       		.byte	3
+ 1380 054c 62       		.byte	98
+ 1381 054d 20       		.byte	32
+ 1382 054e 67       		.byte	103
+ 1383 054f 01       		.byte	1
+ 1384 0550 83       		.byte	-125
+ 1385 0551 80       		.byte	-128
+ 1386 0552 84       		.byte	-124
+ 1387 0553 40       		.byte	64
+ 1388 0554 8B       		.byte	-117
+ 1389 0555 40       		.byte	64
+ 1390 0556 91       		.byte	-111
+ 1391 0557 21       		.byte	33
+ 1392 0558 92       		.byte	-110
+ 1393 0559 30       		.byte	48
+ 1394 055a 93       		.byte	-109
+ 1395 055b 80       		.byte	-128
+ 1396 055c 94       		.byte	-108
+ 1397 055d 41       		.byte	65
+ 1398 055e 96       		.byte	-106
+ 1399 055f 41       		.byte	65
+ 1400 0560 97       		.byte	-105
+ 1401 0561 60       		.byte	96
+ 1402 0562 98       		.byte	-104
+ 1403 0563 80       		.byte	-128
+ 1404 0564 99       		.byte	-103
+ 1405 0565 01       		.byte	1
+ 1406 0566 9C       		.byte	-100
+ 1407 0567 02       		.byte	2
+ 1408 0568 9E       		.byte	-98
+ 1409 0569 40       		.byte	64
+ 1410 056a 9F       		.byte	-97
+ 1411 056b 08       		.byte	8
+ 1412 056c A0       		.byte	-96
+ 1413 056d 8A       		.byte	-118
+ 1414 056e A1       		.byte	-95
+ 1415 056f 84       		.byte	-124
+ 1416 0570 A2       		.byte	-94
+ 1417 0571 01       		.byte	1
+ 1418 0572 A3       		.byte	-93
+ 1419 0573 20       		.byte	32
+ 1420 0574 A5       		.byte	-91
+ 1421 0575 08       		.byte	8
+ 1422 0576 A6       		.byte	-90
+ 1423 0577 24       		.byte	36
+ 1424 0578 AD       		.byte	-83
+ 1425 0579 30       		.byte	48
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 26
+
+
+ 1426 057a B2       		.byte	-78
+ 1427 057b 80       		.byte	-128
+ 1428 057c B5       		.byte	-75
+ 1429 057d 30       		.byte	48
+ 1430 057e B6       		.byte	-74
+ 1431 057f 08       		.byte	8
+ 1432 0580 C0       		.byte	-64
+ 1433 0581 A5       		.byte	-91
+ 1434 0582 C2       		.byte	-62
+ 1435 0583 FF       		.byte	-1
+ 1436 0584 C4       		.byte	-60
+ 1437 0585 2D       		.byte	45
+ 1438 0586 CA       		.byte	-54
+ 1439 0587 F9       		.byte	-7
+ 1440 0588 CC       		.byte	-52
+ 1441 0589 E3       		.byte	-29
+ 1442 058a CE       		.byte	-50
+ 1443 058b BD       		.byte	-67
+ 1444 058c D6       		.byte	-42
+ 1445 058d 1C       		.byte	28
+ 1446 058e D8       		.byte	-40
+ 1447 058f 1C       		.byte	28
+ 1448 0590 E0       		.byte	-32
+ 1449 0591 02       		.byte	2
+ 1450 0592 E4       		.byte	-28
+ 1451 0593 04       		.byte	4
+ 1452 0594 E6       		.byte	-26
+ 1453 0595 01       		.byte	1
+ 1454 0596 EA       		.byte	-22
+ 1455 0597 83       		.byte	-125
+ 1456 0598 EE       		.byte	-18
+ 1457 0599 02       		.byte	2
+ 1458 059a 40       		.byte	64
+ 1459 059b 36       		.byte	54
+ 1460 059c 41       		.byte	65
+ 1461 059d 05       		.byte	5
+ 1462 059e 49       		.byte	73
+ 1463 059f FF       		.byte	-1
+ 1464 05a0 4A       		.byte	74
+ 1465 05a1 FF       		.byte	-1
+ 1466 05a2 4B       		.byte	75
+ 1467 05a3 FF       		.byte	-1
+ 1468 05a4 4D       		.byte	77
+ 1469 05a5 A0       		.byte	-96
+ 1470 05a6 4F       		.byte	79
+ 1471 05a7 01       		.byte	1
+ 1472 05a8 50       		.byte	80
+ 1473 05a9 18       		.byte	24
+ 1474 05aa 54       		.byte	84
+ 1475 05ab 0F       		.byte	15
+ 1476 05ac 58       		.byte	88
+ 1477 05ad 04       		.byte	4
+ 1478 05ae 59       		.byte	89
+ 1479 05af 04       		.byte	4
+ 1480 05b0 5A       		.byte	90
+ 1481 05b1 04       		.byte	4
+ 1482 05b2 5B       		.byte	91
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 27
+
+
+ 1483 05b3 04       		.byte	4
+ 1484 05b4 5C       		.byte	92
+ 1485 05b5 22       		.byte	34
+ 1486 05b6 5F       		.byte	95
+ 1487 05b7 01       		.byte	1
+ 1488 05b8 60       		.byte	96
+ 1489 05b9 40       		.byte	64
+ 1490 05ba 62       		.byte	98
+ 1491 05bb 80       		.byte	-128
+ 1492 05bc 64       		.byte	100
+ 1493 05bd 40       		.byte	64
+ 1494 05be 65       		.byte	101
+ 1495 05bf 40       		.byte	64
+ 1496 05c0 66       		.byte	102
+ 1497 05c1 80       		.byte	-128
+ 1498 05c2 68       		.byte	104
+ 1499 05c3 40       		.byte	64
+ 1500 05c4 6A       		.byte	106
+ 1501 05c5 80       		.byte	-128
+ 1502 05c6 6C       		.byte	108
+ 1503 05c7 40       		.byte	64
+ 1504 05c8 6D       		.byte	109
+ 1505 05c9 20       		.byte	32
+ 1506 05ca 6E       		.byte	110
+ 1507 05cb 80       		.byte	-128
+ 1508 05cc 83       		.byte	-125
+ 1509 05cd 07       		.byte	7
+ 1510 05ce 84       		.byte	-124
+ 1511 05cf 94       		.byte	-108
+ 1512 05d0 85       		.byte	-123
+ 1513 05d1 01       		.byte	1
+ 1514 05d2 86       		.byte	-122
+ 1515 05d3 60       		.byte	96
+ 1516 05d4 87       		.byte	-121
+ 1517 05d5 F2       		.byte	-14
+ 1518 05d6 88       		.byte	-120
+ 1519 05d7 FD       		.byte	-3
+ 1520 05d8 89       		.byte	-119
+ 1521 05d9 84       		.byte	-124
+ 1522 05da 8A       		.byte	-118
+ 1523 05db 02       		.byte	2
+ 1524 05dc 8B       		.byte	-117
+ 1525 05dd 10       		.byte	16
+ 1526 05de 8E       		.byte	-114
+ 1527 05df 0F       		.byte	15
+ 1528 05e0 94       		.byte	-108
+ 1529 05e1 73       		.byte	115
+ 1530 05e2 95       		.byte	-107
+ 1531 05e3 77       		.byte	119
+ 1532 05e4 99       		.byte	-103
+ 1533 05e5 B7       		.byte	-73
+ 1534 05e6 9B       		.byte	-101
+ 1535 05e7 40       		.byte	64
+ 1536 05e8 9C       		.byte	-100
+ 1537 05e9 9E       		.byte	-98
+ 1538 05ea 9D       		.byte	-99
+ 1539 05eb C0       		.byte	-64
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 28
+
+
+ 1540 05ec 9E       		.byte	-98
+ 1541 05ed 60       		.byte	96
+ 1542 05ee 9F       		.byte	-97
+ 1543 05ef 24       		.byte	36
+ 1544 05f0 A0       		.byte	-96
+ 1545 05f1 CF       		.byte	-49
+ 1546 05f2 A1       		.byte	-95
+ 1547 05f3 C1       		.byte	-63
+ 1548 05f4 A2       		.byte	-94
+ 1549 05f5 30       		.byte	48
+ 1550 05f6 A3       		.byte	-93
+ 1551 05f7 12       		.byte	18
+ 1552 05f8 A4       		.byte	-92
+ 1553 05f9 30       		.byte	48
+ 1554 05fa A6       		.byte	-90
+ 1555 05fb C9       		.byte	-55
+ 1556 05fc AB       		.byte	-85
+ 1557 05fd 08       		.byte	8
+ 1558 05fe B1       		.byte	-79
+ 1559 05ff 0F       		.byte	15
+ 1560 0600 B4       		.byte	-76
+ 1561 0601 FF       		.byte	-1
+ 1562 0602 B7       		.byte	-73
+ 1563 0603 F0       		.byte	-16
+ 1564 0604 BE       		.byte	-66
+ 1565 0605 10       		.byte	16
+ 1566 0606 C0       		.byte	-64
+ 1567 0607 32       		.byte	50
+ 1568 0608 C1       		.byte	-63
+ 1569 0609 05       		.byte	5
+ 1570 060a C5       		.byte	-59
+ 1571 060b 4E       		.byte	78
+ 1572 060c C6       		.byte	-58
+ 1573 060d C2       		.byte	-62
+ 1574 060e C7       		.byte	-57
+ 1575 060f 03       		.byte	3
+ 1576 0610 C8       		.byte	-56
+ 1577 0611 1F       		.byte	31
+ 1578 0612 C9       		.byte	-55
+ 1579 0613 FF       		.byte	-1
+ 1580 0614 CA       		.byte	-54
+ 1581 0615 FF       		.byte	-1
+ 1582 0616 CB       		.byte	-53
+ 1583 0617 FF       		.byte	-1
+ 1584 0618 CD       		.byte	-51
+ 1585 0619 AF       		.byte	-81
+ 1586 061a CE       		.byte	-50
+ 1587 061b 07       		.byte	7
+ 1588 061c CF       		.byte	-49
+ 1589 061d 01       		.byte	1
+ 1590 061e D0       		.byte	-48
+ 1591 061f 18       		.byte	24
+ 1592 0620 D6       		.byte	-42
+ 1593 0621 08       		.byte	8
+ 1594 0622 D8       		.byte	-40
+ 1595 0623 04       		.byte	4
+ 1596 0624 D9       		.byte	-39
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 29
+
+
+ 1597 0625 04       		.byte	4
+ 1598 0626 DA       		.byte	-38
+ 1599 0627 04       		.byte	4
+ 1600 0628 DB       		.byte	-37
+ 1601 0629 04       		.byte	4
+ 1602 062a DD       		.byte	-35
+ 1603 062b 90       		.byte	-112
+ 1604 062c DF       		.byte	-33
+ 1605 062d 01       		.byte	1
+ 1606 062e E0       		.byte	-32
+ 1607 062f 40       		.byte	64
+ 1608 0630 E2       		.byte	-30
+ 1609 0631 80       		.byte	-128
+ 1610 0632 E4       		.byte	-28
+ 1611 0633 40       		.byte	64
+ 1612 0634 E5       		.byte	-27
+ 1613 0635 40       		.byte	64
+ 1614 0636 E6       		.byte	-26
+ 1615 0637 80       		.byte	-128
+ 1616 0638 E8       		.byte	-24
+ 1617 0639 40       		.byte	64
+ 1618 063a EA       		.byte	-22
+ 1619 063b 80       		.byte	-128
+ 1620 063c EC       		.byte	-20
+ 1621 063d 40       		.byte	64
+ 1622 063e ED       		.byte	-19
+ 1623 063f 20       		.byte	32
+ 1624 0640 EE       		.byte	-18
+ 1625 0641 80       		.byte	-128
+ 1626 0642 00       		.byte	0
+ 1627 0643 14       		.byte	20
+ 1628 0644 02       		.byte	2
+ 1629 0645 02       		.byte	2
+ 1630 0646 05       		.byte	5
+ 1631 0647 02       		.byte	2
+ 1632 0648 07       		.byte	7
+ 1633 0649 08       		.byte	8
+ 1634 064a 08       		.byte	8
+ 1635 064b 48       		.byte	72
+ 1636 064c 09       		.byte	9
+ 1637 064d 08       		.byte	8
+ 1638 064e 0A       		.byte	10
+ 1639 064f 02       		.byte	2
+ 1640 0650 0C       		.byte	12
+ 1641 0651 20       		.byte	32
+ 1642 0652 12       		.byte	18
+ 1643 0653 80       		.byte	-128
+ 1644 0654 13       		.byte	19
+ 1645 0655 04       		.byte	4
+ 1646 0656 15       		.byte	21
+ 1647 0657 05       		.byte	5
+ 1648 0658 16       		.byte	22
+ 1649 0659 0A       		.byte	10
+ 1650 065a 19       		.byte	25
+ 1651 065b 10       		.byte	16
+ 1652 065c 22       		.byte	34
+ 1653 065d 82       		.byte	-126
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 30
+
+
+ 1654 065e 28       		.byte	40
+ 1655 065f 40       		.byte	64
+ 1656 0660 29       		.byte	41
+ 1657 0661 10       		.byte	16
+ 1658 0662 2F       		.byte	47
+ 1659 0663 50       		.byte	80
+ 1660 0664 31       		.byte	49
+ 1661 0665 08       		.byte	8
+ 1662 0666 32       		.byte	50
+ 1663 0667 A0       		.byte	-96
+ 1664 0668 35       		.byte	53
+ 1665 0669 02       		.byte	2
+ 1666 066a 38       		.byte	56
+ 1667 066b 06       		.byte	6
+ 1668 066c 39       		.byte	57
+ 1669 066d 20       		.byte	32
+ 1670 066e 3C       		.byte	60
+ 1671 066f 20       		.byte	32
+ 1672 0670 3D       		.byte	61
+ 1673 0671 86       		.byte	-122
+ 1674 0672 3E       		.byte	62
+ 1675 0673 02       		.byte	2
+ 1676 0674 40       		.byte	64
+ 1677 0675 20       		.byte	32
+ 1678 0676 42       		.byte	66
+ 1679 0677 04       		.byte	4
+ 1680 0678 44       		.byte	68
+ 1681 0679 20       		.byte	32
+ 1682 067a 45       		.byte	69
+ 1683 067b 04       		.byte	4
+ 1684 067c 48       		.byte	72
+ 1685 067d 40       		.byte	64
+ 1686 067e 49       		.byte	73
+ 1687 067f 04       		.byte	4
+ 1688 0680 4A       		.byte	74
+ 1689 0681 02       		.byte	2
+ 1690 0682 4C       		.byte	76
+ 1691 0683 01       		.byte	1
+ 1692 0684 4E       		.byte	78
+ 1693 0685 06       		.byte	6
+ 1694 0686 50       		.byte	80
+ 1695 0687 80       		.byte	-128
+ 1696 0688 52       		.byte	82
+ 1697 0689 14       		.byte	20
+ 1698 068a 59       		.byte	89
+ 1699 068b 40       		.byte	64
+ 1700 068c 5A       		.byte	90
+ 1701 068d 0C       		.byte	12
+ 1702 068e 5C       		.byte	92
+ 1703 068f 08       		.byte	8
+ 1704 0690 5D       		.byte	93
+ 1705 0691 A0       		.byte	-96
+ 1706 0692 5E       		.byte	94
+ 1707 0693 02       		.byte	2
+ 1708 0694 60       		.byte	96
+ 1709 0695 02       		.byte	2
+ 1710 0696 79       		.byte	121
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 31
+
+
+ 1711 0697 08       		.byte	8
+ 1712 0698 7A       		.byte	122
+ 1713 0699 20       		.byte	32
+ 1714 069a 88       		.byte	-120
+ 1715 069b 04       		.byte	4
+ 1716 069c 8A       		.byte	-118
+ 1717 069d 08       		.byte	8
+ 1718 069e 8B       		.byte	-117
+ 1719 069f 10       		.byte	16
+ 1720 06a0 90       		.byte	-112
+ 1721 06a1 10       		.byte	16
+ 1722 06a2 91       		.byte	-111
+ 1723 06a3 78       		.byte	120
+ 1724 06a4 92       		.byte	-110
+ 1725 06a5 C8       		.byte	-56
+ 1726 06a6 93       		.byte	-109
+ 1727 06a7 24       		.byte	36
+ 1728 06a8 94       		.byte	-108
+ 1729 06a9 8E       		.byte	-114
+ 1730 06aa 95       		.byte	-107
+ 1731 06ab 06       		.byte	6
+ 1732 06ac 97       		.byte	-105
+ 1733 06ad 81       		.byte	-127
+ 1734 06ae 98       		.byte	-104
+ 1735 06af 84       		.byte	-124
+ 1736 06b0 99       		.byte	-103
+ 1737 06b1 A0       		.byte	-96
+ 1738 06b2 9A       		.byte	-102
+ 1739 06b3 40       		.byte	64
+ 1740 06b4 9B       		.byte	-101
+ 1741 06b5 48       		.byte	72
+ 1742 06b6 9C       		.byte	-100
+ 1743 06b7 40       		.byte	64
+ 1744 06b8 9D       		.byte	-99
+ 1745 06b9 06       		.byte	6
+ 1746 06ba 9E       		.byte	-98
+ 1747 06bb 14       		.byte	20
+ 1748 06bc 9F       		.byte	-97
+ 1749 06bd 01       		.byte	1
+ 1750 06be A0       		.byte	-96
+ 1751 06bf 10       		.byte	16
+ 1752 06c0 A4       		.byte	-92
+ 1753 06c1 C8       		.byte	-56
+ 1754 06c2 A5       		.byte	-91
+ 1755 06c3 49       		.byte	73
+ 1756 06c4 A6       		.byte	-90
+ 1757 06c5 80       		.byte	-128
+ 1758 06c6 A7       		.byte	-89
+ 1759 06c7 01       		.byte	1
+ 1760 06c8 A9       		.byte	-87
+ 1761 06c9 40       		.byte	64
+ 1762 06ca AD       		.byte	-83
+ 1763 06cb 40       		.byte	64
+ 1764 06cc AE       		.byte	-82
+ 1765 06cd 20       		.byte	32
+ 1766 06ce B6       		.byte	-74
+ 1767 06cf 62       		.byte	98
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 32
+
+
+ 1768 06d0 B7       		.byte	-73
+ 1769 06d1 10       		.byte	16
+ 1770 06d2 C0       		.byte	-64
+ 1771 06d3 57       		.byte	87
+ 1772 06d4 C2       		.byte	-62
+ 1773 06d5 45       		.byte	69
+ 1774 06d6 C4       		.byte	-60
+ 1775 06d7 FC       		.byte	-4
+ 1776 06d8 CA       		.byte	-54
+ 1777 06d9 C5       		.byte	-59
+ 1778 06da CC       		.byte	-52
+ 1779 06db 8E       		.byte	-114
+ 1780 06dc CE       		.byte	-50
+ 1781 06dd F7       		.byte	-9
+ 1782 06de D0       		.byte	-48
+ 1783 06df 46       		.byte	70
+ 1784 06e0 D2       		.byte	-46
+ 1785 06e1 38       		.byte	56
+ 1786 06e2 D6       		.byte	-42
+ 1787 06e3 F8       		.byte	-8
+ 1788 06e4 D8       		.byte	-40
+ 1789 06e5 08       		.byte	8
+ 1790 06e6 E0       		.byte	-32
+ 1791 06e7 02       		.byte	2
+ 1792 06e8 E2       		.byte	-30
+ 1793 06e9 20       		.byte	32
+ 1794 06ea E4       		.byte	-28
+ 1795 06eb 04       		.byte	4
+ 1796 06ec E6       		.byte	-26
+ 1797 06ed 01       		.byte	1
+ 1798 06ee E8       		.byte	-24
+ 1799 06ef 40       		.byte	64
+ 1800 06f0 EC       		.byte	-20
+ 1801 06f1 40       		.byte	64
+ 1802 06f2 01       		.byte	1
+ 1803 06f3 01       		.byte	1
+ 1804 06f4 02       		.byte	2
+ 1805 06f5 01       		.byte	1
+ 1806 06f6 03       		.byte	3
+ 1807 06f7 02       		.byte	2
+ 1808 06f8 05       		.byte	5
+ 1809 06f9 30       		.byte	48
+ 1810 06fa 07       		.byte	7
+ 1811 06fb C0       		.byte	-64
+ 1812 06fc 08       		.byte	8
+ 1813 06fd 01       		.byte	1
+ 1814 06fe 09       		.byte	9
+ 1815 06ff F0       		.byte	-16
+ 1816 0700 0D       		.byte	13
+ 1817 0701 01       		.byte	1
+ 1818 0702 0F       		.byte	15
+ 1819 0703 0A       		.byte	10
+ 1820 0704 10       		.byte	16
+ 1821 0705 01       		.byte	1
+ 1822 0706 15       		.byte	21
+ 1823 0707 70       		.byte	112
+ 1824 0708 16       		.byte	22
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 33
+
+
+ 1825 0709 01       		.byte	1
+ 1826 070a 19       		.byte	25
+ 1827 070b 52       		.byte	82
+ 1828 070c 1B       		.byte	27
+ 1829 070d A1       		.byte	-95
+ 1830 070e 1D       		.byte	29
+ 1831 070f C0       		.byte	-64
+ 1832 0710 1F       		.byte	31
+ 1833 0711 30       		.byte	48
+ 1834 0712 21       		.byte	33
+ 1835 0713 A0       		.byte	-96
+ 1836 0714 22       		.byte	34
+ 1837 0715 01       		.byte	1
+ 1838 0716 23       		.byte	35
+ 1839 0717 50       		.byte	80
+ 1840 0718 24       		.byte	36
+ 1841 0719 01       		.byte	1
+ 1842 071a 25       		.byte	37
+ 1843 071b 01       		.byte	1
+ 1844 071c 27       		.byte	39
+ 1845 071d 02       		.byte	2
+ 1846 071e 2C       		.byte	44
+ 1847 071f 01       		.byte	1
+ 1848 0720 2F       		.byte	47
+ 1849 0721 04       		.byte	4
+ 1850 0722 31       		.byte	49
+ 1851 0723 04       		.byte	4
+ 1852 0724 33       		.byte	51
+ 1853 0725 F0       		.byte	-16
+ 1854 0726 35       		.byte	53
+ 1855 0727 03       		.byte	3
+ 1856 0728 36       		.byte	54
+ 1857 0729 01       		.byte	1
+ 1858 072a 37       		.byte	55
+ 1859 072b 08       		.byte	8
+ 1860 072c 3B       		.byte	59
+ 1861 072d 20       		.byte	32
+ 1862 072e 52       		.byte	82
+ 1863 072f 80       		.byte	-128
+ 1864 0730 58       		.byte	88
+ 1865 0731 04       		.byte	4
+ 1866 0732 59       		.byte	89
+ 1867 0733 04       		.byte	4
+ 1868 0734 5B       		.byte	91
+ 1869 0735 04       		.byte	4
+ 1870 0736 5C       		.byte	92
+ 1871 0737 02       		.byte	2
+ 1872 0738 5F       		.byte	95
+ 1873 0739 01       		.byte	1
+ 1874 073a 81       		.byte	-127
+ 1875 073b 03       		.byte	3
+ 1876 073c 82       		.byte	-126
+ 1877 073d 80       		.byte	-128
+ 1878 073e 83       		.byte	-125
+ 1879 073f 04       		.byte	4
+ 1880 0740 85       		.byte	-123
+ 1881 0741 10       		.byte	16
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 34
+
+
+ 1882 0742 88       		.byte	-120
+ 1883 0743 28       		.byte	40
+ 1884 0744 89       		.byte	-119
+ 1885 0745 10       		.byte	16
+ 1886 0746 8A       		.byte	-118
+ 1887 0747 13       		.byte	19
+ 1888 0748 8E       		.byte	-114
+ 1889 0749 02       		.byte	2
+ 1890 074a 8F       		.byte	-113
+ 1891 074b 05       		.byte	5
+ 1892 074c 95       		.byte	-107
+ 1893 074d 0A       		.byte	10
+ 1894 074e 97       		.byte	-105
+ 1895 074f 04       		.byte	4
+ 1896 0750 98       		.byte	-104
+ 1897 0751 16       		.byte	22
+ 1898 0752 99       		.byte	-103
+ 1899 0753 03       		.byte	3
+ 1900 0754 9A       		.byte	-102
+ 1901 0755 29       		.byte	41
+ 1902 0756 9B       		.byte	-101
+ 1903 0757 04       		.byte	4
+ 1904 0758 9D       		.byte	-99
+ 1905 0759 03       		.byte	3
+ 1906 075a 9E       		.byte	-98
+ 1907 075b 80       		.byte	-128
+ 1908 075c 9F       		.byte	-97
+ 1909 075d 0C       		.byte	12
+ 1910 075e A0       		.byte	-96
+ 1911 075f 40       		.byte	64
+ 1912 0760 A1       		.byte	-95
+ 1913 0761 10       		.byte	16
+ 1914 0762 A2       		.byte	-94
+ 1915 0763 09       		.byte	9
+ 1916 0764 A5       		.byte	-91
+ 1917 0765 10       		.byte	16
+ 1918 0766 A6       		.byte	-90
+ 1919 0767 16       		.byte	22
+ 1920 0768 A8       		.byte	-88
+ 1921 0769 80       		.byte	-128
+ 1922 076a AB       		.byte	-85
+ 1923 076b 08       		.byte	8
+ 1924 076c AC       		.byte	-84
+ 1925 076d 28       		.byte	40
+ 1926 076e AE       		.byte	-82
+ 1927 076f 15       		.byte	21
+ 1928 0770 B0       		.byte	-80
+ 1929 0771 07       		.byte	7
+ 1930 0772 B1       		.byte	-79
+ 1931 0773 0F       		.byte	15
+ 1932 0774 B2       		.byte	-78
+ 1933 0775 60       		.byte	96
+ 1934 0776 B4       		.byte	-76
+ 1935 0777 1B       		.byte	27
+ 1936 0778 B5       		.byte	-75
+ 1937 0779 10       		.byte	16
+ 1938 077a B6       		.byte	-74
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 35
+
+
+ 1939 077b 80       		.byte	-128
+ 1940 077c B8       		.byte	-72
+ 1941 077d 08       		.byte	8
+ 1942 077e BA       		.byte	-70
+ 1943 077f 22       		.byte	34
+ 1944 0780 BB       		.byte	-69
+ 1945 0781 0A       		.byte	10
+ 1946 0782 BE       		.byte	-66
+ 1947 0783 40       		.byte	64
+ 1948 0784 BF       		.byte	-65
+ 1949 0785 10       		.byte	16
+ 1950 0786 D8       		.byte	-40
+ 1951 0787 04       		.byte	4
+ 1952 0788 D9       		.byte	-39
+ 1953 0789 04       		.byte	4
+ 1954 078a DC       		.byte	-36
+ 1955 078b 33       		.byte	51
+ 1956 078c DF       		.byte	-33
+ 1957 078d 01       		.byte	1
+ 1958 078e 00       		.byte	0
+ 1959 078f 20       		.byte	32
+ 1960 0790 01       		.byte	1
+ 1961 0791 02       		.byte	2
+ 1962 0792 04       		.byte	4
+ 1963 0793 02       		.byte	2
+ 1964 0794 05       		.byte	5
+ 1965 0795 10       		.byte	16
+ 1966 0796 06       		.byte	6
+ 1967 0797 01       		.byte	1
+ 1968 0798 0B       		.byte	11
+ 1969 0799 A0       		.byte	-96
+ 1970 079a 0E       		.byte	14
+ 1971 079b 09       		.byte	9
+ 1972 079c 11       		.byte	17
+ 1973 079d 86       		.byte	-122
+ 1974 079e 14       		.byte	20
+ 1975 079f 80       		.byte	-128
+ 1976 07a0 17       		.byte	23
+ 1977 07a1 64       		.byte	100
+ 1978 07a2 1A       		.byte	26
+ 1979 07a3 02       		.byte	2
+ 1980 07a4 1E       		.byte	30
+ 1981 07a5 0A       		.byte	10
+ 1982 07a6 1F       		.byte	31
+ 1983 07a7 09       		.byte	9
+ 1984 07a8 20       		.byte	32
+ 1985 07a9 10       		.byte	16
+ 1986 07aa 21       		.byte	33
+ 1987 07ab 14       		.byte	20
+ 1988 07ac 22       		.byte	34
+ 1989 07ad 50       		.byte	80
+ 1990 07ae 23       		.byte	35
+ 1991 07af 44       		.byte	68
+ 1992 07b0 25       		.byte	37
+ 1993 07b1 04       		.byte	4
+ 1994 07b2 26       		.byte	38
+ 1995 07b3 20       		.byte	32
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 36
+
+
+ 1996 07b4 27       		.byte	39
+ 1997 07b5 40       		.byte	64
+ 1998 07b6 28       		.byte	40
+ 1999 07b7 44       		.byte	68
+ 2000 07b8 29       		.byte	41
+ 2001 07b9 10       		.byte	16
+ 2002 07ba 2B       		.byte	43
+ 2003 07bb 12       		.byte	18
+ 2004 07bc 2C       		.byte	44
+ 2005 07bd 20       		.byte	32
+ 2006 07be 2E       		.byte	46
+ 2007 07bf 02       		.byte	2
+ 2008 07c0 2F       		.byte	47
+ 2009 07c1 08       		.byte	8
+ 2010 07c2 31       		.byte	49
+ 2011 07c3 08       		.byte	8
+ 2012 07c4 32       		.byte	50
+ 2013 07c5 90       		.byte	-112
+ 2014 07c6 35       		.byte	53
+ 2015 07c7 10       		.byte	16
+ 2016 07c8 36       		.byte	54
+ 2017 07c9 04       		.byte	4
+ 2018 07ca 37       		.byte	55
+ 2019 07cb 40       		.byte	64
+ 2020 07cc 38       		.byte	56
+ 2021 07cd 94       		.byte	-108
+ 2022 07ce 39       		.byte	57
+ 2023 07cf 02       		.byte	2
+ 2024 07d0 3D       		.byte	61
+ 2025 07d1 08       		.byte	8
+ 2026 07d2 3E       		.byte	62
+ 2027 07d3 A0       		.byte	-96
+ 2028 07d4 3F       		.byte	63
+ 2029 07d5 02       		.byte	2
+ 2030 07d6 43       		.byte	67
+ 2031 07d7 0C       		.byte	12
+ 2032 07d8 49       		.byte	73
+ 2033 07d9 80       		.byte	-128
+ 2034 07da 4A       		.byte	74
+ 2035 07db 01       		.byte	1
+ 2036 07dc 72       		.byte	114
+ 2037 07dd 40       		.byte	64
+ 2038 07de 83       		.byte	-125
+ 2039 07df 40       		.byte	64
+ 2040 07e0 84       		.byte	-124
+ 2041 07e1 10       		.byte	16
+ 2042 07e2 87       		.byte	-121
+ 2043 07e3 08       		.byte	8
+ 2044 07e4 88       		.byte	-120
+ 2045 07e5 A0       		.byte	-96
+ 2046 07e6 8B       		.byte	-117
+ 2047 07e7 02       		.byte	2
+ 2048 07e8 8D       		.byte	-115
+ 2049 07e9 10       		.byte	16
+ 2050 07ea 8F       		.byte	-113
+ 2051 07eb 01       		.byte	1
+ 2052 07ec 91       		.byte	-111
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 37
+
+
+ 2053 07ed D0       		.byte	-48
+ 2054 07ee 92       		.byte	-110
+ 2055 07ef 09       		.byte	9
+ 2056 07f0 93       		.byte	-109
+ 2057 07f1 20       		.byte	32
+ 2058 07f2 94       		.byte	-108
+ 2059 07f3 0A       		.byte	10
+ 2060 07f4 95       		.byte	-107
+ 2061 07f5 04       		.byte	4
+ 2062 07f6 96       		.byte	-106
+ 2063 07f7 02       		.byte	2
+ 2064 07f8 97       		.byte	-105
+ 2065 07f9 C1       		.byte	-63
+ 2066 07fa 98       		.byte	-104
+ 2067 07fb 80       		.byte	-128
+ 2068 07fc 99       		.byte	-103
+ 2069 07fd 20       		.byte	32
+ 2070 07fe 9A       		.byte	-102
+ 2071 07ff C1       		.byte	-63
+ 2072 0800 9B       		.byte	-101
+ 2073 0801 20       		.byte	32
+ 2074 0802 9D       		.byte	-99
+ 2075 0803 16       		.byte	22
+ 2076 0804 9E       		.byte	-98
+ 2077 0805 14       		.byte	20
+ 2078 0806 9F       		.byte	-97
+ 2079 0807 45       		.byte	69
+ 2080 0808 A0       		.byte	-96
+ 2081 0809 10       		.byte	16
+ 2082 080a A3       		.byte	-93
+ 2083 080b 40       		.byte	64
+ 2084 080c A4       		.byte	-92
+ 2085 080d C8       		.byte	-56
+ 2086 080e A5       		.byte	-91
+ 2087 080f 4D       		.byte	77
+ 2088 0810 A6       		.byte	-90
+ 2089 0811 04       		.byte	4
+ 2090 0812 A7       		.byte	-89
+ 2091 0813 01       		.byte	1
+ 2092 0814 AD       		.byte	-83
+ 2093 0815 02       		.byte	2
+ 2094 0816 B2       		.byte	-78
+ 2095 0817 01       		.byte	1
+ 2096 0818 B4       		.byte	-76
+ 2097 0819 80       		.byte	-128
+ 2098 081a B6       		.byte	-74
+ 2099 081b 02       		.byte	2
+ 2100 081c B7       		.byte	-73
+ 2101 081d 10       		.byte	16
+ 2102 081e C0       		.byte	-64
+ 2103 081f DA       		.byte	-38
+ 2104 0820 C2       		.byte	-62
+ 2105 0821 CC       		.byte	-52
+ 2106 0822 C4       		.byte	-60
+ 2107 0823 FD       		.byte	-3
+ 2108 0824 CA       		.byte	-54
+ 2109 0825 EB       		.byte	-21
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 38
+
+
+ 2110 0826 CC       		.byte	-52
+ 2111 0827 7E       		.byte	126
+ 2112 0828 CE       		.byte	-50
+ 2113 0829 FF       		.byte	-1
+ 2114 082a E2       		.byte	-30
+ 2115 082b 20       		.byte	32
+ 2116 082c E4       		.byte	-28
+ 2117 082d 20       		.byte	32
+ 2118 082e EA       		.byte	-22
+ 2119 082f 20       		.byte	32
+ 2120 0830 00       		.byte	0
+ 2121 0831 80       		.byte	-128
+ 2122 0832 01       		.byte	1
+ 2123 0833 01       		.byte	1
+ 2124 0834 04       		.byte	4
+ 2125 0835 80       		.byte	-128
+ 2126 0836 08       		.byte	8
+ 2127 0837 6C       		.byte	108
+ 2128 0838 09       		.byte	9
+ 2129 0839 02       		.byte	2
+ 2130 083a 0A       		.byte	10
+ 2131 083b 11       		.byte	17
+ 2132 083c 0C       		.byte	12
+ 2133 083d 10       		.byte	16
+ 2134 083e 0F       		.byte	15
+ 2135 083f 0C       		.byte	12
+ 2136 0840 11       		.byte	17
+ 2137 0841 02       		.byte	2
+ 2138 0842 12       		.byte	18
+ 2139 0843 03       		.byte	3
+ 2140 0844 14       		.byte	20
+ 2141 0845 14       		.byte	20
+ 2142 0846 18       		.byte	24
+ 2143 0847 5C       		.byte	92
+ 2144 0848 19       		.byte	25
+ 2145 0849 08       		.byte	8
+ 2146 084a 1A       		.byte	26
+ 2147 084b 02       		.byte	2
+ 2148 084c 1E       		.byte	30
+ 2149 084d 80       		.byte	-128
+ 2150 084e 22       		.byte	34
+ 2151 084f 20       		.byte	32
+ 2152 0850 24       		.byte	36
+ 2153 0851 09       		.byte	9
+ 2154 0852 26       		.byte	38
+ 2155 0853 10       		.byte	16
+ 2156 0854 2C       		.byte	44
+ 2157 0855 70       		.byte	112
+ 2158 0856 2E       		.byte	46
+ 2159 0857 0C       		.byte	12
+ 2160 0858 30       		.byte	48
+ 2161 0859 1F       		.byte	31
+ 2162 085a 31       		.byte	49
+ 2163 085b 02       		.byte	2
+ 2164 085c 32       		.byte	50
+ 2165 085d 80       		.byte	-128
+ 2166 085e 33       		.byte	51
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 39
+
+
+ 2167 085f 04       		.byte	4
+ 2168 0860 34       		.byte	52
+ 2169 0861 60       		.byte	96
+ 2170 0862 35       		.byte	53
+ 2171 0863 01       		.byte	1
+ 2172 0864 37       		.byte	55
+ 2173 0865 08       		.byte	8
+ 2174 0866 38       		.byte	56
+ 2175 0867 20       		.byte	32
+ 2176 0868 39       		.byte	57
+ 2177 0869 02       		.byte	2
+ 2178 086a 3E       		.byte	62
+ 2179 086b 14       		.byte	20
+ 2180 086c 3F       		.byte	63
+ 2181 086d 51       		.byte	81
+ 2182 086e 52       		.byte	82
+ 2183 086f 03       		.byte	3
+ 2184 0870 53       		.byte	83
+ 2185 0871 02       		.byte	2
+ 2186 0872 58       		.byte	88
+ 2187 0873 04       		.byte	4
+ 2188 0874 59       		.byte	89
+ 2189 0875 04       		.byte	4
+ 2190 0876 5B       		.byte	91
+ 2191 0877 04       		.byte	4
+ 2192 0878 5C       		.byte	92
+ 2193 0879 03       		.byte	3
+ 2194 087a 5D       		.byte	93
+ 2195 087b 20       		.byte	32
+ 2196 087c 5F       		.byte	95
+ 2197 087d 01       		.byte	1
+ 2198 087e 84       		.byte	-124
+ 2199 087f 08       		.byte	8
+ 2200 0880 87       		.byte	-121
+ 2201 0881 03       		.byte	3
+ 2202 0882 95       		.byte	-107
+ 2203 0883 04       		.byte	4
+ 2204 0884 99       		.byte	-103
+ 2205 0885 01       		.byte	1
+ 2206 0886 9D       		.byte	-99
+ 2207 0887 04       		.byte	4
+ 2208 0888 A0       		.byte	-96
+ 2209 0889 02       		.byte	2
+ 2210 088a A2       		.byte	-94
+ 2211 088b 01       		.byte	1
+ 2212 088c A5       		.byte	-91
+ 2213 088d 04       		.byte	4
+ 2214 088e A8       		.byte	-88
+ 2215 088f 02       		.byte	2
+ 2216 0890 AA       		.byte	-86
+ 2217 0891 0C       		.byte	12
+ 2218 0892 AC       		.byte	-84
+ 2219 0893 01       		.byte	1
+ 2220 0894 B0       		.byte	-80
+ 2221 0895 01       		.byte	1
+ 2222 0896 B1       		.byte	-79
+ 2223 0897 01       		.byte	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 40
+
+
+ 2224 0898 B2       		.byte	-78
+ 2225 0899 04       		.byte	4
+ 2226 089a B3       		.byte	-77
+ 2227 089b 04       		.byte	4
+ 2228 089c B4       		.byte	-76
+ 2229 089d 08       		.byte	8
+ 2230 089e B5       		.byte	-75
+ 2231 089f 02       		.byte	2
+ 2232 08a0 B6       		.byte	-74
+ 2233 08a1 02       		.byte	2
+ 2234 08a2 B8       		.byte	-72
+ 2235 08a3 80       		.byte	-128
+ 2236 08a4 B9       		.byte	-71
+ 2237 08a5 88       		.byte	-120
+ 2238 08a6 BE       		.byte	-66
+ 2239 08a7 11       		.byte	17
+ 2240 08a8 BF       		.byte	-65
+ 2241 08a9 44       		.byte	68
+ 2242 08aa D4       		.byte	-44
+ 2243 08ab 0F       		.byte	15
+ 2244 08ac D8       		.byte	-40
+ 2245 08ad 04       		.byte	4
+ 2246 08ae D9       		.byte	-39
+ 2247 08af 0C       		.byte	12
+ 2248 08b0 DB       		.byte	-37
+ 2249 08b1 04       		.byte	4
+ 2250 08b2 DC       		.byte	-36
+ 2251 08b3 20       		.byte	32
+ 2252 08b4 DF       		.byte	-33
+ 2253 08b5 05       		.byte	5
+ 2254 08b6 01       		.byte	1
+ 2255 08b7 08       		.byte	8
+ 2256 08b8 04       		.byte	4
+ 2257 08b9 02       		.byte	2
+ 2258 08ba 05       		.byte	5
+ 2259 08bb 10       		.byte	16
+ 2260 08bc 06       		.byte	6
+ 2261 08bd 01       		.byte	1
+ 2262 08be 07       		.byte	7
+ 2263 08bf 20       		.byte	32
+ 2264 08c0 09       		.byte	9
+ 2265 08c1 02       		.byte	2
+ 2266 08c2 0A       		.byte	10
+ 2267 08c3 80       		.byte	-128
+ 2268 08c4 0C       		.byte	12
+ 2269 08c5 08       		.byte	8
+ 2270 08c6 0E       		.byte	14
+ 2271 08c7 49       		.byte	73
+ 2272 08c8 0F       		.byte	15
+ 2273 08c9 88       		.byte	-120
+ 2274 08ca 10       		.byte	16
+ 2275 08cb 80       		.byte	-128
+ 2276 08cc 12       		.byte	18
+ 2277 08cd 04       		.byte	4
+ 2278 08ce 13       		.byte	19
+ 2279 08cf 40       		.byte	64
+ 2280 08d0 14       		.byte	20
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 41
+
+
+ 2281 08d1 80       		.byte	-128
+ 2282 08d2 16       		.byte	22
+ 2283 08d3 80       		.byte	-128
+ 2284 08d4 17       		.byte	23
+ 2285 08d5 44       		.byte	68
+ 2286 08d6 19       		.byte	25
+ 2287 08d7 09       		.byte	9
+ 2288 08d8 1A       		.byte	26
+ 2289 08d9 05       		.byte	5
+ 2290 08da 1D       		.byte	29
+ 2291 08db 20       		.byte	32
+ 2292 08dc 1E       		.byte	30
+ 2293 08dd 40       		.byte	64
+ 2294 08de 1F       		.byte	31
+ 2295 08df 08       		.byte	8
+ 2296 08e0 21       		.byte	33
+ 2297 08e1 42       		.byte	66
+ 2298 08e2 22       		.byte	34
+ 2299 08e3 14       		.byte	20
+ 2300 08e4 24       		.byte	36
+ 2301 08e5 80       		.byte	-128
+ 2302 08e6 26       		.byte	38
+ 2303 08e7 80       		.byte	-128
+ 2304 08e8 27       		.byte	39
+ 2305 08e9 28       		.byte	40
+ 2306 08ea 29       		.byte	41
+ 2307 08eb 20       		.byte	32
+ 2308 08ec 2A       		.byte	42
+ 2309 08ed 04       		.byte	4
+ 2310 08ee 2B       		.byte	43
+ 2311 08ef 08       		.byte	8
+ 2312 08f0 30       		.byte	48
+ 2313 08f1 84       		.byte	-124
+ 2314 08f2 31       		.byte	49
+ 2315 08f3 08       		.byte	8
+ 2316 08f4 32       		.byte	50
+ 2317 08f5 10       		.byte	16
+ 2318 08f6 34       		.byte	52
+ 2319 08f7 40       		.byte	64
+ 2320 08f8 36       		.byte	54
+ 2321 08f9 82       		.byte	-126
+ 2322 08fa 37       		.byte	55
+ 2323 08fb 20       		.byte	32
+ 2324 08fc 38       		.byte	56
+ 2325 08fd 80       		.byte	-128
+ 2326 08fe 3A       		.byte	58
+ 2327 08ff 40       		.byte	64
+ 2328 0900 3B       		.byte	59
+ 2329 0901 04       		.byte	4
+ 2330 0902 3C       		.byte	60
+ 2331 0903 80       		.byte	-128
+ 2332 0904 3D       		.byte	61
+ 2333 0905 20       		.byte	32
+ 2334 0906 3F       		.byte	63
+ 2335 0907 01       		.byte	1
+ 2336 0908 58       		.byte	88
+ 2337 0909 40       		.byte	64
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 42
+
+
+ 2338 090a 59       		.byte	89
+ 2339 090b 01       		.byte	1
+ 2340 090c 5A       		.byte	90
+ 2341 090d 04       		.byte	4
+ 2342 090e 5B       		.byte	91
+ 2343 090f 10       		.byte	16
+ 2344 0910 61       		.byte	97
+ 2345 0911 04       		.byte	4
+ 2346 0912 62       		.byte	98
+ 2347 0913 10       		.byte	16
+ 2348 0914 6D       		.byte	109
+ 2349 0915 70       		.byte	112
+ 2350 0916 78       		.byte	120
+ 2351 0917 04       		.byte	4
+ 2352 0918 79       		.byte	121
+ 2353 0919 40       		.byte	64
+ 2354 091a 87       		.byte	-121
+ 2355 091b 04       		.byte	4
+ 2356 091c 93       		.byte	-109
+ 2357 091d 20       		.byte	32
+ 2358 091e 94       		.byte	-108
+ 2359 091f 08       		.byte	8
+ 2360 0920 95       		.byte	-107
+ 2361 0921 44       		.byte	68
+ 2362 0922 96       		.byte	-106
+ 2363 0923 80       		.byte	-128
+ 2364 0924 97       		.byte	-105
+ 2365 0925 81       		.byte	-127
+ 2366 0926 9A       		.byte	-102
+ 2367 0927 81       		.byte	-127
+ 2368 0928 9D       		.byte	-99
+ 2369 0929 12       		.byte	18
+ 2370 092a 9F       		.byte	-97
+ 2371 092b 49       		.byte	73
+ 2372 092c A0       		.byte	-96
+ 2373 092d 10       		.byte	16
+ 2374 092e A5       		.byte	-91
+ 2375 092f 65       		.byte	101
+ 2376 0930 A7       		.byte	-89
+ 2377 0931 05       		.byte	5
+ 2378 0932 AB       		.byte	-85
+ 2379 0933 04       		.byte	4
+ 2380 0934 AD       		.byte	-83
+ 2381 0935 50       		.byte	80
+ 2382 0936 AF       		.byte	-81
+ 2383 0937 01       		.byte	1
+ 2384 0938 B0       		.byte	-80
+ 2385 0939 01       		.byte	1
+ 2386 093a B6       		.byte	-74
+ 2387 093b 20       		.byte	32
+ 2388 093c B7       		.byte	-73
+ 2389 093d 40       		.byte	64
+ 2390 093e C0       		.byte	-64
+ 2391 093f F4       		.byte	-12
+ 2392 0940 C2       		.byte	-62
+ 2393 0941 F0       		.byte	-16
+ 2394 0942 C4       		.byte	-60
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 43
+
+
+ 2395 0943 BB       		.byte	-69
+ 2396 0944 CA       		.byte	-54
+ 2397 0945 02       		.byte	2
+ 2398 0946 CC       		.byte	-52
+ 2399 0947 AE       		.byte	-82
+ 2400 0948 CE       		.byte	-50
+ 2401 0949 B2       		.byte	-78
+ 2402 094a D6       		.byte	-42
+ 2403 094b 0F       		.byte	15
+ 2404 094c D8       		.byte	-40
+ 2405 094d 06       		.byte	6
+ 2406 094e DE       		.byte	-34
+ 2407 094f 0A       		.byte	10
+ 2408 0950 E6       		.byte	-26
+ 2409 0951 22       		.byte	34
+ 2410 0952 EE       		.byte	-18
+ 2411 0953 42       		.byte	66
+ 2412 0954 05       		.byte	5
+ 2413 0955 01       		.byte	1
+ 2414 0956 0B       		.byte	11
+ 2415 0957 01       		.byte	1
+ 2416 0958 0D       		.byte	13
+ 2417 0959 01       		.byte	1
+ 2418 095a 11       		.byte	17
+ 2419 095b 01       		.byte	1
+ 2420 095c 1F       		.byte	31
+ 2421 095d 01       		.byte	1
+ 2422 095e 21       		.byte	33
+ 2423 095f 01       		.byte	1
+ 2424 0960 27       		.byte	39
+ 2425 0961 01       		.byte	1
+ 2426 0962 37       		.byte	55
+ 2427 0963 01       		.byte	1
+ 2428 0964 54       		.byte	84
+ 2429 0965 01       		.byte	1
+ 2430 0966 58       		.byte	88
+ 2431 0967 04       		.byte	4
+ 2432 0968 59       		.byte	89
+ 2433 0969 04       		.byte	4
+ 2434 096a 5B       		.byte	91
+ 2435 096b 0C       		.byte	12
+ 2436 096c 5C       		.byte	92
+ 2437 096d 22       		.byte	34
+ 2438 096e 5D       		.byte	93
+ 2439 096f 20       		.byte	32
+ 2440 0970 5F       		.byte	95
+ 2441 0971 01       		.byte	1
+ 2442 0972 83       		.byte	-125
+ 2443 0973 01       		.byte	1
+ 2444 0974 86       		.byte	-122
+ 2445 0975 02       		.byte	2
+ 2446 0976 87       		.byte	-121
+ 2447 0977 01       		.byte	1
+ 2448 0978 8F       		.byte	-113
+ 2449 0979 01       		.byte	1
+ 2450 097a 99       		.byte	-103
+ 2451 097b 01       		.byte	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 44
+
+
+ 2452 097c 9D       		.byte	-99
+ 2453 097d 01       		.byte	1
+ 2454 097e A2       		.byte	-94
+ 2455 097f 01       		.byte	1
+ 2456 0980 B2       		.byte	-78
+ 2457 0981 02       		.byte	2
+ 2458 0982 B4       		.byte	-76
+ 2459 0983 01       		.byte	1
+ 2460 0984 B7       		.byte	-73
+ 2461 0985 01       		.byte	1
+ 2462 0986 BF       		.byte	-65
+ 2463 0987 40       		.byte	64
+ 2464 0988 C0       		.byte	-64
+ 2465 0989 02       		.byte	2
+ 2466 098a C7       		.byte	-57
+ 2467 098b 40       		.byte	64
+ 2468 098c C9       		.byte	-55
+ 2469 098d FF       		.byte	-1
+ 2470 098e CA       		.byte	-54
+ 2471 098f 07       		.byte	7
+ 2472 0990 CB       		.byte	-53
+ 2473 0991 FF       		.byte	-1
+ 2474 0992 CC       		.byte	-52
+ 2475 0993 40       		.byte	64
+ 2476 0994 CD       		.byte	-51
+ 2477 0995 20       		.byte	32
+ 2478 0996 CE       		.byte	-50
+ 2479 0997 F0       		.byte	-16
+ 2480 0998 CF       		.byte	-49
+ 2481 0999 05       		.byte	5
+ 2482 099a D0       		.byte	-48
+ 2483 099b 08       		.byte	8
+ 2484 099c D4       		.byte	-44
+ 2485 099d 01       		.byte	1
+ 2486 099e D6       		.byte	-42
+ 2487 099f 04       		.byte	4
+ 2488 09a0 D8       		.byte	-40
+ 2489 09a1 04       		.byte	4
+ 2490 09a2 D9       		.byte	-39
+ 2491 09a3 04       		.byte	4
+ 2492 09a4 DA       		.byte	-38
+ 2493 09a5 04       		.byte	4
+ 2494 09a6 DB       		.byte	-37
+ 2495 09a7 04       		.byte	4
+ 2496 09a8 DC       		.byte	-36
+ 2497 09a9 22       		.byte	34
+ 2498 09aa DD       		.byte	-35
+ 2499 09ab 33       		.byte	51
+ 2500 09ac DF       		.byte	-33
+ 2501 09ad 01       		.byte	1
+ 2502 09ae E0       		.byte	-32
+ 2503 09af 40       		.byte	64
+ 2504 09b0 E1       		.byte	-31
+ 2505 09b1 A8       		.byte	-88
+ 2506 09b2 E2       		.byte	-30
+ 2507 09b3 40       		.byte	64
+ 2508 09b4 E3       		.byte	-29
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 45
+
+
+ 2509 09b5 20       		.byte	32
+ 2510 09b6 00       		.byte	0
+ 2511 09b7 08       		.byte	8
+ 2512 09b8 01       		.byte	1
+ 2513 09b9 02       		.byte	2
+ 2514 09ba 04       		.byte	4
+ 2515 09bb 18       		.byte	24
+ 2516 09bc 05       		.byte	5
+ 2517 09bd 02       		.byte	2
+ 2518 09be 09       		.byte	9
+ 2519 09bf 08       		.byte	8
+ 2520 09c0 0B       		.byte	11
+ 2521 09c1 C0       		.byte	-64
+ 2522 09c2 0C       		.byte	12
+ 2523 09c3 80       		.byte	-128
+ 2524 09c4 0E       		.byte	14
+ 2525 09c5 04       		.byte	4
+ 2526 09c6 0F       		.byte	15
+ 2527 09c7 40       		.byte	64
+ 2528 09c8 10       		.byte	16
+ 2529 09c9 81       		.byte	-127
+ 2530 09ca 11       		.byte	17
+ 2531 09cb 86       		.byte	-122
+ 2532 09cc 14       		.byte	20
+ 2533 09cd 01       		.byte	1
+ 2534 09ce 15       		.byte	21
+ 2535 09cf 04       		.byte	4
+ 2536 09d0 17       		.byte	23
+ 2537 09d1 05       		.byte	5
+ 2538 09d2 1C       		.byte	28
+ 2539 09d3 38       		.byte	56
+ 2540 09d4 1D       		.byte	29
+ 2541 09d5 0C       		.byte	12
+ 2542 09d6 1E       		.byte	30
+ 2543 09d7 04       		.byte	4
+ 2544 09d8 1F       		.byte	31
+ 2545 09d9 14       		.byte	20
+ 2546 09da 20       		.byte	32
+ 2547 09db 02       		.byte	2
+ 2548 09dc 26       		.byte	38
+ 2549 09dd 40       		.byte	64
+ 2550 09de 29       		.byte	41
+ 2551 09df 06       		.byte	6
+ 2552 09e0 2B       		.byte	43
+ 2553 09e1 40       		.byte	64
+ 2554 09e2 2F       		.byte	47
+ 2555 09e3 56       		.byte	86
+ 2556 09e4 30       		.byte	48
+ 2557 09e5 81       		.byte	-127
+ 2558 09e6 34       		.byte	52
+ 2559 09e7 01       		.byte	1
+ 2560 09e8 35       		.byte	53
+ 2561 09e9 10       		.byte	16
+ 2562 09ea 37       		.byte	55
+ 2563 09eb 44       		.byte	68
+ 2564 09ec 39       		.byte	57
+ 2565 09ed 04       		.byte	4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 46
+
+
+ 2566 09ee 3B       		.byte	59
+ 2567 09ef A0       		.byte	-96
+ 2568 09f0 3E       		.byte	62
+ 2569 09f1 A0       		.byte	-96
+ 2570 09f2 3F       		.byte	63
+ 2571 09f3 0A       		.byte	10
+ 2572 09f4 45       		.byte	69
+ 2573 09f5 20       		.byte	32
+ 2574 09f6 56       		.byte	86
+ 2575 09f7 81       		.byte	-127
+ 2576 09f8 5A       		.byte	90
+ 2577 09f9 80       		.byte	-128
+ 2578 09fa 5D       		.byte	93
+ 2579 09fb 10       		.byte	16
+ 2580 09fc 5E       		.byte	94
+ 2581 09fd 80       		.byte	-128
+ 2582 09fe 5F       		.byte	95
+ 2583 09ff 09       		.byte	9
+ 2584 0a00 64       		.byte	100
+ 2585 0a01 40       		.byte	64
+ 2586 0a02 79       		.byte	121
+ 2587 0a03 40       		.byte	64
+ 2588 0a04 81       		.byte	-127
+ 2589 0a05 04       		.byte	4
+ 2590 0a06 82       		.byte	-126
+ 2591 0a07 40       		.byte	64
+ 2592 0a08 87       		.byte	-121
+ 2593 0a09 10       		.byte	16
+ 2594 0a0a 88       		.byte	-120
+ 2595 0a0b C0       		.byte	-64
+ 2596 0a0c 8B       		.byte	-117
+ 2597 0a0d 42       		.byte	66
+ 2598 0a0e C0       		.byte	-64
+ 2599 0a0f 7C       		.byte	124
+ 2600 0a10 C2       		.byte	-62
+ 2601 0a11 DC       		.byte	-36
+ 2602 0a12 C4       		.byte	-60
+ 2603 0a13 BD       		.byte	-67
+ 2604 0a14 CA       		.byte	-54
+ 2605 0a15 F3       		.byte	-13
+ 2606 0a16 CC       		.byte	-52
+ 2607 0a17 F9       		.byte	-7
+ 2608 0a18 CE       		.byte	-50
+ 2609 0a19 FE       		.byte	-2
+ 2610 0a1a D0       		.byte	-48
+ 2611 0a1b 20       		.byte	32
+ 2612 0a1c D6       		.byte	-42
+ 2613 0a1d F8       		.byte	-8
+ 2614 0a1e D8       		.byte	-40
+ 2615 0a1f 80       		.byte	-128
+ 2616 0a20 DE       		.byte	-34
+ 2617 0a21 08       		.byte	8
+ 2618 0a22 E2       		.byte	-30
+ 2619 0a23 A0       		.byte	-96
+ 2620 0a24 E6       		.byte	-26
+ 2621 0a25 84       		.byte	-124
+ 2622 0a26 00       		.byte	0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 47
+
+
+ 2623 0a27 01       		.byte	1
+ 2624 0a28 04       		.byte	4
+ 2625 0a29 01       		.byte	1
+ 2626 0a2a 0C       		.byte	12
+ 2627 0a2b 01       		.byte	1
+ 2628 0a2c 0F       		.byte	15
+ 2629 0a2d 01       		.byte	1
+ 2630 0a2e 14       		.byte	20
+ 2631 0a2f 01       		.byte	1
+ 2632 0a30 1E       		.byte	30
+ 2633 0a31 01       		.byte	1
+ 2634 0a32 20       		.byte	32
+ 2635 0a33 01       		.byte	1
+ 2636 0a34 26       		.byte	38
+ 2637 0a35 01       		.byte	1
+ 2638 0a36 31       		.byte	49
+ 2639 0a37 01       		.byte	1
+ 2640 0a38 34       		.byte	52
+ 2641 0a39 01       		.byte	1
+ 2642 0a3a 54       		.byte	84
+ 2643 0a3b 0F       		.byte	15
+ 2644 0a3c 58       		.byte	88
+ 2645 0a3d 04       		.byte	4
+ 2646 0a3e 59       		.byte	89
+ 2647 0a3f 04       		.byte	4
+ 2648 0a40 5B       		.byte	91
+ 2649 0a41 04       		.byte	4
+ 2650 0a42 5C       		.byte	92
+ 2651 0a43 22       		.byte	34
+ 2652 0a44 5F       		.byte	95
+ 2653 0a45 05       		.byte	5
+ 2654 0a46 82       		.byte	-126
+ 2655 0a47 02       		.byte	2
+ 2656 0a48 85       		.byte	-123
+ 2657 0a49 01       		.byte	1
+ 2658 0a4a 89       		.byte	-119
+ 2659 0a4b 04       		.byte	4
+ 2660 0a4c 8E       		.byte	-114
+ 2661 0a4d 01       		.byte	1
+ 2662 0a4e 8F       		.byte	-113
+ 2663 0a4f 01       		.byte	1
+ 2664 0a50 91       		.byte	-111
+ 2665 0a51 08       		.byte	8
+ 2666 0a52 97       		.byte	-105
+ 2667 0a53 01       		.byte	1
+ 2668 0a54 98       		.byte	-104
+ 2669 0a55 02       		.byte	2
+ 2670 0a56 9E       		.byte	-98
+ 2671 0a57 06       		.byte	6
+ 2672 0a58 A4       		.byte	-92
+ 2673 0a59 01       		.byte	1
+ 2674 0a5a A8       		.byte	-88
+ 2675 0a5b 01       		.byte	1
+ 2676 0a5c AB       		.byte	-85
+ 2677 0a5d 0A       		.byte	10
+ 2678 0a5e AF       		.byte	-81
+ 2679 0a5f 04       		.byte	4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 48
+
+
+ 2680 0a60 B0       		.byte	-80
+ 2681 0a61 02       		.byte	2
+ 2682 0a62 B1       		.byte	-79
+ 2683 0a63 02       		.byte	2
+ 2684 0a64 B2       		.byte	-78
+ 2685 0a65 01       		.byte	1
+ 2686 0a66 B3       		.byte	-77
+ 2687 0a67 01       		.byte	1
+ 2688 0a68 B4       		.byte	-76
+ 2689 0a69 04       		.byte	4
+ 2690 0a6a B5       		.byte	-75
+ 2691 0a6b 08       		.byte	8
+ 2692 0a6c B7       		.byte	-73
+ 2693 0a6d 04       		.byte	4
+ 2694 0a6e BE       		.byte	-66
+ 2695 0a6f 05       		.byte	5
+ 2696 0a70 BF       		.byte	-65
+ 2697 0a71 54       		.byte	84
+ 2698 0a72 D2       		.byte	-46
+ 2699 0a73 80       		.byte	-128
+ 2700 0a74 D4       		.byte	-44
+ 2701 0a75 0F       		.byte	15
+ 2702 0a76 D8       		.byte	-40
+ 2703 0a77 04       		.byte	4
+ 2704 0a78 D9       		.byte	-39
+ 2705 0a79 04       		.byte	4
+ 2706 0a7a DB       		.byte	-37
+ 2707 0a7b 04       		.byte	4
+ 2708 0a7c DF       		.byte	-33
+ 2709 0a7d 01       		.byte	1
+ 2710 0a7e 00       		.byte	0
+ 2711 0a7f 88       		.byte	-120
+ 2712 0a80 02       		.byte	2
+ 2713 0a81 40       		.byte	64
+ 2714 0a82 04       		.byte	4
+ 2715 0a83 40       		.byte	64
+ 2716 0a84 06       		.byte	6
+ 2717 0a85 80       		.byte	-128
+ 2718 0a86 08       		.byte	8
+ 2719 0a87 04       		.byte	4
+ 2720 0a88 0B       		.byte	11
+ 2721 0a89 01       		.byte	1
+ 2722 0a8a 0D       		.byte	13
+ 2723 0a8b 80       		.byte	-128
+ 2724 0a8c 0E       		.byte	14
+ 2725 0a8d 08       		.byte	8
+ 2726 0a8e 10       		.byte	16
+ 2727 0a8f 40       		.byte	64
+ 2728 0a90 12       		.byte	18
+ 2729 0a91 20       		.byte	32
+ 2730 0a92 16       		.byte	22
+ 2731 0a93 08       		.byte	8
+ 2732 0a94 17       		.byte	23
+ 2733 0a95 08       		.byte	8
+ 2734 0a96 1B       		.byte	27
+ 2735 0a97 20       		.byte	32
+ 2736 0a98 1D       		.byte	29
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 49
+
+
+ 2737 0a99 02       		.byte	2
+ 2738 0a9a 1E       		.byte	30
+ 2739 0a9b 28       		.byte	40
+ 2740 0a9c 20       		.byte	32
+ 2741 0a9d 80       		.byte	-128
+ 2742 0a9e 22       		.byte	34
+ 2743 0a9f 01       		.byte	1
+ 2744 0aa0 25       		.byte	37
+ 2745 0aa1 04       		.byte	4
+ 2746 0aa2 26       		.byte	38
+ 2747 0aa3 02       		.byte	2
+ 2748 0aa4 27       		.byte	39
+ 2749 0aa5 06       		.byte	6
+ 2750 0aa6 28       		.byte	40
+ 2751 0aa7 80       		.byte	-128
+ 2752 0aa8 2A       		.byte	42
+ 2753 0aa9 40       		.byte	64
+ 2754 0aaa 2F       		.byte	47
+ 2755 0aab 07       		.byte	7
+ 2756 0aac 30       		.byte	48
+ 2757 0aad 44       		.byte	68
+ 2758 0aae 31       		.byte	49
+ 2759 0aaf 40       		.byte	64
+ 2760 0ab0 32       		.byte	50
+ 2761 0ab1 21       		.byte	33
+ 2762 0ab2 36       		.byte	54
+ 2763 0ab3 02       		.byte	2
+ 2764 0ab4 37       		.byte	55
+ 2765 0ab5 08       		.byte	8
+ 2766 0ab6 39       		.byte	57
+ 2767 0ab7 40       		.byte	64
+ 2768 0ab8 3B       		.byte	59
+ 2769 0ab9 01       		.byte	1
+ 2770 0aba 3C       		.byte	60
+ 2771 0abb 50       		.byte	80
+ 2772 0abc 3E       		.byte	62
+ 2773 0abd 08       		.byte	8
+ 2774 0abe 59       		.byte	89
+ 2775 0abf 10       		.byte	16
+ 2776 0ac0 5A       		.byte	90
+ 2777 0ac1 40       		.byte	64
+ 2778 0ac2 5B       		.byte	91
+ 2779 0ac3 06       		.byte	6
+ 2780 0ac4 5C       		.byte	92
+ 2781 0ac5 01       		.byte	1
+ 2782 0ac6 5D       		.byte	93
+ 2783 0ac7 80       		.byte	-128
+ 2784 0ac8 5E       		.byte	94
+ 2785 0ac9 24       		.byte	36
+ 2786 0aca 61       		.byte	97
+ 2787 0acb 04       		.byte	4
+ 2788 0acc 62       		.byte	98
+ 2789 0acd 10       		.byte	16
+ 2790 0ace 76       		.byte	118
+ 2791 0acf 80       		.byte	-128
+ 2792 0ad0 78       		.byte	120
+ 2793 0ad1 10       		.byte	16
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 50
+
+
+ 2794 0ad2 81       		.byte	-127
+ 2795 0ad3 C4       		.byte	-60
+ 2796 0ad4 84       		.byte	-124
+ 2797 0ad5 C4       		.byte	-60
+ 2798 0ad6 8C       		.byte	-116
+ 2799 0ad7 01       		.byte	1
+ 2800 0ad8 8D       		.byte	-115
+ 2801 0ad9 18       		.byte	24
+ 2802 0ada 8E       		.byte	-114
+ 2803 0adb 40       		.byte	64
+ 2804 0adc 8F       		.byte	-113
+ 2805 0add 01       		.byte	1
+ 2806 0ade 90       		.byte	-112
+ 2807 0adf 50       		.byte	80
+ 2808 0ae0 92       		.byte	-110
+ 2809 0ae1 04       		.byte	4
+ 2810 0ae2 93       		.byte	-109
+ 2811 0ae3 09       		.byte	9
+ 2812 0ae4 98       		.byte	-104
+ 2813 0ae5 14       		.byte	20
+ 2814 0ae6 99       		.byte	-103
+ 2815 0ae7 44       		.byte	68
+ 2816 0ae8 9A       		.byte	-102
+ 2817 0ae9 58       		.byte	88
+ 2818 0aea 9B       		.byte	-101
+ 2819 0aeb 08       		.byte	8
+ 2820 0aec 9C       		.byte	-100
+ 2821 0aed 80       		.byte	-128
+ 2822 0aee A1       		.byte	-95
+ 2823 0aef 88       		.byte	-120
+ 2824 0af0 A2       		.byte	-94
+ 2825 0af1 20       		.byte	32
+ 2826 0af2 A3       		.byte	-93
+ 2827 0af3 02       		.byte	2
+ 2828 0af4 A4       		.byte	-92
+ 2829 0af5 40       		.byte	64
+ 2830 0af6 A5       		.byte	-91
+ 2831 0af7 02       		.byte	2
+ 2832 0af8 A7       		.byte	-89
+ 2833 0af9 20       		.byte	32
+ 2834 0afa AE       		.byte	-82
+ 2835 0afb 08       		.byte	8
+ 2836 0afc B2       		.byte	-78
+ 2837 0afd 44       		.byte	68
+ 2838 0afe B4       		.byte	-76
+ 2839 0aff 04       		.byte	4
+ 2840 0b00 C0       		.byte	-64
+ 2841 0b01 9D       		.byte	-99
+ 2842 0b02 C2       		.byte	-62
+ 2843 0b03 C5       		.byte	-59
+ 2844 0b04 C4       		.byte	-60
+ 2845 0b05 6C       		.byte	108
+ 2846 0b06 CA       		.byte	-54
+ 2847 0b07 39       		.byte	57
+ 2848 0b08 CC       		.byte	-52
+ 2849 0b09 CF       		.byte	-49
+ 2850 0b0a CE       		.byte	-50
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 51
+
+
+ 2851 0b0b 79       		.byte	121
+ 2852 0b0c D6       		.byte	-42
+ 2853 0b0d FF       		.byte	-1
+ 2854 0b0e D8       		.byte	-40
+ 2855 0b0f 06       		.byte	6
+ 2856 0b10 DE       		.byte	-34
+ 2857 0b11 04       		.byte	4
+ 2858 0b12 E0       		.byte	-32
+ 2859 0b13 02       		.byte	2
+ 2860 0b14 E6       		.byte	-26
+ 2861 0b15 06       		.byte	6
+ 2862 0b16 EC       		.byte	-20
+ 2863 0b17 20       		.byte	32
+ 2864 0b18 EE       		.byte	-18
+ 2865 0b19 02       		.byte	2
+ 2866 0b1a 01       		.byte	1
+ 2867 0b1b A1       		.byte	-95
+ 2868 0b1c 03       		.byte	3
+ 2869 0b1d 52       		.byte	82
+ 2870 0b1e 05       		.byte	5
+ 2871 0b1f 31       		.byte	49
+ 2872 0b20 07       		.byte	7
+ 2873 0b21 C2       		.byte	-62
+ 2874 0b22 0E       		.byte	14
+ 2875 0b23 04       		.byte	4
+ 2876 0b24 10       		.byte	16
+ 2877 0b25 02       		.byte	2
+ 2878 0b26 12       		.byte	18
+ 2879 0b27 08       		.byte	8
+ 2880 0b28 17       		.byte	23
+ 2881 0b29 07       		.byte	7
+ 2882 0b2a 19       		.byte	25
+ 2883 0b2b F7       		.byte	-9
+ 2884 0b2c 1D       		.byte	29
+ 2885 0b2d C0       		.byte	-64
+ 2886 0b2e 1F       		.byte	31
+ 2887 0b2f 34       		.byte	52
+ 2888 0b30 23       		.byte	35
+ 2889 0b31 08       		.byte	8
+ 2890 0b32 25       		.byte	37
+ 2891 0b33 77       		.byte	119
+ 2892 0b34 26       		.byte	38
+ 2893 0b35 01       		.byte	1
+ 2894 0b36 28       		.byte	40
+ 2895 0b37 02       		.byte	2
+ 2896 0b38 2D       		.byte	45
+ 2897 0b39 54       		.byte	84
+ 2898 0b3a 2F       		.byte	47
+ 2899 0b3b A0       		.byte	-96
+ 2900 0b3c 30       		.byte	48
+ 2901 0b3d 02       		.byte	2
+ 2902 0b3e 32       		.byte	50
+ 2903 0b3f 08       		.byte	8
+ 2904 0b40 33       		.byte	51
+ 2905 0b41 F0       		.byte	-16
+ 2906 0b42 34       		.byte	52
+ 2907 0b43 01       		.byte	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 52
+
+
+ 2908 0b44 35       		.byte	53
+ 2909 0b45 0F       		.byte	15
+ 2910 0b46 36       		.byte	54
+ 2911 0b47 04       		.byte	4
+ 2912 0b48 38       		.byte	56
+ 2913 0b49 02       		.byte	2
+ 2914 0b4a 40       		.byte	64
+ 2915 0b4b 46       		.byte	70
+ 2916 0b4c 41       		.byte	65
+ 2917 0b4d 03       		.byte	3
+ 2918 0b4e 49       		.byte	73
+ 2919 0b4f FF       		.byte	-1
+ 2920 0b50 4A       		.byte	74
+ 2921 0b51 FF       		.byte	-1
+ 2922 0b52 4B       		.byte	75
+ 2923 0b53 FF       		.byte	-1
+ 2924 0b54 4D       		.byte	77
+ 2925 0b55 A0       		.byte	-96
+ 2926 0b56 4F       		.byte	79
+ 2927 0b57 01       		.byte	1
+ 2928 0b58 50       		.byte	80
+ 2929 0b59 18       		.byte	24
+ 2930 0b5a 56       		.byte	86
+ 2931 0b5b 08       		.byte	8
+ 2932 0b5c 58       		.byte	88
+ 2933 0b5d 04       		.byte	4
+ 2934 0b5e 59       		.byte	89
+ 2935 0b5f 04       		.byte	4
+ 2936 0b60 5A       		.byte	90
+ 2937 0b61 04       		.byte	4
+ 2938 0b62 5B       		.byte	91
+ 2939 0b63 04       		.byte	4
+ 2940 0b64 5D       		.byte	93
+ 2941 0b65 90       		.byte	-112
+ 2942 0b66 5F       		.byte	95
+ 2943 0b67 01       		.byte	1
+ 2944 0b68 60       		.byte	96
+ 2945 0b69 40       		.byte	64
+ 2946 0b6a 62       		.byte	98
+ 2947 0b6b 80       		.byte	-128
+ 2948 0b6c 64       		.byte	100
+ 2949 0b6d 40       		.byte	64
+ 2950 0b6e 65       		.byte	101
+ 2951 0b6f 40       		.byte	64
+ 2952 0b70 66       		.byte	102
+ 2953 0b71 80       		.byte	-128
+ 2954 0b72 68       		.byte	104
+ 2955 0b73 40       		.byte	64
+ 2956 0b74 6A       		.byte	106
+ 2957 0b75 80       		.byte	-128
+ 2958 0b76 6C       		.byte	108
+ 2959 0b77 40       		.byte	64
+ 2960 0b78 6D       		.byte	109
+ 2961 0b79 20       		.byte	32
+ 2962 0b7a 6E       		.byte	110
+ 2963 0b7b 80       		.byte	-128
+ 2964 0b7c 81       		.byte	-127
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 53
+
+
+ 2965 0b7d 03       		.byte	3
+ 2966 0b7e 8D       		.byte	-115
+ 2967 0b7f 03       		.byte	3
+ 2968 0b80 91       		.byte	-111
+ 2969 0b81 02       		.byte	2
+ 2970 0b82 93       		.byte	-109
+ 2971 0b83 01       		.byte	1
+ 2972 0b84 95       		.byte	-107
+ 2973 0b85 03       		.byte	3
+ 2974 0b86 9B       		.byte	-101
+ 2975 0b87 03       		.byte	3
+ 2976 0b88 A1       		.byte	-95
+ 2977 0b89 03       		.byte	3
+ 2978 0b8a AD       		.byte	-83
+ 2979 0b8b 01       		.byte	1
+ 2980 0b8c AF       		.byte	-81
+ 2981 0b8d 02       		.byte	2
+ 2982 0b8e B3       		.byte	-77
+ 2983 0b8f 01       		.byte	1
+ 2984 0b90 B5       		.byte	-75
+ 2985 0b91 02       		.byte	2
+ 2986 0b92 C0       		.byte	-64
+ 2987 0b93 46       		.byte	70
+ 2988 0b94 C1       		.byte	-63
+ 2989 0b95 02       		.byte	2
+ 2990 0b96 C5       		.byte	-59
+ 2991 0b97 4E       		.byte	78
+ 2992 0b98 C6       		.byte	-58
+ 2993 0b99 C0       		.byte	-64
+ 2994 0b9a C7       		.byte	-57
+ 2995 0b9b 23       		.byte	35
+ 2996 0b9c C8       		.byte	-56
+ 2997 0b9d 3B       		.byte	59
+ 2998 0b9e C9       		.byte	-55
+ 2999 0b9f FF       		.byte	-1
+ 3000 0ba0 CA       		.byte	-54
+ 3001 0ba1 FF       		.byte	-1
+ 3002 0ba2 CB       		.byte	-53
+ 3003 0ba3 FF       		.byte	-1
+ 3004 0ba4 CD       		.byte	-51
+ 3005 0ba5 AF       		.byte	-81
+ 3006 0ba6 CE       		.byte	-50
+ 3007 0ba7 07       		.byte	7
+ 3008 0ba8 CF       		.byte	-49
+ 3009 0ba9 01       		.byte	1
+ 3010 0baa D0       		.byte	-48
+ 3011 0bab 18       		.byte	24
+ 3012 0bac D8       		.byte	-40
+ 3013 0bad 04       		.byte	4
+ 3014 0bae D9       		.byte	-39
+ 3015 0baf 04       		.byte	4
+ 3016 0bb0 DA       		.byte	-38
+ 3017 0bb1 04       		.byte	4
+ 3018 0bb2 DC       		.byte	-36
+ 3019 0bb3 22       		.byte	34
+ 3020 0bb4 DF       		.byte	-33
+ 3021 0bb5 01       		.byte	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 54
+
+
+ 3022 0bb6 E0       		.byte	-32
+ 3023 0bb7 40       		.byte	64
+ 3024 0bb8 E2       		.byte	-30
+ 3025 0bb9 80       		.byte	-128
+ 3026 0bba E4       		.byte	-28
+ 3027 0bbb 40       		.byte	64
+ 3028 0bbc E5       		.byte	-27
+ 3029 0bbd 40       		.byte	64
+ 3030 0bbe E6       		.byte	-26
+ 3031 0bbf 80       		.byte	-128
+ 3032 0bc0 E8       		.byte	-24
+ 3033 0bc1 40       		.byte	64
+ 3034 0bc2 EA       		.byte	-22
+ 3035 0bc3 80       		.byte	-128
+ 3036 0bc4 EC       		.byte	-20
+ 3037 0bc5 40       		.byte	64
+ 3038 0bc6 ED       		.byte	-19
+ 3039 0bc7 20       		.byte	32
+ 3040 0bc8 EE       		.byte	-18
+ 3041 0bc9 80       		.byte	-128
+ 3042 0bca 00       		.byte	0
+ 3043 0bcb 80       		.byte	-128
+ 3044 0bcc 03       		.byte	3
+ 3045 0bcd 01       		.byte	1
+ 3046 0bce 05       		.byte	5
+ 3047 0bcf 80       		.byte	-128
+ 3048 0bd0 08       		.byte	8
+ 3049 0bd1 82       		.byte	-126
+ 3050 0bd2 0D       		.byte	13
+ 3051 0bd3 01       		.byte	1
+ 3052 0bd4 10       		.byte	16
+ 3053 0bd5 0D       		.byte	13
+ 3054 0bd6 11       		.byte	17
+ 3055 0bd7 01       		.byte	1
+ 3056 0bd8 12       		.byte	18
+ 3057 0bd9 20       		.byte	32
+ 3058 0bda 13       		.byte	19
+ 3059 0bdb 01       		.byte	1
+ 3060 0bdc 16       		.byte	22
+ 3061 0bdd 24       		.byte	36
+ 3062 0bde 1C       		.byte	28
+ 3063 0bdf 54       		.byte	84
+ 3064 0be0 1E       		.byte	30
+ 3065 0be1 01       		.byte	1
+ 3066 0be2 22       		.byte	34
+ 3067 0be3 04       		.byte	4
+ 3068 0be4 23       		.byte	35
+ 3069 0be5 04       		.byte	4
+ 3070 0be6 25       		.byte	37
+ 3071 0be7 28       		.byte	40
+ 3072 0be8 27       		.byte	39
+ 3073 0be9 18       		.byte	24
+ 3074 0bea 28       		.byte	40
+ 3075 0beb 81       		.byte	-127
+ 3076 0bec 29       		.byte	41
+ 3077 0bed 40       		.byte	64
+ 3078 0bee 2A       		.byte	42
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 55
+
+
+ 3079 0bef 80       		.byte	-128
+ 3080 0bf0 2C       		.byte	44
+ 3081 0bf1 10       		.byte	16
+ 3082 0bf2 2E       		.byte	46
+ 3083 0bf3 44       		.byte	68
+ 3084 0bf4 2F       		.byte	47
+ 3085 0bf5 40       		.byte	64
+ 3086 0bf6 30       		.byte	48
+ 3087 0bf7 08       		.byte	8
+ 3088 0bf8 32       		.byte	50
+ 3089 0bf9 20       		.byte	32
+ 3090 0bfa 33       		.byte	51
+ 3091 0bfb 01       		.byte	1
+ 3092 0bfc 37       		.byte	55
+ 3093 0bfd 58       		.byte	88
+ 3094 0bfe 39       		.byte	57
+ 3095 0bff 01       		.byte	1
+ 3096 0c00 3A       		.byte	58
+ 3097 0c01 40       		.byte	64
+ 3098 0c02 3F       		.byte	63
+ 3099 0c03 0A       		.byte	10
+ 3100 0c04 41       		.byte	65
+ 3101 0c05 22       		.byte	34
+ 3102 0c06 45       		.byte	69
+ 3103 0c07 02       		.byte	2
+ 3104 0c08 47       		.byte	71
+ 3105 0c09 08       		.byte	8
+ 3106 0c0a 49       		.byte	73
+ 3107 0c0b 05       		.byte	5
+ 3108 0c0c 4A       		.byte	74
+ 3109 0c0d 08       		.byte	8
+ 3110 0c0e 4E       		.byte	78
+ 3111 0c0f 08       		.byte	8
+ 3112 0c10 4F       		.byte	79
+ 3113 0c11 20       		.byte	32
+ 3114 0c12 51       		.byte	81
+ 3115 0c13 01       		.byte	1
+ 3116 0c14 52       		.byte	82
+ 3117 0c15 16       		.byte	22
+ 3118 0c16 53       		.byte	83
+ 3119 0c17 06       		.byte	6
+ 3120 0c18 5E       		.byte	94
+ 3121 0c19 80       		.byte	-128
+ 3122 0c1a 5F       		.byte	95
+ 3123 0c1b 10       		.byte	16
+ 3124 0c1c 60       		.byte	96
+ 3125 0c1d 02       		.byte	2
+ 3126 0c1e 62       		.byte	98
+ 3127 0c1f 40       		.byte	64
+ 3128 0c20 65       		.byte	101
+ 3129 0c21 80       		.byte	-128
+ 3130 0c22 66       		.byte	102
+ 3131 0c23 20       		.byte	32
+ 3132 0c24 81       		.byte	-127
+ 3133 0c25 01       		.byte	1
+ 3134 0c26 82       		.byte	-126
+ 3135 0c27 20       		.byte	32
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 56
+
+
+ 3136 0c28 83       		.byte	-125
+ 3137 0c29 20       		.byte	32
+ 3138 0c2a 87       		.byte	-121
+ 3139 0c2b 14       		.byte	20
+ 3140 0c2c 8A       		.byte	-118
+ 3141 0c2d 40       		.byte	64
+ 3142 0c2e 91       		.byte	-111
+ 3143 0c2f 01       		.byte	1
+ 3144 0c30 92       		.byte	-110
+ 3145 0c31 40       		.byte	64
+ 3146 0c32 93       		.byte	-109
+ 3147 0c33 80       		.byte	-128
+ 3148 0c34 96       		.byte	-106
+ 3149 0c35 01       		.byte	1
+ 3150 0c36 97       		.byte	-105
+ 3151 0c37 08       		.byte	8
+ 3152 0c38 98       		.byte	-104
+ 3153 0c39 10       		.byte	16
+ 3154 0c3a 9A       		.byte	-102
+ 3155 0c3b 80       		.byte	-128
+ 3156 0c3c 9B       		.byte	-101
+ 3157 0c3d 40       		.byte	64
+ 3158 0c3e 9E       		.byte	-98
+ 3159 0c3f 40       		.byte	64
+ 3160 0c40 9F       		.byte	-97
+ 3161 0c41 08       		.byte	8
+ 3162 0c42 A0       		.byte	-96
+ 3163 0c43 08       		.byte	8
+ 3164 0c44 A1       		.byte	-95
+ 3165 0c45 80       		.byte	-128
+ 3166 0c46 A3       		.byte	-93
+ 3167 0c47 15       		.byte	21
+ 3168 0c48 A5       		.byte	-91
+ 3169 0c49 08       		.byte	8
+ 3170 0c4a A6       		.byte	-90
+ 3171 0c4b 02       		.byte	2
+ 3172 0c4c AD       		.byte	-83
+ 3173 0c4d 84       		.byte	-124
+ 3174 0c4e B2       		.byte	-78
+ 3175 0c4f 40       		.byte	64
+ 3176 0c50 C0       		.byte	-64
+ 3177 0c51 81       		.byte	-127
+ 3178 0c52 C2       		.byte	-62
+ 3179 0c53 19       		.byte	25
+ 3180 0c54 C4       		.byte	-60
+ 3181 0c55 6F       		.byte	111
+ 3182 0c56 CA       		.byte	-54
+ 3183 0c57 D9       		.byte	-39
+ 3184 0c58 CC       		.byte	-52
+ 3185 0c59 77       		.byte	119
+ 3186 0c5a CE       		.byte	-50
+ 3187 0c5b C9       		.byte	-55
+ 3188 0c5c D0       		.byte	-48
+ 3189 0c5d C5       		.byte	-59
+ 3190 0c5e D2       		.byte	-46
+ 3191 0c5f 24       		.byte	36
+ 3192 0c60 D6       		.byte	-42
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 57
+
+
+ 3193 0c61 30       		.byte	48
+ 3194 0c62 D8       		.byte	-40
+ 3195 0c63 30       		.byte	48
+ 3196 0c64 E0       		.byte	-32
+ 3197 0c65 26       		.byte	38
+ 3198 0c66 E2       		.byte	-30
+ 3199 0c67 08       		.byte	8
+ 3200 0c68 E4       		.byte	-28
+ 3201 0c69 04       		.byte	4
+ 3202 0c6a E6       		.byte	-26
+ 3203 0c6b 01       		.byte	1
+ 3204 0c6c E8       		.byte	-24
+ 3205 0c6d 20       		.byte	32
+ 3206 0c6e 03       		.byte	3
+ 3207 0c6f 22       		.byte	34
+ 3208 0c70 0A       		.byte	10
+ 3209 0c71 01       		.byte	1
+ 3210 0c72 0D       		.byte	13
+ 3211 0c73 02       		.byte	2
+ 3212 0c74 11       		.byte	17
+ 3213 0c75 08       		.byte	8
+ 3214 0c76 17       		.byte	23
+ 3215 0c77 08       		.byte	8
+ 3216 0c78 19       		.byte	25
+ 3217 0c79 04       		.byte	4
+ 3218 0c7a 1F       		.byte	31
+ 3219 0c7b 10       		.byte	16
+ 3220 0c7c 21       		.byte	33
+ 3221 0c7d 01       		.byte	1
+ 3222 0c7e 27       		.byte	39
+ 3223 0c7f 01       		.byte	1
+ 3224 0c80 2F       		.byte	47
+ 3225 0c81 44       		.byte	68
+ 3226 0c82 31       		.byte	49
+ 3227 0c83 1F       		.byte	31
+ 3228 0c84 35       		.byte	53
+ 3229 0c85 40       		.byte	64
+ 3230 0c86 36       		.byte	54
+ 3231 0c87 01       		.byte	1
+ 3232 0c88 37       		.byte	55
+ 3233 0c89 20       		.byte	32
+ 3234 0c8a 39       		.byte	57
+ 3235 0c8b 02       		.byte	2
+ 3236 0c8c 3F       		.byte	63
+ 3237 0c8d 01       		.byte	1
+ 3238 0c8e 40       		.byte	64
+ 3239 0c8f 14       		.byte	20
+ 3240 0c90 41       		.byte	65
+ 3241 0c91 02       		.byte	2
+ 3242 0c92 45       		.byte	69
+ 3243 0c93 E0       		.byte	-32
+ 3244 0c94 47       		.byte	71
+ 3245 0c95 CB       		.byte	-53
+ 3246 0c96 48       		.byte	72
+ 3247 0c97 32       		.byte	50
+ 3248 0c98 49       		.byte	73
+ 3249 0c99 FF       		.byte	-1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 58
+
+
+ 3250 0c9a 4A       		.byte	74
+ 3251 0c9b FF       		.byte	-1
+ 3252 0c9c 4B       		.byte	75
+ 3253 0c9d FF       		.byte	-1
+ 3254 0c9e 4E       		.byte	78
+ 3255 0c9f F0       		.byte	-16
+ 3256 0ca0 4F       		.byte	79
+ 3257 0ca1 44       		.byte	68
+ 3258 0ca2 50       		.byte	80
+ 3259 0ca3 0C       		.byte	12
+ 3260 0ca4 58       		.byte	88
+ 3261 0ca5 04       		.byte	4
+ 3262 0ca6 59       		.byte	89
+ 3263 0ca7 04       		.byte	4
+ 3264 0ca8 5A       		.byte	90
+ 3265 0ca9 04       		.byte	4
+ 3266 0caa 5C       		.byte	92
+ 3267 0cab 22       		.byte	34
+ 3268 0cac 5D       		.byte	93
+ 3269 0cad 03       		.byte	3
+ 3270 0cae 5F       		.byte	95
+ 3271 0caf 01       		.byte	1
+ 3272 0cb0 66       		.byte	102
+ 3273 0cb1 C0       		.byte	-64
+ 3274 0cb2 6A       		.byte	106
+ 3275 0cb3 40       		.byte	64
+ 3276 0cb4 6B       		.byte	107
+ 3277 0cb5 02       		.byte	2
+ 3278 0cb6 84       		.byte	-124
+ 3279 0cb7 04       		.byte	4
+ 3280 0cb8 85       		.byte	-123
+ 3281 0cb9 05       		.byte	5
+ 3282 0cba 86       		.byte	-122
+ 3283 0cbb 02       		.byte	2
+ 3284 0cbc 8B       		.byte	-117
+ 3285 0cbd 30       		.byte	48
+ 3286 0cbe 8C       		.byte	-116
+ 3287 0cbf 02       		.byte	2
+ 3288 0cc0 8D       		.byte	-115
+ 3289 0cc1 10       		.byte	16
+ 3290 0cc2 8E       		.byte	-114
+ 3291 0cc3 0C       		.byte	12
+ 3292 0cc4 91       		.byte	-111
+ 3293 0cc5 06       		.byte	6
+ 3294 0cc6 92       		.byte	-110
+ 3295 0cc7 01       		.byte	1
+ 3296 0cc8 94       		.byte	-108
+ 3297 0cc9 02       		.byte	2
+ 3298 0cca 95       		.byte	-107
+ 3299 0ccb 03       		.byte	3
+ 3300 0ccc 96       		.byte	-106
+ 3301 0ccd 04       		.byte	4
+ 3302 0cce 9C       		.byte	-100
+ 3303 0ccf 02       		.byte	2
+ 3304 0cd0 9E       		.byte	-98
+ 3305 0cd1 14       		.byte	20
+ 3306 0cd2 9F       		.byte	-97
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 59
+
+
+ 3307 0cd3 08       		.byte	8
+ 3308 0cd4 A1       		.byte	-95
+ 3309 0cd5 06       		.byte	6
+ 3310 0cd6 B0       		.byte	-80
+ 3311 0cd7 01       		.byte	1
+ 3312 0cd8 B1       		.byte	-79
+ 3313 0cd9 08       		.byte	8
+ 3314 0cda B2       		.byte	-78
+ 3315 0cdb 10       		.byte	16
+ 3316 0cdc B3       		.byte	-77
+ 3317 0cdd 07       		.byte	7
+ 3318 0cde B4       		.byte	-76
+ 3319 0cdf 06       		.byte	6
+ 3320 0ce0 B5       		.byte	-75
+ 3321 0ce1 10       		.byte	16
+ 3322 0ce2 B6       		.byte	-74
+ 3323 0ce3 08       		.byte	8
+ 3324 0ce4 B7       		.byte	-73
+ 3325 0ce5 20       		.byte	32
+ 3326 0ce6 B9       		.byte	-71
+ 3327 0ce7 08       		.byte	8
+ 3328 0ce8 BA       		.byte	-70
+ 3329 0ce9 20       		.byte	32
+ 3330 0cea BF       		.byte	-65
+ 3331 0ceb 10       		.byte	16
+ 3332 0cec D8       		.byte	-40
+ 3333 0ced 04       		.byte	4
+ 3334 0cee D9       		.byte	-39
+ 3335 0cef 04       		.byte	4
+ 3336 0cf0 DF       		.byte	-33
+ 3337 0cf1 01       		.byte	1
+ 3338 0cf2 00       		.byte	0
+ 3339 0cf3 24       		.byte	36
+ 3340 0cf4 02       		.byte	2
+ 3341 0cf5 05       		.byte	5
+ 3342 0cf6 03       		.byte	3
+ 3343 0cf7 08       		.byte	8
+ 3344 0cf8 04       		.byte	4
+ 3345 0cf9 40       		.byte	64
+ 3346 0cfa 05       		.byte	5
+ 3347 0cfb 02       		.byte	2
+ 3348 0cfc 06       		.byte	6
+ 3349 0cfd 18       		.byte	24
+ 3350 0cfe 08       		.byte	8
+ 3351 0cff 02       		.byte	2
+ 3352 0d00 0A       		.byte	10
+ 3353 0d01 21       		.byte	33
+ 3354 0d02 0C       		.byte	12
+ 3355 0d03 10       		.byte	16
+ 3356 0d04 0E       		.byte	14
+ 3357 0d05 20       		.byte	32
+ 3358 0d06 10       		.byte	16
+ 3359 0d07 40       		.byte	64
+ 3360 0d08 12       		.byte	18
+ 3361 0d09 80       		.byte	-128
+ 3362 0d0a 15       		.byte	21
+ 3363 0d0b 01       		.byte	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 60
+
+
+ 3364 0d0c 16       		.byte	22
+ 3365 0d0d 04       		.byte	4
+ 3366 0d0e 18       		.byte	24
+ 3367 0d0f 84       		.byte	-124
+ 3368 0d10 19       		.byte	25
+ 3369 0d11 10       		.byte	16
+ 3370 0d12 1A       		.byte	26
+ 3371 0d13 21       		.byte	33
+ 3372 0d14 1C       		.byte	28
+ 3373 0d15 02       		.byte	2
+ 3374 0d16 1F       		.byte	31
+ 3375 0d17 40       		.byte	64
+ 3376 0d18 21       		.byte	33
+ 3377 0d19 C9       		.byte	-55
+ 3378 0d1a 23       		.byte	35
+ 3379 0d1b 08       		.byte	8
+ 3380 0d1c 24       		.byte	36
+ 3381 0d1d 40       		.byte	64
+ 3382 0d1e 25       		.byte	37
+ 3383 0d1f 41       		.byte	65
+ 3384 0d20 26       		.byte	38
+ 3385 0d21 10       		.byte	16
+ 3386 0d22 28       		.byte	40
+ 3387 0d23 40       		.byte	64
+ 3388 0d24 2D       		.byte	45
+ 3389 0d25 81       		.byte	-127
+ 3390 0d26 2E       		.byte	46
+ 3391 0d27 08       		.byte	8
+ 3392 0d28 2F       		.byte	47
+ 3393 0d29 48       		.byte	72
+ 3394 0d2a 31       		.byte	49
+ 3395 0d2b 08       		.byte	8
+ 3396 0d2c 32       		.byte	50
+ 3397 0d2d 41       		.byte	65
+ 3398 0d2e 35       		.byte	53
+ 3399 0d2f 02       		.byte	2
+ 3400 0d30 36       		.byte	54
+ 3401 0d31 56       		.byte	86
+ 3402 0d32 38       		.byte	56
+ 3403 0d33 20       		.byte	32
+ 3404 0d34 39       		.byte	57
+ 3405 0d35 88       		.byte	-120
+ 3406 0d36 3C       		.byte	60
+ 3407 0d37 08       		.byte	8
+ 3408 0d38 3D       		.byte	61
+ 3409 0d39 80       		.byte	-128
+ 3410 0d3a 3E       		.byte	62
+ 3411 0d3b 02       		.byte	2
+ 3412 0d3c 3F       		.byte	63
+ 3413 0d3d 20       		.byte	32
+ 3414 0d3e 44       		.byte	68
+ 3415 0d3f 84       		.byte	-124
+ 3416 0d40 47       		.byte	71
+ 3417 0d41 40       		.byte	64
+ 3418 0d42 4F       		.byte	79
+ 3419 0d43 01       		.byte	1
+ 3420 0d44 54       		.byte	84
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 61
+
+
+ 3421 0d45 08       		.byte	8
+ 3422 0d46 57       		.byte	87
+ 3423 0d47 01       		.byte	1
+ 3424 0d48 79       		.byte	121
+ 3425 0d49 04       		.byte	4
+ 3426 0d4a 7A       		.byte	122
+ 3427 0d4b 10       		.byte	16
+ 3428 0d4c 80       		.byte	-128
+ 3429 0d4d 10       		.byte	16
+ 3430 0d4e 81       		.byte	-127
+ 3431 0d4f 01       		.byte	1
+ 3432 0d50 83       		.byte	-125
+ 3433 0d51 10       		.byte	16
+ 3434 0d52 89       		.byte	-119
+ 3435 0d53 40       		.byte	64
+ 3436 0d54 8A       		.byte	-118
+ 3437 0d55 10       		.byte	16
+ 3438 0d56 91       		.byte	-111
+ 3439 0d57 78       		.byte	120
+ 3440 0d58 92       		.byte	-110
+ 3441 0d59 C0       		.byte	-64
+ 3442 0d5a 93       		.byte	-109
+ 3443 0d5b 20       		.byte	32
+ 3444 0d5c 94       		.byte	-108
+ 3445 0d5d 8C       		.byte	-116
+ 3446 0d5e 95       		.byte	-107
+ 3447 0d5f 07       		.byte	7
+ 3448 0d60 96       		.byte	-106
+ 3449 0d61 02       		.byte	2
+ 3450 0d62 97       		.byte	-105
+ 3451 0d63 81       		.byte	-127
+ 3452 0d64 98       		.byte	-104
+ 3453 0d65 86       		.byte	-122
+ 3454 0d66 9A       		.byte	-102
+ 3455 0d67 40       		.byte	64
+ 3456 0d68 9B       		.byte	-101
+ 3457 0d69 40       		.byte	64
+ 3458 0d6a 9D       		.byte	-99
+ 3459 0d6b 02       		.byte	2
+ 3460 0d6c 9F       		.byte	-97
+ 3461 0d6d 01       		.byte	1
+ 3462 0d6e A0       		.byte	-96
+ 3463 0d6f 14       		.byte	20
+ 3464 0d70 A2       		.byte	-94
+ 3465 0d71 80       		.byte	-128
+ 3466 0d72 A4       		.byte	-92
+ 3467 0d73 08       		.byte	8
+ 3468 0d74 A5       		.byte	-91
+ 3469 0d75 4D       		.byte	77
+ 3470 0d76 A7       		.byte	-89
+ 3471 0d77 01       		.byte	1
+ 3472 0d78 AD       		.byte	-83
+ 3473 0d79 40       		.byte	64
+ 3474 0d7a B0       		.byte	-80
+ 3475 0d7b 20       		.byte	32
+ 3476 0d7c B1       		.byte	-79
+ 3477 0d7d 40       		.byte	64
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 62
+
+
+ 3478 0d7e B4       		.byte	-76
+ 3479 0d7f 10       		.byte	16
+ 3480 0d80 B6       		.byte	-74
+ 3481 0d81 01       		.byte	1
+ 3482 0d82 C0       		.byte	-64
+ 3483 0d83 F5       		.byte	-11
+ 3484 0d84 C2       		.byte	-62
+ 3485 0d85 6D       		.byte	109
+ 3486 0d86 C4       		.byte	-60
+ 3487 0d87 50       		.byte	80
+ 3488 0d88 CA       		.byte	-54
+ 3489 0d89 F1       		.byte	-15
+ 3490 0d8a CC       		.byte	-52
+ 3491 0d8b FB       		.byte	-5
+ 3492 0d8c CE       		.byte	-50
+ 3493 0d8d FE       		.byte	-2
+ 3494 0d8e D0       		.byte	-48
+ 3495 0d8f B0       		.byte	-80
+ 3496 0d90 E0       		.byte	-32
+ 3497 0d91 02       		.byte	2
+ 3498 0d92 E2       		.byte	-30
+ 3499 0d93 08       		.byte	8
+ 3500 0d94 E4       		.byte	-28
+ 3501 0d95 04       		.byte	4
+ 3502 0d96 EE       		.byte	-18
+ 3503 0d97 08       		.byte	8
+ 3504 0d98 02       		.byte	2
+ 3505 0d99 44       		.byte	68
+ 3506 0d9a 04       		.byte	4
+ 3507 0d9b 01       		.byte	1
+ 3508 0d9c 05       		.byte	5
+ 3509 0d9d FE       		.byte	-2
+ 3510 0d9e 06       		.byte	6
+ 3511 0d9f 08       		.byte	8
+ 3512 0da0 07       		.byte	7
+ 3513 0da1 01       		.byte	1
+ 3514 0da2 09       		.byte	9
+ 3515 0da3 96       		.byte	-106
+ 3516 0da4 0B       		.byte	11
+ 3517 0da5 68       		.byte	104
+ 3518 0da6 11       		.byte	17
+ 3519 0da7 C5       		.byte	-59
+ 3520 0da8 12       		.byte	18
+ 3521 0da9 04       		.byte	4
+ 3522 0daa 13       		.byte	19
+ 3523 0dab 3A       		.byte	58
+ 3524 0dac 14       		.byte	20
+ 3525 0dad 38       		.byte	56
+ 3526 0dae 15       		.byte	21
+ 3527 0daf 7F       		.byte	127
+ 3528 0db0 18       		.byte	24
+ 3529 0db1 04       		.byte	4
+ 3530 0db2 1D       		.byte	29
+ 3531 0db3 A3       		.byte	-93
+ 3532 0db4 1E       		.byte	30
+ 3533 0db5 02       		.byte	2
+ 3534 0db6 1F       		.byte	31
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 63
+
+
+ 3535 0db7 5C       		.byte	92
+ 3536 0db8 20       		.byte	32
+ 3537 0db9 21       		.byte	33
+ 3538 0dba 22       		.byte	34
+ 3539 0dbb 08       		.byte	8
+ 3540 0dbc 23       		.byte	35
+ 3541 0dbd 01       		.byte	1
+ 3542 0dbe 24       		.byte	36
+ 3543 0dbf 19       		.byte	25
+ 3544 0dc0 26       		.byte	38
+ 3545 0dc1 20       		.byte	32
+ 3546 0dc2 29       		.byte	41
+ 3547 0dc3 0E       		.byte	14
+ 3548 0dc4 2A       		.byte	42
+ 3549 0dc5 39       		.byte	57
+ 3550 0dc6 2B       		.byte	43
+ 3551 0dc7 F0       		.byte	-16
+ 3552 0dc8 2C       		.byte	44
+ 3553 0dc9 21       		.byte	33
+ 3554 0dca 2E       		.byte	46
+ 3555 0dcb 10       		.byte	16
+ 3556 0dcc 30       		.byte	48
+ 3557 0dcd 03       		.byte	3
+ 3558 0dce 32       		.byte	50
+ 3559 0dcf 04       		.byte	4
+ 3560 0dd0 34       		.byte	52
+ 3561 0dd1 40       		.byte	64
+ 3562 0dd2 36       		.byte	54
+ 3563 0dd3 39       		.byte	57
+ 3564 0dd4 37       		.byte	55
+ 3565 0dd5 FF       		.byte	-1
+ 3566 0dd6 3E       		.byte	62
+ 3567 0dd7 04       		.byte	4
+ 3568 0dd8 3F       		.byte	63
+ 3569 0dd9 40       		.byte	64
+ 3570 0dda 58       		.byte	88
+ 3571 0ddb 04       		.byte	4
+ 3572 0ddc 59       		.byte	89
+ 3573 0ddd 04       		.byte	4
+ 3574 0dde 5F       		.byte	95
+ 3575 0ddf 01       		.byte	1
+ 3576 0de0 83       		.byte	-125
+ 3577 0de1 01       		.byte	1
+ 3578 0de2 85       		.byte	-123
+ 3579 0de3 01       		.byte	1
+ 3580 0de4 89       		.byte	-119
+ 3581 0de5 10       		.byte	16
+ 3582 0de6 8B       		.byte	-117
+ 3583 0de7 20       		.byte	32
+ 3584 0de8 8F       		.byte	-113
+ 3585 0de9 02       		.byte	2
+ 3586 0dea 93       		.byte	-109
+ 3587 0deb 08       		.byte	8
+ 3588 0dec 95       		.byte	-107
+ 3589 0ded 08       		.byte	8
+ 3590 0dee 9B       		.byte	-101
+ 3591 0def 04       		.byte	4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 64
+
+
+ 3592 0df0 9D       		.byte	-99
+ 3593 0df1 04       		.byte	4
+ 3594 0df2 A1       		.byte	-95
+ 3595 0df3 02       		.byte	2
+ 3596 0df4 A5       		.byte	-91
+ 3597 0df5 40       		.byte	64
+ 3598 0df6 A7       		.byte	-89
+ 3599 0df7 80       		.byte	-128
+ 3600 0df8 A9       		.byte	-87
+ 3601 0df9 20       		.byte	32
+ 3602 0dfa AB       		.byte	-85
+ 3603 0dfb 10       		.byte	16
+ 3604 0dfc AD       		.byte	-83
+ 3605 0dfd 80       		.byte	-128
+ 3606 0dfe AF       		.byte	-81
+ 3607 0dff 40       		.byte	64
+ 3608 0e00 B7       		.byte	-73
+ 3609 0e01 FF       		.byte	-1
+ 3610 0e02 BF       		.byte	-65
+ 3611 0e03 40       		.byte	64
+ 3612 0e04 D6       		.byte	-42
+ 3613 0e05 02       		.byte	2
+ 3614 0e06 D7       		.byte	-41
+ 3615 0e07 31       		.byte	49
+ 3616 0e08 D8       		.byte	-40
+ 3617 0e09 04       		.byte	4
+ 3618 0e0a D9       		.byte	-39
+ 3619 0e0b 04       		.byte	4
+ 3620 0e0c DB       		.byte	-37
+ 3621 0e0d 0C       		.byte	12
+ 3622 0e0e DC       		.byte	-36
+ 3623 0e0f 02       		.byte	2
+ 3624 0e10 DD       		.byte	-35
+ 3625 0e11 20       		.byte	32
+ 3626 0e12 DF       		.byte	-33
+ 3627 0e13 01       		.byte	1
+ 3628 0e14 00       		.byte	0
+ 3629 0e15 04       		.byte	4
+ 3630 0e16 01       		.byte	1
+ 3631 0e17 02       		.byte	2
+ 3632 0e18 04       		.byte	4
+ 3633 0e19 40       		.byte	64
+ 3634 0e1a 06       		.byte	6
+ 3635 0e1b 04       		.byte	4
+ 3636 0e1c 09       		.byte	9
+ 3637 0e1d 88       		.byte	-120
+ 3638 0e1e 0A       		.byte	10
+ 3639 0e1f 44       		.byte	68
+ 3640 0e20 0E       		.byte	14
+ 3641 0e21 20       		.byte	32
+ 3642 0e22 0F       		.byte	15
+ 3643 0e23 44       		.byte	68
+ 3644 0e24 10       		.byte	16
+ 3645 0e25 01       		.byte	1
+ 3646 0e26 11       		.byte	17
+ 3647 0e27 04       		.byte	4
+ 3648 0e28 12       		.byte	18
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 65
+
+
+ 3649 0e29 80       		.byte	-128
+ 3650 0e2a 13       		.byte	19
+ 3651 0e2b 10       		.byte	16
+ 3652 0e2c 14       		.byte	20
+ 3653 0e2d 10       		.byte	16
+ 3654 0e2e 15       		.byte	21
+ 3655 0e2f 01       		.byte	1
+ 3656 0e30 19       		.byte	25
+ 3657 0e31 02       		.byte	2
+ 3658 0e32 1A       		.byte	26
+ 3659 0e33 26       		.byte	38
+ 3660 0e34 21       		.byte	33
+ 3661 0e35 80       		.byte	-128
+ 3662 0e36 26       		.byte	38
+ 3663 0e37 40       		.byte	64
+ 3664 0e38 29       		.byte	41
+ 3665 0e39 12       		.byte	18
+ 3666 0e3a 2C       		.byte	44
+ 3667 0e3b 10       		.byte	16
+ 3668 0e3c 2E       		.byte	46
+ 3669 0e3d 02       		.byte	2
+ 3670 0e3e 2F       		.byte	47
+ 3671 0e3f 1A       		.byte	26
+ 3672 0e40 30       		.byte	48
+ 3673 0e41 01       		.byte	1
+ 3674 0e42 31       		.byte	49
+ 3675 0e43 08       		.byte	8
+ 3676 0e44 32       		.byte	50
+ 3677 0e45 81       		.byte	-127
+ 3678 0e46 35       		.byte	53
+ 3679 0e47 80       		.byte	-128
+ 3680 0e48 36       		.byte	54
+ 3681 0e49 16       		.byte	22
+ 3682 0e4a 37       		.byte	55
+ 3683 0e4b 40       		.byte	64
+ 3684 0e4c 39       		.byte	57
+ 3685 0e4d 2C       		.byte	44
+ 3686 0e4e 3B       		.byte	59
+ 3687 0e4f 10       		.byte	16
+ 3688 0e50 3C       		.byte	60
+ 3689 0e51 22       		.byte	34
+ 3690 0e52 3D       		.byte	61
+ 3691 0e53 80       		.byte	-128
+ 3692 0e54 3E       		.byte	62
+ 3693 0e55 08       		.byte	8
+ 3694 0e56 3F       		.byte	63
+ 3695 0e57 40       		.byte	64
+ 3696 0e58 5D       		.byte	93
+ 3697 0e59 10       		.byte	16
+ 3698 0e5a 66       		.byte	102
+ 3699 0e5b 40       		.byte	64
+ 3700 0e5c 6C       		.byte	108
+ 3701 0e5d 04       		.byte	4
+ 3702 0e5e 6E       		.byte	110
+ 3703 0e5f 08       		.byte	8
+ 3704 0e60 6F       		.byte	111
+ 3705 0e61 4B       		.byte	75
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 66
+
+
+ 3706 0e62 76       		.byte	118
+ 3707 0e63 0A       		.byte	10
+ 3708 0e64 7D       		.byte	125
+ 3709 0e65 48       		.byte	72
+ 3710 0e66 7E       		.byte	126
+ 3711 0e67 10       		.byte	16
+ 3712 0e68 82       		.byte	-126
+ 3713 0e69 04       		.byte	4
+ 3714 0e6a 86       		.byte	-122
+ 3715 0e6b 02       		.byte	2
+ 3716 0e6c 87       		.byte	-121
+ 3717 0e6d 44       		.byte	68
+ 3718 0e6e 8F       		.byte	-113
+ 3719 0e6f 08       		.byte	8
+ 3720 0e70 90       		.byte	-112
+ 3721 0e71 44       		.byte	68
+ 3722 0e72 91       		.byte	-111
+ 3723 0e73 79       		.byte	121
+ 3724 0e74 92       		.byte	-110
+ 3725 0e75 40       		.byte	64
+ 3726 0e76 93       		.byte	-109
+ 3727 0e77 20       		.byte	32
+ 3728 0e78 94       		.byte	-108
+ 3729 0e79 08       		.byte	8
+ 3730 0e7a 96       		.byte	-106
+ 3731 0e7b 02       		.byte	2
+ 3732 0e7c 99       		.byte	-103
+ 3733 0e7d 10       		.byte	16
+ 3734 0e7e 9A       		.byte	-102
+ 3735 0e7f 44       		.byte	68
+ 3736 0e80 9B       		.byte	-101
+ 3737 0e81 08       		.byte	8
+ 3738 0e82 9C       		.byte	-100
+ 3739 0e83 10       		.byte	16
+ 3740 0e84 9D       		.byte	-99
+ 3741 0e85 80       		.byte	-128
+ 3742 0e86 9E       		.byte	-98
+ 3743 0e87 0A       		.byte	10
+ 3744 0e88 9F       		.byte	-97
+ 3745 0e89 01       		.byte	1
+ 3746 0e8a A0       		.byte	-96
+ 3747 0e8b 11       		.byte	17
+ 3748 0e8c A1       		.byte	-95
+ 3749 0e8d 48       		.byte	72
+ 3750 0e8e A2       		.byte	-94
+ 3751 0e8f 90       		.byte	-112
+ 3752 0e90 A5       		.byte	-91
+ 3753 0e91 04       		.byte	4
+ 3754 0e92 A6       		.byte	-90
+ 3755 0e93 46       		.byte	70
+ 3756 0e94 AD       		.byte	-83
+ 3757 0e95 80       		.byte	-128
+ 3758 0e96 B3       		.byte	-77
+ 3759 0e97 40       		.byte	64
+ 3760 0e98 B6       		.byte	-74
+ 3761 0e99 01       		.byte	1
+ 3762 0e9a C0       		.byte	-64
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 67
+
+
+ 3763 0e9b CC       		.byte	-52
+ 3764 0e9c C2       		.byte	-62
+ 3765 0e9d 7F       		.byte	127
+ 3766 0e9e C4       		.byte	-60
+ 3767 0e9f 3F       		.byte	63
+ 3768 0ea0 CA       		.byte	-54
+ 3769 0ea1 F5       		.byte	-11
+ 3770 0ea2 CC       		.byte	-52
+ 3771 0ea3 FB       		.byte	-5
+ 3772 0ea4 CE       		.byte	-50
+ 3773 0ea5 F6       		.byte	-10
+ 3774 0ea6 D6       		.byte	-42
+ 3775 0ea7 20       		.byte	32
+ 3776 0ea8 D8       		.byte	-40
+ 3777 0ea9 10       		.byte	16
+ 3778 0eaa DE       		.byte	-34
+ 3779 0eab 10       		.byte	16
+ 3780 0eac E6       		.byte	-26
+ 3781 0ead 40       		.byte	64
+ 3782 0eae E8       		.byte	-24
+ 3783 0eaf 80       		.byte	-128
+ 3784 0eb0 EC       		.byte	-20
+ 3785 0eb1 60       		.byte	96
+ 3786 0eb2 EE       		.byte	-18
+ 3787 0eb3 80       		.byte	-128
+ 3788 0eb4 12       		.byte	18
+ 3789 0eb5 80       		.byte	-128
+ 3790 0eb6 16       		.byte	22
+ 3791 0eb7 80       		.byte	-128
+ 3792 0eb8 32       		.byte	50
+ 3793 0eb9 40       		.byte	64
+ 3794 0eba 33       		.byte	51
+ 3795 0ebb 08       		.byte	8
+ 3796 0ebc 34       		.byte	52
+ 3797 0ebd 02       		.byte	2
+ 3798 0ebe 37       		.byte	55
+ 3799 0ebf 20       		.byte	32
+ 3800 0ec0 38       		.byte	56
+ 3801 0ec1 02       		.byte	2
+ 3802 0ec2 3B       		.byte	59
+ 3803 0ec3 10       		.byte	16
+ 3804 0ec4 3E       		.byte	62
+ 3805 0ec5 80       		.byte	-128
+ 3806 0ec6 80       		.byte	-128
+ 3807 0ec7 01       		.byte	1
+ 3808 0ec8 82       		.byte	-126
+ 3809 0ec9 40       		.byte	64
+ 3810 0eca 88       		.byte	-120
+ 3811 0ecb 40       		.byte	64
+ 3812 0ecc 8E       		.byte	-114
+ 3813 0ecd 80       		.byte	-128
+ 3814 0ece C4       		.byte	-60
+ 3815 0ecf 30       		.byte	48
+ 3816 0ed0 CC       		.byte	-52
+ 3817 0ed1 F0       		.byte	-16
+ 3818 0ed2 CE       		.byte	-50
+ 3819 0ed3 70       		.byte	112
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 68
+
+
+ 3820 0ed4 E6       		.byte	-26
+ 3821 0ed5 A0       		.byte	-96
+ 3822 0ed6 08       		.byte	8
+ 3823 0ed7 10       		.byte	16
+ 3824 0ed8 0F       		.byte	15
+ 3825 0ed9 40       		.byte	64
+ 3826 0eda 30       		.byte	48
+ 3827 0edb 40       		.byte	64
+ 3828 0edc 32       		.byte	50
+ 3829 0edd 08       		.byte	8
+ 3830 0ede 34       		.byte	52
+ 3831 0edf 80       		.byte	-128
+ 3832 0ee0 37       		.byte	55
+ 3833 0ee1 01       		.byte	1
+ 3834 0ee2 5C       		.byte	92
+ 3835 0ee3 02       		.byte	2
+ 3836 0ee4 8B       		.byte	-117
+ 3837 0ee5 20       		.byte	32
+ 3838 0ee6 98       		.byte	-104
+ 3839 0ee7 40       		.byte	64
+ 3840 0ee8 9F       		.byte	-97
+ 3841 0ee9 20       		.byte	32
+ 3842 0eea A7       		.byte	-89
+ 3843 0eeb 08       		.byte	8
+ 3844 0eec AC       		.byte	-84
+ 3845 0eed 02       		.byte	2
+ 3846 0eee AF       		.byte	-81
+ 3847 0eef 10       		.byte	16
+ 3848 0ef0 C2       		.byte	-62
+ 3849 0ef1 60       		.byte	96
+ 3850 0ef2 CC       		.byte	-52
+ 3851 0ef3 F0       		.byte	-16
+ 3852 0ef4 D6       		.byte	-42
+ 3853 0ef5 80       		.byte	-128
+ 3854 0ef6 EA       		.byte	-22
+ 3855 0ef7 10       		.byte	16
+ 3856 0ef8 EE       		.byte	-18
+ 3857 0ef9 40       		.byte	64
+ 3858 0efa 12       		.byte	18
+ 3859 0efb 08       		.byte	8
+ 3860 0efc 14       		.byte	20
+ 3861 0efd 80       		.byte	-128
+ 3862 0efe 53       		.byte	83
+ 3863 0eff 80       		.byte	-128
+ 3864 0f00 5B       		.byte	91
+ 3865 0f01 04       		.byte	4
+ 3866 0f02 5C       		.byte	92
+ 3867 0f03 01       		.byte	1
+ 3868 0f04 61       		.byte	97
+ 3869 0f05 08       		.byte	8
+ 3870 0f06 93       		.byte	-109
+ 3871 0f07 40       		.byte	64
+ 3872 0f08 98       		.byte	-104
+ 3873 0f09 10       		.byte	16
+ 3874 0f0a 9C       		.byte	-100
+ 3875 0f0b 80       		.byte	-128
+ 3876 0f0c A6       		.byte	-90
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 69
+
+
+ 3877 0f0d 08       		.byte	8
+ 3878 0f0e A7       		.byte	-89
+ 3879 0f0f 08       		.byte	8
+ 3880 0f10 AF       		.byte	-81
+ 3881 0f11 01       		.byte	1
+ 3882 0f12 B0       		.byte	-80
+ 3883 0f13 02       		.byte	2
+ 3884 0f14 C4       		.byte	-60
+ 3885 0f15 60       		.byte	96
+ 3886 0f16 D4       		.byte	-44
+ 3887 0f17 20       		.byte	32
+ 3888 0f18 D6       		.byte	-42
+ 3889 0f19 C0       		.byte	-64
+ 3890 0f1a D8       		.byte	-40
+ 3891 0f1b 40       		.byte	64
+ 3892 0f1c EA       		.byte	-22
+ 3893 0f1d 40       		.byte	64
+ 3894 0f1e 1B       		.byte	27
+ 3895 0f1f 04       		.byte	4
+ 3896 0f20 83       		.byte	-125
+ 3897 0f21 08       		.byte	8
+ 3898 0f22 93       		.byte	-109
+ 3899 0f23 40       		.byte	64
+ 3900 0f24 98       		.byte	-104
+ 3901 0f25 10       		.byte	16
+ 3902 0f26 A7       		.byte	-89
+ 3903 0f27 08       		.byte	8
+ 3904 0f28 A8       		.byte	-88
+ 3905 0f29 01       		.byte	1
+ 3906 0f2a A9       		.byte	-87
+ 3907 0f2b 08       		.byte	8
+ 3908 0f2c AB       		.byte	-85
+ 3909 0f2d 04       		.byte	4
+ 3910 0f2e B3       		.byte	-77
+ 3911 0f2f 80       		.byte	-128
+ 3912 0f30 C6       		.byte	-58
+ 3913 0f31 10       		.byte	16
+ 3914 0f32 E6       		.byte	-26
+ 3915 0f33 80       		.byte	-128
+ 3916 0f34 EA       		.byte	-22
+ 3917 0f35 80       		.byte	-128
+ 3918 0f36 83       		.byte	-125
+ 3919 0f37 20       		.byte	32
+ 3920 0f38 01       		.byte	1
+ 3921 0f39 20       		.byte	32
+ 3922 0f3a 09       		.byte	9
+ 3923 0f3b 20       		.byte	32
+ 3924 0f3c 0D       		.byte	13
+ 3925 0f3d 01       		.byte	1
+ 3926 0f3e 0F       		.byte	15
+ 3927 0f3f 02       		.byte	2
+ 3928 0f40 23       		.byte	35
+ 3929 0f41 20       		.byte	32
+ 3930 0f42 63       		.byte	99
+ 3931 0f43 08       		.byte	8
+ 3932 0f44 85       		.byte	-123
+ 3933 0f45 20       		.byte	32
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 70
+
+
+ 3934 0f46 88       		.byte	-120
+ 3935 0f47 01       		.byte	1
+ 3936 0f48 98       		.byte	-104
+ 3937 0f49 40       		.byte	64
+ 3938 0f4a 9C       		.byte	-100
+ 3939 0f4b 80       		.byte	-128
+ 3940 0f4c A7       		.byte	-89
+ 3941 0f4d 20       		.byte	32
+ 3942 0f4e AC       		.byte	-84
+ 3943 0f4f 80       		.byte	-128
+ 3944 0f50 B0       		.byte	-80
+ 3945 0f51 40       		.byte	64
+ 3946 0f52 C0       		.byte	-64
+ 3947 0f53 02       		.byte	2
+ 3948 0f54 C2       		.byte	-62
+ 3949 0f55 07       		.byte	7
+ 3950 0f56 C8       		.byte	-56
+ 3951 0f57 02       		.byte	2
+ 3952 0f58 D8       		.byte	-40
+ 3953 0f59 02       		.byte	2
+ 3954 0f5a E6       		.byte	-26
+ 3955 0f5b 04       		.byte	4
+ 3956 0f5c E8       		.byte	-24
+ 3957 0f5d 01       		.byte	1
+ 3958 0f5e 89       		.byte	-119
+ 3959 0f5f 01       		.byte	1
+ 3960 0f60 91       		.byte	-111
+ 3961 0f61 02       		.byte	2
+ 3962 0f62 98       		.byte	-104
+ 3963 0f63 40       		.byte	64
+ 3964 0f64 9C       		.byte	-100
+ 3965 0f65 81       		.byte	-127
+ 3966 0f66 A1       		.byte	-95
+ 3967 0f67 20       		.byte	32
+ 3968 0f68 A3       		.byte	-93
+ 3969 0f69 01       		.byte	1
+ 3970 0f6a A7       		.byte	-89
+ 3971 0f6b 24       		.byte	36
+ 3972 0f6c B7       		.byte	-73
+ 3973 0f6d 20       		.byte	32
+ 3974 0f6e E2       		.byte	-30
+ 3975 0f6f 04       		.byte	4
+ 3976 0f70 EE       		.byte	-18
+ 3977 0f71 08       		.byte	8
+ 3978 0f72 08       		.byte	8
+ 3979 0f73 81       		.byte	-127
+ 3980 0f74 0F       		.byte	15
+ 3981 0f75 20       		.byte	32
+ 3982 0f76 83       		.byte	-125
+ 3983 0f77 14       		.byte	20
+ 3984 0f78 85       		.byte	-123
+ 3985 0f79 10       		.byte	16
+ 3986 0f7a 98       		.byte	-104
+ 3987 0f7b 40       		.byte	64
+ 3988 0f7c 9C       		.byte	-100
+ 3989 0f7d 81       		.byte	-127
+ 3990 0f7e A1       		.byte	-95
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 71
+
+
+ 3991 0f7f 20       		.byte	32
+ 3992 0f80 A3       		.byte	-93
+ 3993 0f81 01       		.byte	1
+ 3994 0f82 A7       		.byte	-89
+ 3995 0f83 24       		.byte	36
+ 3996 0f84 C2       		.byte	-62
+ 3997 0f85 0E       		.byte	14
+ 3998 0f86 25       		.byte	37
+ 3999 0f87 02       		.byte	2
+ 4000 0f88 88       		.byte	-120
+ 4001 0f89 10       		.byte	16
+ 4002 0f8a 98       		.byte	-104
+ 4003 0f8b 10       		.byte	16
+ 4004 0f8c A3       		.byte	-93
+ 4005 0f8d 04       		.byte	4
+ 4006 0f8e B3       		.byte	-77
+ 4007 0f8f 40       		.byte	64
+ 4008 0f90 C8       		.byte	-56
+ 4009 0f91 80       		.byte	-128
+ 4010 0f92 63       		.byte	99
+ 4011 0f93 08       		.byte	8
+ 4012 0f94 A3       		.byte	-93
+ 4013 0f95 04       		.byte	4
+ 4014 0f96 B1       		.byte	-79
+ 4015 0f97 02       		.byte	2
+ 4016 0f98 D8       		.byte	-40
+ 4017 0f99 40       		.byte	64
+ 4018 0f9a 1F       		.byte	31
+ 4019 0f9b 20       		.byte	32
+ 4020 0f9c 34       		.byte	52
+ 4021 0f9d 01       		.byte	1
+ 4022 0f9e 51       		.byte	81
+ 4023 0f9f 10       		.byte	16
+ 4024 0fa0 5C       		.byte	92
+ 4025 0fa1 08       		.byte	8
+ 4026 0fa2 62       		.byte	98
+ 4027 0fa3 02       		.byte	2
+ 4028 0fa4 63       		.byte	99
+ 4029 0fa5 02       		.byte	2
+ 4030 0fa6 64       		.byte	100
+ 4031 0fa7 40       		.byte	64
+ 4032 0fa8 80       		.byte	-128
+ 4033 0fa9 08       		.byte	8
+ 4034 0faa 85       		.byte	-123
+ 4035 0fab 20       		.byte	32
+ 4036 0fac 86       		.byte	-122
+ 4037 0fad 02       		.byte	2
+ 4038 0fae 91       		.byte	-111
+ 4039 0faf 20       		.byte	32
+ 4040 0fb0 98       		.byte	-104
+ 4041 0fb1 40       		.byte	64
+ 4042 0fb2 A1       		.byte	-95
+ 4043 0fb3 20       		.byte	32
+ 4044 0fb4 A7       		.byte	-89
+ 4045 0fb5 20       		.byte	32
+ 4046 0fb6 AF       		.byte	-81
+ 4047 0fb7 01       		.byte	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 72
+
+
+ 4048 0fb8 C6       		.byte	-58
+ 4049 0fb9 01       		.byte	1
+ 4050 0fba CC       		.byte	-52
+ 4051 0fbb 01       		.byte	1
+ 4052 0fbc D4       		.byte	-44
+ 4053 0fbd 04       		.byte	4
+ 4054 0fbe D6       		.byte	-42
+ 4055 0fbf 03       		.byte	3
+ 4056 0fc0 D8       		.byte	-40
+ 4057 0fc1 03       		.byte	3
+ 4058 0fc2 B0       		.byte	-80
+ 4059 0fc3 01       		.byte	1
+ 4060 0fc4 B3       		.byte	-77
+ 4061 0fc5 01       		.byte	1
+ 4062 0fc6 E8       		.byte	-24
+ 4063 0fc7 01       		.byte	1
+ 4064 0fc8 EC       		.byte	-20
+ 4065 0fc9 04       		.byte	4
+ 4066 0fca 10       		.byte	16
+ 4067 0fcb 0D       		.byte	13
+ 4068 0fcc 11       		.byte	17
+ 4069 0fcd 01       		.byte	1
+ 4070 0fce 1A       		.byte	26
+ 4071 0fcf 05       		.byte	5
+ 4072 0fd0 1B       		.byte	27
+ 4073 0fd1 01       		.byte	1
+ 4074 0fd2 1C       		.byte	28
+ 4075 0fd3 0D       		.byte	13
+ 4076 0fd4 00       		.byte	0
+ 4077 0fd5 AB       		.byte	-85
+ 4078 0fd6 01       		.byte	1
+ 4079 0fd7 EF       		.byte	-17
+ 4080 0fd8 02       		.byte	2
+ 4081 0fd9 03       		.byte	3
+ 4082 0fda 10       		.byte	16
+ 4083 0fdb 0A       		.byte	10
+ 4084 0fdc 0F       		.byte	15
+ 4085 0fdd 01       		.byte	1
+ 4086 0fde 00       		.byte	0
+ 4087 0fdf 00       		.byte	0
+ 4088 0fe0 00       		.byte	0
+ 4089 0fe1 00       		.byte	0
+ 4090 0fe2 00       		.byte	0
+ 4091 0fe3 00       		.byte	0
+ 4092 0fe4 0F       		.byte	15
+ 4093 0fe5 01       		.byte	1
+ 4094 0fe6 0D       		.byte	13
+ 4095 0fe7 01       		.byte	1
+ 4096 0fe8 0D       		.byte	13
+ 4097 0fe9 01       		.byte	1
+ 4098 0fea 0D       		.byte	13
+ 4099 0feb 00       		.byte	0
+ 4100 0fec 60       		.byte	96
+ 4101 0fed 00       		.byte	0
+ 4102 0fee 00       		.byte	0
+ 4103 0fef 00       		.byte	0
+ 4104 0ff0 00       		.byte	0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 73
+
+
+ 4105 0ff1 80       		.byte	-128
+ 4106 0ff2 80       		.byte	-128
+ 4107 0ff3 00       		.byte	0
+ 4108 0ff4 00       		.byte	0
+ 4109 0ff5 0C       		.byte	12
+ 4110 0ff6 0C       		.byte	12
+ 4111 0ff7 00       		.byte	0
+ 4112 0ff8 04       		.byte	4
+ 4113 0ff9 00       		.byte	0
+ 4114 0ffa 00       		.byte	0
+ 4115 0ffb 00       		.byte	0
+ 4116 0ffc 40       		.byte	64
+ 4117 0ffd 00       		.byte	0
+ 4118 0ffe 00       		.byte	0
+ 4119 0fff 00       		.byte	0
+ 4120 1000 00       		.byte	0
+ 4121 1001 00       		.byte	0
+ 4122 1002 00       		.byte	0
+ 4123 1003 00       		.byte	0
+ 4124 1004 C0       		.byte	-64
+ 4125 1005 00       		.byte	0
+ 4126 1006 00       		.byte	0
+ 4127 1007 00       		.byte	0
+ 4128 1008 00       		.byte	0
+ 4129 1009 00       		.byte	0
+ 4130 100a 00       		.byte	0
+ 4131 100b 00       		.byte	0
+ 4132 100c 00       		.byte	0
+ 4133 100d F4       		.byte	-12
+ 4134 100e F4       		.byte	-12
+ 4135 100f 00       		.byte	0
+ 4136 1010 10       		.byte	16
+ 4137 1011 00       		.byte	0
+ 4138 1012 E4       		.byte	-28
+ 4139 1013 1A       		.byte	26
+ 4140 1014 1A       		.byte	26
+ 4141 1015 00       		.byte	0
+ 4142 1016 10       		.byte	16
+ 4143 1017 00       		.byte	0
+ 4144 1018 00       		.byte	0
+ 4145 1019 00       		.byte	0
+ 4146 101a 00       		.byte	0
+ 4147 101b 00       		.byte	0
+ 4148 101c 00       		.byte	0
+ 4149 101d 30       		.byte	48
+ 4150 101e 30       		.byte	48
+ 4151 101f 00       		.byte	0
+ 4152 1020 20       		.byte	32
+ 4153 1021 00       		.byte	0
+ 4154 1022 00       		.byte	0
+ 4155 1023 00       		.byte	0
+ 4156 1024 00       		.byte	0
+ 4157 1025 01       		.byte	1
+ 4158 1026 00       		.byte	0
+ 4159 1027 00       		.byte	0
+ 4160              		.global	cy_meta_custnvl
+ 4161              		.section	.cycustnvl,"a",%progbits
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 74
+
+
+ 4162              		.align	2
+ 4163              		.type	cy_meta_custnvl, %object
+ 4164              		.size	cy_meta_custnvl, 4
+ 4165              	cy_meta_custnvl:
+ 4166 0000 00       		.byte	0
+ 4167 0001 00       		.byte	0
+ 4168 0002 40       		.byte	64
+ 4169 0003 05       		.byte	5
+ 4170              		.global	cy_meta_wonvl
+ 4171              		.section	.cywolatch,"a",%progbits
+ 4172              		.align	2
+ 4173              		.type	cy_meta_wonvl, %object
+ 4174              		.size	cy_meta_wonvl, 4
+ 4175              	cy_meta_wonvl:
+ 4176 0000 BC       		.byte	-68
+ 4177 0001 90       		.byte	-112
+ 4178 0002 AC       		.byte	-84
+ 4179 0003 AF       		.byte	-81
+ 4180              		.global	cy_meta_flashprotect
+ 4181              		.section	.cyflashprotect,"a",%progbits
+ 4182              		.align	2
+ 4183              		.type	cy_meta_flashprotect, %object
+ 4184              		.size	cy_meta_flashprotect, 256
+ 4185              	cy_meta_flashprotect:
+ 4186 0000 00000000 		.space	256
+ 4186      00000000 
+ 4186      00000000 
+ 4186      00000000 
+ 4186      00000000 
+ 4187              		.global	cy_metadata
+ 4188              		.section	.cymeta,"a",%progbits
+ 4189              		.align	2
+ 4190              		.type	cy_metadata, %object
+ 4191              		.size	cy_metadata, 12
+ 4192              	cy_metadata:
+ 4193 0000 00       		.byte	0
+ 4194 0001 01       		.byte	1
+ 4195 0002 2E       		.byte	46
+ 4196 0003 16       		.byte	22
+ 4197 0004 10       		.byte	16
+ 4198 0005 69       		.byte	105
+ 4199 0006 00       		.byte	0
+ 4200 0007 01       		.byte	1
+ 4201 0008 00       		.byte	0
+ 4202 0009 00       		.byte	0
+ 4203 000a 00       		.byte	0
+ 4204 000b 00       		.byte	0
+ 4205              		.text
+ 4206              	.Letext0:
+ 4207              		.file 1 ".\\Generated_Source\\PSoC5\\cymetadata.c"
+ 4208              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 4209              		.section	.debug_info,"",%progbits
+ 4210              	.Ldebug_info0:
+ 4211 0000 3B010000 		.4byte	0x13b
+ 4212 0004 0400     		.2byte	0x4
+ 4213 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 4214 000a 04       		.byte	0x4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 75
+
+
+ 4215 000b 01       		.uleb128 0x1
+ 4216 000c 94000000 		.4byte	.LASF18
+ 4217 0010 01       		.byte	0x1
+ 4218 0011 22010000 		.4byte	.LASF19
+ 4219 0015 00000000 		.4byte	.LASF20
+ 4220 0019 00000000 		.4byte	.Ldebug_line0
+ 4221 001d 02       		.uleb128 0x2
+ 4222 001e 01       		.byte	0x1
+ 4223 001f 06       		.byte	0x6
+ 4224 0020 32020000 		.4byte	.LASF0
+ 4225 0024 02       		.uleb128 0x2
+ 4226 0025 01       		.byte	0x1
+ 4227 0026 08       		.byte	0x8
+ 4228 0027 5A010000 		.4byte	.LASF1
+ 4229 002b 02       		.uleb128 0x2
+ 4230 002c 02       		.byte	0x2
+ 4231 002d 05       		.byte	0x5
+ 4232 002e 19020000 		.4byte	.LASF2
+ 4233 0032 02       		.uleb128 0x2
+ 4234 0033 02       		.byte	0x2
+ 4235 0034 07       		.byte	0x7
+ 4236 0035 7A010000 		.4byte	.LASF3
+ 4237 0039 02       		.uleb128 0x2
+ 4238 003a 04       		.byte	0x4
+ 4239 003b 05       		.byte	0x5
+ 4240 003c 29020000 		.4byte	.LASF4
+ 4241 0040 02       		.uleb128 0x2
+ 4242 0041 04       		.byte	0x4
+ 4243 0042 07       		.byte	0x7
+ 4244 0043 68010000 		.4byte	.LASF5
+ 4245 0047 02       		.uleb128 0x2
+ 4246 0048 08       		.byte	0x8
+ 4247 0049 05       		.byte	0x5
+ 4248 004a 06020000 		.4byte	.LASF6
+ 4249 004e 02       		.uleb128 0x2
+ 4250 004f 08       		.byte	0x8
+ 4251 0050 07       		.byte	0x7
+ 4252 0051 C3010000 		.4byte	.LASF7
+ 4253 0055 03       		.uleb128 0x3
+ 4254 0056 04       		.byte	0x4
+ 4255 0057 05       		.byte	0x5
+ 4256 0058 696E7400 		.ascii	"int\000"
+ 4257 005c 02       		.uleb128 0x2
+ 4258 005d 04       		.byte	0x4
+ 4259 005e 07       		.byte	0x7
+ 4260 005f B6010000 		.4byte	.LASF8
+ 4261 0063 04       		.uleb128 0x4
+ 4262 0064 23020000 		.4byte	.LASF21
+ 4263 0068 02       		.byte	0x2
+ 4264 0069 9201     		.2byte	0x192
+ 4265 006b 24000000 		.4byte	0x24
+ 4266 006f 02       		.uleb128 0x2
+ 4267 0070 04       		.byte	0x4
+ 4268 0071 04       		.byte	0x4
+ 4269 0072 54010000 		.4byte	.LASF9
+ 4270 0076 02       		.uleb128 0x2
+ 4271 0077 08       		.byte	0x8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 76
+
+
+ 4272 0078 04       		.byte	0x4
+ 4273 0079 8D010000 		.4byte	.LASF10
+ 4274 007d 02       		.uleb128 0x2
+ 4275 007e 01       		.byte	0x1
+ 4276 007f 08       		.byte	0x8
+ 4277 0080 14020000 		.4byte	.LASF11
+ 4278 0084 05       		.uleb128 0x5
+ 4279 0085 63000000 		.4byte	0x63
+ 4280 0089 95000000 		.4byte	0x95
+ 4281 008d 06       		.uleb128 0x6
+ 4282 008e 95000000 		.4byte	0x95
+ 4283 0092 2710     		.2byte	0x1027
+ 4284 0094 00       		.byte	0
+ 4285 0095 02       		.uleb128 0x2
+ 4286 0096 04       		.byte	0x4
+ 4287 0097 07       		.byte	0x7
+ 4288 0098 FD010000 		.4byte	.LASF12
+ 4289 009c 07       		.uleb128 0x7
+ 4290 009d A4010000 		.4byte	.LASF13
+ 4291 00a1 01       		.byte	0x1
+ 4292 00a2 1F       		.byte	0x1f
+ 4293 00a3 AD000000 		.4byte	0xad
+ 4294 00a7 05       		.uleb128 0x5
+ 4295 00a8 03       		.byte	0x3
+ 4296 00a9 00000000 		.4byte	cy_meta_configecc
+ 4297 00ad 08       		.uleb128 0x8
+ 4298 00ae 84000000 		.4byte	0x84
+ 4299 00b2 05       		.uleb128 0x5
+ 4300 00b3 63000000 		.4byte	0x63
+ 4301 00b7 C2000000 		.4byte	0xc2
+ 4302 00bb 09       		.uleb128 0x9
+ 4303 00bc 95000000 		.4byte	0x95
+ 4304 00c0 03       		.byte	0x3
+ 4305 00c1 00       		.byte	0
+ 4306 00c2 0A       		.uleb128 0xa
+ 4307 00c3 94010000 		.4byte	.LASF14
+ 4308 00c7 01       		.byte	0x1
+ 4309 00c8 3102     		.2byte	0x231
+ 4310 00ca D4000000 		.4byte	0xd4
+ 4311 00ce 05       		.uleb128 0x5
+ 4312 00cf 03       		.byte	0x3
+ 4313 00d0 00000000 		.4byte	cy_meta_custnvl
+ 4314 00d4 08       		.uleb128 0x8
+ 4315 00d5 B2000000 		.4byte	0xb2
+ 4316 00d9 0A       		.uleb128 0xa
+ 4317 00da EF010000 		.4byte	.LASF15
+ 4318 00de 01       		.byte	0x1
+ 4319 00df 3F02     		.2byte	0x23f
+ 4320 00e1 EB000000 		.4byte	0xeb
+ 4321 00e5 05       		.uleb128 0x5
+ 4322 00e6 03       		.byte	0x3
+ 4323 00e7 00000000 		.4byte	cy_meta_wonvl
+ 4324 00eb 08       		.uleb128 0x8
+ 4325 00ec B2000000 		.4byte	0xb2
+ 4326 00f0 05       		.uleb128 0x5
+ 4327 00f1 63000000 		.4byte	0x63
+ 4328 00f5 00010000 		.4byte	0x100
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 77
+
+
+ 4329 00f9 09       		.uleb128 0x9
+ 4330 00fa 95000000 		.4byte	0x95
+ 4331 00fe FF       		.byte	0xff
+ 4332 00ff 00       		.byte	0
+ 4333 0100 0A       		.uleb128 0xa
+ 4334 0101 DA010000 		.4byte	.LASF16
+ 4335 0105 01       		.byte	0x1
+ 4336 0106 4D02     		.2byte	0x24d
+ 4337 0108 12010000 		.4byte	0x112
+ 4338 010c 05       		.uleb128 0x5
+ 4339 010d 03       		.byte	0x3
+ 4340 010e 00000000 		.4byte	cy_meta_flashprotect
+ 4341 0112 08       		.uleb128 0x8
+ 4342 0113 F0000000 		.4byte	0xf0
+ 4343 0117 05       		.uleb128 0x5
+ 4344 0118 63000000 		.4byte	0x63
+ 4345 011c 27010000 		.4byte	0x127
+ 4346 0120 09       		.uleb128 0x9
+ 4347 0121 95000000 		.4byte	0x95
+ 4348 0125 0B       		.byte	0xb
+ 4349 0126 00       		.byte	0
+ 4350 0127 0A       		.uleb128 0xa
+ 4351 0128 48010000 		.4byte	.LASF17
+ 4352 012c 01       		.byte	0x1
+ 4353 012d 7A02     		.2byte	0x27a
+ 4354 012f 39010000 		.4byte	0x139
+ 4355 0133 05       		.uleb128 0x5
+ 4356 0134 03       		.byte	0x3
+ 4357 0135 00000000 		.4byte	cy_metadata
+ 4358 0139 08       		.uleb128 0x8
+ 4359 013a 17010000 		.4byte	0x117
+ 4360 013e 00       		.byte	0
+ 4361              		.section	.debug_abbrev,"",%progbits
+ 4362              	.Ldebug_abbrev0:
+ 4363 0000 01       		.uleb128 0x1
+ 4364 0001 11       		.uleb128 0x11
+ 4365 0002 01       		.byte	0x1
+ 4366 0003 25       		.uleb128 0x25
+ 4367 0004 0E       		.uleb128 0xe
+ 4368 0005 13       		.uleb128 0x13
+ 4369 0006 0B       		.uleb128 0xb
+ 4370 0007 03       		.uleb128 0x3
+ 4371 0008 0E       		.uleb128 0xe
+ 4372 0009 1B       		.uleb128 0x1b
+ 4373 000a 0E       		.uleb128 0xe
+ 4374 000b 10       		.uleb128 0x10
+ 4375 000c 17       		.uleb128 0x17
+ 4376 000d 00       		.byte	0
+ 4377 000e 00       		.byte	0
+ 4378 000f 02       		.uleb128 0x2
+ 4379 0010 24       		.uleb128 0x24
+ 4380 0011 00       		.byte	0
+ 4381 0012 0B       		.uleb128 0xb
+ 4382 0013 0B       		.uleb128 0xb
+ 4383 0014 3E       		.uleb128 0x3e
+ 4384 0015 0B       		.uleb128 0xb
+ 4385 0016 03       		.uleb128 0x3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 78
+
+
+ 4386 0017 0E       		.uleb128 0xe
+ 4387 0018 00       		.byte	0
+ 4388 0019 00       		.byte	0
+ 4389 001a 03       		.uleb128 0x3
+ 4390 001b 24       		.uleb128 0x24
+ 4391 001c 00       		.byte	0
+ 4392 001d 0B       		.uleb128 0xb
+ 4393 001e 0B       		.uleb128 0xb
+ 4394 001f 3E       		.uleb128 0x3e
+ 4395 0020 0B       		.uleb128 0xb
+ 4396 0021 03       		.uleb128 0x3
+ 4397 0022 08       		.uleb128 0x8
+ 4398 0023 00       		.byte	0
+ 4399 0024 00       		.byte	0
+ 4400 0025 04       		.uleb128 0x4
+ 4401 0026 16       		.uleb128 0x16
+ 4402 0027 00       		.byte	0
+ 4403 0028 03       		.uleb128 0x3
+ 4404 0029 0E       		.uleb128 0xe
+ 4405 002a 3A       		.uleb128 0x3a
+ 4406 002b 0B       		.uleb128 0xb
+ 4407 002c 3B       		.uleb128 0x3b
+ 4408 002d 05       		.uleb128 0x5
+ 4409 002e 49       		.uleb128 0x49
+ 4410 002f 13       		.uleb128 0x13
+ 4411 0030 00       		.byte	0
+ 4412 0031 00       		.byte	0
+ 4413 0032 05       		.uleb128 0x5
+ 4414 0033 01       		.uleb128 0x1
+ 4415 0034 01       		.byte	0x1
+ 4416 0035 49       		.uleb128 0x49
+ 4417 0036 13       		.uleb128 0x13
+ 4418 0037 01       		.uleb128 0x1
+ 4419 0038 13       		.uleb128 0x13
+ 4420 0039 00       		.byte	0
+ 4421 003a 00       		.byte	0
+ 4422 003b 06       		.uleb128 0x6
+ 4423 003c 21       		.uleb128 0x21
+ 4424 003d 00       		.byte	0
+ 4425 003e 49       		.uleb128 0x49
+ 4426 003f 13       		.uleb128 0x13
+ 4427 0040 2F       		.uleb128 0x2f
+ 4428 0041 05       		.uleb128 0x5
+ 4429 0042 00       		.byte	0
+ 4430 0043 00       		.byte	0
+ 4431 0044 07       		.uleb128 0x7
+ 4432 0045 34       		.uleb128 0x34
+ 4433 0046 00       		.byte	0
+ 4434 0047 03       		.uleb128 0x3
+ 4435 0048 0E       		.uleb128 0xe
+ 4436 0049 3A       		.uleb128 0x3a
+ 4437 004a 0B       		.uleb128 0xb
+ 4438 004b 3B       		.uleb128 0x3b
+ 4439 004c 0B       		.uleb128 0xb
+ 4440 004d 49       		.uleb128 0x49
+ 4441 004e 13       		.uleb128 0x13
+ 4442 004f 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 79
+
+
+ 4443 0050 19       		.uleb128 0x19
+ 4444 0051 02       		.uleb128 0x2
+ 4445 0052 18       		.uleb128 0x18
+ 4446 0053 00       		.byte	0
+ 4447 0054 00       		.byte	0
+ 4448 0055 08       		.uleb128 0x8
+ 4449 0056 26       		.uleb128 0x26
+ 4450 0057 00       		.byte	0
+ 4451 0058 49       		.uleb128 0x49
+ 4452 0059 13       		.uleb128 0x13
+ 4453 005a 00       		.byte	0
+ 4454 005b 00       		.byte	0
+ 4455 005c 09       		.uleb128 0x9
+ 4456 005d 21       		.uleb128 0x21
+ 4457 005e 00       		.byte	0
+ 4458 005f 49       		.uleb128 0x49
+ 4459 0060 13       		.uleb128 0x13
+ 4460 0061 2F       		.uleb128 0x2f
+ 4461 0062 0B       		.uleb128 0xb
+ 4462 0063 00       		.byte	0
+ 4463 0064 00       		.byte	0
+ 4464 0065 0A       		.uleb128 0xa
+ 4465 0066 34       		.uleb128 0x34
+ 4466 0067 00       		.byte	0
+ 4467 0068 03       		.uleb128 0x3
+ 4468 0069 0E       		.uleb128 0xe
+ 4469 006a 3A       		.uleb128 0x3a
+ 4470 006b 0B       		.uleb128 0xb
+ 4471 006c 3B       		.uleb128 0x3b
+ 4472 006d 05       		.uleb128 0x5
+ 4473 006e 49       		.uleb128 0x49
+ 4474 006f 13       		.uleb128 0x13
+ 4475 0070 3F       		.uleb128 0x3f
+ 4476 0071 19       		.uleb128 0x19
+ 4477 0072 02       		.uleb128 0x2
+ 4478 0073 18       		.uleb128 0x18
+ 4479 0074 00       		.byte	0
+ 4480 0075 00       		.byte	0
+ 4481 0076 00       		.byte	0
+ 4482              		.section	.debug_aranges,"",%progbits
+ 4483 0000 14000000 		.4byte	0x14
+ 4484 0004 0200     		.2byte	0x2
+ 4485 0006 00000000 		.4byte	.Ldebug_info0
+ 4486 000a 04       		.byte	0x4
+ 4487 000b 00       		.byte	0
+ 4488 000c 0000     		.2byte	0
+ 4489 000e 0000     		.2byte	0
+ 4490 0010 00000000 		.4byte	0
+ 4491 0014 00000000 		.4byte	0
+ 4492              		.section	.debug_line,"",%progbits
+ 4493              	.Ldebug_line0:
+ 4494 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
+ 4494      02004900 
+ 4494      00000201 
+ 4494      FB0E0D00 
+ 4494      01010101 
+ 4495              	.LASF20:
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 80
+
+
+ 4496 0000 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
+ 4496      54322043 
+ 4496      6F646520 
+ 4496      2D205365 
+ 4496      636F6E64 
+ 4497 0032 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
+ 4497      53333031 
+ 4497      5F436C61 
+ 4497      73732E63 
+ 4497      7970726A 
+ 4498 0064 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 4498      3330315F 
+ 4498      436C6173 
+ 4498      732E6379 
+ 4498      70726A2E 
+ 4499              	.LASF18:
+ 4500 0094 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 4500      4320342E 
+ 4500      392E3320 
+ 4500      32303135 
+ 4500      30333033 
+ 4501 00c7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 4501      20726576 
+ 4501      6973696F 
+ 4501      6E203232 
+ 4501      31323230 
+ 4502 00fa 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 4502      66756E63 
+ 4502      74696F6E 
+ 4502      2D736563 
+ 4502      74696F6E 
+ 4503              	.LASF19:
+ 4504 0122 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\cymetadata.c\000"
+ 4504      6E657261 
+ 4504      7465645F 
+ 4504      536F7572 
+ 4504      63655C50 
+ 4505              	.LASF17:
+ 4506 0148 63795F6D 		.ascii	"cy_metadata\000"
+ 4506      65746164 
+ 4506      61746100 
+ 4507              	.LASF9:
+ 4508 0154 666C6F61 		.ascii	"float\000"
+ 4508      7400
+ 4509              	.LASF1:
+ 4510 015a 756E7369 		.ascii	"unsigned char\000"
+ 4510      676E6564 
+ 4510      20636861 
+ 4510      7200
+ 4511              	.LASF5:
+ 4512 0168 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4512      20756E73 
+ 4512      69676E65 
+ 4512      6420696E 
+ 4512      7400
+ 4513              	.LASF3:
+ 4514 017a 73686F72 		.ascii	"short unsigned int\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 81
+
+
+ 4514      7420756E 
+ 4514      7369676E 
+ 4514      65642069 
+ 4514      6E7400
+ 4515              	.LASF10:
+ 4516 018d 646F7562 		.ascii	"double\000"
+ 4516      6C6500
+ 4517              	.LASF14:
+ 4518 0194 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 4518      6574615F 
+ 4518      63757374 
+ 4518      6E766C00 
+ 4519              	.LASF13:
+ 4520 01a4 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 4520      6574615F 
+ 4520      636F6E66 
+ 4520      69676563 
+ 4520      6300
+ 4521              	.LASF8:
+ 4522 01b6 756E7369 		.ascii	"unsigned int\000"
+ 4522      676E6564 
+ 4522      20696E74 
+ 4522      00
+ 4523              	.LASF7:
+ 4524 01c3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 4524      206C6F6E 
+ 4524      6720756E 
+ 4524      7369676E 
+ 4524      65642069 
+ 4525              	.LASF16:
+ 4526 01da 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 4526      6574615F 
+ 4526      666C6173 
+ 4526      6870726F 
+ 4526      74656374 
+ 4527              	.LASF15:
+ 4528 01ef 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 4528      6574615F 
+ 4528      776F6E76 
+ 4528      6C00
+ 4529              	.LASF12:
+ 4530 01fd 73697A65 		.ascii	"sizetype\000"
+ 4530      74797065 
+ 4530      00
+ 4531              	.LASF6:
+ 4532 0206 6C6F6E67 		.ascii	"long long int\000"
+ 4532      206C6F6E 
+ 4532      6720696E 
+ 4532      7400
+ 4533              	.LASF11:
+ 4534 0214 63686172 		.ascii	"char\000"
+ 4534      00
+ 4535              	.LASF2:
+ 4536 0219 73686F72 		.ascii	"short int\000"
+ 4536      7420696E 
+ 4536      7400
+ 4537              	.LASF21:
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccVqilxo.s 			page 82
+
+
+ 4538 0223 75696E74 		.ascii	"uint8\000"
+ 4538      3800
+ 4539              	.LASF4:
+ 4540 0229 6C6F6E67 		.ascii	"long int\000"
+ 4540      20696E74 
+ 4540      00
+ 4541              	.LASF0:
+ 4542 0232 7369676E 		.ascii	"signed char\000"
+ 4542      65642063 
+ 4542      68617200 
+ 4543              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,4069 @@
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	ts
+  19              		.bss
+  20              		.type	ts, %object
+  21              		.size	ts, 1
+  22              	ts:
+  23 0000 00       		.space	1
+  24              		.global	ts_enc
+  25 0001 00       		.align	1
+  26              		.type	ts_enc, %object
+  27              		.size	ts_enc, 2
+  28              	ts_enc:
+  29 0002 0000     		.space	2
+  30              		.global	ts_update
+  31              		.align	1
+  32              		.type	ts_update, %object
+  33              		.size	ts_update, 2
+  34              	ts_update:
+  35 0004 0000     		.space	2
+  36              		.global	ts_speed
+  37              		.align	1
+  38              		.type	ts_speed, %object
+  39              		.size	ts_speed, 2
+  40              	ts_speed:
+  41 0006 0000     		.space	2
+  42              		.global	ts_display
+  43              		.align	1
+  44              		.type	ts_display, %object
+  45              		.size	ts_display, 2
+  46              	ts_display:
+  47 0008 0000     		.space	2
+  48              		.global	flag_ts_enc
+  49              		.type	flag_ts_enc, %object
+  50              		.size	flag_ts_enc, 1
+  51              	flag_ts_enc:
+  52 000a 00       		.space	1
+  53              		.global	flag_ts_update
+  54              		.type	flag_ts_update, %object
+  55              		.size	flag_ts_update, 1
+  56              	flag_ts_update:
+  57 000b 00       		.space	1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 2
+
+
+  58              		.global	flag_ts_speed
+  59              		.type	flag_ts_speed, %object
+  60              		.size	flag_ts_speed, 1
+  61              	flag_ts_speed:
+  62 000c 00       		.space	1
+  63              		.global	flag_ts_display
+  64              		.type	flag_ts_display, %object
+  65              		.size	flag_ts_display, 1
+  66              	flag_ts_display:
+  67 000d 00       		.space	1
+  68              		.global	flag_rx
+  69              		.type	flag_rx, %object
+  70              		.size	flag_rx, 1
+  71              	flag_rx:
+  72 000e 00       		.space	1
+  73              		.global	flag_packet
+  74              		.type	flag_packet, %object
+  75              		.size	flag_packet, 1
+  76              	flag_packet:
+  77 000f 00       		.space	1
+  78              		.global	flag_KB_string
+  79              		.type	flag_KB_string, %object
+  80              		.size	flag_KB_string, 1
+  81              	flag_KB_string:
+  82 0010 00       		.space	1
+  83              		.global	dataready_flag
+  84              		.type	dataready_flag, %object
+  85              		.size	dataready_flag, 1
+  86              	dataready_flag:
+  87 0011 00       		.space	1
+  88              		.global	flag_rf_transmission_active
+  89              		.data
+  90              		.type	flag_rf_transmission_active, %object
+  91              		.size	flag_rf_transmission_active, 1
+  92              	flag_rf_transmission_active:
+  93 0000 0A       		.byte	10
+  94              		.global	displaystring
+  95 0001 000000   		.align	2
+  96              		.type	displaystring, %object
+  97              		.size	displaystring, 64
+  98              	displaystring:
+  99 0004 43533330 		.ascii	"CS301 2020\012\000"
+  99      31203230 
+  99      32300A00 
+ 100 0010 00000000 		.space	52
+ 100      00000000 
+ 100      00000000 
+ 100      00000000 
+ 100      00000000 
+ 101              		.comm	line,64,4
+ 102              		.comm	entry,64,4
+ 103              		.comm	usbBuffer,64,4
+ 104              		.comm	system_state,32,4
+ 105              		.global	sensor_readings
+ 106              		.bss
+ 107 0012 0000     		.align	2
+ 108              		.type	sensor_readings, %object
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 3
+
+
+ 109              		.size	sensor_readings, 6
+ 110              	sensor_readings:
+ 111 0014 00000000 		.space	6
+ 111      0000
+ 112              		.global	adc_flag
+ 113 001a 0000     		.align	2
+ 114              		.type	adc_flag, %object
+ 115              		.size	adc_flag, 4
+ 116              	adc_flag:
+ 117 001c 00000000 		.space	4
+ 118              		.global	adc_readings
+ 119              		.align	2
+ 120              		.type	adc_readings, %object
+ 121              		.size	adc_readings, 24
+ 122              	adc_readings:
+ 123 0020 00000000 		.space	24
+ 123      00000000 
+ 123      00000000 
+ 123      00000000 
+ 123      00000000 
+ 124              		.global	sample_count
+ 125              		.align	2
+ 126              		.type	sample_count, %object
+ 127              		.size	sample_count, 4
+ 128              	sample_count:
+ 129 0038 00000000 		.space	4
+ 130              		.global	countM1
+ 131              		.align	2
+ 132              		.type	countM1, %object
+ 133              		.size	countM1, 4
+ 134              	countM1:
+ 135 003c 00000000 		.space	4
+ 136              		.global	countM2
+ 137              		.align	2
+ 138              		.type	countM2, %object
+ 139              		.size	countM2, 4
+ 140              	countM2:
+ 141 0040 00000000 		.space	4
+ 142              		.global	timer_flag
+ 143              		.align	2
+ 144              		.type	timer_flag, %object
+ 145              		.size	timer_flag, 4
+ 146              	timer_flag:
+ 147 0044 00000000 		.space	4
+ 148              		.section	.text.ENCODER_ISR,"ax",%progbits
+ 149              		.align	2
+ 150              		.global	ENCODER_ISR
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.type	ENCODER_ISR, %function
+ 154              	ENCODER_ISR:
+ 155              	.LFB63:
+ 156              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  * Copyright Univ of Auckland, 2016
+   3:.\main.c      ****  * All Rights Reserved
+   4:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 4
+
+
+   5:.\main.c      ****  *
+   6:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   7:.\main.c      ****  * WHICH IS THE PROPERTY OF Univ of Auckland.
+   8:.\main.c      ****  *
+   9:.\main.c      ****  * ================== INCLUDE ======================
+  10:.\main.c      **** */
+  11:.\main.c      **** #include <stdio.h>
+  12:.\main.c      **** #include <string.h>
+  13:.\main.c      **** #include <stdlib.h>
+  14:.\main.c      **** #include <project.h>
+  15:.\main.c      **** 
+  16:.\main.c      **** #include "defines.h"
+  17:.\main.c      **** #include "vars.h"
+  18:.\main.c      **** //* =================== MACROS =====================
+  19:.\main.c      **** // SENSOR MAPPINGS
+  20:.\main.c      **** #define TOP_LEFT_SENSOR 0
+  21:.\main.c      **** #define TOP_MID_SENSOR 1
+  22:.\main.c      **** #define TOP_RIGHT_SENSOR 2
+  23:.\main.c      **** #define BOTTOM_LEFT_SENSOR 3
+  24:.\main.c      **** #define BOTTOM_MID_SENSOR 4
+  25:.\main.c      **** #define BOTTOM_RIGHT_SENSOR 5
+  26:.\main.c      **** 
+  27:.\main.c      **** // LIGHT SENSORS
+  28:.\main.c      **** #define NUM_SENSORS 6
+  29:.\main.c      **** #define LIGHT_LEVEL 300
+  30:.\main.c      **** 
+  31:.\main.c      **** // ADC stuff
+  32:.\main.c      **** #define ADC_READINGS_SIZE 90
+  33:.\main.c      **** 
+  34:.\main.c      **** // Speed calculations
+  35:.\main.c      **** #define LINEAR_DISTANCE_PER_REV 20.42035225
+  36:.\main.c      **** #define TICKS_PER_REV 228
+  37:.\main.c      **** #define TIMER_PERIOD 0.03
+  38:.\main.c      **** 
+  39:.\main.c      **** // Speed control
+  40:.\main.c      **** #define DESIRED_COUNT 8
+  41:.\main.c      **** #define TURN_SPEED 450
+  42:.\main.c      **** #define MIN_PWM_VAL 250
+  43:.\main.c      **** 
+  44:.\main.c      **** // Straight line test
+  45:.\main.c      **** #define DESIRED_DISTANCE 100
+  46:.\main.c      **** #define DESIRED_SPEED 20 // cm/s
+  47:.\main.c      **** 
+  48:.\main.c      **** // 90 degree turn - TODO: Calculate true values
+  49:.\main.c      **** #define TICKS_FOR_TURN 190
+  50:.\main.c      **** #define TURN_PWM_VAL 225
+  51:.\main.c      **** 
+  52:.\main.c      **** // Line following macros - require calibration
+  53:.\main.c      **** #define ADJUST_SPEED_LARGE 3
+  54:.\main.c      **** #define ADJUST_SPEED_SMALL 1
+  55:.\main.c      **** #define MAX_SPEED 9
+  56:.\main.c      **** #define MIN_SPEED 4
+  57:.\main.c      **** #define SLOW_DOWN_SPEED 1
+  58:.\main.c      **** 
+  59:.\main.c      **** // Debug flag - uncomment when debugging
+  60:.\main.c      **** //#define PUTTY
+  61:.\main.c      **** #define PRINT_RATE 0x8000
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 5
+
+
+  62:.\main.c      **** //* ================= TPYE DEF =======================
+  63:.\main.c      **** //typedef struct wheel_speed{
+  64:.\main.c      **** //    float m1;
+  65:.\main.c      **** //    float m2;
+  66:.\main.c      **** //} speed;
+  67:.\main.c      **** typedef enum robot_state{
+  68:.\main.c      ****     CORRECT,
+  69:.\main.c      ****     SLIGHTLY_RIGHT,
+  70:.\main.c      ****     SLIGHTLY_LEFT,
+  71:.\main.c      ****     MEDIUM_RIGHT,
+  72:.\main.c      ****     MEDIUM_LEFT,
+  73:.\main.c      ****     TURN_RIGHT,
+  74:.\main.c      ****     TURN_LEFT,
+  75:.\main.c      ****     SLOW,
+  76:.\main.c      ****     PASS
+  77:.\main.c      **** } robot_state;
+  78:.\main.c      **** //* ================= FUNCTIONS =======================
+  79:.\main.c      **** void usbPutString(char *s);
+  80:.\main.c      **** int getMax(int * readings);
+  81:.\main.c      **** 
+  82:.\main.c      **** int32 getValForChannel(int16 n);
+  83:.\main.c      **** void updateSensorValues();
+  84:.\main.c      **** 
+  85:.\main.c      **** //speed getSpeed();
+  86:.\main.c      **** float getDistance(int prevCountM1, int prevCountM2);
+  87:.\main.c      **** void turnRight();
+  88:.\main.c      **** void turnLeft();
+  89:.\main.c      **** void sharpTurnRight();
+  90:.\main.c      **** void sharpTurnLeft();
+  91:.\main.c      **** int8 performTurn(int isLeft);
+  92:.\main.c      **** 
+  93:.\main.c      **** void changeRightWheelSpeed(int amount);
+  94:.\main.c      **** void changeLeftWheelSpeed(int amount);
+  95:.\main.c      **** void invertWheels();
+  96:.\main.c      **** void setWheelDirection(int isLeftForward, int isRightForward);
+  97:.\main.c      **** void correctSpeed(int prevCount, int count, int desired_count, int isLeftWheel);
+  98:.\main.c      **** 
+  99:.\main.c      **** float resetDecoderCount(float sum);
+ 100:.\main.c      **** //* ================= GLOBAL VARIABLES =======================
+ 101:.\main.c      **** // ADC
+ 102:.\main.c      **** int8 sensor_readings[NUM_SENSORS] = { 0 };
+ 103:.\main.c      **** volatile int adc_flag = FALSE;
+ 104:.\main.c      **** int adc_readings[NUM_SENSORS] = { 0 };
+ 105:.\main.c      **** int sample_count = 0;
+ 106:.\main.c      **** // Encoder
+ 107:.\main.c      **** volatile int countM1 = 0;
+ 108:.\main.c      **** volatile int countM2 = 0;
+ 109:.\main.c      **** volatile int timer_flag = FALSE;
+ 110:.\main.c      **** //* ================== ISR ======================
+ 111:.\main.c      **** CY_ISR(ENCODER_ISR) {
+ 157              		.loc 1 111 0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 1, uses_anonymous_args = 0
+ 161 0000 80B5     		push	{r7, lr}
+ 162              		.cfi_def_cfa_offset 8
+ 163              		.cfi_offset 7, -8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 6
+
+
+ 164              		.cfi_offset 14, -4
+ 165 0002 00AF     		add	r7, sp, #0
+ 166              		.cfi_def_cfa_register 7
+ 112:.\main.c      ****     countM1 = QuadDec_M1_GetCounter();
+ 167              		.loc 1 112 0
+ 168 0004 FFF7FEFF 		bl	QuadDec_M1_GetCounter
+ 169 0008 0346     		mov	r3, r0
+ 170 000a 1A46     		mov	r2, r3
+ 171 000c 054B     		ldr	r3, .L2
+ 172 000e 1A60     		str	r2, [r3]
+ 113:.\main.c      ****     countM2 = QuadDec_M2_GetCounter();
+ 173              		.loc 1 113 0
+ 174 0010 FFF7FEFF 		bl	QuadDec_M2_GetCounter
+ 175 0014 0346     		mov	r3, r0
+ 176 0016 1A46     		mov	r2, r3
+ 177 0018 034B     		ldr	r3, .L2+4
+ 178 001a 1A60     		str	r2, [r3]
+ 114:.\main.c      ****     timer_flag = TRUE;
+ 179              		.loc 1 114 0
+ 180 001c 034B     		ldr	r3, .L2+8
+ 181 001e 0122     		movs	r2, #1
+ 182 0020 1A60     		str	r2, [r3]
+ 115:.\main.c      **** }
+ 183              		.loc 1 115 0
+ 184 0022 80BD     		pop	{r7, pc}
+ 185              	.L3:
+ 186              		.align	2
+ 187              	.L2:
+ 188 0024 00000000 		.word	countM1
+ 189 0028 00000000 		.word	countM2
+ 190 002c 00000000 		.word	timer_flag
+ 191              		.cfi_endproc
+ 192              	.LFE63:
+ 193              		.size	ENCODER_ISR, .-ENCODER_ISR
+ 194              		.section	.text.ADC_ISR,"ax",%progbits
+ 195              		.align	2
+ 196              		.global	ADC_ISR
+ 197              		.thumb
+ 198              		.thumb_func
+ 199              		.type	ADC_ISR, %function
+ 200              	ADC_ISR:
+ 201              	.LFB64:
+ 116:.\main.c      **** 
+ 117:.\main.c      **** /* ### Retrieve and Store Measurements ### */
+ 118:.\main.c      **** CY_ISR(ADC_ISR) {
+ 202              		.loc 1 118 0
+ 203              		.cfi_startproc
+ 204              		@ args = 0, pretend = 0, frame = 0
+ 205              		@ frame_needed = 1, uses_anonymous_args = 0
+ 206              		@ link register save eliminated.
+ 207 0000 80B4     		push	{r7}
+ 208              		.cfi_def_cfa_offset 4
+ 209              		.cfi_offset 7, -4
+ 210 0002 00AF     		add	r7, sp, #0
+ 211              		.cfi_def_cfa_register 7
+ 119:.\main.c      ****     adc_flag = TRUE;
+ 212              		.loc 1 119 0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 7
+
+
+ 213 0004 034B     		ldr	r3, .L5
+ 214 0006 0122     		movs	r2, #1
+ 215 0008 1A60     		str	r2, [r3]
+ 120:.\main.c      **** }
+ 216              		.loc 1 120 0
+ 217 000a BD46     		mov	sp, r7
+ 218              		.cfi_def_cfa_register 13
+ 219              		@ sp needed
+ 220 000c 5DF8047B 		ldr	r7, [sp], #4
+ 221              		.cfi_restore 7
+ 222              		.cfi_def_cfa_offset 0
+ 223 0010 7047     		bx	lr
+ 224              	.L6:
+ 225 0012 00BF     		.align	2
+ 226              	.L5:
+ 227 0014 00000000 		.word	adc_flag
+ 228              		.cfi_endproc
+ 229              	.LFE64:
+ 230              		.size	ADC_ISR, .-ADC_ISR
+ 231              		.section	.rodata
+ 232              		.align	2
+ 233              	.LC0:
+ 234 0000 534C4947 		.ascii	"SLIGHTLY_LEFT\015\012\000"
+ 234      48544C59 
+ 234      5F4C4546 
+ 234      540D0A00 
+ 235              		.align	2
+ 236              	.LC1:
+ 237 0010 534C4947 		.ascii	"SLIGHTLY_RIGHT\015\012\000"
+ 237      48544C59 
+ 237      5F524947 
+ 237      48540D0A 
+ 237      00
+ 238 0021 000000   		.align	2
+ 239              	.LC2:
+ 240 0024 4D454449 		.ascii	"MEDIUM_LEFT\015\012\000"
+ 240      554D5F4C 
+ 240      4546540D 
+ 240      0A00
+ 241 0032 0000     		.align	2
+ 242              	.LC3:
+ 243 0034 4D454449 		.ascii	"MEDIUM_RIGHT\015\012\000"
+ 243      554D5F52 
+ 243      49474854 
+ 243      0D0A00
+ 244 0043 00       		.align	2
+ 245              	.LC4:
+ 246 0044 5455524E 		.ascii	"TURN_LEFT\015\012\000"
+ 246      5F4C4546 
+ 246      540D0A00 
+ 247              		.align	2
+ 248              	.LC5:
+ 249 0050 5455524E 		.ascii	"TURN_RIGHT\015\012\000"
+ 249      5F524947 
+ 249      48540D0A 
+ 249      00
+ 250 005d 000000   		.align	2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 8
+
+
+ 251              	.LC6:
+ 252 0060 534C4F57 		.ascii	"SLOW\015\012\000"
+ 252      0D0A00
+ 253 0067 00       		.align	2
+ 254              	.LC7:
+ 255 0068 50415353 		.ascii	"PASS\015\012\000"
+ 255      0D0A00
+ 256 006f 00       		.align	2
+ 257              	.LC8:
+ 258 0070 434F5252 		.ascii	"CORRECT\015\012\000"
+ 258      4543540D 
+ 258      0A00
+ 259 007a 0000     		.section	.text.main,"ax",%progbits
+ 260              		.align	2
+ 261              		.global	main
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.type	main, %function
+ 265              	main:
+ 266              	.LFB65:
+ 121:.\main.c      **** 
+ 122:.\main.c      **** /** ## Notes
+ 123:.\main.c      ****     
+ 124:.\main.c      ****     Ratio of linear distance to quad decoder ticks
+ 125:.\main.c      ****     One revolution gives a linear distance (in cm)
+ 126:.\main.c      ****     Each revolution is 57 ticks (228 for 4x mode)
+ 127:.\main.c      ****     Centimetres per tick = linear distance / countM(1|2)
+ 128:.\main.c      ****     
+ 129:.\main.c      ****     Decoder use a 4x count, so each revolution gives 4 counts
+ 130:.\main.c      ****     Sampling rate is determined by our 100ms timer (might be a little slow)
+ 131:.\main.c      ****     
+ 132:.\main.c      ****     ## Algorithm Control Flow
+ 133:.\main.c      ****     - Get ADC value for each channel
+ 134:.\main.c      ****     - Get decoder val for M1 & M2
+ 135:.\main.c      ****     - Use these values to drive the movement of the robot
+ 136:.\main.c      ****     
+ 137:.\main.c      **** */
+ 138:.\main.c      **** 
+ 139:.\main.c      **** int main()
+ 140:.\main.c      **** {
+ 267              		.loc 1 140 0
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 24
+ 270              		@ frame_needed = 1, uses_anonymous_args = 0
+ 271 0000 80B5     		push	{r7, lr}
+ 272              		.cfi_def_cfa_offset 8
+ 273              		.cfi_offset 7, -8
+ 274              		.cfi_offset 14, -4
+ 275 0002 86B0     		sub	sp, sp, #24
+ 276              		.cfi_def_cfa_offset 32
+ 277 0004 00AF     		add	r7, sp, #0
+ 278              		.cfi_def_cfa_register 7
+ 141:.\main.c      ****     // delay
+ 142:.\main.c      ****     CyDelay(2000);
+ 279              		.loc 1 142 0
+ 280 0006 4FF4FA60 		mov	r0, #2000
+ 281 000a FFF7FEFF 		bl	CyDelay
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 9
+
+
+ 143:.\main.c      ****     
+ 144:.\main.c      **** // --------------------------------    
+ 145:.\main.c      **** // ----- INITIALIZATIONS ----------
+ 146:.\main.c      **** // ========================================
+ 147:.\main.c      ****     CYGlobalIntEnable;
+ 282              		.loc 1 147 0
+ 283              	@ 147 ".\main.c" 1
+ 284 000e 62B6     		CPSIE   i
+ 285              	@ 0 "" 2
+ 148:.\main.c      ****     
+ 149:.\main.c      ****     // PWMs
+ 150:.\main.c      ****     PWM_1_Start();
+ 286              		.loc 1 150 0
+ 287              		.thumb
+ 288 0010 FFF7FEFF 		bl	PWM_1_Start
+ 151:.\main.c      ****     PWM_2_Start();
+ 289              		.loc 1 151 0
+ 290 0014 FFF7FEFF 		bl	PWM_2_Start
+ 152:.\main.c      ****     
+ 153:.\main.c      ****     // Timer for encoder
+ 154:.\main.c      ****     Timer_TS_Start();
+ 291              		.loc 1 154 0
+ 292 0018 FFF7FEFF 		bl	Timer_TS_Start
+ 155:.\main.c      ****     isr_TS_Start(); // Timer interrupts need to be started independently
+ 293              		.loc 1 155 0
+ 294 001c FFF7FEFF 		bl	isr_TS_Start
+ 156:.\main.c      ****     isr_TS_StartEx(ENCODER_ISR);
+ 295              		.loc 1 156 0
+ 296 0020 8E48     		ldr	r0, .L36
+ 297 0022 FFF7FEFF 		bl	isr_TS_StartEx
+ 157:.\main.c      ****     
+ 158:.\main.c      ****     // Quad Decoders
+ 159:.\main.c      ****     QuadDec_M1_Start();
+ 298              		.loc 1 159 0
+ 299 0026 FFF7FEFF 		bl	QuadDec_M1_Start
+ 160:.\main.c      ****     QuadDec_M2_Start();
+ 300              		.loc 1 160 0
+ 301 002a FFF7FEFF 		bl	QuadDec_M2_Start
+ 161:.\main.c      ****     
+ 162:.\main.c      ****     // ADC
+ 163:.\main.c      ****     ADC_Start(); // Start ADC
+ 302              		.loc 1 163 0
+ 303 002e FFF7FEFF 		bl	ADC_Start
+ 164:.\main.c      ****     ADC_IRQ_Enable(); // Enable ADC interrupts
+ 304              		.loc 1 164 0
+ 305 0032 FFF7FEFF 		bl	ADC_IRQ_Enable
+ 165:.\main.c      ****     ADC_StartConvert(); // Start conversions
+ 306              		.loc 1 165 0
+ 307 0036 FFF7FEFF 		bl	ADC_StartConvert
+ 166:.\main.c      ****     isr_eoc_StartEx(ADC_ISR); // link interrupt for ADC
+ 308              		.loc 1 166 0
+ 309 003a 8948     		ldr	r0, .L36+4
+ 310 003c FFF7FEFF 		bl	isr_eoc_StartEx
+ 167:.\main.c      **** 
+ 168:.\main.c      **** // ---------- USB SETUP ------------    
+ 169:.\main.c      **** #ifdef USE_USB    
+ 170:.\main.c      ****     USBUART_Start(0, USBUART_5V_OPERATION);
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 10
+
+
+ 311              		.loc 1 170 0
+ 312 0040 0020     		movs	r0, #0
+ 313 0042 0121     		movs	r1, #1
+ 314 0044 FFF7FEFF 		bl	USBUART_Start
+ 171:.\main.c      **** #endif            
+ 172:.\main.c      ****     
+ 173:.\main.c      ****     // To make sure wheels rotate in the same direction i.e. forward
+ 174:.\main.c      ****     INV2_Write(1);
+ 315              		.loc 1 174 0
+ 316 0048 0120     		movs	r0, #1
+ 317 004a FFF7FEFF 		bl	INV2_Write
+ 175:.\main.c      ****     
+ 176:.\main.c      ****     // Storing count values
+ 177:.\main.c      ****     int prevCountM1 = 0;
+ 318              		.loc 1 177 0
+ 319 004e 0023     		movs	r3, #0
+ 320 0050 7B61     		str	r3, [r7, #20]
+ 178:.\main.c      ****     int prevCountM2 = 0;
+ 321              		.loc 1 178 0
+ 322 0052 0023     		movs	r3, #0
+ 323 0054 3B61     		str	r3, [r7, #16]
+ 179:.\main.c      ****     int right_wheel_count = DESIRED_COUNT;
+ 324              		.loc 1 179 0
+ 325 0056 0823     		movs	r3, #8
+ 326 0058 FB60     		str	r3, [r7, #12]
+ 180:.\main.c      ****     int left_wheel_count = DESIRED_COUNT;
+ 327              		.loc 1 180 0
+ 328 005a 0823     		movs	r3, #8
+ 329 005c BB60     		str	r3, [r7, #8]
+ 181:.\main.c      ****     int polling_count = 0;
+ 330              		.loc 1 181 0
+ 331 005e 0023     		movs	r3, #0
+ 332 0060 7B60     		str	r3, [r7, #4]
+ 182:.\main.c      ****     
+ 183:.\main.c      ****     robot_state state;
+ 184:.\main.c      ****     robot_state prev_state = CORRECT;
+ 333              		.loc 1 184 0
+ 334 0062 0023     		movs	r3, #0
+ 335 0064 BB70     		strb	r3, [r7, #2]
+ 336              	.L35:
+ 185:.\main.c      ****     
+ 186:.\main.c      ****     while(1) { // Begin main control
+ 187:.\main.c      ****         polling_count++;
+ 337              		.loc 1 187 0
+ 338 0066 7B68     		ldr	r3, [r7, #4]
+ 339 0068 0133     		adds	r3, r3, #1
+ 340 006a 7B60     		str	r3, [r7, #4]
+ 188:.\main.c      ****         
+ 189:.\main.c      ****         if (adc_flag) {
+ 341              		.loc 1 189 0
+ 342 006c 7D4B     		ldr	r3, .L36+8
+ 343 006e 1B68     		ldr	r3, [r3]
+ 344 0070 002B     		cmp	r3, #0
+ 345 0072 04D0     		beq	.L8
+ 190:.\main.c      ****             updateSensorValues();
+ 346              		.loc 1 190 0
+ 347 0074 FFF7FEFF 		bl	updateSensorValues
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 11
+
+
+ 191:.\main.c      ****             adc_flag = FALSE;
+ 348              		.loc 1 191 0
+ 349 0078 7A4B     		ldr	r3, .L36+8
+ 350 007a 0022     		movs	r2, #0
+ 351 007c 1A60     		str	r2, [r3]
+ 352              	.L8:
+ 192:.\main.c      ****         }
+ 193:.\main.c      ****         
+ 194:.\main.c      ****          // New count values from encoder are ready
+ 195:.\main.c      ****         if (timer_flag){
+ 353              		.loc 1 195 0
+ 354 007e 7A4B     		ldr	r3, .L36+12
+ 355 0080 1B68     		ldr	r3, [r3]
+ 356 0082 002B     		cmp	r3, #0
+ 357 0084 1CD0     		beq	.L9
+ 196:.\main.c      ****             isr_TS_Disable();
+ 358              		.loc 1 196 0
+ 359 0086 FFF7FEFF 		bl	isr_TS_Disable
+ 197:.\main.c      ****             
+ 198:.\main.c      ****             // Correct speed
+ 199:.\main.c      ****             correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
+ 360              		.loc 1 199 0
+ 361 008a 784B     		ldr	r3, .L36+16
+ 362 008c 1B68     		ldr	r3, [r3]
+ 363 008e 7869     		ldr	r0, [r7, #20]
+ 364 0090 1946     		mov	r1, r3
+ 365 0092 BA68     		ldr	r2, [r7, #8]
+ 366 0094 0123     		movs	r3, #1
+ 367 0096 FFF7FEFF 		bl	correctSpeed
+ 200:.\main.c      ****             correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
+ 368              		.loc 1 200 0
+ 369 009a 754B     		ldr	r3, .L36+20
+ 370 009c 1B68     		ldr	r3, [r3]
+ 371 009e 3869     		ldr	r0, [r7, #16]
+ 372 00a0 1946     		mov	r1, r3
+ 373 00a2 FA68     		ldr	r2, [r7, #12]
+ 374 00a4 0023     		movs	r3, #0
+ 375 00a6 FFF7FEFF 		bl	correctSpeed
+ 201:.\main.c      ****             
+ 202:.\main.c      ****             // Update previous values
+ 203:.\main.c      ****             prevCountM1 = countM1;
+ 376              		.loc 1 203 0
+ 377 00aa 704B     		ldr	r3, .L36+16
+ 378 00ac 1B68     		ldr	r3, [r3]
+ 379 00ae 7B61     		str	r3, [r7, #20]
+ 204:.\main.c      ****             prevCountM2 = countM2;
+ 380              		.loc 1 204 0
+ 381 00b0 6F4B     		ldr	r3, .L36+20
+ 382 00b2 1B68     		ldr	r3, [r3]
+ 383 00b4 3B61     		str	r3, [r7, #16]
+ 205:.\main.c      ****             
+ 206:.\main.c      ****             // Reset flag
+ 207:.\main.c      ****             timer_flag = FALSE;
+ 384              		.loc 1 207 0
+ 385 00b6 6C4B     		ldr	r3, .L36+12
+ 386 00b8 0022     		movs	r2, #0
+ 387 00ba 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 12
+
+
+ 208:.\main.c      ****             
+ 209:.\main.c      ****             isr_TS_Enable();
+ 388              		.loc 1 209 0
+ 389 00bc FFF7FEFF 		bl	isr_TS_Enable
+ 390              	.L9:
+ 210:.\main.c      ****         }
+ 211:.\main.c      ****         
+ 212:.\main.c      ****        // follow a line algorithm
+ 213:.\main.c      ****         if (sensor_readings[TOP_MID_SENSOR]) { // on line
+ 391              		.loc 1 213 0
+ 392 00c0 6C4B     		ldr	r3, .L36+24
+ 393 00c2 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 394 00c4 002B     		cmp	r3, #0
+ 395 00c6 25D0     		beq	.L10
+ 214:.\main.c      ****             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviate
+ 396              		.loc 1 214 0
+ 397 00c8 6A4B     		ldr	r3, .L36+24
+ 398 00ca 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 399 00cc 002B     		cmp	r3, #0
+ 400 00ce 0CD1     		bne	.L11
+ 401              		.loc 1 214 0 is_stmt 0 discriminator 1
+ 402 00d0 684B     		ldr	r3, .L36+24
+ 403 00d2 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 404 00d4 002B     		cmp	r3, #0
+ 405 00d6 08D0     		beq	.L11
+ 215:.\main.c      ****                 state = SLIGHTLY_RIGHT;
+ 406              		.loc 1 215 0 is_stmt 1
+ 407 00d8 0123     		movs	r3, #1
+ 408 00da FB70     		strb	r3, [r7, #3]
+ 216:.\main.c      **** //                right_wheel_count = DESIRED_COUNT - ADJUST_SPEED_SMALL;
+ 217:.\main.c      **** //                left_wheel_count = DESIRED_COUNT + ADJUST_SPEED_SMALL;
+ 218:.\main.c      ****                 right_wheel_count -= ADJUST_SPEED_SMALL;
+ 409              		.loc 1 218 0
+ 410 00dc FB68     		ldr	r3, [r7, #12]
+ 411 00de 013B     		subs	r3, r3, #1
+ 412 00e0 FB60     		str	r3, [r7, #12]
+ 219:.\main.c      ****                 left_wheel_count += ADJUST_SPEED_SMALL;
+ 413              		.loc 1 219 0
+ 414 00e2 BB68     		ldr	r3, [r7, #8]
+ 415 00e4 0133     		adds	r3, r3, #1
+ 416 00e6 BB60     		str	r3, [r7, #8]
+ 417 00e8 13E0     		b	.L12
+ 418              	.L11:
+ 220:.\main.c      ****             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) { //
+ 419              		.loc 1 220 0
+ 420 00ea 624B     		ldr	r3, .L36+24
+ 421 00ec 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 422 00ee 002B     		cmp	r3, #0
+ 423 00f0 0CD0     		beq	.L13
+ 424              		.loc 1 220 0 is_stmt 0 discriminator 1
+ 425 00f2 604B     		ldr	r3, .L36+24
+ 426 00f4 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 427 00f6 002B     		cmp	r3, #0
+ 428 00f8 08D1     		bne	.L13
+ 221:.\main.c      ****                 state = SLIGHTLY_LEFT;
+ 429              		.loc 1 221 0 is_stmt 1
+ 430 00fa 0223     		movs	r3, #2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 13
+
+
+ 431 00fc FB70     		strb	r3, [r7, #3]
+ 222:.\main.c      **** //                right_wheel_count = DESIRED_COUNT + ADJUST_SPEED_SMALL;
+ 223:.\main.c      **** //                left_wheel_count = DESIRED_COUNT - ADJUST_SPEED_SMALL;
+ 224:.\main.c      ****                 right_wheel_count += ADJUST_SPEED_SMALL;
+ 432              		.loc 1 224 0
+ 433 00fe FB68     		ldr	r3, [r7, #12]
+ 434 0100 0133     		adds	r3, r3, #1
+ 435 0102 FB60     		str	r3, [r7, #12]
+ 225:.\main.c      ****                 left_wheel_count -= ADJUST_SPEED_SMALL;
+ 436              		.loc 1 225 0
+ 437 0104 BB68     		ldr	r3, [r7, #8]
+ 438 0106 013B     		subs	r3, r3, #1
+ 439 0108 BB60     		str	r3, [r7, #8]
+ 440 010a 02E0     		b	.L12
+ 441              	.L13:
+ 226:.\main.c      ****             } else {
+ 227:.\main.c      ****                 state = CORRECT;
+ 442              		.loc 1 227 0
+ 443 010c 0023     		movs	r3, #0
+ 444 010e FB70     		strb	r3, [r7, #3]
+ 445 0110 45E0     		b	.L14
+ 446              	.L12:
+ 447 0112 44E0     		b	.L14
+ 448              	.L10:
+ 228:.\main.c      ****                 // Correct speed
+ 229:.\main.c      **** //                right_wheel_count = DESIRED_COUNT;
+ 230:.\main.c      **** //                left_wheel_count = DESIRED_COUNT;
+ 231:.\main.c      ****             }
+ 232:.\main.c      ****         } else { // moved off
+ 233:.\main.c      ****             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviate
+ 449              		.loc 1 233 0
+ 450 0114 574B     		ldr	r3, .L36+24
+ 451 0116 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 452 0118 002B     		cmp	r3, #0
+ 453 011a 08D1     		bne	.L15
+ 454              		.loc 1 233 0 is_stmt 0 discriminator 1
+ 455 011c 554B     		ldr	r3, .L36+24
+ 456 011e 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 457 0120 002B     		cmp	r3, #0
+ 458 0122 04D0     		beq	.L15
+ 234:.\main.c      ****                 state = MEDIUM_RIGHT;
+ 459              		.loc 1 234 0 is_stmt 1
+ 460 0124 0323     		movs	r3, #3
+ 461 0126 FB70     		strb	r3, [r7, #3]
+ 235:.\main.c      **** //                right_wheel_count = DESIRED_COUNT - ADJUST_SPEED_LARGE;
+ 236:.\main.c      **** //                left_wheel_count = DESIRED_COUNT + ADJUST_SPEED_LARGE;
+ 237:.\main.c      **** //                right_wheel_count -= ADJUST_SPEED_LARGE;
+ 238:.\main.c      **** //                left_wheel_count += ADJUST_SPEED_LARGE;
+ 239:.\main.c      ****                 sharpTurnRight();
+ 462              		.loc 1 239 0
+ 463 0128 FFF7FEFF 		bl	sharpTurnRight
+ 464 012c 37E0     		b	.L14
+ 465              	.L15:
+ 240:.\main.c      ****             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {// 
+ 466              		.loc 1 240 0
+ 467 012e 514B     		ldr	r3, .L36+24
+ 468 0130 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 14
+
+
+ 469 0132 002B     		cmp	r3, #0
+ 470 0134 08D0     		beq	.L16
+ 471              		.loc 1 240 0 is_stmt 0 discriminator 1
+ 472 0136 4F4B     		ldr	r3, .L36+24
+ 473 0138 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 474 013a 002B     		cmp	r3, #0
+ 475 013c 04D1     		bne	.L16
+ 241:.\main.c      ****                 state = MEDIUM_LEFT;
+ 476              		.loc 1 241 0 is_stmt 1
+ 477 013e 0423     		movs	r3, #4
+ 478 0140 FB70     		strb	r3, [r7, #3]
+ 242:.\main.c      **** //                right_wheel_count = DESIRED_COUNT + ADJUST_SPEED_LARGE;
+ 243:.\main.c      **** //                left_wheel_count = DESIRED_COUNT - ADJUST_SPEED_LARGE;
+ 244:.\main.c      **** //                right_wheel_count += ADJUST_SPEED_LARGE;
+ 245:.\main.c      **** //                left_wheel_count -= ADJUST_SPEED_LARGE;
+ 246:.\main.c      ****                 sharpTurnLeft();
+ 479              		.loc 1 246 0
+ 480 0142 FFF7FEFF 		bl	sharpTurnLeft
+ 481 0146 2AE0     		b	.L14
+ 482              	.L16:
+ 247:.\main.c      ****             // for corners (hopefully)
+ 248:.\main.c      ****             } else if (!sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {
+ 483              		.loc 1 248 0
+ 484 0148 4A4B     		ldr	r3, .L36+24
+ 485 014a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 486 014c 002B     		cmp	r3, #0
+ 487 014e 26D1     		bne	.L14
+ 488              		.loc 1 248 0 is_stmt 0 discriminator 1
+ 489 0150 484B     		ldr	r3, .L36+24
+ 490 0152 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 491 0154 002B     		cmp	r3, #0
+ 492 0156 22D1     		bne	.L14
+ 249:.\main.c      ****                 if (sensor_readings[BOTTOM_LEFT_SENSOR]) {
+ 493              		.loc 1 249 0 is_stmt 1
+ 494 0158 464B     		ldr	r3, .L36+24
+ 495 015a DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 496 015c 002B     		cmp	r3, #0
+ 497 015e 04D0     		beq	.L17
+ 250:.\main.c      ****                     state = TURN_LEFT;
+ 498              		.loc 1 250 0
+ 499 0160 0623     		movs	r3, #6
+ 500 0162 FB70     		strb	r3, [r7, #3]
+ 251:.\main.c      ****                     sharpTurnLeft();
+ 501              		.loc 1 251 0
+ 502 0164 FFF7FEFF 		bl	sharpTurnLeft
+ 503 0168 19E0     		b	.L14
+ 504              	.L17:
+ 252:.\main.c      ****                 } else if (sensor_readings[BOTTOM_RIGHT_SENSOR]) {
+ 505              		.loc 1 252 0
+ 506 016a 424B     		ldr	r3, .L36+24
+ 507 016c 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 508 016e 002B     		cmp	r3, #0
+ 509 0170 04D0     		beq	.L18
+ 253:.\main.c      ****                     state = TURN_RIGHT;
+ 510              		.loc 1 253 0
+ 511 0172 0523     		movs	r3, #5
+ 512 0174 FB70     		strb	r3, [r7, #3]
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 15
+
+
+ 254:.\main.c      ****                     sharpTurnRight();
+ 513              		.loc 1 254 0
+ 514 0176 FFF7FEFF 		bl	sharpTurnRight
+ 515 017a 10E0     		b	.L14
+ 516              	.L18:
+ 255:.\main.c      ****                  // slow down in preperation for a sharp turn
+ 256:.\main.c      ****                 } else if (left_wheel_count > MIN_SPEED && right_wheel_count > MIN_SPEED) {
+ 517              		.loc 1 256 0
+ 518 017c BB68     		ldr	r3, [r7, #8]
+ 519 017e 042B     		cmp	r3, #4
+ 520 0180 0BDD     		ble	.L19
+ 521              		.loc 1 256 0 is_stmt 0 discriminator 1
+ 522 0182 FB68     		ldr	r3, [r7, #12]
+ 523 0184 042B     		cmp	r3, #4
+ 524 0186 08DD     		ble	.L19
+ 257:.\main.c      ****                     state = SLOW;
+ 525              		.loc 1 257 0 is_stmt 1
+ 526 0188 0723     		movs	r3, #7
+ 527 018a FB70     		strb	r3, [r7, #3]
+ 258:.\main.c      ****                     right_wheel_count -= SLOW_DOWN_SPEED;
+ 528              		.loc 1 258 0
+ 529 018c FB68     		ldr	r3, [r7, #12]
+ 530 018e 013B     		subs	r3, r3, #1
+ 531 0190 FB60     		str	r3, [r7, #12]
+ 259:.\main.c      ****                     left_wheel_count -= SLOW_DOWN_SPEED;
+ 532              		.loc 1 259 0
+ 533 0192 BB68     		ldr	r3, [r7, #8]
+ 534 0194 013B     		subs	r3, r3, #1
+ 535 0196 BB60     		str	r3, [r7, #8]
+ 536 0198 01E0     		b	.L14
+ 537              	.L19:
+ 260:.\main.c      ****                 } else {
+ 261:.\main.c      ****                     state = PASS;
+ 538              		.loc 1 261 0
+ 539 019a 0823     		movs	r3, #8
+ 540 019c FB70     		strb	r3, [r7, #3]
+ 541              	.L14:
+ 262:.\main.c      ****                 }
+ 263:.\main.c      ****             }
+ 264:.\main.c      ****         }
+ 265:.\main.c      ****         
+ 266:.\main.c      ****         if (right_wheel_count > MAX_SPEED) {
+ 542              		.loc 1 266 0
+ 543 019e FB68     		ldr	r3, [r7, #12]
+ 544 01a0 092B     		cmp	r3, #9
+ 545 01a2 01DD     		ble	.L20
+ 267:.\main.c      ****             right_wheel_count = MAX_SPEED;
+ 546              		.loc 1 267 0
+ 547 01a4 0923     		movs	r3, #9
+ 548 01a6 FB60     		str	r3, [r7, #12]
+ 549              	.L20:
+ 268:.\main.c      ****         }
+ 269:.\main.c      ****         if (left_wheel_count > MAX_SPEED) {
+ 550              		.loc 1 269 0
+ 551 01a8 BB68     		ldr	r3, [r7, #8]
+ 552 01aa 092B     		cmp	r3, #9
+ 553 01ac 01DD     		ble	.L21
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 16
+
+
+ 270:.\main.c      ****             left_wheel_count = MAX_SPEED;
+ 554              		.loc 1 270 0
+ 555 01ae 0923     		movs	r3, #9
+ 556 01b0 BB60     		str	r3, [r7, #8]
+ 557              	.L21:
+ 271:.\main.c      ****         }
+ 272:.\main.c      ****         if (right_wheel_count < MIN_SPEED) {
+ 558              		.loc 1 272 0
+ 559 01b2 FB68     		ldr	r3, [r7, #12]
+ 560 01b4 032B     		cmp	r3, #3
+ 561 01b6 01DC     		bgt	.L22
+ 273:.\main.c      ****             right_wheel_count = MIN_SPEED;
+ 562              		.loc 1 273 0
+ 563 01b8 0423     		movs	r3, #4
+ 564 01ba FB60     		str	r3, [r7, #12]
+ 565              	.L22:
+ 274:.\main.c      ****         }
+ 275:.\main.c      ****         if (left_wheel_count < MIN_SPEED) {
+ 566              		.loc 1 275 0
+ 567 01bc BB68     		ldr	r3, [r7, #8]
+ 568 01be 032B     		cmp	r3, #3
+ 569 01c0 01DC     		bgt	.L23
+ 276:.\main.c      ****             left_wheel_count = MIN_SPEED;
+ 570              		.loc 1 276 0
+ 571 01c2 0423     		movs	r3, #4
+ 572 01c4 BB60     		str	r3, [r7, #8]
+ 573              	.L23:
+ 277:.\main.c      ****         }
+ 278:.\main.c      ****         
+ 279:.\main.c      **** //        if (polling_count == PRINT_RATE) {
+ 280:.\main.c      ****         if (prev_state != state) {
+ 574              		.loc 1 280 0
+ 575 01c6 BA78     		ldrb	r2, [r7, #2]	@ zero_extendqisi2
+ 576 01c8 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 577 01ca 9A42     		cmp	r2, r3
+ 578 01cc 3FD0     		beq	.L24
+ 281:.\main.c      ****             if (state == SLIGHTLY_LEFT) {
+ 579              		.loc 1 281 0
+ 580 01ce FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 581 01d0 022B     		cmp	r3, #2
+ 582 01d2 03D1     		bne	.L25
+ 282:.\main.c      ****                 usbPutString("SLIGHTLY_LEFT\r\n");
+ 583              		.loc 1 282 0
+ 584 01d4 2848     		ldr	r0, .L36+28
+ 585 01d6 FFF7FEFF 		bl	usbPutString
+ 586 01da 36E0     		b	.L26
+ 587              	.L25:
+ 283:.\main.c      ****             } else if (state == SLIGHTLY_RIGHT) {
+ 588              		.loc 1 283 0
+ 589 01dc FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 590 01de 012B     		cmp	r3, #1
+ 591 01e0 03D1     		bne	.L27
+ 284:.\main.c      ****                 usbPutString("SLIGHTLY_RIGHT\r\n");
+ 592              		.loc 1 284 0
+ 593 01e2 2648     		ldr	r0, .L36+32
+ 594 01e4 FFF7FEFF 		bl	usbPutString
+ 595 01e8 2FE0     		b	.L26
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 17
+
+
+ 596              	.L27:
+ 285:.\main.c      ****             } else if (state == MEDIUM_LEFT) {
+ 597              		.loc 1 285 0
+ 598 01ea FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 599 01ec 042B     		cmp	r3, #4
+ 600 01ee 03D1     		bne	.L28
+ 286:.\main.c      ****                 usbPutString("MEDIUM_LEFT\r\n");
+ 601              		.loc 1 286 0
+ 602 01f0 2348     		ldr	r0, .L36+36
+ 603 01f2 FFF7FEFF 		bl	usbPutString
+ 604 01f6 28E0     		b	.L26
+ 605              	.L28:
+ 287:.\main.c      ****             } else if (state == MEDIUM_RIGHT) {
+ 606              		.loc 1 287 0
+ 607 01f8 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 608 01fa 032B     		cmp	r3, #3
+ 609 01fc 03D1     		bne	.L29
+ 288:.\main.c      ****                 usbPutString("MEDIUM_RIGHT\r\n");
+ 610              		.loc 1 288 0
+ 611 01fe 2148     		ldr	r0, .L36+40
+ 612 0200 FFF7FEFF 		bl	usbPutString
+ 613 0204 21E0     		b	.L26
+ 614              	.L29:
+ 289:.\main.c      ****             } else if (state == TURN_LEFT) {
+ 615              		.loc 1 289 0
+ 616 0206 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 617 0208 062B     		cmp	r3, #6
+ 618 020a 03D1     		bne	.L30
+ 290:.\main.c      ****                 usbPutString("TURN_LEFT\r\n");
+ 619              		.loc 1 290 0
+ 620 020c 1E48     		ldr	r0, .L36+44
+ 621 020e FFF7FEFF 		bl	usbPutString
+ 622 0212 1AE0     		b	.L26
+ 623              	.L30:
+ 291:.\main.c      ****             } else if (state == TURN_RIGHT) {
+ 624              		.loc 1 291 0
+ 625 0214 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 626 0216 052B     		cmp	r3, #5
+ 627 0218 03D1     		bne	.L31
+ 292:.\main.c      ****                 usbPutString("TURN_RIGHT\r\n");
+ 628              		.loc 1 292 0
+ 629 021a 1C48     		ldr	r0, .L36+48
+ 630 021c FFF7FEFF 		bl	usbPutString
+ 631 0220 13E0     		b	.L26
+ 632              	.L31:
+ 293:.\main.c      ****             } else if (state == SLOW) {
+ 633              		.loc 1 293 0
+ 634 0222 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 635 0224 072B     		cmp	r3, #7
+ 636 0226 03D1     		bne	.L32
+ 294:.\main.c      ****                 usbPutString("SLOW\r\n");
+ 637              		.loc 1 294 0
+ 638 0228 1948     		ldr	r0, .L36+52
+ 639 022a FFF7FEFF 		bl	usbPutString
+ 640 022e 0CE0     		b	.L26
+ 641              	.L32:
+ 295:.\main.c      ****             } else if (state == PASS) {
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 18
+
+
+ 642              		.loc 1 295 0
+ 643 0230 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 644 0232 082B     		cmp	r3, #8
+ 645 0234 03D1     		bne	.L33
+ 296:.\main.c      ****                 usbPutString("PASS\r\n");
+ 646              		.loc 1 296 0
+ 647 0236 1748     		ldr	r0, .L36+56
+ 648 0238 FFF7FEFF 		bl	usbPutString
+ 649 023c 05E0     		b	.L26
+ 650              	.L33:
+ 297:.\main.c      ****             } else if (state == CORRECT) {
+ 651              		.loc 1 297 0
+ 652 023e FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 653 0240 002B     		cmp	r3, #0
+ 654 0242 02D1     		bne	.L26
+ 298:.\main.c      ****                 usbPutString("CORRECT\r\n");
+ 655              		.loc 1 298 0
+ 656 0244 1448     		ldr	r0, .L36+60
+ 657 0246 FFF7FEFF 		bl	usbPutString
+ 658              	.L26:
+ 299:.\main.c      ****             }
+ 300:.\main.c      ****             prev_state = state;
+ 659              		.loc 1 300 0
+ 660 024a FB78     		ldrb	r3, [r7, #3]
+ 661 024c BB70     		strb	r3, [r7, #2]
+ 662              	.L24:
+ 301:.\main.c      ****         }
+ 302:.\main.c      ****                 
+ 303:.\main.c      ****                 
+ 304:.\main.c      ****         if (polling_count == PRINT_RATE) polling_count = 0;
+ 663              		.loc 1 304 0
+ 664 024e 7B68     		ldr	r3, [r7, #4]
+ 665 0250 B3F5004F 		cmp	r3, #32768
+ 666 0254 01D1     		bne	.L34
+ 667              		.loc 1 304 0 is_stmt 0 discriminator 1
+ 668 0256 0023     		movs	r3, #0
+ 669 0258 7B60     		str	r3, [r7, #4]
+ 670              	.L34:
+ 305:.\main.c      ****     }
+ 671              		.loc 1 305 0 is_stmt 1
+ 672 025a 04E7     		b	.L35
+ 673              	.L37:
+ 674              		.align	2
+ 675              	.L36:
+ 676 025c 00000000 		.word	ENCODER_ISR
+ 677 0260 00000000 		.word	ADC_ISR
+ 678 0264 00000000 		.word	adc_flag
+ 679 0268 00000000 		.word	timer_flag
+ 680 026c 00000000 		.word	countM1
+ 681 0270 00000000 		.word	countM2
+ 682 0274 00000000 		.word	sensor_readings
+ 683 0278 00000000 		.word	.LC0
+ 684 027c 10000000 		.word	.LC1
+ 685 0280 24000000 		.word	.LC2
+ 686 0284 34000000 		.word	.LC3
+ 687 0288 44000000 		.word	.LC4
+ 688 028c 50000000 		.word	.LC5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 19
+
+
+ 689 0290 60000000 		.word	.LC6
+ 690 0294 68000000 		.word	.LC7
+ 691 0298 70000000 		.word	.LC8
+ 692              		.cfi_endproc
+ 693              	.LFE65:
+ 694              		.size	main, .-main
+ 695              		.section	.text.getValForChannel,"ax",%progbits
+ 696              		.align	2
+ 697              		.global	getValForChannel
+ 698              		.thumb
+ 699              		.thumb_func
+ 700              		.type	getValForChannel, %function
+ 701              	getValForChannel:
+ 702              	.LFB66:
+ 306:.\main.c      **** }
+ 307:.\main.c      **** // Simple ADC conversion
+ 308:.\main.c      **** int32 getValForChannel(int16 n){
+ 703              		.loc 1 308 0
+ 704              		.cfi_startproc
+ 705              		@ args = 0, pretend = 0, frame = 8
+ 706              		@ frame_needed = 1, uses_anonymous_args = 0
+ 707 0000 80B5     		push	{r7, lr}
+ 708              		.cfi_def_cfa_offset 8
+ 709              		.cfi_offset 7, -8
+ 710              		.cfi_offset 14, -4
+ 711 0002 82B0     		sub	sp, sp, #8
+ 712              		.cfi_def_cfa_offset 16
+ 713 0004 00AF     		add	r7, sp, #0
+ 714              		.cfi_def_cfa_register 7
+ 715 0006 0346     		mov	r3, r0
+ 716 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 309:.\main.c      ****     return ADC_CountsTo_mVolts(ADC_GetResult16(n));
+ 717              		.loc 1 309 0
+ 718 000a FB88     		ldrh	r3, [r7, #6]
+ 719 000c 1846     		mov	r0, r3
+ 720 000e FFF7FEFF 		bl	ADC_GetResult16
+ 721 0012 0346     		mov	r3, r0
+ 722 0014 1846     		mov	r0, r3
+ 723 0016 FFF7FEFF 		bl	ADC_CountsTo_mVolts
+ 724 001a 0346     		mov	r3, r0
+ 310:.\main.c      **** }
+ 725              		.loc 1 310 0
+ 726 001c 1846     		mov	r0, r3
+ 727 001e 0837     		adds	r7, r7, #8
+ 728              		.cfi_def_cfa_offset 8
+ 729 0020 BD46     		mov	sp, r7
+ 730              		.cfi_def_cfa_register 13
+ 731              		@ sp needed
+ 732 0022 80BD     		pop	{r7, pc}
+ 733              		.cfi_endproc
+ 734              	.LFE66:
+ 735              		.size	getValForChannel, .-getValForChannel
+ 736              		.section	.text.updateSensorValues,"ax",%progbits
+ 737              		.align	2
+ 738              		.global	updateSensorValues
+ 739              		.thumb
+ 740              		.thumb_func
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 20
+
+
+ 741              		.type	updateSensorValues, %function
+ 742              	updateSensorValues:
+ 743              	.LFB67:
+ 311:.\main.c      **** 
+ 312:.\main.c      **** void updateSensorValues(){
+ 744              		.loc 1 312 0
+ 745              		.cfi_startproc
+ 746              		@ args = 0, pretend = 0, frame = 8
+ 747              		@ frame_needed = 1, uses_anonymous_args = 0
+ 748 0000 80B5     		push	{r7, lr}
+ 749              		.cfi_def_cfa_offset 8
+ 750              		.cfi_offset 7, -8
+ 751              		.cfi_offset 14, -4
+ 752 0002 82B0     		sub	sp, sp, #8
+ 753              		.cfi_def_cfa_offset 16
+ 754 0004 00AF     		add	r7, sp, #0
+ 755              		.cfi_def_cfa_register 7
+ 313:.\main.c      ****     // update each sensor with the maximum reading so far
+ 314:.\main.c      ****     int i;
+ 315:.\main.c      ****     for (i = 0; i < NUM_SENSORS; i++){
+ 756              		.loc 1 315 0
+ 757 0006 0023     		movs	r3, #0
+ 758 0008 7B60     		str	r3, [r7, #4]
+ 759 000a 15E0     		b	.L41
+ 760              	.L43:
+ 761              	.LBB2:
+ 316:.\main.c      ****         int reading = getValForChannel(i);
+ 762              		.loc 1 316 0
+ 763 000c 7B68     		ldr	r3, [r7, #4]
+ 764 000e 9BB2     		uxth	r3, r3
+ 765 0010 1BB2     		sxth	r3, r3
+ 766 0012 1846     		mov	r0, r3
+ 767 0014 FFF7FEFF 		bl	getValForChannel
+ 768 0018 3860     		str	r0, [r7]
+ 317:.\main.c      ****         if (reading > adc_readings[i]) {
+ 769              		.loc 1 317 0
+ 770 001a 234A     		ldr	r2, .L48
+ 771 001c 7B68     		ldr	r3, [r7, #4]
+ 772 001e 52F82320 		ldr	r2, [r2, r3, lsl #2]
+ 773 0022 3B68     		ldr	r3, [r7]
+ 774 0024 9A42     		cmp	r2, r3
+ 775 0026 04DA     		bge	.L42
+ 318:.\main.c      ****             adc_readings[i] = reading;
+ 776              		.loc 1 318 0
+ 777 0028 1F49     		ldr	r1, .L48
+ 778 002a 7B68     		ldr	r3, [r7, #4]
+ 779 002c 3A68     		ldr	r2, [r7]
+ 780 002e 41F82320 		str	r2, [r1, r3, lsl #2]
+ 781              	.L42:
+ 782              	.LBE2:
+ 315:.\main.c      ****         int reading = getValForChannel(i);
+ 783              		.loc 1 315 0 discriminator 2
+ 784 0032 7B68     		ldr	r3, [r7, #4]
+ 785 0034 0133     		adds	r3, r3, #1
+ 786 0036 7B60     		str	r3, [r7, #4]
+ 787              	.L41:
+ 315:.\main.c      ****         int reading = getValForChannel(i);
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 21
+
+
+ 788              		.loc 1 315 0 is_stmt 0 discriminator 1
+ 789 0038 7B68     		ldr	r3, [r7, #4]
+ 790 003a 052B     		cmp	r3, #5
+ 791 003c E6DD     		ble	.L43
+ 319:.\main.c      ****         }
+ 320:.\main.c      ****     }
+ 321:.\main.c      **** 
+ 322:.\main.c      ****     sample_count++;
+ 792              		.loc 1 322 0 is_stmt 1
+ 793 003e 1B4B     		ldr	r3, .L48+4
+ 794 0040 1B68     		ldr	r3, [r3]
+ 795 0042 0133     		adds	r3, r3, #1
+ 796 0044 194A     		ldr	r2, .L48+4
+ 797 0046 1360     		str	r3, [r2]
+ 323:.\main.c      ****     if (sample_count == ADC_READINGS_SIZE){
+ 798              		.loc 1 323 0
+ 799 0048 184B     		ldr	r3, .L48+4
+ 800 004a 1B68     		ldr	r3, [r3]
+ 801 004c 5A2B     		cmp	r3, #90
+ 802 004e 25D1     		bne	.L44
+ 324:.\main.c      ****         // Black = 1 (high voltage level)
+ 325:.\main.c      ****         for (i = 0; i < NUM_SENSORS; i++){
+ 803              		.loc 1 325 0
+ 804 0050 0023     		movs	r3, #0
+ 805 0052 7B60     		str	r3, [r7, #4]
+ 806 0054 18E0     		b	.L45
+ 807              	.L46:
+ 326:.\main.c      ****             sensor_readings[i] = !!(adc_readings[i] < LIGHT_LEVEL);
+ 808              		.loc 1 326 0 discriminator 3
+ 809 0056 144A     		ldr	r2, .L48
+ 810 0058 7B68     		ldr	r3, [r7, #4]
+ 811 005a 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 812 005e 40F22B12 		movw	r2, #299
+ 813 0062 9342     		cmp	r3, r2
+ 814 0064 D4BF     		ite	le
+ 815 0066 0123     		movle	r3, #1
+ 816 0068 0023     		movgt	r3, #0
+ 817 006a DBB2     		uxtb	r3, r3
+ 818 006c D9B2     		uxtb	r1, r3
+ 819 006e 104A     		ldr	r2, .L48+8
+ 820 0070 7B68     		ldr	r3, [r7, #4]
+ 821 0072 1344     		add	r3, r3, r2
+ 822 0074 0A46     		mov	r2, r1
+ 823 0076 1A70     		strb	r2, [r3]
+ 327:.\main.c      ****             adc_readings[i] = 0; // Reset max value from samples
+ 824              		.loc 1 327 0 discriminator 3
+ 825 0078 0B4A     		ldr	r2, .L48
+ 826 007a 7B68     		ldr	r3, [r7, #4]
+ 827 007c 0021     		movs	r1, #0
+ 828 007e 42F82310 		str	r1, [r2, r3, lsl #2]
+ 325:.\main.c      ****             sensor_readings[i] = !!(adc_readings[i] < LIGHT_LEVEL);
+ 829              		.loc 1 325 0 discriminator 3
+ 830 0082 7B68     		ldr	r3, [r7, #4]
+ 831 0084 0133     		adds	r3, r3, #1
+ 832 0086 7B60     		str	r3, [r7, #4]
+ 833              	.L45:
+ 325:.\main.c      ****             sensor_readings[i] = !!(adc_readings[i] < LIGHT_LEVEL);
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 22
+
+
+ 834              		.loc 1 325 0 is_stmt 0 discriminator 1
+ 835 0088 7B68     		ldr	r3, [r7, #4]
+ 836 008a 052B     		cmp	r3, #5
+ 837 008c E3DD     		ble	.L46
+ 328:.\main.c      ****         }
+ 329:.\main.c      ****         ADC_DEBUG_Write(1);
+ 838              		.loc 1 329 0 is_stmt 1
+ 839 008e 0120     		movs	r0, #1
+ 840 0090 FFF7FEFF 		bl	ADC_DEBUG_Write
+ 330:.\main.c      ****         sample_count = 0;
+ 841              		.loc 1 330 0
+ 842 0094 054B     		ldr	r3, .L48+4
+ 843 0096 0022     		movs	r2, #0
+ 844 0098 1A60     		str	r2, [r3]
+ 845 009a 02E0     		b	.L40
+ 846              	.L44:
+ 331:.\main.c      **** //        
+ 332:.\main.c      **** //        // DEBUG
+ 333:.\main.c      **** //        // "F: 0 0 0 B: 0 0 1"
+ 334:.\main.c      **** //        char msg[20] = "F: ";
+ 335:.\main.c      **** //        char temp[3] = { 0 };
+ 336:.\main.c      **** //        itoa(sensor_readings[TOP_LEFT_SENSOR], temp, 10);
+ 337:.\main.c      **** //        strcat(msg, temp);
+ 338:.\main.c      **** //        strcat(msg, " ");
+ 339:.\main.c      **** //        itoa(sensor_readings[TOP_MID_SENSOR], temp, 10);
+ 340:.\main.c      **** //        strcat(msg, temp);
+ 341:.\main.c      **** //        strcat(msg, " ");
+ 342:.\main.c      **** //        itoa(sensor_readings[TOP_RIGHT_SENSOR], temp, 10);
+ 343:.\main.c      **** //        strcat(msg, temp);
+ 344:.\main.c      **** //        strcat(msg, " B: ");
+ 345:.\main.c      **** //        itoa(sensor_readings[BOTTOM_LEFT_SENSOR], temp, 10);
+ 346:.\main.c      **** //        strcat(msg, temp);
+ 347:.\main.c      **** //        strcat(msg, " ");
+ 348:.\main.c      **** //        itoa(sensor_readings[BOTTOM_MID_SENSOR], temp, 10);
+ 349:.\main.c      **** //        strcat(msg, temp);
+ 350:.\main.c      **** //        strcat(msg, " ");
+ 351:.\main.c      **** //        itoa(sensor_readings[BOTTOM_RIGHT_SENSOR], temp, 10);
+ 352:.\main.c      **** //        strcat(msg, temp);
+ 353:.\main.c      **** //        strcat(msg, " ");
+ 354:.\main.c      **** //        strcat(msg, "\r\n");
+ 355:.\main.c      **** //        usbPutString(msg);
+ 356:.\main.c      ****     }
+ 357:.\main.c      ****     else ADC_DEBUG_Write(0);
+ 847              		.loc 1 357 0
+ 848 009c 0020     		movs	r0, #0
+ 849 009e FFF7FEFF 		bl	ADC_DEBUG_Write
+ 850              	.L40:
+ 358:.\main.c      **** }
+ 851              		.loc 1 358 0
+ 852 00a2 0837     		adds	r7, r7, #8
+ 853              		.cfi_def_cfa_offset 8
+ 854 00a4 BD46     		mov	sp, r7
+ 855              		.cfi_def_cfa_register 13
+ 856              		@ sp needed
+ 857 00a6 80BD     		pop	{r7, pc}
+ 858              	.L49:
+ 859              		.align	2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 23
+
+
+ 860              	.L48:
+ 861 00a8 00000000 		.word	adc_readings
+ 862 00ac 00000000 		.word	sample_count
+ 863 00b0 00000000 		.word	sensor_readings
+ 864              		.cfi_endproc
+ 865              	.LFE67:
+ 866              		.size	updateSensorValues, .-updateSensorValues
+ 867              		.section	.text.changeLeftWheelSpeed,"ax",%progbits
+ 868              		.align	2
+ 869              		.global	changeLeftWheelSpeed
+ 870              		.thumb
+ 871              		.thumb_func
+ 872              		.type	changeLeftWheelSpeed, %function
+ 873              	changeLeftWheelSpeed:
+ 874              	.LFB68:
+ 359:.\main.c      **** 
+ 360:.\main.c      **** void changeLeftWheelSpeed(int amount) {
+ 875              		.loc 1 360 0
+ 876              		.cfi_startproc
+ 877              		@ args = 0, pretend = 0, frame = 16
+ 878              		@ frame_needed = 1, uses_anonymous_args = 0
+ 879 0000 80B5     		push	{r7, lr}
+ 880              		.cfi_def_cfa_offset 8
+ 881              		.cfi_offset 7, -8
+ 882              		.cfi_offset 14, -4
+ 883 0002 84B0     		sub	sp, sp, #16
+ 884              		.cfi_def_cfa_offset 24
+ 885 0004 00AF     		add	r7, sp, #0
+ 886              		.cfi_def_cfa_register 7
+ 887 0006 7860     		str	r0, [r7, #4]
+ 361:.\main.c      ****     int new_value = PWM_1_ReadCompare() + amount;
+ 888              		.loc 1 361 0
+ 889 0008 FFF7FEFF 		bl	PWM_1_ReadCompare
+ 890 000c 0346     		mov	r3, r0
+ 891 000e 1A46     		mov	r2, r3
+ 892 0010 7B68     		ldr	r3, [r7, #4]
+ 893 0012 1344     		add	r3, r3, r2
+ 894 0014 FB60     		str	r3, [r7, #12]
+ 362:.\main.c      ****     PWM_1_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
+ 895              		.loc 1 362 0
+ 896 0016 FB68     		ldr	r3, [r7, #12]
+ 897 0018 23EAE373 		bic	r3, r3, r3, asr #31
+ 898 001c 9BB2     		uxth	r3, r3
+ 899 001e 1846     		mov	r0, r3
+ 900 0020 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 363:.\main.c      **** }
+ 901              		.loc 1 363 0
+ 902 0024 1037     		adds	r7, r7, #16
+ 903              		.cfi_def_cfa_offset 8
+ 904 0026 BD46     		mov	sp, r7
+ 905              		.cfi_def_cfa_register 13
+ 906              		@ sp needed
+ 907 0028 80BD     		pop	{r7, pc}
+ 908              		.cfi_endproc
+ 909              	.LFE68:
+ 910              		.size	changeLeftWheelSpeed, .-changeLeftWheelSpeed
+ 911 002a 00BF     		.section	.text.changeRightWheelSpeed,"ax",%progbits
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 24
+
+
+ 912              		.align	2
+ 913              		.global	changeRightWheelSpeed
+ 914              		.thumb
+ 915              		.thumb_func
+ 916              		.type	changeRightWheelSpeed, %function
+ 917              	changeRightWheelSpeed:
+ 918              	.LFB69:
+ 364:.\main.c      **** 
+ 365:.\main.c      **** void changeRightWheelSpeed(int amount){
+ 919              		.loc 1 365 0
+ 920              		.cfi_startproc
+ 921              		@ args = 0, pretend = 0, frame = 16
+ 922              		@ frame_needed = 1, uses_anonymous_args = 0
+ 923 0000 80B5     		push	{r7, lr}
+ 924              		.cfi_def_cfa_offset 8
+ 925              		.cfi_offset 7, -8
+ 926              		.cfi_offset 14, -4
+ 927 0002 84B0     		sub	sp, sp, #16
+ 928              		.cfi_def_cfa_offset 24
+ 929 0004 00AF     		add	r7, sp, #0
+ 930              		.cfi_def_cfa_register 7
+ 931 0006 7860     		str	r0, [r7, #4]
+ 366:.\main.c      ****     int new_value = PWM_2_ReadCompare() + amount;
+ 932              		.loc 1 366 0
+ 933 0008 FFF7FEFF 		bl	PWM_2_ReadCompare
+ 934 000c 0346     		mov	r3, r0
+ 935 000e 1A46     		mov	r2, r3
+ 936 0010 7B68     		ldr	r3, [r7, #4]
+ 937 0012 1344     		add	r3, r3, r2
+ 938 0014 FB60     		str	r3, [r7, #12]
+ 367:.\main.c      ****     PWM_2_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
+ 939              		.loc 1 367 0
+ 940 0016 FB68     		ldr	r3, [r7, #12]
+ 941 0018 23EAE373 		bic	r3, r3, r3, asr #31
+ 942 001c 9BB2     		uxth	r3, r3
+ 943 001e 1846     		mov	r0, r3
+ 944 0020 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 368:.\main.c      **** }
+ 945              		.loc 1 368 0
+ 946 0024 1037     		adds	r7, r7, #16
+ 947              		.cfi_def_cfa_offset 8
+ 948 0026 BD46     		mov	sp, r7
+ 949              		.cfi_def_cfa_register 13
+ 950              		@ sp needed
+ 951 0028 80BD     		pop	{r7, pc}
+ 952              		.cfi_endproc
+ 953              	.LFE69:
+ 954              		.size	changeRightWheelSpeed, .-changeRightWheelSpeed
+ 955 002a 00BF     		.section	.text.correctSpeed,"ax",%progbits
+ 956              		.align	2
+ 957              		.global	correctSpeed
+ 958              		.thumb
+ 959              		.thumb_func
+ 960              		.type	correctSpeed, %function
+ 961              	correctSpeed:
+ 962              	.LFB70:
+ 369:.\main.c      **** 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 25
+
+
+ 370:.\main.c      **** /* ## SPEED CONTROL ## 
+ 371:.\main.c      **** * Algorithm: Get difference between counts, compare to
+ 372:.\main.c      **** * the difference we expect. Add the correction to the PWM.
+ 373:.\main.c      **** */
+ 374:.\main.c      **** void correctSpeed(int prevCount, int count, int desired_count, int isLeftWheel){    
+ 963              		.loc 1 374 0
+ 964              		.cfi_startproc
+ 965              		@ args = 0, pretend = 0, frame = 88
+ 966              		@ frame_needed = 1, uses_anonymous_args = 0
+ 967 0000 80B5     		push	{r7, lr}
+ 968              		.cfi_def_cfa_offset 8
+ 969              		.cfi_offset 7, -8
+ 970              		.cfi_offset 14, -4
+ 971 0002 96B0     		sub	sp, sp, #88
+ 972              		.cfi_def_cfa_offset 96
+ 973 0004 00AF     		add	r7, sp, #0
+ 974              		.cfi_def_cfa_register 7
+ 975 0006 F860     		str	r0, [r7, #12]
+ 976 0008 B960     		str	r1, [r7, #8]
+ 977 000a 7A60     		str	r2, [r7, #4]
+ 978 000c 3B60     		str	r3, [r7]
+ 375:.\main.c      ****     
+ 376:.\main.c      ****     // Account for overflow edge or other unknown error
+ 377:.\main.c      ****     if (prevCount > count) return;
+ 979              		.loc 1 377 0
+ 980 000e FA68     		ldr	r2, [r7, #12]
+ 981 0010 BB68     		ldr	r3, [r7, #8]
+ 982 0012 9A42     		cmp	r2, r3
+ 983 0014 00DD     		ble	.L53
+ 984 0016 19E0     		b	.L52
+ 985              	.L53:
+ 378:.\main.c      ****     
+ 379:.\main.c      ****     int diff_count = abs(count - prevCount);
+ 986              		.loc 1 379 0
+ 987 0018 BA68     		ldr	r2, [r7, #8]
+ 988 001a FB68     		ldr	r3, [r7, #12]
+ 989 001c D31A     		subs	r3, r2, r3
+ 990 001e 002B     		cmp	r3, #0
+ 991 0020 B8BF     		it	lt
+ 992 0022 5B42     		rsblt	r3, r3, #0
+ 993 0024 7B65     		str	r3, [r7, #84]
+ 380:.\main.c      ****     
+ 381:.\main.c      ****     // Account for a situation where PSoc is powered but wheels aren't moving
+ 382:.\main.c      ****     if (diff_count == 0) return;
+ 994              		.loc 1 382 0
+ 995 0026 7B6D     		ldr	r3, [r7, #84]
+ 996 0028 002B     		cmp	r3, #0
+ 997 002a 00D1     		bne	.L55
+ 998              		.loc 1 382 0 is_stmt 0 discriminator 2
+ 999 002c 0EE0     		b	.L52
+ 1000              	.L55:
+ 383:.\main.c      ****     
+ 384:.\main.c      ****     char msg[64];
+ 385:.\main.c      ****         
+ 386:.\main.c      ****     /* Determine correction that must be applied to the wheel
+ 387:.\main.c      ****     * desired_count > diff_count :-> wheel is slow; increase PWM
+ 388:.\main.c      ****     * desired_count < diff_count :-> wheel is fast; decrease PWM
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 26
+
+
+ 389:.\main.c      ****     * desired_count == diff_count :-> wheel is stable; do nothing
+ 390:.\main.c      ****     */
+ 391:.\main.c      ****     int correction = desired_count-diff_count;
+ 1001              		.loc 1 391 0 is_stmt 1
+ 1002 002e 7A68     		ldr	r2, [r7, #4]
+ 1003 0030 7B6D     		ldr	r3, [r7, #84]
+ 1004 0032 D31A     		subs	r3, r2, r3
+ 1005 0034 3B65     		str	r3, [r7, #80]
+ 392:.\main.c      ****     
+ 393:.\main.c      ****     // Apply the speed correction to the appropriate wheel          
+ 394:.\main.c      ****     if (isLeftWheel){
+ 1006              		.loc 1 394 0
+ 1007 0036 3B68     		ldr	r3, [r7]
+ 1008 0038 002B     		cmp	r3, #0
+ 1009 003a 03D0     		beq	.L56
+ 395:.\main.c      ****         changeLeftWheelSpeed(correction);
+ 1010              		.loc 1 395 0
+ 1011 003c 386D     		ldr	r0, [r7, #80]
+ 1012 003e FFF7FEFF 		bl	changeLeftWheelSpeed
+ 1013 0042 02E0     		b	.L57
+ 1014              	.L56:
+ 396:.\main.c      ****     }
+ 397:.\main.c      ****     else{
+ 398:.\main.c      ****         changeRightWheelSpeed(correction);
+ 1015              		.loc 1 398 0
+ 1016 0044 386D     		ldr	r0, [r7, #80]
+ 1017 0046 FFF7FEFF 		bl	changeRightWheelSpeed
+ 1018              	.L57:
+ 399:.\main.c      ****     }
+ 400:.\main.c      ****     
+ 401:.\main.c      ****     return;
+ 1019              		.loc 1 401 0 discriminator 3
+ 1020 004a 00BF     		nop
+ 1021              	.L52:
+ 402:.\main.c      **** }
+ 1022              		.loc 1 402 0
+ 1023 004c 5837     		adds	r7, r7, #88
+ 1024              		.cfi_def_cfa_offset 8
+ 1025 004e BD46     		mov	sp, r7
+ 1026              		.cfi_def_cfa_register 13
+ 1027              		@ sp needed
+ 1028 0050 80BD     		pop	{r7, pc}
+ 1029              		.cfi_endproc
+ 1030              	.LFE70:
+ 1031              		.size	correctSpeed, .-correctSpeed
+ 1032 0052 00BF     		.section	.text.setWheelDirection,"ax",%progbits
+ 1033              		.align	2
+ 1034              		.global	setWheelDirection
+ 1035              		.thumb
+ 1036              		.thumb_func
+ 1037              		.type	setWheelDirection, %function
+ 1038              	setWheelDirection:
+ 1039              	.LFB71:
+ 403:.\main.c      **** 
+ 404:.\main.c      **** /* Set wheel direction explicitly
+ 405:.\main.c      **** * Parameters are boolean, UNKNOWN can be passed
+ 406:.\main.c      **** * in if you wish the value to be unchanged
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 27
+
+
+ 407:.\main.c      **** */
+ 408:.\main.c      **** void setWheelDirection(int leftIsForward, int rightIsForward){
+ 1040              		.loc 1 408 0
+ 1041              		.cfi_startproc
+ 1042              		@ args = 0, pretend = 0, frame = 8
+ 1043              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1044 0000 80B5     		push	{r7, lr}
+ 1045              		.cfi_def_cfa_offset 8
+ 1046              		.cfi_offset 7, -8
+ 1047              		.cfi_offset 14, -4
+ 1048 0002 82B0     		sub	sp, sp, #8
+ 1049              		.cfi_def_cfa_offset 16
+ 1050 0004 00AF     		add	r7, sp, #0
+ 1051              		.cfi_def_cfa_register 7
+ 1052 0006 7860     		str	r0, [r7, #4]
+ 1053 0008 3960     		str	r1, [r7]
+ 409:.\main.c      ****     INV1_Write(!leftIsForward);
+ 1054              		.loc 1 409 0
+ 1055 000a 7B68     		ldr	r3, [r7, #4]
+ 1056 000c 002B     		cmp	r3, #0
+ 1057 000e 0CBF     		ite	eq
+ 1058 0010 0123     		moveq	r3, #1
+ 1059 0012 0023     		movne	r3, #0
+ 1060 0014 DBB2     		uxtb	r3, r3
+ 1061 0016 1846     		mov	r0, r3
+ 1062 0018 FFF7FEFF 		bl	INV1_Write
+ 410:.\main.c      ****     INV2_Write(rightIsForward);
+ 1063              		.loc 1 410 0
+ 1064 001c 3B68     		ldr	r3, [r7]
+ 1065 001e DBB2     		uxtb	r3, r3
+ 1066 0020 1846     		mov	r0, r3
+ 1067 0022 FFF7FEFF 		bl	INV2_Write
+ 411:.\main.c      **** }
+ 1068              		.loc 1 411 0
+ 1069 0026 0837     		adds	r7, r7, #8
+ 1070              		.cfi_def_cfa_offset 8
+ 1071 0028 BD46     		mov	sp, r7
+ 1072              		.cfi_def_cfa_register 13
+ 1073              		@ sp needed
+ 1074 002a 80BD     		pop	{r7, pc}
+ 1075              		.cfi_endproc
+ 1076              	.LFE71:
+ 1077              		.size	setWheelDirection, .-setWheelDirection
+ 1078              		.section	.text.turnLeft,"ax",%progbits
+ 1079              		.align	2
+ 1080              		.global	turnLeft
+ 1081              		.thumb
+ 1082              		.thumb_func
+ 1083              		.type	turnLeft, %function
+ 1084              	turnLeft:
+ 1085              	.LFB72:
+ 412:.\main.c      **** 
+ 413:.\main.c      **** void turnLeft() {
+ 1086              		.loc 1 413 0
+ 1087              		.cfi_startproc
+ 1088              		@ args = 0, pretend = 0, frame = 0
+ 1089              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 28
+
+
+ 1090 0000 80B5     		push	{r7, lr}
+ 1091              		.cfi_def_cfa_offset 8
+ 1092              		.cfi_offset 7, -8
+ 1093              		.cfi_offset 14, -4
+ 1094 0002 00AF     		add	r7, sp, #0
+ 1095              		.cfi_def_cfa_register 7
+ 414:.\main.c      ****     PWM_1_WriteCompare(0);
+ 1096              		.loc 1 414 0
+ 1097 0004 0020     		movs	r0, #0
+ 1098 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 415:.\main.c      ****     PWM_2_WriteCompare(TURN_SPEED);
+ 1099              		.loc 1 415 0
+ 1100 000a 4FF4E170 		mov	r0, #450
+ 1101 000e FFF7FEFF 		bl	PWM_2_WriteCompare
+ 416:.\main.c      ****     while (!sensor_readings[TOP_MID_SENSOR]) {
+ 1102              		.loc 1 416 0
+ 1103 0012 08E0     		b	.L61
+ 1104              	.L62:
+ 417:.\main.c      ****         if (adc_flag) {
+ 1105              		.loc 1 417 0
+ 1106 0014 084B     		ldr	r3, .L63
+ 1107 0016 1B68     		ldr	r3, [r3]
+ 1108 0018 002B     		cmp	r3, #0
+ 1109 001a 04D0     		beq	.L61
+ 418:.\main.c      ****             updateSensorValues();
+ 1110              		.loc 1 418 0
+ 1111 001c FFF7FEFF 		bl	updateSensorValues
+ 419:.\main.c      ****             adc_flag = FALSE;
+ 1112              		.loc 1 419 0
+ 1113 0020 054B     		ldr	r3, .L63
+ 1114 0022 0022     		movs	r2, #0
+ 1115 0024 1A60     		str	r2, [r3]
+ 1116              	.L61:
+ 416:.\main.c      ****         if (adc_flag) {
+ 1117              		.loc 1 416 0
+ 1118 0026 054B     		ldr	r3, .L63+4
+ 1119 0028 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1120 002a 002B     		cmp	r3, #0
+ 1121 002c F2D0     		beq	.L62
+ 420:.\main.c      ****         }
+ 421:.\main.c      ****     }
+ 422:.\main.c      ****     PWM_1_WriteCompare(TURN_SPEED);
+ 1122              		.loc 1 422 0
+ 1123 002e 4FF4E170 		mov	r0, #450
+ 1124 0032 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 423:.\main.c      **** }
+ 1125              		.loc 1 423 0
+ 1126 0036 80BD     		pop	{r7, pc}
+ 1127              	.L64:
+ 1128              		.align	2
+ 1129              	.L63:
+ 1130 0038 00000000 		.word	adc_flag
+ 1131 003c 00000000 		.word	sensor_readings
+ 1132              		.cfi_endproc
+ 1133              	.LFE72:
+ 1134              		.size	turnLeft, .-turnLeft
+ 1135              		.section	.text.turnRight,"ax",%progbits
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 29
+
+
+ 1136              		.align	2
+ 1137              		.global	turnRight
+ 1138              		.thumb
+ 1139              		.thumb_func
+ 1140              		.type	turnRight, %function
+ 1141              	turnRight:
+ 1142              	.LFB73:
+ 424:.\main.c      **** 
+ 425:.\main.c      **** void turnRight() {
+ 1143              		.loc 1 425 0
+ 1144              		.cfi_startproc
+ 1145              		@ args = 0, pretend = 0, frame = 0
+ 1146              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1147 0000 80B5     		push	{r7, lr}
+ 1148              		.cfi_def_cfa_offset 8
+ 1149              		.cfi_offset 7, -8
+ 1150              		.cfi_offset 14, -4
+ 1151 0002 00AF     		add	r7, sp, #0
+ 1152              		.cfi_def_cfa_register 7
+ 426:.\main.c      ****     PWM_1_WriteCompare(TURN_SPEED);
+ 1153              		.loc 1 426 0
+ 1154 0004 4FF4E170 		mov	r0, #450
+ 1155 0008 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 427:.\main.c      ****     PWM_2_WriteCompare(0);
+ 1156              		.loc 1 427 0
+ 1157 000c 0020     		movs	r0, #0
+ 1158 000e FFF7FEFF 		bl	PWM_2_WriteCompare
+ 428:.\main.c      ****     while (!sensor_readings[TOP_MID_SENSOR]) {
+ 1159              		.loc 1 428 0
+ 1160 0012 08E0     		b	.L66
+ 1161              	.L67:
+ 429:.\main.c      ****         if (adc_flag) {
+ 1162              		.loc 1 429 0
+ 1163 0014 084B     		ldr	r3, .L68
+ 1164 0016 1B68     		ldr	r3, [r3]
+ 1165 0018 002B     		cmp	r3, #0
+ 1166 001a 04D0     		beq	.L66
+ 430:.\main.c      ****             updateSensorValues();
+ 1167              		.loc 1 430 0
+ 1168 001c FFF7FEFF 		bl	updateSensorValues
+ 431:.\main.c      ****             adc_flag = FALSE;
+ 1169              		.loc 1 431 0
+ 1170 0020 054B     		ldr	r3, .L68
+ 1171 0022 0022     		movs	r2, #0
+ 1172 0024 1A60     		str	r2, [r3]
+ 1173              	.L66:
+ 428:.\main.c      ****         if (adc_flag) {
+ 1174              		.loc 1 428 0
+ 1175 0026 054B     		ldr	r3, .L68+4
+ 1176 0028 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1177 002a 002B     		cmp	r3, #0
+ 1178 002c F2D0     		beq	.L67
+ 432:.\main.c      ****         }
+ 433:.\main.c      ****     }
+ 434:.\main.c      ****     PWM_2_WriteCompare(TURN_SPEED);
+ 1179              		.loc 1 434 0
+ 1180 002e 4FF4E170 		mov	r0, #450
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 30
+
+
+ 1181 0032 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 435:.\main.c      **** }
+ 1182              		.loc 1 435 0
+ 1183 0036 80BD     		pop	{r7, pc}
+ 1184              	.L69:
+ 1185              		.align	2
+ 1186              	.L68:
+ 1187 0038 00000000 		.word	adc_flag
+ 1188 003c 00000000 		.word	sensor_readings
+ 1189              		.cfi_endproc
+ 1190              	.LFE73:
+ 1191              		.size	turnRight, .-turnRight
+ 1192              		.section	.text.sharpTurnLeft,"ax",%progbits
+ 1193              		.align	2
+ 1194              		.global	sharpTurnLeft
+ 1195              		.thumb
+ 1196              		.thumb_func
+ 1197              		.type	sharpTurnLeft, %function
+ 1198              	sharpTurnLeft:
+ 1199              	.LFB74:
+ 436:.\main.c      **** 
+ 437:.\main.c      **** void sharpTurnLeft() {
+ 1200              		.loc 1 437 0
+ 1201              		.cfi_startproc
+ 1202              		@ args = 0, pretend = 0, frame = 0
+ 1203              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1204 0000 80B5     		push	{r7, lr}
+ 1205              		.cfi_def_cfa_offset 8
+ 1206              		.cfi_offset 7, -8
+ 1207              		.cfi_offset 14, -4
+ 1208 0002 00AF     		add	r7, sp, #0
+ 1209              		.cfi_def_cfa_register 7
+ 438:.\main.c      ****     setWheelDirection(FALSE, TRUE);
+ 1210              		.loc 1 438 0
+ 1211 0004 0020     		movs	r0, #0
+ 1212 0006 0121     		movs	r1, #1
+ 1213 0008 FFF7FEFF 		bl	setWheelDirection
+ 439:.\main.c      ****     PWM_1_WriteCompare(TURN_SPEED);
+ 1214              		.loc 1 439 0
+ 1215 000c 4FF4E170 		mov	r0, #450
+ 1216 0010 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 440:.\main.c      ****     PWM_2_WriteCompare(TURN_SPEED);
+ 1217              		.loc 1 440 0
+ 1218 0014 4FF4E170 		mov	r0, #450
+ 1219 0018 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 441:.\main.c      ****     while (!sensor_readings[TOP_MID_SENSOR]) {
+ 1220              		.loc 1 441 0
+ 1221 001c 08E0     		b	.L71
+ 1222              	.L72:
+ 442:.\main.c      ****         if (adc_flag) {
+ 1223              		.loc 1 442 0
+ 1224 001e 0D4B     		ldr	r3, .L73
+ 1225 0020 1B68     		ldr	r3, [r3]
+ 1226 0022 002B     		cmp	r3, #0
+ 1227 0024 04D0     		beq	.L71
+ 443:.\main.c      ****             updateSensorValues();
+ 1228              		.loc 1 443 0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 31
+
+
+ 1229 0026 FFF7FEFF 		bl	updateSensorValues
+ 444:.\main.c      ****             adc_flag = FALSE;
+ 1230              		.loc 1 444 0
+ 1231 002a 0A4B     		ldr	r3, .L73
+ 1232 002c 0022     		movs	r2, #0
+ 1233 002e 1A60     		str	r2, [r3]
+ 1234              	.L71:
+ 441:.\main.c      ****         if (adc_flag) {
+ 1235              		.loc 1 441 0
+ 1236 0030 094B     		ldr	r3, .L73+4
+ 1237 0032 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1238 0034 002B     		cmp	r3, #0
+ 1239 0036 F2D0     		beq	.L72
+ 445:.\main.c      ****         }
+ 446:.\main.c      ****     }
+ 447:.\main.c      ****     setWheelDirection(TRUE, TRUE);
+ 1240              		.loc 1 447 0
+ 1241 0038 0120     		movs	r0, #1
+ 1242 003a 0121     		movs	r1, #1
+ 1243 003c FFF7FEFF 		bl	setWheelDirection
+ 448:.\main.c      ****     PWM_1_WriteCompare(TURN_SPEED);
+ 1244              		.loc 1 448 0
+ 1245 0040 4FF4E170 		mov	r0, #450
+ 1246 0044 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 449:.\main.c      ****     PWM_2_WriteCompare(TURN_SPEED);
+ 1247              		.loc 1 449 0
+ 1248 0048 4FF4E170 		mov	r0, #450
+ 1249 004c FFF7FEFF 		bl	PWM_2_WriteCompare
+ 450:.\main.c      **** }
+ 1250              		.loc 1 450 0
+ 1251 0050 80BD     		pop	{r7, pc}
+ 1252              	.L74:
+ 1253 0052 00BF     		.align	2
+ 1254              	.L73:
+ 1255 0054 00000000 		.word	adc_flag
+ 1256 0058 00000000 		.word	sensor_readings
+ 1257              		.cfi_endproc
+ 1258              	.LFE74:
+ 1259              		.size	sharpTurnLeft, .-sharpTurnLeft
+ 1260              		.section	.text.sharpTurnRight,"ax",%progbits
+ 1261              		.align	2
+ 1262              		.global	sharpTurnRight
+ 1263              		.thumb
+ 1264              		.thumb_func
+ 1265              		.type	sharpTurnRight, %function
+ 1266              	sharpTurnRight:
+ 1267              	.LFB75:
+ 451:.\main.c      **** 
+ 452:.\main.c      **** void sharpTurnRight() {
+ 1268              		.loc 1 452 0
+ 1269              		.cfi_startproc
+ 1270              		@ args = 0, pretend = 0, frame = 0
+ 1271              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1272 0000 80B5     		push	{r7, lr}
+ 1273              		.cfi_def_cfa_offset 8
+ 1274              		.cfi_offset 7, -8
+ 1275              		.cfi_offset 14, -4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 32
+
+
+ 1276 0002 00AF     		add	r7, sp, #0
+ 1277              		.cfi_def_cfa_register 7
+ 453:.\main.c      ****     setWheelDirection(TRUE, FALSE);
+ 1278              		.loc 1 453 0
+ 1279 0004 0120     		movs	r0, #1
+ 1280 0006 0021     		movs	r1, #0
+ 1281 0008 FFF7FEFF 		bl	setWheelDirection
+ 454:.\main.c      ****     PWM_1_WriteCompare(TURN_SPEED);
+ 1282              		.loc 1 454 0
+ 1283 000c 4FF4E170 		mov	r0, #450
+ 1284 0010 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 455:.\main.c      ****     PWM_2_WriteCompare(TURN_SPEED);
+ 1285              		.loc 1 455 0
+ 1286 0014 4FF4E170 		mov	r0, #450
+ 1287 0018 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 456:.\main.c      ****     while (!sensor_readings[TOP_MID_SENSOR]) {
+ 1288              		.loc 1 456 0
+ 1289 001c 08E0     		b	.L76
+ 1290              	.L77:
+ 457:.\main.c      ****         if (adc_flag) {
+ 1291              		.loc 1 457 0
+ 1292 001e 0D4B     		ldr	r3, .L78
+ 1293 0020 1B68     		ldr	r3, [r3]
+ 1294 0022 002B     		cmp	r3, #0
+ 1295 0024 04D0     		beq	.L76
+ 458:.\main.c      ****             updateSensorValues();
+ 1296              		.loc 1 458 0
+ 1297 0026 FFF7FEFF 		bl	updateSensorValues
+ 459:.\main.c      ****             adc_flag = FALSE;
+ 1298              		.loc 1 459 0
+ 1299 002a 0A4B     		ldr	r3, .L78
+ 1300 002c 0022     		movs	r2, #0
+ 1301 002e 1A60     		str	r2, [r3]
+ 1302              	.L76:
+ 456:.\main.c      ****         if (adc_flag) {
+ 1303              		.loc 1 456 0
+ 1304 0030 094B     		ldr	r3, .L78+4
+ 1305 0032 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1306 0034 002B     		cmp	r3, #0
+ 1307 0036 F2D0     		beq	.L77
+ 460:.\main.c      ****         }
+ 461:.\main.c      ****     }
+ 462:.\main.c      ****     setWheelDirection(TRUE, TRUE);
+ 1308              		.loc 1 462 0
+ 1309 0038 0120     		movs	r0, #1
+ 1310 003a 0121     		movs	r1, #1
+ 1311 003c FFF7FEFF 		bl	setWheelDirection
+ 463:.\main.c      ****     PWM_1_WriteCompare(TURN_SPEED);
+ 1312              		.loc 1 463 0
+ 1313 0040 4FF4E170 		mov	r0, #450
+ 1314 0044 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 464:.\main.c      ****     PWM_2_WriteCompare(TURN_SPEED);
+ 1315              		.loc 1 464 0
+ 1316 0048 4FF4E170 		mov	r0, #450
+ 1317 004c FFF7FEFF 		bl	PWM_2_WriteCompare
+ 465:.\main.c      **** }
+ 1318              		.loc 1 465 0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 33
+
+
+ 1319 0050 80BD     		pop	{r7, pc}
+ 1320              	.L79:
+ 1321 0052 00BF     		.align	2
+ 1322              	.L78:
+ 1323 0054 00000000 		.word	adc_flag
+ 1324 0058 00000000 		.word	sensor_readings
+ 1325              		.cfi_endproc
+ 1326              	.LFE75:
+ 1327              		.size	sharpTurnRight, .-sharpTurnRight
+ 1328              		.section	.text.usbPutString,"ax",%progbits
+ 1329              		.align	2
+ 1330              		.global	usbPutString
+ 1331              		.thumb
+ 1332              		.thumb_func
+ 1333              		.type	usbPutString, %function
+ 1334              	usbPutString:
+ 1335              	.LFB76:
+ 466:.\main.c      **** //* ================== UNUSED FUNCTION ======================
+ 467:.\main.c      **** 
+ 468:.\main.c      **** //float resetDecoderCount(float sum){//TODO: why are you taking in sum?
+ 469:.\main.c      **** //    sum = (countM1 + countM2) >> 1;
+ 470:.\main.c      **** //    
+ 471:.\main.c      **** //    // Reset
+ 472:.\main.c      **** //    QuadDec_M1_SetCounter(0);
+ 473:.\main.c      **** //    QuadDec_M2_SetCounter(0);
+ 474:.\main.c      **** //    
+ 475:.\main.c      **** //    return sum;
+ 476:.\main.c      **** //}
+ 477:.\main.c      **** 
+ 478:.\main.c      **** 
+ 479:.\main.c      **** //// Simple int maximum number function
+ 480:.\main.c      **** //int getMax(int *readings)
+ 481:.\main.c      **** //{
+ 482:.\main.c      **** //    int j;
+ 483:.\main.c      **** //    int max = readings[0];
+ 484:.\main.c      **** //    for (j = 1; j < ADC_READINGS_SIZE; j++) {
+ 485:.\main.c      **** //        if (readings[j] > max) {
+ 486:.\main.c      **** //           max = readings[j];
+ 487:.\main.c      **** //        }
+ 488:.\main.c      **** //    }
+ 489:.\main.c      **** //    return max;
+ 490:.\main.c      **** //}
+ 491:.\main.c      **** 
+ 492:.\main.c      **** 
+ 493:.\main.c      **** /*
+ 494:.\main.c      **** * Function for performing a 90 degree turn
+ 495:.\main.c      **** * returns true once finished
+ 496:.\main.c      **** */
+ 497:.\main.c      **** //int8 performTurn(int isLeft){
+ 498:.\main.c      **** //    // Reset decoder measurements
+ 499:.\main.c      **** //    QuadDec_M1_SetCounter(0);
+ 500:.\main.c      **** //    QuadDec_M2_SetCounter(0);
+ 501:.\main.c      **** //    
+ 502:.\main.c      **** //    int M1_count, M2_count = 0;
+ 503:.\main.c      **** //    
+ 504:.\main.c      **** //    // Set PWMs to rotate
+ 505:.\main.c      **** //    PWM_1_WriteCompare(TURN_PWM_VAL);
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 34
+
+
+ 506:.\main.c      **** //    PWM_2_WriteCompare(TURN_PWM_VAL);
+ 507:.\main.c      **** //    
+ 508:.\main.c      **** //    // Set wheel direction for rotating on the spot
+ 509:.\main.c      **** //    if (isLeft){
+ 510:.\main.c      **** //        // left wheel moves backwarsd, right moves forwards
+ 511:.\main.c      **** //        setWheelDirection(FALSE, TRUE);}
+ 512:.\main.c      **** //    else {
+ 513:.\main.c      **** //        // right wheel moves forwards, left moves backwards
+ 514:.\main.c      **** //        setWheelDirection(TRUE, FALSE);
+ 515:.\main.c      **** //    }
+ 516:.\main.c      **** //    
+ 517:.\main.c      **** //    while (M1_count < TICKS_FOR_TURN || M2_count < TICKS_FOR_TURN) {
+ 518:.\main.c      **** //        M1_count = QuadDec_M1_GetCounter();
+ 519:.\main.c      **** //        M2_count = QuadDec_M2_GetCounter();
+ 520:.\main.c      **** //    }
+ 521:.\main.c      **** //    
+ 522:.\main.c      **** //    PWM_1_WriteCompare(0);
+ 523:.\main.c      **** //    PWM_2_WriteCompare(0);
+ 524:.\main.c      **** //    
+ 525:.\main.c      **** //    return TRUE;
+ 526:.\main.c      **** //}
+ 527:.\main.c      **** 
+ 528:.\main.c      **** /* Invert wheel direction
+ 529:.\main.c      **** * i.e. if going forwards, a call
+ 530:.\main.c      **** * to this makes it go backwards
+ 531:.\main.c      **** */
+ 532:.\main.c      **** //void invertWheels(){
+ 533:.\main.c      **** //    INV1_Write(!!(INV1_Read() == 0));
+ 534:.\main.c      **** //    INV2_Write(!!(INV1_Read() == 0));
+ 535:.\main.c      **** //}
+ 536:.\main.c      **** //
+ 537:.\main.c      **** //float getDistance(int prevCountM1, int prevCountM2){
+ 538:.\main.c      **** //    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV
+ 539:.\main.c      **** //    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV
+ 540:.\main.c      **** //    return (m1_dist+m2_dist)/2;
+ 541:.\main.c      **** //};
+ 542:.\main.c      **** 
+ 543:.\main.c      **** /*
+ 544:.\main.c      **** * Calculate speed of robot in cm/s
+ 545:.\main.c      **** * linear distance = (QuadDecoderCount / ticks for 1 revolution) * linear distance for 1 revolution
+ 546:.\main.c      **** * speed = linear distance / timer period
+ 547:.\main.c      **** */
+ 548:.\main.c      **** //speed getSpeed(int prevCountM1, int prevCountM2){
+ 549:.\main.c      **** //    speed robot_speed;
+ 550:.\main.c      **** //    
+ 551:.\main.c      **** //    // Check casts to prevent integer division
+ 552:.\main.c      **** //    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV
+ 553:.\main.c      **** //    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV
+ 554:.\main.c      **** //    
+ 555:.\main.c      **** //    // Get speeds by dividing distance over timer period
+ 556:.\main.c      **** //    robot_speed.m1 = m1_dist / TIMER_PERIOD;
+ 557:.\main.c      **** //    robot_speed.m2 = m2_dist / TIMER_PERIOD;
+ 558:.\main.c      **** //
+ 559:.\main.c      **** //    return robot_speed;
+ 560:.\main.c      **** //   
+ 561:.\main.c      **** //}
+ 562:.\main.c      **** 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 35
+
+
+ 563:.\main.c      **** //* ========================================
+ 564:.\main.c      **** void usbPutString(char *s)
+ 565:.\main.c      **** {
+ 1336              		.loc 1 565 0
+ 1337              		.cfi_startproc
+ 1338              		@ args = 0, pretend = 0, frame = 8
+ 1339              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1340              		@ link register save eliminated.
+ 1341 0000 80B4     		push	{r7}
+ 1342              		.cfi_def_cfa_offset 4
+ 1343              		.cfi_offset 7, -4
+ 1344 0002 83B0     		sub	sp, sp, #12
+ 1345              		.cfi_def_cfa_offset 16
+ 1346 0004 00AF     		add	r7, sp, #0
+ 1347              		.cfi_def_cfa_register 7
+ 1348 0006 7860     		str	r0, [r7, #4]
+ 566:.\main.c      **** // !! Assumes that *s is a string with allocated space >=64 chars     
+ 567:.\main.c      **** //  Since USB implementation retricts data packets to 64 chars, this function truncates the
+ 568:.\main.c      **** //  length to 62 char (63rd char is a '!')
+ 569:.\main.c      ****     
+ 570:.\main.c      **** #ifdef PUTTY
+ 571:.\main.c      ****     
+ 572:.\main.c      ****     while (USBUART_CDCIsReady() == 0){
+ 573:.\main.c      ****     };
+ 574:.\main.c      ****     //s[63]='\0';
+ 575:.\main.c      ****     //s[62]='!';
+ 576:.\main.c      ****     USBUART_PutData((uint8 *)s, strlen(s));
+ 577:.\main.c      ****     
+ 578:.\main.c      **** #endif
+ 579:.\main.c      **** 
+ 580:.\main.c      ****     (void)s;
+ 581:.\main.c      **** 
+ 582:.\main.c      ****     return;
+ 1349              		.loc 1 582 0
+ 1350 0008 00BF     		nop
+ 583:.\main.c      **** }
+ 1351              		.loc 1 583 0
+ 1352 000a 0C37     		adds	r7, r7, #12
+ 1353              		.cfi_def_cfa_offset 4
+ 1354 000c BD46     		mov	sp, r7
+ 1355              		.cfi_def_cfa_register 13
+ 1356              		@ sp needed
+ 1357 000e 5DF8047B 		ldr	r7, [sp], #4
+ 1358              		.cfi_restore 7
+ 1359              		.cfi_def_cfa_offset 0
+ 1360 0012 7047     		bx	lr
+ 1361              		.cfi_endproc
+ 1362              	.LFE76:
+ 1363              		.size	usbPutString, .-usbPutString
+ 1364              		.text
+ 1365              	.Letext0:
+ 1366              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 1367              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 1368              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 1369              		.file 5 ".\\vars.h"
+ 1370              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 1371              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 36
+
+
+ 1372              	.Ldebug_info0:
+ 1373 0000 A5060000 		.4byte	0x6a5
+ 1374 0004 0400     		.2byte	0x4
+ 1375 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1376 000a 04       		.byte	0x4
+ 1377 000b 01       		.uleb128 0x1
+ 1378 000c 22020000 		.4byte	.LASF103
+ 1379 0010 01       		.byte	0x1
+ 1380 0011 BC000000 		.4byte	.LASF104
+ 1381 0015 2B000000 		.4byte	.LASF105
+ 1382 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1383 001d 00000000 		.4byte	0
+ 1384 0021 00000000 		.4byte	.Ldebug_line0
+ 1385 0025 02       		.uleb128 0x2
+ 1386 0026 01       		.byte	0x1
+ 1387 0027 06       		.byte	0x6
+ 1388 0028 2F030000 		.4byte	.LASF0
+ 1389 002c 02       		.uleb128 0x2
+ 1390 002d 01       		.byte	0x1
+ 1391 002e 08       		.byte	0x8
+ 1392 002f F9020000 		.4byte	.LASF1
+ 1393 0033 02       		.uleb128 0x2
+ 1394 0034 02       		.byte	0x2
+ 1395 0035 05       		.byte	0x5
+ 1396 0036 E9000000 		.4byte	.LASF2
+ 1397 003a 02       		.uleb128 0x2
+ 1398 003b 02       		.byte	0x2
+ 1399 003c 07       		.byte	0x7
+ 1400 003d AF030000 		.4byte	.LASF3
+ 1401 0041 03       		.uleb128 0x3
+ 1402 0042 F6040000 		.4byte	.LASF11
+ 1403 0046 02       		.byte	0x2
+ 1404 0047 3F       		.byte	0x3f
+ 1405 0048 4C000000 		.4byte	0x4c
+ 1406 004c 02       		.uleb128 0x2
+ 1407 004d 04       		.byte	0x4
+ 1408 004e 05       		.byte	0x5
+ 1409 004f EC030000 		.4byte	.LASF4
+ 1410 0053 02       		.uleb128 0x2
+ 1411 0054 04       		.byte	0x4
+ 1412 0055 07       		.byte	0x7
+ 1413 0056 82030000 		.4byte	.LASF5
+ 1414 005a 02       		.uleb128 0x2
+ 1415 005b 08       		.byte	0x8
+ 1416 005c 05       		.byte	0x5
+ 1417 005d B7010000 		.4byte	.LASF6
+ 1418 0061 02       		.uleb128 0x2
+ 1419 0062 08       		.byte	0x8
+ 1420 0063 07       		.byte	0x7
+ 1421 0064 49030000 		.4byte	.LASF7
+ 1422 0068 04       		.uleb128 0x4
+ 1423 0069 04       		.byte	0x4
+ 1424 006a 05       		.byte	0x5
+ 1425 006b 696E7400 		.ascii	"int\000"
+ 1426 006f 02       		.uleb128 0x2
+ 1427 0070 04       		.byte	0x4
+ 1428 0071 07       		.byte	0x7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 37
+
+
+ 1429 0072 66030000 		.4byte	.LASF8
+ 1430 0076 02       		.uleb128 0x2
+ 1431 0077 04       		.byte	0x4
+ 1432 0078 07       		.byte	0x7
+ 1433 0079 00010000 		.4byte	.LASF9
+ 1434 007d 05       		.uleb128 0x5
+ 1435 007e 04       		.byte	0x4
+ 1436 007f 83000000 		.4byte	0x83
+ 1437 0083 02       		.uleb128 0x2
+ 1438 0084 01       		.byte	0x1
+ 1439 0085 08       		.byte	0x8
+ 1440 0086 DE030000 		.4byte	.LASF10
+ 1441 008a 03       		.uleb128 0x3
+ 1442 008b 0E040000 		.4byte	.LASF12
+ 1443 008f 03       		.byte	0x3
+ 1444 0090 2C       		.byte	0x2c
+ 1445 0091 41000000 		.4byte	0x41
+ 1446 0095 06       		.uleb128 0x6
+ 1447 0096 69010000 		.4byte	.LASF13
+ 1448 009a 04       		.byte	0x4
+ 1449 009b 9201     		.2byte	0x192
+ 1450 009d 2C000000 		.4byte	0x2c
+ 1451 00a1 06       		.uleb128 0x6
+ 1452 00a2 56010000 		.4byte	.LASF14
+ 1453 00a6 04       		.byte	0x4
+ 1454 00a7 9301     		.2byte	0x193
+ 1455 00a9 3A000000 		.4byte	0x3a
+ 1456 00ad 06       		.uleb128 0x6
+ 1457 00ae D2010000 		.4byte	.LASF15
+ 1458 00b2 04       		.byte	0x4
+ 1459 00b3 9501     		.2byte	0x195
+ 1460 00b5 25000000 		.4byte	0x25
+ 1461 00b9 06       		.uleb128 0x6
+ 1462 00ba 63010000 		.4byte	.LASF16
+ 1463 00be 04       		.byte	0x4
+ 1464 00bf 9601     		.2byte	0x196
+ 1465 00c1 33000000 		.4byte	0x33
+ 1466 00c5 06       		.uleb128 0x6
+ 1467 00c6 A5040000 		.4byte	.LASF17
+ 1468 00ca 04       		.byte	0x4
+ 1469 00cb 9701     		.2byte	0x197
+ 1470 00cd 4C000000 		.4byte	0x4c
+ 1471 00d1 02       		.uleb128 0x2
+ 1472 00d2 04       		.byte	0x4
+ 1473 00d3 04       		.byte	0x4
+ 1474 00d4 B1010000 		.4byte	.LASF18
+ 1475 00d8 02       		.uleb128 0x2
+ 1476 00d9 08       		.byte	0x8
+ 1477 00da 04       		.byte	0x4
+ 1478 00db AB040000 		.4byte	.LASF19
+ 1479 00df 07       		.uleb128 0x7
+ 1480 00e0 C2030000 		.4byte	.LASF106
+ 1481 00e4 20       		.byte	0x20
+ 1482 00e5 05       		.byte	0x5
+ 1483 00e6 29       		.byte	0x29
+ 1484 00e7 B8010000 		.4byte	0x1b8
+ 1485 00eb 08       		.uleb128 0x8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 38
+
+
+ 1486 00ec AA050000 		.4byte	.LASF20
+ 1487 00f0 05       		.byte	0x5
+ 1488 00f1 2A       		.byte	0x2a
+ 1489 00f2 AD000000 		.4byte	0xad
+ 1490 00f6 00       		.byte	0
+ 1491 00f7 08       		.uleb128 0x8
+ 1492 00f8 5D010000 		.4byte	.LASF21
+ 1493 00fc 05       		.byte	0x5
+ 1494 00fd 2B       		.byte	0x2b
+ 1495 00fe 95000000 		.4byte	0x95
+ 1496 0102 01       		.byte	0x1
+ 1497 0103 08       		.uleb128 0x8
+ 1498 0104 F5030000 		.4byte	.LASF22
+ 1499 0108 05       		.byte	0x5
+ 1500 0109 2C       		.byte	0x2c
+ 1501 010a B9000000 		.4byte	0xb9
+ 1502 010e 02       		.byte	0x2
+ 1503 010f 08       		.uleb128 0x8
+ 1504 0110 7D050000 		.4byte	.LASF23
+ 1505 0114 05       		.byte	0x5
+ 1506 0115 2D       		.byte	0x2d
+ 1507 0116 B9000000 		.4byte	0xb9
+ 1508 011a 04       		.byte	0x4
+ 1509 011b 08       		.uleb128 0x8
+ 1510 011c CC030000 		.4byte	.LASF24
+ 1511 0120 05       		.byte	0x5
+ 1512 0121 2E       		.byte	0x2e
+ 1513 0122 B9000000 		.4byte	0xb9
+ 1514 0126 06       		.byte	0x6
+ 1515 0127 08       		.uleb128 0x8
+ 1516 0128 7A040000 		.4byte	.LASF25
+ 1517 012c 05       		.byte	0x5
+ 1518 012d 2F       		.byte	0x2f
+ 1519 012e B9000000 		.4byte	0xb9
+ 1520 0132 08       		.byte	0x8
+ 1521 0133 08       		.uleb128 0x8
+ 1522 0134 28050000 		.4byte	.LASF26
+ 1523 0138 05       		.byte	0x5
+ 1524 0139 30       		.byte	0x30
+ 1525 013a B9000000 		.4byte	0xb9
+ 1526 013e 0A       		.byte	0xa
+ 1527 013f 08       		.uleb128 0x8
+ 1528 0140 11030000 		.4byte	.LASF27
+ 1529 0144 05       		.byte	0x5
+ 1530 0145 31       		.byte	0x31
+ 1531 0146 B9000000 		.4byte	0xb9
+ 1532 014a 0C       		.byte	0xc
+ 1533 014b 08       		.uleb128 0x8
+ 1534 014c 01020000 		.4byte	.LASF28
+ 1535 0150 05       		.byte	0x5
+ 1536 0151 32       		.byte	0x32
+ 1537 0152 B9000000 		.4byte	0xb9
+ 1538 0156 0E       		.byte	0xe
+ 1539 0157 08       		.uleb128 0x8
+ 1540 0158 A7030000 		.4byte	.LASF29
+ 1541 015c 05       		.byte	0x5
+ 1542 015d 33       		.byte	0x33
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 39
+
+
+ 1543 015e B9000000 		.4byte	0xb9
+ 1544 0162 10       		.byte	0x10
+ 1545 0163 08       		.uleb128 0x8
+ 1546 0164 16040000 		.4byte	.LASF30
+ 1547 0168 05       		.byte	0x5
+ 1548 0169 34       		.byte	0x34
+ 1549 016a B9000000 		.4byte	0xb9
+ 1550 016e 12       		.byte	0x12
+ 1551 016f 08       		.uleb128 0x8
+ 1552 0170 38040000 		.4byte	.LASF31
+ 1553 0174 05       		.byte	0x5
+ 1554 0175 35       		.byte	0x35
+ 1555 0176 B9000000 		.4byte	0xb9
+ 1556 017a 14       		.byte	0x14
+ 1557 017b 08       		.uleb128 0x8
+ 1558 017c 6F010000 		.4byte	.LASF32
+ 1559 0180 05       		.byte	0x5
+ 1560 0181 36       		.byte	0x36
+ 1561 0182 B9000000 		.4byte	0xb9
+ 1562 0186 16       		.byte	0x16
+ 1563 0187 08       		.uleb128 0x8
+ 1564 0188 E1000000 		.4byte	.LASF33
+ 1565 018c 05       		.byte	0x5
+ 1566 018d 37       		.byte	0x37
+ 1567 018e B9000000 		.4byte	0xb9
+ 1568 0192 18       		.byte	0x18
+ 1569 0193 08       		.uleb128 0x8
+ 1570 0194 F9010000 		.4byte	.LASF34
+ 1571 0198 05       		.byte	0x5
+ 1572 0199 38       		.byte	0x38
+ 1573 019a B9000000 		.4byte	0xb9
+ 1574 019e 1A       		.byte	0x1a
+ 1575 019f 08       		.uleb128 0x8
+ 1576 01a0 9E030000 		.4byte	.LASF35
+ 1577 01a4 05       		.byte	0x5
+ 1578 01a5 39       		.byte	0x39
+ 1579 01a6 B9000000 		.4byte	0xb9
+ 1580 01aa 1C       		.byte	0x1c
+ 1581 01ab 08       		.uleb128 0x8
+ 1582 01ac 1E040000 		.4byte	.LASF36
+ 1583 01b0 05       		.byte	0x5
+ 1584 01b1 3A       		.byte	0x3a
+ 1585 01b2 B9000000 		.4byte	0xb9
+ 1586 01b6 1E       		.byte	0x1e
+ 1587 01b7 00       		.byte	0
+ 1588 01b8 09       		.uleb128 0x9
+ 1589 01b9 4C040000 		.4byte	.LASF46
+ 1590 01bd 01       		.byte	0x1
+ 1591 01be 01       		.byte	0x1
+ 1592 01bf 43       		.byte	0x43
+ 1593 01c0 FB010000 		.4byte	0x1fb
+ 1594 01c4 0A       		.uleb128 0xa
+ 1595 01c5 C5000000 		.4byte	.LASF37
+ 1596 01c9 00       		.sleb128 0
+ 1597 01ca 0A       		.uleb128 0xa
+ 1598 01cb 29010000 		.4byte	.LASF38
+ 1599 01cf 01       		.sleb128 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 40
+
+
+ 1600 01d0 0A       		.uleb128 0xa
+ 1601 01d1 CC050000 		.4byte	.LASF39
+ 1602 01d5 02       		.sleb128 2
+ 1603 01d6 0A       		.uleb128 0xa
+ 1604 01d7 1E000000 		.4byte	.LASF40
+ 1605 01db 03       		.sleb128 3
+ 1606 01dc 0A       		.uleb128 0xa
+ 1607 01dd 66040000 		.4byte	.LASF41
+ 1608 01e1 04       		.sleb128 4
+ 1609 01e2 0A       		.uleb128 0xa
+ 1610 01e3 B0020000 		.4byte	.LASF42
+ 1611 01e7 05       		.sleb128 5
+ 1612 01e8 0A       		.uleb128 0xa
+ 1613 01e9 07030000 		.4byte	.LASF43
+ 1614 01ed 06       		.sleb128 6
+ 1615 01ee 0A       		.uleb128 0xa
+ 1616 01ef E5040000 		.4byte	.LASF44
+ 1617 01f3 07       		.sleb128 7
+ 1618 01f4 0A       		.uleb128 0xa
+ 1619 01f5 1D020000 		.4byte	.LASF45
+ 1620 01f9 08       		.sleb128 8
+ 1621 01fa 00       		.byte	0
+ 1622 01fb 03       		.uleb128 0x3
+ 1623 01fc 4C040000 		.4byte	.LASF46
+ 1624 0200 01       		.byte	0x1
+ 1625 0201 4D       		.byte	0x4d
+ 1626 0202 B8010000 		.4byte	0x1b8
+ 1627 0206 0B       		.uleb128 0xb
+ 1628 0207 23030000 		.4byte	.LASF47
+ 1629 020b 01       		.byte	0x1
+ 1630 020c 6F       		.byte	0x6f
+ 1631 020d 00000000 		.4byte	.LFB63
+ 1632 0211 30000000 		.4byte	.LFE63-.LFB63
+ 1633 0215 01       		.uleb128 0x1
+ 1634 0216 9C       		.byte	0x9c
+ 1635 0217 0C       		.uleb128 0xc
+ 1636 0218 E5020000 		.4byte	.LASF48
+ 1637 021c 01       		.byte	0x1
+ 1638 021d 76       		.byte	0x76
+ 1639 021e 00000000 		.4byte	.LFB64
+ 1640 0222 18000000 		.4byte	.LFE64-.LFB64
+ 1641 0226 01       		.uleb128 0x1
+ 1642 0227 9C       		.byte	0x9c
+ 1643 0228 0D       		.uleb128 0xd
+ 1644 0229 38010000 		.4byte	.LASF57
+ 1645 022d 01       		.byte	0x1
+ 1646 022e 8B       		.byte	0x8b
+ 1647 022f 68000000 		.4byte	0x68
+ 1648 0233 00000000 		.4byte	.LFB65
+ 1649 0237 9C020000 		.4byte	.LFE65-.LFB65
+ 1650 023b 01       		.uleb128 0x1
+ 1651 023c 9C       		.byte	0x9c
+ 1652 023d A4020000 		.4byte	0x2a4
+ 1653 0241 0E       		.uleb128 0xe
+ 1654 0242 ED020000 		.4byte	.LASF49
+ 1655 0246 01       		.byte	0x1
+ 1656 0247 B1       		.byte	0xb1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 41
+
+
+ 1657 0248 68000000 		.4byte	0x68
+ 1658 024c 02       		.uleb128 0x2
+ 1659 024d 91       		.byte	0x91
+ 1660 024e 74       		.sleb128 -12
+ 1661 024f 0E       		.uleb128 0xe
+ 1662 0250 7C010000 		.4byte	.LASF50
+ 1663 0254 01       		.byte	0x1
+ 1664 0255 B2       		.byte	0xb2
+ 1665 0256 68000000 		.4byte	0x68
+ 1666 025a 02       		.uleb128 0x2
+ 1667 025b 91       		.byte	0x91
+ 1668 025c 70       		.sleb128 -16
+ 1669 025d 0E       		.uleb128 0xe
+ 1670 025e 82040000 		.4byte	.LASF51
+ 1671 0262 01       		.byte	0x1
+ 1672 0263 B3       		.byte	0xb3
+ 1673 0264 68000000 		.4byte	0x68
+ 1674 0268 02       		.uleb128 0x2
+ 1675 0269 91       		.byte	0x91
+ 1676 026a 6C       		.sleb128 -20
+ 1677 026b 0E       		.uleb128 0xe
+ 1678 026c 94040000 		.4byte	.LASF52
+ 1679 0270 01       		.byte	0x1
+ 1680 0271 B4       		.byte	0xb4
+ 1681 0272 68000000 		.4byte	0x68
+ 1682 0276 02       		.uleb128 0x2
+ 1683 0277 91       		.byte	0x91
+ 1684 0278 68       		.sleb128 -24
+ 1685 0279 0E       		.uleb128 0xe
+ 1686 027a 10050000 		.4byte	.LASF53
+ 1687 027e 01       		.byte	0x1
+ 1688 027f B5       		.byte	0xb5
+ 1689 0280 68000000 		.4byte	0x68
+ 1690 0284 02       		.uleb128 0x2
+ 1691 0285 91       		.byte	0x91
+ 1692 0286 64       		.sleb128 -28
+ 1693 0287 0E       		.uleb128 0xe
+ 1694 0288 CD000000 		.4byte	.LASF54
+ 1695 028c 01       		.byte	0x1
+ 1696 028d B7       		.byte	0xb7
+ 1697 028e FB010000 		.4byte	0x1fb
+ 1698 0292 02       		.uleb128 0x2
+ 1699 0293 91       		.byte	0x91
+ 1700 0294 63       		.sleb128 -29
+ 1701 0295 0E       		.uleb128 0xe
+ 1702 0296 88050000 		.4byte	.LASF55
+ 1703 029a 01       		.byte	0x1
+ 1704 029b B8       		.byte	0xb8
+ 1705 029c FB010000 		.4byte	0x1fb
+ 1706 02a0 02       		.uleb128 0x2
+ 1707 02a1 91       		.byte	0x91
+ 1708 02a2 62       		.sleb128 -30
+ 1709 02a3 00       		.byte	0
+ 1710 02a4 0F       		.uleb128 0xf
+ 1711 02a5 95010000 		.4byte	.LASF107
+ 1712 02a9 01       		.byte	0x1
+ 1713 02aa 3401     		.2byte	0x134
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 42
+
+
+ 1714 02ac C5000000 		.4byte	0xc5
+ 1715 02b0 00000000 		.4byte	.LFB66
+ 1716 02b4 24000000 		.4byte	.LFE66-.LFB66
+ 1717 02b8 01       		.uleb128 0x1
+ 1718 02b9 9C       		.byte	0x9c
+ 1719 02ba CC020000 		.4byte	0x2cc
+ 1720 02be 10       		.uleb128 0x10
+ 1721 02bf 6E00     		.ascii	"n\000"
+ 1722 02c1 01       		.byte	0x1
+ 1723 02c2 3401     		.2byte	0x134
+ 1724 02c4 B9000000 		.4byte	0xb9
+ 1725 02c8 02       		.uleb128 0x2
+ 1726 02c9 91       		.byte	0x91
+ 1727 02ca 76       		.sleb128 -10
+ 1728 02cb 00       		.byte	0
+ 1729 02cc 11       		.uleb128 0x11
+ 1730 02cd D7010000 		.4byte	.LASF108
+ 1731 02d1 01       		.byte	0x1
+ 1732 02d2 3801     		.2byte	0x138
+ 1733 02d4 00000000 		.4byte	.LFB67
+ 1734 02d8 B4000000 		.4byte	.LFE67-.LFB67
+ 1735 02dc 01       		.uleb128 0x1
+ 1736 02dd 9C       		.byte	0x9c
+ 1737 02de 09030000 		.4byte	0x309
+ 1738 02e2 12       		.uleb128 0x12
+ 1739 02e3 6900     		.ascii	"i\000"
+ 1740 02e5 01       		.byte	0x1
+ 1741 02e6 3A01     		.2byte	0x13a
+ 1742 02e8 68000000 		.4byte	0x68
+ 1743 02ec 02       		.uleb128 0x2
+ 1744 02ed 91       		.byte	0x91
+ 1745 02ee 74       		.sleb128 -12
+ 1746 02ef 13       		.uleb128 0x13
+ 1747 02f0 0C000000 		.4byte	.LBB2
+ 1748 02f4 26000000 		.4byte	.LBE2-.LBB2
+ 1749 02f8 14       		.uleb128 0x14
+ 1750 02f9 72040000 		.4byte	.LASF56
+ 1751 02fd 01       		.byte	0x1
+ 1752 02fe 3C01     		.2byte	0x13c
+ 1753 0300 68000000 		.4byte	0x68
+ 1754 0304 02       		.uleb128 0x2
+ 1755 0305 91       		.byte	0x91
+ 1756 0306 70       		.sleb128 -16
+ 1757 0307 00       		.byte	0
+ 1758 0308 00       		.byte	0
+ 1759 0309 15       		.uleb128 0x15
+ 1760 030a B2040000 		.4byte	.LASF58
+ 1761 030e 01       		.byte	0x1
+ 1762 030f 6801     		.2byte	0x168
+ 1763 0311 00000000 		.4byte	.LFB68
+ 1764 0315 2A000000 		.4byte	.LFE68-.LFB68
+ 1765 0319 01       		.uleb128 0x1
+ 1766 031a 9C       		.byte	0x9c
+ 1767 031b 3E030000 		.4byte	0x33e
+ 1768 031f 16       		.uleb128 0x16
+ 1769 0320 93050000 		.4byte	.LASF59
+ 1770 0324 01       		.byte	0x1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 43
+
+
+ 1771 0325 6801     		.2byte	0x168
+ 1772 0327 68000000 		.4byte	0x68
+ 1773 032b 02       		.uleb128 0x2
+ 1774 032c 91       		.byte	0x91
+ 1775 032d 6C       		.sleb128 -20
+ 1776 032e 14       		.uleb128 0x14
+ 1777 032f 1E050000 		.4byte	.LASF60
+ 1778 0333 01       		.byte	0x1
+ 1779 0334 6901     		.2byte	0x169
+ 1780 0336 68000000 		.4byte	0x68
+ 1781 033a 02       		.uleb128 0x2
+ 1782 033b 91       		.byte	0x91
+ 1783 033c 74       		.sleb128 -12
+ 1784 033d 00       		.byte	0
+ 1785 033e 15       		.uleb128 0x15
+ 1786 033f 09010000 		.4byte	.LASF61
+ 1787 0343 01       		.byte	0x1
+ 1788 0344 6D01     		.2byte	0x16d
+ 1789 0346 00000000 		.4byte	.LFB69
+ 1790 034a 2A000000 		.4byte	.LFE69-.LFB69
+ 1791 034e 01       		.uleb128 0x1
+ 1792 034f 9C       		.byte	0x9c
+ 1793 0350 73030000 		.4byte	0x373
+ 1794 0354 16       		.uleb128 0x16
+ 1795 0355 93050000 		.4byte	.LASF59
+ 1796 0359 01       		.byte	0x1
+ 1797 035a 6D01     		.2byte	0x16d
+ 1798 035c 68000000 		.4byte	0x68
+ 1799 0360 02       		.uleb128 0x2
+ 1800 0361 91       		.byte	0x91
+ 1801 0362 6C       		.sleb128 -20
+ 1802 0363 14       		.uleb128 0x14
+ 1803 0364 1E050000 		.4byte	.LASF60
+ 1804 0368 01       		.byte	0x1
+ 1805 0369 6E01     		.2byte	0x16e
+ 1806 036b 68000000 		.4byte	0x68
+ 1807 036f 02       		.uleb128 0x2
+ 1808 0370 91       		.byte	0x91
+ 1809 0371 74       		.sleb128 -12
+ 1810 0372 00       		.byte	0
+ 1811 0373 15       		.uleb128 0x15
+ 1812 0374 88010000 		.4byte	.LASF62
+ 1813 0378 01       		.byte	0x1
+ 1814 0379 7601     		.2byte	0x176
+ 1815 037b 00000000 		.4byte	.LFB70
+ 1816 037f 52000000 		.4byte	.LFE70-.LFB70
+ 1817 0383 01       		.uleb128 0x1
+ 1818 0384 9C       		.byte	0x9c
+ 1819 0385 F8030000 		.4byte	0x3f8
+ 1820 0389 16       		.uleb128 0x16
+ 1821 038a 94030000 		.4byte	.LASF63
+ 1822 038e 01       		.byte	0x1
+ 1823 038f 7601     		.2byte	0x176
+ 1824 0391 68000000 		.4byte	0x68
+ 1825 0395 03       		.uleb128 0x3
+ 1826 0396 91       		.byte	0x91
+ 1827 0397 AC7F     		.sleb128 -84
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 44
+
+
+ 1828 0399 16       		.uleb128 0x16
+ 1829 039a DF040000 		.4byte	.LASF64
+ 1830 039e 01       		.byte	0x1
+ 1831 039f 7601     		.2byte	0x176
+ 1832 03a1 68000000 		.4byte	0x68
+ 1833 03a5 03       		.uleb128 0x3
+ 1834 03a6 91       		.byte	0x91
+ 1835 03a7 A87F     		.sleb128 -88
+ 1836 03a9 16       		.uleb128 0x16
+ 1837 03aa 3B030000 		.4byte	.LASF65
+ 1838 03ae 01       		.byte	0x1
+ 1839 03af 7601     		.2byte	0x176
+ 1840 03b1 68000000 		.4byte	0x68
+ 1841 03b5 03       		.uleb128 0x3
+ 1842 03b6 91       		.byte	0x91
+ 1843 03b7 A47F     		.sleb128 -92
+ 1844 03b9 16       		.uleb128 0x16
+ 1845 03ba 3D010000 		.4byte	.LASF66
+ 1846 03be 01       		.byte	0x1
+ 1847 03bf 7601     		.2byte	0x176
+ 1848 03c1 68000000 		.4byte	0x68
+ 1849 03c5 03       		.uleb128 0x3
+ 1850 03c6 91       		.byte	0x91
+ 1851 03c7 A07F     		.sleb128 -96
+ 1852 03c9 14       		.uleb128 0x14
+ 1853 03ca 41040000 		.4byte	.LASF67
+ 1854 03ce 01       		.byte	0x1
+ 1855 03cf 7B01     		.2byte	0x17b
+ 1856 03d1 68000000 		.4byte	0x68
+ 1857 03d5 02       		.uleb128 0x2
+ 1858 03d6 91       		.byte	0x91
+ 1859 03d7 74       		.sleb128 -12
+ 1860 03d8 12       		.uleb128 0x12
+ 1861 03d9 6D736700 		.ascii	"msg\000"
+ 1862 03dd 01       		.byte	0x1
+ 1863 03de 8001     		.2byte	0x180
+ 1864 03e0 F8030000 		.4byte	0x3f8
+ 1865 03e4 03       		.uleb128 0x3
+ 1866 03e5 91       		.byte	0x91
+ 1867 03e6 B07F     		.sleb128 -80
+ 1868 03e8 14       		.uleb128 0x14
+ 1869 03e9 00000000 		.4byte	.LASF68
+ 1870 03ed 01       		.byte	0x1
+ 1871 03ee 8701     		.2byte	0x187
+ 1872 03f0 68000000 		.4byte	0x68
+ 1873 03f4 02       		.uleb128 0x2
+ 1874 03f5 91       		.byte	0x91
+ 1875 03f6 70       		.sleb128 -16
+ 1876 03f7 00       		.byte	0
+ 1877 03f8 17       		.uleb128 0x17
+ 1878 03f9 83000000 		.4byte	0x83
+ 1879 03fd 08040000 		.4byte	0x408
+ 1880 0401 18       		.uleb128 0x18
+ 1881 0402 76000000 		.4byte	0x76
+ 1882 0406 3F       		.byte	0x3f
+ 1883 0407 00       		.byte	0
+ 1884 0408 15       		.uleb128 0x15
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 45
+
+
+ 1885 0409 4F050000 		.4byte	.LASF69
+ 1886 040d 01       		.byte	0x1
+ 1887 040e 9801     		.2byte	0x198
+ 1888 0410 00000000 		.4byte	.LFB71
+ 1889 0414 2C000000 		.4byte	.LFE71-.LFB71
+ 1890 0418 01       		.uleb128 0x1
+ 1891 0419 9C       		.byte	0x9c
+ 1892 041a 3D040000 		.4byte	0x43d
+ 1893 041e 16       		.uleb128 0x16
+ 1894 041f AF050000 		.4byte	.LASF70
+ 1895 0423 01       		.byte	0x1
+ 1896 0424 9801     		.2byte	0x198
+ 1897 0426 68000000 		.4byte	0x68
+ 1898 042a 02       		.uleb128 0x2
+ 1899 042b 91       		.byte	0x91
+ 1900 042c 74       		.sleb128 -12
+ 1901 042d 16       		.uleb128 0x16
+ 1902 042e 0E020000 		.4byte	.LASF71
+ 1903 0432 01       		.byte	0x1
+ 1904 0433 9801     		.2byte	0x198
+ 1905 0435 68000000 		.4byte	0x68
+ 1906 0439 02       		.uleb128 0x2
+ 1907 043a 91       		.byte	0x91
+ 1908 043b 70       		.sleb128 -16
+ 1909 043c 00       		.byte	0
+ 1910 043d 19       		.uleb128 0x19
+ 1911 043e 1A030000 		.4byte	.LASF72
+ 1912 0442 01       		.byte	0x1
+ 1913 0443 9D01     		.2byte	0x19d
+ 1914 0445 00000000 		.4byte	.LFB72
+ 1915 0449 40000000 		.4byte	.LFE72-.LFB72
+ 1916 044d 01       		.uleb128 0x1
+ 1917 044e 9C       		.byte	0x9c
+ 1918 044f 19       		.uleb128 0x19
+ 1919 0450 30050000 		.4byte	.LASF73
+ 1920 0454 01       		.byte	0x1
+ 1921 0455 A901     		.2byte	0x1a9
+ 1922 0457 00000000 		.4byte	.LFB73
+ 1923 045b 40000000 		.4byte	.LFE73-.LFB73
+ 1924 045f 01       		.uleb128 0x1
+ 1925 0460 9C       		.byte	0x9c
+ 1926 0461 19       		.uleb128 0x19
+ 1927 0462 00040000 		.4byte	.LASF74
+ 1928 0466 01       		.byte	0x1
+ 1929 0467 B501     		.2byte	0x1b5
+ 1930 0469 00000000 		.4byte	.LFB74
+ 1931 046d 5C000000 		.4byte	.LFE74-.LFB74
+ 1932 0471 01       		.uleb128 0x1
+ 1933 0472 9C       		.byte	0x9c
+ 1934 0473 19       		.uleb128 0x19
+ 1935 0474 BD050000 		.4byte	.LASF75
+ 1936 0478 01       		.byte	0x1
+ 1937 0479 C401     		.2byte	0x1c4
+ 1938 047b 00000000 		.4byte	.LFB75
+ 1939 047f 5C000000 		.4byte	.LFE75-.LFB75
+ 1940 0483 01       		.uleb128 0x1
+ 1941 0484 9C       		.byte	0x9c
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 46
+
+
+ 1942 0485 1A       		.uleb128 0x1a
+ 1943 0486 C5010000 		.4byte	.LASF76
+ 1944 048a 01       		.byte	0x1
+ 1945 048b 3402     		.2byte	0x234
+ 1946 048d 00000000 		.4byte	.LFB76
+ 1947 0491 14000000 		.4byte	.LFE76-.LFB76
+ 1948 0495 01       		.uleb128 0x1
+ 1949 0496 9C       		.byte	0x9c
+ 1950 0497 A9040000 		.4byte	0x4a9
+ 1951 049b 10       		.uleb128 0x10
+ 1952 049c 7300     		.ascii	"s\000"
+ 1953 049e 01       		.byte	0x1
+ 1954 049f 3402     		.2byte	0x234
+ 1955 04a1 7D000000 		.4byte	0x7d
+ 1956 04a5 02       		.uleb128 0x2
+ 1957 04a6 91       		.byte	0x91
+ 1958 04a7 74       		.sleb128 -12
+ 1959 04a8 00       		.byte	0
+ 1960 04a9 1B       		.uleb128 0x1b
+ 1961 04aa 49010000 		.4byte	.LASF77
+ 1962 04ae 06       		.byte	0x6
+ 1963 04af 9606     		.2byte	0x696
+ 1964 04b1 B5040000 		.4byte	0x4b5
+ 1965 04b5 1C       		.uleb128 0x1c
+ 1966 04b6 8A000000 		.4byte	0x8a
+ 1967 04ba 1D       		.uleb128 0x1d
+ 1968 04bb 747300   		.ascii	"ts\000"
+ 1969 04be 05       		.byte	0x5
+ 1970 04bf 10       		.byte	0x10
+ 1971 04c0 95000000 		.4byte	0x95
+ 1972 04c4 05       		.uleb128 0x5
+ 1973 04c5 03       		.byte	0x3
+ 1974 04c6 00000000 		.4byte	ts
+ 1975 04ca 1E       		.uleb128 0x1e
+ 1976 04cb 0B000000 		.4byte	.LASF78
+ 1977 04cf 05       		.byte	0x5
+ 1978 04d0 11       		.byte	0x11
+ 1979 04d1 A1000000 		.4byte	0xa1
+ 1980 04d5 05       		.uleb128 0x5
+ 1981 04d6 03       		.byte	0x3
+ 1982 04d7 00000000 		.4byte	ts_enc
+ 1983 04db 1E       		.uleb128 0x1e
+ 1984 04dc 45050000 		.4byte	.LASF79
+ 1985 04e0 05       		.byte	0x5
+ 1986 04e1 12       		.byte	0x12
+ 1987 04e2 A1000000 		.4byte	0xa1
+ 1988 04e6 05       		.uleb128 0x5
+ 1989 04e7 03       		.byte	0x3
+ 1990 04e8 00000000 		.4byte	ts_update
+ 1991 04ec 1E       		.uleb128 0x1e
+ 1992 04ed D6040000 		.4byte	.LASF80
+ 1993 04f1 05       		.byte	0x5
+ 1994 04f2 13       		.byte	0x13
+ 1995 04f3 A1000000 		.4byte	0xa1
+ 1996 04f7 05       		.uleb128 0x5
+ 1997 04f8 03       		.byte	0x3
+ 1998 04f9 00000000 		.4byte	ts_speed
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 47
+
+
+ 1999 04fd 1E       		.uleb128 0x1e
+ 2000 04fe 3A050000 		.4byte	.LASF81
+ 2001 0502 05       		.byte	0x5
+ 2002 0503 14       		.byte	0x14
+ 2003 0504 A1000000 		.4byte	0xa1
+ 2004 0508 05       		.uleb128 0x5
+ 2005 0509 03       		.byte	0x3
+ 2006 050a 00000000 		.4byte	ts_display
+ 2007 050e 1E       		.uleb128 0x1e
+ 2008 050f EA040000 		.4byte	.LASF82
+ 2009 0513 05       		.byte	0x5
+ 2010 0514 16       		.byte	0x16
+ 2011 0515 95000000 		.4byte	0x95
+ 2012 0519 05       		.uleb128 0x5
+ 2013 051a 03       		.byte	0x3
+ 2014 051b 00000000 		.4byte	flag_ts_enc
+ 2015 051f 1E       		.uleb128 0x1e
+ 2016 0520 EA010000 		.4byte	.LASF83
+ 2017 0524 05       		.byte	0x5
+ 2018 0525 17       		.byte	0x17
+ 2019 0526 95000000 		.4byte	0x95
+ 2020 052a 05       		.uleb128 0x5
+ 2021 052b 03       		.byte	0x3
+ 2022 052c 00000000 		.4byte	flag_ts_update
+ 2023 0530 1E       		.uleb128 0x1e
+ 2024 0531 D3000000 		.4byte	.LASF84
+ 2025 0535 05       		.byte	0x5
+ 2026 0536 18       		.byte	0x18
+ 2027 0537 95000000 		.4byte	0x95
+ 2028 053b 05       		.uleb128 0x5
+ 2029 053c 03       		.byte	0x3
+ 2030 053d 00000000 		.4byte	flag_ts_speed
+ 2031 0541 1E       		.uleb128 0x1e
+ 2032 0542 C0020000 		.4byte	.LASF85
+ 2033 0546 05       		.byte	0x5
+ 2034 0547 19       		.byte	0x19
+ 2035 0548 95000000 		.4byte	0x95
+ 2036 054c 05       		.uleb128 0x5
+ 2037 054d 03       		.byte	0x3
+ 2038 054e 00000000 		.4byte	flag_ts_display
+ 2039 0552 1E       		.uleb128 0x1e
+ 2040 0553 D0020000 		.4byte	.LASF86
+ 2041 0557 05       		.byte	0x5
+ 2042 0558 1C       		.byte	0x1c
+ 2043 0559 95000000 		.4byte	0x95
+ 2044 055d 05       		.uleb128 0x5
+ 2045 055e 03       		.byte	0x3
+ 2046 055f 00000000 		.4byte	flag_rx
+ 2047 0563 1E       		.uleb128 0x1e
+ 2048 0564 12000000 		.4byte	.LASF87
+ 2049 0568 05       		.byte	0x5
+ 2050 0569 1D       		.byte	0x1d
+ 2051 056a 95000000 		.4byte	0x95
+ 2052 056e 05       		.uleb128 0x5
+ 2053 056f 03       		.byte	0x3
+ 2054 0570 00000000 		.4byte	flag_packet
+ 2055 0574 1E       		.uleb128 0x1e
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 48
+
+
+ 2056 0575 73030000 		.4byte	.LASF88
+ 2057 0579 05       		.byte	0x5
+ 2058 057a 1E       		.byte	0x1e
+ 2059 057b 95000000 		.4byte	0x95
+ 2060 057f 05       		.uleb128 0x5
+ 2061 0580 03       		.byte	0x3
+ 2062 0581 00000000 		.4byte	flag_KB_string
+ 2063 0585 1E       		.uleb128 0x1e
+ 2064 0586 C7040000 		.4byte	.LASF89
+ 2065 058a 05       		.byte	0x5
+ 2066 058b 20       		.byte	0x20
+ 2067 058c 95000000 		.4byte	0x95
+ 2068 0590 05       		.uleb128 0x5
+ 2069 0591 03       		.byte	0x3
+ 2070 0592 00000000 		.4byte	dataready_flag
+ 2071 0596 1E       		.uleb128 0x1e
+ 2072 0597 61050000 		.4byte	.LASF90
+ 2073 059b 05       		.byte	0x5
+ 2074 059c 22       		.byte	0x22
+ 2075 059d 95000000 		.4byte	0x95
+ 2076 05a1 05       		.uleb128 0x5
+ 2077 05a2 03       		.byte	0x3
+ 2078 05a3 00000000 		.4byte	flag_rf_transmission_active
+ 2079 05a7 1E       		.uleb128 0x1e
+ 2080 05a8 58040000 		.4byte	.LASF91
+ 2081 05ac 05       		.byte	0x5
+ 2082 05ad 25       		.byte	0x25
+ 2083 05ae F8030000 		.4byte	0x3f8
+ 2084 05b2 05       		.uleb128 0x5
+ 2085 05b3 03       		.byte	0x3
+ 2086 05b4 00000000 		.4byte	displaystring
+ 2087 05b8 1E       		.uleb128 0x1e
+ 2088 05b9 BB020000 		.4byte	.LASF92
+ 2089 05bd 05       		.byte	0x5
+ 2090 05be 26       		.byte	0x26
+ 2091 05bf F8030000 		.4byte	0x3f8
+ 2092 05c3 05       		.uleb128 0x5
+ 2093 05c4 03       		.byte	0x3
+ 2094 05c5 00000000 		.4byte	line
+ 2095 05c9 1E       		.uleb128 0x1e
+ 2096 05ca 60030000 		.4byte	.LASF93
+ 2097 05ce 05       		.byte	0x5
+ 2098 05cf 26       		.byte	0x26
+ 2099 05d0 F8030000 		.4byte	0x3f8
+ 2100 05d4 05       		.uleb128 0x5
+ 2101 05d5 03       		.byte	0x3
+ 2102 05d6 00000000 		.4byte	entry
+ 2103 05da 17       		.uleb128 0x17
+ 2104 05db 95000000 		.4byte	0x95
+ 2105 05df EA050000 		.4byte	0x5ea
+ 2106 05e3 18       		.uleb128 0x18
+ 2107 05e4 76000000 		.4byte	0x76
+ 2108 05e8 3F       		.byte	0x3f
+ 2109 05e9 00       		.byte	0
+ 2110 05ea 1E       		.uleb128 0x1e
+ 2111 05eb 1F010000 		.4byte	.LASF94
+ 2112 05ef 05       		.byte	0x5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 49
+
+
+ 2113 05f0 27       		.byte	0x27
+ 2114 05f1 DA050000 		.4byte	0x5da
+ 2115 05f5 05       		.uleb128 0x5
+ 2116 05f6 03       		.byte	0x3
+ 2117 05f7 00000000 		.4byte	usbBuffer
+ 2118 05fb 1E       		.uleb128 0x1e
+ 2119 05fc F3000000 		.4byte	.LASF95
+ 2120 0600 05       		.byte	0x5
+ 2121 0601 3C       		.byte	0x3c
+ 2122 0602 DF000000 		.4byte	0xdf
+ 2123 0606 05       		.uleb128 0x5
+ 2124 0607 03       		.byte	0x3
+ 2125 0608 00000000 		.4byte	system_state
+ 2126 060c 17       		.uleb128 0x17
+ 2127 060d AD000000 		.4byte	0xad
+ 2128 0611 1C060000 		.4byte	0x61c
+ 2129 0615 18       		.uleb128 0x18
+ 2130 0616 76000000 		.4byte	0x76
+ 2131 061a 05       		.byte	0x5
+ 2132 061b 00       		.byte	0
+ 2133 061c 1E       		.uleb128 0x1e
+ 2134 061d 9A050000 		.4byte	.LASF96
+ 2135 0621 01       		.byte	0x1
+ 2136 0622 66       		.byte	0x66
+ 2137 0623 0C060000 		.4byte	0x60c
+ 2138 0627 05       		.uleb128 0x5
+ 2139 0628 03       		.byte	0x3
+ 2140 0629 00000000 		.4byte	sensor_readings
+ 2141 062d 1E       		.uleb128 0x1e
+ 2142 062e E3030000 		.4byte	.LASF97
+ 2143 0632 01       		.byte	0x1
+ 2144 0633 67       		.byte	0x67
+ 2145 0634 3E060000 		.4byte	0x63e
+ 2146 0638 05       		.uleb128 0x5
+ 2147 0639 03       		.byte	0x3
+ 2148 063a 00000000 		.4byte	adc_flag
+ 2149 063e 1C       		.uleb128 0x1c
+ 2150 063f 68000000 		.4byte	0x68
+ 2151 0643 17       		.uleb128 0x17
+ 2152 0644 68000000 		.4byte	0x68
+ 2153 0648 53060000 		.4byte	0x653
+ 2154 064c 18       		.uleb128 0x18
+ 2155 064d 76000000 		.4byte	0x76
+ 2156 0651 05       		.byte	0x5
+ 2157 0652 00       		.byte	0
+ 2158 0653 1E       		.uleb128 0x1e
+ 2159 0654 D8020000 		.4byte	.LASF98
+ 2160 0658 01       		.byte	0x1
+ 2161 0659 68       		.byte	0x68
+ 2162 065a 43060000 		.4byte	0x643
+ 2163 065e 05       		.uleb128 0x5
+ 2164 065f 03       		.byte	0x3
+ 2165 0660 00000000 		.4byte	adc_readings
+ 2166 0664 1E       		.uleb128 0x1e
+ 2167 0665 2B040000 		.4byte	.LASF99
+ 2168 0669 01       		.byte	0x1
+ 2169 066a 69       		.byte	0x69
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 50
+
+
+ 2170 066b 68000000 		.4byte	0x68
+ 2171 066f 05       		.uleb128 0x5
+ 2172 0670 03       		.byte	0x3
+ 2173 0671 00000000 		.4byte	sample_count
+ 2174 0675 1E       		.uleb128 0x1e
+ 2175 0676 00050000 		.4byte	.LASF100
+ 2176 067a 01       		.byte	0x1
+ 2177 067b 6B       		.byte	0x6b
+ 2178 067c 3E060000 		.4byte	0x63e
+ 2179 0680 05       		.uleb128 0x5
+ 2180 0681 03       		.byte	0x3
+ 2181 0682 00000000 		.4byte	countM1
+ 2182 0686 1E       		.uleb128 0x1e
+ 2183 0687 08050000 		.4byte	.LASF101
+ 2184 068b 01       		.byte	0x1
+ 2185 068c 6C       		.byte	0x6c
+ 2186 068d 3E060000 		.4byte	0x63e
+ 2187 0691 05       		.uleb128 0x5
+ 2188 0692 03       		.byte	0x3
+ 2189 0693 00000000 		.4byte	countM2
+ 2190 0697 1E       		.uleb128 0x1e
+ 2191 0698 A6010000 		.4byte	.LASF102
+ 2192 069c 01       		.byte	0x1
+ 2193 069d 6D       		.byte	0x6d
+ 2194 069e 3E060000 		.4byte	0x63e
+ 2195 06a2 05       		.uleb128 0x5
+ 2196 06a3 03       		.byte	0x3
+ 2197 06a4 00000000 		.4byte	timer_flag
+ 2198 06a8 00       		.byte	0
+ 2199              		.section	.debug_abbrev,"",%progbits
+ 2200              	.Ldebug_abbrev0:
+ 2201 0000 01       		.uleb128 0x1
+ 2202 0001 11       		.uleb128 0x11
+ 2203 0002 01       		.byte	0x1
+ 2204 0003 25       		.uleb128 0x25
+ 2205 0004 0E       		.uleb128 0xe
+ 2206 0005 13       		.uleb128 0x13
+ 2207 0006 0B       		.uleb128 0xb
+ 2208 0007 03       		.uleb128 0x3
+ 2209 0008 0E       		.uleb128 0xe
+ 2210 0009 1B       		.uleb128 0x1b
+ 2211 000a 0E       		.uleb128 0xe
+ 2212 000b 55       		.uleb128 0x55
+ 2213 000c 17       		.uleb128 0x17
+ 2214 000d 11       		.uleb128 0x11
+ 2215 000e 01       		.uleb128 0x1
+ 2216 000f 10       		.uleb128 0x10
+ 2217 0010 17       		.uleb128 0x17
+ 2218 0011 00       		.byte	0
+ 2219 0012 00       		.byte	0
+ 2220 0013 02       		.uleb128 0x2
+ 2221 0014 24       		.uleb128 0x24
+ 2222 0015 00       		.byte	0
+ 2223 0016 0B       		.uleb128 0xb
+ 2224 0017 0B       		.uleb128 0xb
+ 2225 0018 3E       		.uleb128 0x3e
+ 2226 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 51
+
+
+ 2227 001a 03       		.uleb128 0x3
+ 2228 001b 0E       		.uleb128 0xe
+ 2229 001c 00       		.byte	0
+ 2230 001d 00       		.byte	0
+ 2231 001e 03       		.uleb128 0x3
+ 2232 001f 16       		.uleb128 0x16
+ 2233 0020 00       		.byte	0
+ 2234 0021 03       		.uleb128 0x3
+ 2235 0022 0E       		.uleb128 0xe
+ 2236 0023 3A       		.uleb128 0x3a
+ 2237 0024 0B       		.uleb128 0xb
+ 2238 0025 3B       		.uleb128 0x3b
+ 2239 0026 0B       		.uleb128 0xb
+ 2240 0027 49       		.uleb128 0x49
+ 2241 0028 13       		.uleb128 0x13
+ 2242 0029 00       		.byte	0
+ 2243 002a 00       		.byte	0
+ 2244 002b 04       		.uleb128 0x4
+ 2245 002c 24       		.uleb128 0x24
+ 2246 002d 00       		.byte	0
+ 2247 002e 0B       		.uleb128 0xb
+ 2248 002f 0B       		.uleb128 0xb
+ 2249 0030 3E       		.uleb128 0x3e
+ 2250 0031 0B       		.uleb128 0xb
+ 2251 0032 03       		.uleb128 0x3
+ 2252 0033 08       		.uleb128 0x8
+ 2253 0034 00       		.byte	0
+ 2254 0035 00       		.byte	0
+ 2255 0036 05       		.uleb128 0x5
+ 2256 0037 0F       		.uleb128 0xf
+ 2257 0038 00       		.byte	0
+ 2258 0039 0B       		.uleb128 0xb
+ 2259 003a 0B       		.uleb128 0xb
+ 2260 003b 49       		.uleb128 0x49
+ 2261 003c 13       		.uleb128 0x13
+ 2262 003d 00       		.byte	0
+ 2263 003e 00       		.byte	0
+ 2264 003f 06       		.uleb128 0x6
+ 2265 0040 16       		.uleb128 0x16
+ 2266 0041 00       		.byte	0
+ 2267 0042 03       		.uleb128 0x3
+ 2268 0043 0E       		.uleb128 0xe
+ 2269 0044 3A       		.uleb128 0x3a
+ 2270 0045 0B       		.uleb128 0xb
+ 2271 0046 3B       		.uleb128 0x3b
+ 2272 0047 05       		.uleb128 0x5
+ 2273 0048 49       		.uleb128 0x49
+ 2274 0049 13       		.uleb128 0x13
+ 2275 004a 00       		.byte	0
+ 2276 004b 00       		.byte	0
+ 2277 004c 07       		.uleb128 0x7
+ 2278 004d 13       		.uleb128 0x13
+ 2279 004e 01       		.byte	0x1
+ 2280 004f 03       		.uleb128 0x3
+ 2281 0050 0E       		.uleb128 0xe
+ 2282 0051 0B       		.uleb128 0xb
+ 2283 0052 0B       		.uleb128 0xb
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 52
+
+
+ 2284 0053 3A       		.uleb128 0x3a
+ 2285 0054 0B       		.uleb128 0xb
+ 2286 0055 3B       		.uleb128 0x3b
+ 2287 0056 0B       		.uleb128 0xb
+ 2288 0057 01       		.uleb128 0x1
+ 2289 0058 13       		.uleb128 0x13
+ 2290 0059 00       		.byte	0
+ 2291 005a 00       		.byte	0
+ 2292 005b 08       		.uleb128 0x8
+ 2293 005c 0D       		.uleb128 0xd
+ 2294 005d 00       		.byte	0
+ 2295 005e 03       		.uleb128 0x3
+ 2296 005f 0E       		.uleb128 0xe
+ 2297 0060 3A       		.uleb128 0x3a
+ 2298 0061 0B       		.uleb128 0xb
+ 2299 0062 3B       		.uleb128 0x3b
+ 2300 0063 0B       		.uleb128 0xb
+ 2301 0064 49       		.uleb128 0x49
+ 2302 0065 13       		.uleb128 0x13
+ 2303 0066 38       		.uleb128 0x38
+ 2304 0067 0B       		.uleb128 0xb
+ 2305 0068 00       		.byte	0
+ 2306 0069 00       		.byte	0
+ 2307 006a 09       		.uleb128 0x9
+ 2308 006b 04       		.uleb128 0x4
+ 2309 006c 01       		.byte	0x1
+ 2310 006d 03       		.uleb128 0x3
+ 2311 006e 0E       		.uleb128 0xe
+ 2312 006f 0B       		.uleb128 0xb
+ 2313 0070 0B       		.uleb128 0xb
+ 2314 0071 3A       		.uleb128 0x3a
+ 2315 0072 0B       		.uleb128 0xb
+ 2316 0073 3B       		.uleb128 0x3b
+ 2317 0074 0B       		.uleb128 0xb
+ 2318 0075 01       		.uleb128 0x1
+ 2319 0076 13       		.uleb128 0x13
+ 2320 0077 00       		.byte	0
+ 2321 0078 00       		.byte	0
+ 2322 0079 0A       		.uleb128 0xa
+ 2323 007a 28       		.uleb128 0x28
+ 2324 007b 00       		.byte	0
+ 2325 007c 03       		.uleb128 0x3
+ 2326 007d 0E       		.uleb128 0xe
+ 2327 007e 1C       		.uleb128 0x1c
+ 2328 007f 0D       		.uleb128 0xd
+ 2329 0080 00       		.byte	0
+ 2330 0081 00       		.byte	0
+ 2331 0082 0B       		.uleb128 0xb
+ 2332 0083 2E       		.uleb128 0x2e
+ 2333 0084 00       		.byte	0
+ 2334 0085 3F       		.uleb128 0x3f
+ 2335 0086 19       		.uleb128 0x19
+ 2336 0087 03       		.uleb128 0x3
+ 2337 0088 0E       		.uleb128 0xe
+ 2338 0089 3A       		.uleb128 0x3a
+ 2339 008a 0B       		.uleb128 0xb
+ 2340 008b 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 53
+
+
+ 2341 008c 0B       		.uleb128 0xb
+ 2342 008d 27       		.uleb128 0x27
+ 2343 008e 19       		.uleb128 0x19
+ 2344 008f 11       		.uleb128 0x11
+ 2345 0090 01       		.uleb128 0x1
+ 2346 0091 12       		.uleb128 0x12
+ 2347 0092 06       		.uleb128 0x6
+ 2348 0093 40       		.uleb128 0x40
+ 2349 0094 18       		.uleb128 0x18
+ 2350 0095 9642     		.uleb128 0x2116
+ 2351 0097 19       		.uleb128 0x19
+ 2352 0098 00       		.byte	0
+ 2353 0099 00       		.byte	0
+ 2354 009a 0C       		.uleb128 0xc
+ 2355 009b 2E       		.uleb128 0x2e
+ 2356 009c 00       		.byte	0
+ 2357 009d 3F       		.uleb128 0x3f
+ 2358 009e 19       		.uleb128 0x19
+ 2359 009f 03       		.uleb128 0x3
+ 2360 00a0 0E       		.uleb128 0xe
+ 2361 00a1 3A       		.uleb128 0x3a
+ 2362 00a2 0B       		.uleb128 0xb
+ 2363 00a3 3B       		.uleb128 0x3b
+ 2364 00a4 0B       		.uleb128 0xb
+ 2365 00a5 27       		.uleb128 0x27
+ 2366 00a6 19       		.uleb128 0x19
+ 2367 00a7 11       		.uleb128 0x11
+ 2368 00a8 01       		.uleb128 0x1
+ 2369 00a9 12       		.uleb128 0x12
+ 2370 00aa 06       		.uleb128 0x6
+ 2371 00ab 40       		.uleb128 0x40
+ 2372 00ac 18       		.uleb128 0x18
+ 2373 00ad 9742     		.uleb128 0x2117
+ 2374 00af 19       		.uleb128 0x19
+ 2375 00b0 00       		.byte	0
+ 2376 00b1 00       		.byte	0
+ 2377 00b2 0D       		.uleb128 0xd
+ 2378 00b3 2E       		.uleb128 0x2e
+ 2379 00b4 01       		.byte	0x1
+ 2380 00b5 3F       		.uleb128 0x3f
+ 2381 00b6 19       		.uleb128 0x19
+ 2382 00b7 03       		.uleb128 0x3
+ 2383 00b8 0E       		.uleb128 0xe
+ 2384 00b9 3A       		.uleb128 0x3a
+ 2385 00ba 0B       		.uleb128 0xb
+ 2386 00bb 3B       		.uleb128 0x3b
+ 2387 00bc 0B       		.uleb128 0xb
+ 2388 00bd 49       		.uleb128 0x49
+ 2389 00be 13       		.uleb128 0x13
+ 2390 00bf 11       		.uleb128 0x11
+ 2391 00c0 01       		.uleb128 0x1
+ 2392 00c1 12       		.uleb128 0x12
+ 2393 00c2 06       		.uleb128 0x6
+ 2394 00c3 40       		.uleb128 0x40
+ 2395 00c4 18       		.uleb128 0x18
+ 2396 00c5 9642     		.uleb128 0x2116
+ 2397 00c7 19       		.uleb128 0x19
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 54
+
+
+ 2398 00c8 01       		.uleb128 0x1
+ 2399 00c9 13       		.uleb128 0x13
+ 2400 00ca 00       		.byte	0
+ 2401 00cb 00       		.byte	0
+ 2402 00cc 0E       		.uleb128 0xe
+ 2403 00cd 34       		.uleb128 0x34
+ 2404 00ce 00       		.byte	0
+ 2405 00cf 03       		.uleb128 0x3
+ 2406 00d0 0E       		.uleb128 0xe
+ 2407 00d1 3A       		.uleb128 0x3a
+ 2408 00d2 0B       		.uleb128 0xb
+ 2409 00d3 3B       		.uleb128 0x3b
+ 2410 00d4 0B       		.uleb128 0xb
+ 2411 00d5 49       		.uleb128 0x49
+ 2412 00d6 13       		.uleb128 0x13
+ 2413 00d7 02       		.uleb128 0x2
+ 2414 00d8 18       		.uleb128 0x18
+ 2415 00d9 00       		.byte	0
+ 2416 00da 00       		.byte	0
+ 2417 00db 0F       		.uleb128 0xf
+ 2418 00dc 2E       		.uleb128 0x2e
+ 2419 00dd 01       		.byte	0x1
+ 2420 00de 3F       		.uleb128 0x3f
+ 2421 00df 19       		.uleb128 0x19
+ 2422 00e0 03       		.uleb128 0x3
+ 2423 00e1 0E       		.uleb128 0xe
+ 2424 00e2 3A       		.uleb128 0x3a
+ 2425 00e3 0B       		.uleb128 0xb
+ 2426 00e4 3B       		.uleb128 0x3b
+ 2427 00e5 05       		.uleb128 0x5
+ 2428 00e6 27       		.uleb128 0x27
+ 2429 00e7 19       		.uleb128 0x19
+ 2430 00e8 49       		.uleb128 0x49
+ 2431 00e9 13       		.uleb128 0x13
+ 2432 00ea 11       		.uleb128 0x11
+ 2433 00eb 01       		.uleb128 0x1
+ 2434 00ec 12       		.uleb128 0x12
+ 2435 00ed 06       		.uleb128 0x6
+ 2436 00ee 40       		.uleb128 0x40
+ 2437 00ef 18       		.uleb128 0x18
+ 2438 00f0 9642     		.uleb128 0x2116
+ 2439 00f2 19       		.uleb128 0x19
+ 2440 00f3 01       		.uleb128 0x1
+ 2441 00f4 13       		.uleb128 0x13
+ 2442 00f5 00       		.byte	0
+ 2443 00f6 00       		.byte	0
+ 2444 00f7 10       		.uleb128 0x10
+ 2445 00f8 05       		.uleb128 0x5
+ 2446 00f9 00       		.byte	0
+ 2447 00fa 03       		.uleb128 0x3
+ 2448 00fb 08       		.uleb128 0x8
+ 2449 00fc 3A       		.uleb128 0x3a
+ 2450 00fd 0B       		.uleb128 0xb
+ 2451 00fe 3B       		.uleb128 0x3b
+ 2452 00ff 05       		.uleb128 0x5
+ 2453 0100 49       		.uleb128 0x49
+ 2454 0101 13       		.uleb128 0x13
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 55
+
+
+ 2455 0102 02       		.uleb128 0x2
+ 2456 0103 18       		.uleb128 0x18
+ 2457 0104 00       		.byte	0
+ 2458 0105 00       		.byte	0
+ 2459 0106 11       		.uleb128 0x11
+ 2460 0107 2E       		.uleb128 0x2e
+ 2461 0108 01       		.byte	0x1
+ 2462 0109 3F       		.uleb128 0x3f
+ 2463 010a 19       		.uleb128 0x19
+ 2464 010b 03       		.uleb128 0x3
+ 2465 010c 0E       		.uleb128 0xe
+ 2466 010d 3A       		.uleb128 0x3a
+ 2467 010e 0B       		.uleb128 0xb
+ 2468 010f 3B       		.uleb128 0x3b
+ 2469 0110 05       		.uleb128 0x5
+ 2470 0111 11       		.uleb128 0x11
+ 2471 0112 01       		.uleb128 0x1
+ 2472 0113 12       		.uleb128 0x12
+ 2473 0114 06       		.uleb128 0x6
+ 2474 0115 40       		.uleb128 0x40
+ 2475 0116 18       		.uleb128 0x18
+ 2476 0117 9642     		.uleb128 0x2116
+ 2477 0119 19       		.uleb128 0x19
+ 2478 011a 01       		.uleb128 0x1
+ 2479 011b 13       		.uleb128 0x13
+ 2480 011c 00       		.byte	0
+ 2481 011d 00       		.byte	0
+ 2482 011e 12       		.uleb128 0x12
+ 2483 011f 34       		.uleb128 0x34
+ 2484 0120 00       		.byte	0
+ 2485 0121 03       		.uleb128 0x3
+ 2486 0122 08       		.uleb128 0x8
+ 2487 0123 3A       		.uleb128 0x3a
+ 2488 0124 0B       		.uleb128 0xb
+ 2489 0125 3B       		.uleb128 0x3b
+ 2490 0126 05       		.uleb128 0x5
+ 2491 0127 49       		.uleb128 0x49
+ 2492 0128 13       		.uleb128 0x13
+ 2493 0129 02       		.uleb128 0x2
+ 2494 012a 18       		.uleb128 0x18
+ 2495 012b 00       		.byte	0
+ 2496 012c 00       		.byte	0
+ 2497 012d 13       		.uleb128 0x13
+ 2498 012e 0B       		.uleb128 0xb
+ 2499 012f 01       		.byte	0x1
+ 2500 0130 11       		.uleb128 0x11
+ 2501 0131 01       		.uleb128 0x1
+ 2502 0132 12       		.uleb128 0x12
+ 2503 0133 06       		.uleb128 0x6
+ 2504 0134 00       		.byte	0
+ 2505 0135 00       		.byte	0
+ 2506 0136 14       		.uleb128 0x14
+ 2507 0137 34       		.uleb128 0x34
+ 2508 0138 00       		.byte	0
+ 2509 0139 03       		.uleb128 0x3
+ 2510 013a 0E       		.uleb128 0xe
+ 2511 013b 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 56
+
+
+ 2512 013c 0B       		.uleb128 0xb
+ 2513 013d 3B       		.uleb128 0x3b
+ 2514 013e 05       		.uleb128 0x5
+ 2515 013f 49       		.uleb128 0x49
+ 2516 0140 13       		.uleb128 0x13
+ 2517 0141 02       		.uleb128 0x2
+ 2518 0142 18       		.uleb128 0x18
+ 2519 0143 00       		.byte	0
+ 2520 0144 00       		.byte	0
+ 2521 0145 15       		.uleb128 0x15
+ 2522 0146 2E       		.uleb128 0x2e
+ 2523 0147 01       		.byte	0x1
+ 2524 0148 3F       		.uleb128 0x3f
+ 2525 0149 19       		.uleb128 0x19
+ 2526 014a 03       		.uleb128 0x3
+ 2527 014b 0E       		.uleb128 0xe
+ 2528 014c 3A       		.uleb128 0x3a
+ 2529 014d 0B       		.uleb128 0xb
+ 2530 014e 3B       		.uleb128 0x3b
+ 2531 014f 05       		.uleb128 0x5
+ 2532 0150 27       		.uleb128 0x27
+ 2533 0151 19       		.uleb128 0x19
+ 2534 0152 11       		.uleb128 0x11
+ 2535 0153 01       		.uleb128 0x1
+ 2536 0154 12       		.uleb128 0x12
+ 2537 0155 06       		.uleb128 0x6
+ 2538 0156 40       		.uleb128 0x40
+ 2539 0157 18       		.uleb128 0x18
+ 2540 0158 9642     		.uleb128 0x2116
+ 2541 015a 19       		.uleb128 0x19
+ 2542 015b 01       		.uleb128 0x1
+ 2543 015c 13       		.uleb128 0x13
+ 2544 015d 00       		.byte	0
+ 2545 015e 00       		.byte	0
+ 2546 015f 16       		.uleb128 0x16
+ 2547 0160 05       		.uleb128 0x5
+ 2548 0161 00       		.byte	0
+ 2549 0162 03       		.uleb128 0x3
+ 2550 0163 0E       		.uleb128 0xe
+ 2551 0164 3A       		.uleb128 0x3a
+ 2552 0165 0B       		.uleb128 0xb
+ 2553 0166 3B       		.uleb128 0x3b
+ 2554 0167 05       		.uleb128 0x5
+ 2555 0168 49       		.uleb128 0x49
+ 2556 0169 13       		.uleb128 0x13
+ 2557 016a 02       		.uleb128 0x2
+ 2558 016b 18       		.uleb128 0x18
+ 2559 016c 00       		.byte	0
+ 2560 016d 00       		.byte	0
+ 2561 016e 17       		.uleb128 0x17
+ 2562 016f 01       		.uleb128 0x1
+ 2563 0170 01       		.byte	0x1
+ 2564 0171 49       		.uleb128 0x49
+ 2565 0172 13       		.uleb128 0x13
+ 2566 0173 01       		.uleb128 0x1
+ 2567 0174 13       		.uleb128 0x13
+ 2568 0175 00       		.byte	0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 57
+
+
+ 2569 0176 00       		.byte	0
+ 2570 0177 18       		.uleb128 0x18
+ 2571 0178 21       		.uleb128 0x21
+ 2572 0179 00       		.byte	0
+ 2573 017a 49       		.uleb128 0x49
+ 2574 017b 13       		.uleb128 0x13
+ 2575 017c 2F       		.uleb128 0x2f
+ 2576 017d 0B       		.uleb128 0xb
+ 2577 017e 00       		.byte	0
+ 2578 017f 00       		.byte	0
+ 2579 0180 19       		.uleb128 0x19
+ 2580 0181 2E       		.uleb128 0x2e
+ 2581 0182 00       		.byte	0
+ 2582 0183 3F       		.uleb128 0x3f
+ 2583 0184 19       		.uleb128 0x19
+ 2584 0185 03       		.uleb128 0x3
+ 2585 0186 0E       		.uleb128 0xe
+ 2586 0187 3A       		.uleb128 0x3a
+ 2587 0188 0B       		.uleb128 0xb
+ 2588 0189 3B       		.uleb128 0x3b
+ 2589 018a 05       		.uleb128 0x5
+ 2590 018b 11       		.uleb128 0x11
+ 2591 018c 01       		.uleb128 0x1
+ 2592 018d 12       		.uleb128 0x12
+ 2593 018e 06       		.uleb128 0x6
+ 2594 018f 40       		.uleb128 0x40
+ 2595 0190 18       		.uleb128 0x18
+ 2596 0191 9642     		.uleb128 0x2116
+ 2597 0193 19       		.uleb128 0x19
+ 2598 0194 00       		.byte	0
+ 2599 0195 00       		.byte	0
+ 2600 0196 1A       		.uleb128 0x1a
+ 2601 0197 2E       		.uleb128 0x2e
+ 2602 0198 01       		.byte	0x1
+ 2603 0199 3F       		.uleb128 0x3f
+ 2604 019a 19       		.uleb128 0x19
+ 2605 019b 03       		.uleb128 0x3
+ 2606 019c 0E       		.uleb128 0xe
+ 2607 019d 3A       		.uleb128 0x3a
+ 2608 019e 0B       		.uleb128 0xb
+ 2609 019f 3B       		.uleb128 0x3b
+ 2610 01a0 05       		.uleb128 0x5
+ 2611 01a1 27       		.uleb128 0x27
+ 2612 01a2 19       		.uleb128 0x19
+ 2613 01a3 11       		.uleb128 0x11
+ 2614 01a4 01       		.uleb128 0x1
+ 2615 01a5 12       		.uleb128 0x12
+ 2616 01a6 06       		.uleb128 0x6
+ 2617 01a7 40       		.uleb128 0x40
+ 2618 01a8 18       		.uleb128 0x18
+ 2619 01a9 9742     		.uleb128 0x2117
+ 2620 01ab 19       		.uleb128 0x19
+ 2621 01ac 01       		.uleb128 0x1
+ 2622 01ad 13       		.uleb128 0x13
+ 2623 01ae 00       		.byte	0
+ 2624 01af 00       		.byte	0
+ 2625 01b0 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 58
+
+
+ 2626 01b1 34       		.uleb128 0x34
+ 2627 01b2 00       		.byte	0
+ 2628 01b3 03       		.uleb128 0x3
+ 2629 01b4 0E       		.uleb128 0xe
+ 2630 01b5 3A       		.uleb128 0x3a
+ 2631 01b6 0B       		.uleb128 0xb
+ 2632 01b7 3B       		.uleb128 0x3b
+ 2633 01b8 05       		.uleb128 0x5
+ 2634 01b9 49       		.uleb128 0x49
+ 2635 01ba 13       		.uleb128 0x13
+ 2636 01bb 3F       		.uleb128 0x3f
+ 2637 01bc 19       		.uleb128 0x19
+ 2638 01bd 3C       		.uleb128 0x3c
+ 2639 01be 19       		.uleb128 0x19
+ 2640 01bf 00       		.byte	0
+ 2641 01c0 00       		.byte	0
+ 2642 01c1 1C       		.uleb128 0x1c
+ 2643 01c2 35       		.uleb128 0x35
+ 2644 01c3 00       		.byte	0
+ 2645 01c4 49       		.uleb128 0x49
+ 2646 01c5 13       		.uleb128 0x13
+ 2647 01c6 00       		.byte	0
+ 2648 01c7 00       		.byte	0
+ 2649 01c8 1D       		.uleb128 0x1d
+ 2650 01c9 34       		.uleb128 0x34
+ 2651 01ca 00       		.byte	0
+ 2652 01cb 03       		.uleb128 0x3
+ 2653 01cc 08       		.uleb128 0x8
+ 2654 01cd 3A       		.uleb128 0x3a
+ 2655 01ce 0B       		.uleb128 0xb
+ 2656 01cf 3B       		.uleb128 0x3b
+ 2657 01d0 0B       		.uleb128 0xb
+ 2658 01d1 49       		.uleb128 0x49
+ 2659 01d2 13       		.uleb128 0x13
+ 2660 01d3 3F       		.uleb128 0x3f
+ 2661 01d4 19       		.uleb128 0x19
+ 2662 01d5 02       		.uleb128 0x2
+ 2663 01d6 18       		.uleb128 0x18
+ 2664 01d7 00       		.byte	0
+ 2665 01d8 00       		.byte	0
+ 2666 01d9 1E       		.uleb128 0x1e
+ 2667 01da 34       		.uleb128 0x34
+ 2668 01db 00       		.byte	0
+ 2669 01dc 03       		.uleb128 0x3
+ 2670 01dd 0E       		.uleb128 0xe
+ 2671 01de 3A       		.uleb128 0x3a
+ 2672 01df 0B       		.uleb128 0xb
+ 2673 01e0 3B       		.uleb128 0x3b
+ 2674 01e1 0B       		.uleb128 0xb
+ 2675 01e2 49       		.uleb128 0x49
+ 2676 01e3 13       		.uleb128 0x13
+ 2677 01e4 3F       		.uleb128 0x3f
+ 2678 01e5 19       		.uleb128 0x19
+ 2679 01e6 02       		.uleb128 0x2
+ 2680 01e7 18       		.uleb128 0x18
+ 2681 01e8 00       		.byte	0
+ 2682 01e9 00       		.byte	0
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 59
+
+
+ 2683 01ea 00       		.byte	0
+ 2684              		.section	.debug_aranges,"",%progbits
+ 2685 0000 84000000 		.4byte	0x84
+ 2686 0004 0200     		.2byte	0x2
+ 2687 0006 00000000 		.4byte	.Ldebug_info0
+ 2688 000a 04       		.byte	0x4
+ 2689 000b 00       		.byte	0
+ 2690 000c 0000     		.2byte	0
+ 2691 000e 0000     		.2byte	0
+ 2692 0010 00000000 		.4byte	.LFB63
+ 2693 0014 30000000 		.4byte	.LFE63-.LFB63
+ 2694 0018 00000000 		.4byte	.LFB64
+ 2695 001c 18000000 		.4byte	.LFE64-.LFB64
+ 2696 0020 00000000 		.4byte	.LFB65
+ 2697 0024 9C020000 		.4byte	.LFE65-.LFB65
+ 2698 0028 00000000 		.4byte	.LFB66
+ 2699 002c 24000000 		.4byte	.LFE66-.LFB66
+ 2700 0030 00000000 		.4byte	.LFB67
+ 2701 0034 B4000000 		.4byte	.LFE67-.LFB67
+ 2702 0038 00000000 		.4byte	.LFB68
+ 2703 003c 2A000000 		.4byte	.LFE68-.LFB68
+ 2704 0040 00000000 		.4byte	.LFB69
+ 2705 0044 2A000000 		.4byte	.LFE69-.LFB69
+ 2706 0048 00000000 		.4byte	.LFB70
+ 2707 004c 52000000 		.4byte	.LFE70-.LFB70
+ 2708 0050 00000000 		.4byte	.LFB71
+ 2709 0054 2C000000 		.4byte	.LFE71-.LFB71
+ 2710 0058 00000000 		.4byte	.LFB72
+ 2711 005c 40000000 		.4byte	.LFE72-.LFB72
+ 2712 0060 00000000 		.4byte	.LFB73
+ 2713 0064 40000000 		.4byte	.LFE73-.LFB73
+ 2714 0068 00000000 		.4byte	.LFB74
+ 2715 006c 5C000000 		.4byte	.LFE74-.LFB74
+ 2716 0070 00000000 		.4byte	.LFB75
+ 2717 0074 5C000000 		.4byte	.LFE75-.LFB75
+ 2718 0078 00000000 		.4byte	.LFB76
+ 2719 007c 14000000 		.4byte	.LFE76-.LFB76
+ 2720 0080 00000000 		.4byte	0
+ 2721 0084 00000000 		.4byte	0
+ 2722              		.section	.debug_ranges,"",%progbits
+ 2723              	.Ldebug_ranges0:
+ 2724 0000 00000000 		.4byte	.LFB63
+ 2725 0004 30000000 		.4byte	.LFE63
+ 2726 0008 00000000 		.4byte	.LFB64
+ 2727 000c 18000000 		.4byte	.LFE64
+ 2728 0010 00000000 		.4byte	.LFB65
+ 2729 0014 9C020000 		.4byte	.LFE65
+ 2730 0018 00000000 		.4byte	.LFB66
+ 2731 001c 24000000 		.4byte	.LFE66
+ 2732 0020 00000000 		.4byte	.LFB67
+ 2733 0024 B4000000 		.4byte	.LFE67
+ 2734 0028 00000000 		.4byte	.LFB68
+ 2735 002c 2A000000 		.4byte	.LFE68
+ 2736 0030 00000000 		.4byte	.LFB69
+ 2737 0034 2A000000 		.4byte	.LFE69
+ 2738 0038 00000000 		.4byte	.LFB70
+ 2739 003c 52000000 		.4byte	.LFE70
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 60
+
+
+ 2740 0040 00000000 		.4byte	.LFB71
+ 2741 0044 2C000000 		.4byte	.LFE71
+ 2742 0048 00000000 		.4byte	.LFB72
+ 2743 004c 40000000 		.4byte	.LFE72
+ 2744 0050 00000000 		.4byte	.LFB73
+ 2745 0054 40000000 		.4byte	.LFE73
+ 2746 0058 00000000 		.4byte	.LFB74
+ 2747 005c 5C000000 		.4byte	.LFE74
+ 2748 0060 00000000 		.4byte	.LFB75
+ 2749 0064 5C000000 		.4byte	.LFE75
+ 2750 0068 00000000 		.4byte	.LFB76
+ 2751 006c 14000000 		.4byte	.LFE76
+ 2752 0070 00000000 		.4byte	0
+ 2753 0074 00000000 		.4byte	0
+ 2754              		.section	.debug_line,"",%progbits
+ 2755              	.Ldebug_line0:
+ 2756 0000 4C030000 		.section	.debug_str,"MS",%progbits,1
+ 2756      02005501 
+ 2756      00000201 
+ 2756      FB0E0D00 
+ 2756      01010101 
+ 2757              	.LASF68:
+ 2758 0000 636F7272 		.ascii	"correction\000"
+ 2758      65637469 
+ 2758      6F6E00
+ 2759              	.LASF78:
+ 2760 000b 74735F65 		.ascii	"ts_enc\000"
+ 2760      6E6300
+ 2761              	.LASF87:
+ 2762 0012 666C6167 		.ascii	"flag_packet\000"
+ 2762      5F706163 
+ 2762      6B657400 
+ 2763              	.LASF40:
+ 2764 001e 4D454449 		.ascii	"MEDIUM_RIGHT\000"
+ 2764      554D5F52 
+ 2764      49474854 
+ 2764      00
+ 2765              	.LASF105:
+ 2766 002b 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - TT2 line following\\"
+ 2766      54322043 
+ 2766      6F646520 
+ 2766      2D205365 
+ 2766      636F6E64 
+ 2767 005d 43533330 		.ascii	"CS301_Class.cyprj.Archive01-20190825T234813Z-001\\C"
+ 2767      315F436C 
+ 2767      6173732E 
+ 2767      63797072 
+ 2767      6A2E4172 
+ 2768 008f 53333031 		.ascii	"S301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 2768      5F436C61 
+ 2768      73732E63 
+ 2768      7970726A 
+ 2768      2E417263 
+ 2769              	.LASF104:
+ 2770 00bc 2E5C6D61 		.ascii	".\\main.c\000"
+ 2770      696E2E63 
+ 2770      00
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 61
+
+
+ 2771              	.LASF37:
+ 2772 00c5 434F5252 		.ascii	"CORRECT\000"
+ 2772      45435400 
+ 2773              	.LASF54:
+ 2774 00cd 73746174 		.ascii	"state\000"
+ 2774      6500
+ 2775              	.LASF84:
+ 2776 00d3 666C6167 		.ascii	"flag_ts_speed\000"
+ 2776      5F74735F 
+ 2776      73706565 
+ 2776      6400
+ 2777              	.LASF33:
+ 2778 00e1 67325F78 		.ascii	"g2_xpos\000"
+ 2778      706F7300 
+ 2779              	.LASF2:
+ 2780 00e9 73686F72 		.ascii	"short int\000"
+ 2780      7420696E 
+ 2780      7400
+ 2781              	.LASF95:
+ 2782 00f3 73797374 		.ascii	"system_state\000"
+ 2782      656D5F73 
+ 2782      74617465 
+ 2782      00
+ 2783              	.LASF9:
+ 2784 0100 73697A65 		.ascii	"sizetype\000"
+ 2784      74797065 
+ 2784      00
+ 2785              	.LASF61:
+ 2786 0109 6368616E 		.ascii	"changeRightWheelSpeed\000"
+ 2786      67655269 
+ 2786      67687457 
+ 2786      6865656C 
+ 2786      53706565 
+ 2787              	.LASF94:
+ 2788 011f 75736242 		.ascii	"usbBuffer\000"
+ 2788      75666665 
+ 2788      7200
+ 2789              	.LASF38:
+ 2790 0129 534C4947 		.ascii	"SLIGHTLY_RIGHT\000"
+ 2790      48544C59 
+ 2790      5F524947 
+ 2790      485400
+ 2791              	.LASF57:
+ 2792 0138 6D61696E 		.ascii	"main\000"
+ 2792      00
+ 2793              	.LASF66:
+ 2794 013d 69734C65 		.ascii	"isLeftWheel\000"
+ 2794      66745768 
+ 2794      65656C00 
+ 2795              	.LASF77:
+ 2796 0149 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2796      52784275 
+ 2796      66666572 
+ 2796      00
+ 2797              	.LASF14:
+ 2798 0156 75696E74 		.ascii	"uint16\000"
+ 2798      313600
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 62
+
+
+ 2799              	.LASF21:
+ 2800 015d 696E6465 		.ascii	"index\000"
+ 2800      7800
+ 2801              	.LASF16:
+ 2802 0163 696E7431 		.ascii	"int16\000"
+ 2802      3600
+ 2803              	.LASF13:
+ 2804 0169 75696E74 		.ascii	"uint8\000"
+ 2804      3800
+ 2805              	.LASF32:
+ 2806 016f 67315F64 		.ascii	"g1_direction\000"
+ 2806      69726563 
+ 2806      74696F6E 
+ 2806      00
+ 2807              	.LASF50:
+ 2808 017c 70726576 		.ascii	"prevCountM2\000"
+ 2808      436F756E 
+ 2808      744D3200 
+ 2809              	.LASF62:
+ 2810 0188 636F7272 		.ascii	"correctSpeed\000"
+ 2810      65637453 
+ 2810      70656564 
+ 2810      00
+ 2811              	.LASF107:
+ 2812 0195 67657456 		.ascii	"getValForChannel\000"
+ 2812      616C466F 
+ 2812      72436861 
+ 2812      6E6E656C 
+ 2812      00
+ 2813              	.LASF102:
+ 2814 01a6 74696D65 		.ascii	"timer_flag\000"
+ 2814      725F666C 
+ 2814      616700
+ 2815              	.LASF18:
+ 2816 01b1 666C6F61 		.ascii	"float\000"
+ 2816      7400
+ 2817              	.LASF6:
+ 2818 01b7 6C6F6E67 		.ascii	"long long int\000"
+ 2818      206C6F6E 
+ 2818      6720696E 
+ 2818      7400
+ 2819              	.LASF76:
+ 2820 01c5 75736250 		.ascii	"usbPutString\000"
+ 2820      75745374 
+ 2820      72696E67 
+ 2820      00
+ 2821              	.LASF15:
+ 2822 01d2 696E7438 		.ascii	"int8\000"
+ 2822      00
+ 2823              	.LASF108:
+ 2824 01d7 75706461 		.ascii	"updateSensorValues\000"
+ 2824      74655365 
+ 2824      6E736F72 
+ 2824      56616C75 
+ 2824      657300
+ 2825              	.LASF83:
+ 2826 01ea 666C6167 		.ascii	"flag_ts_update\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 63
+
+
+ 2826      5F74735F 
+ 2826      75706461 
+ 2826      746500
+ 2827              	.LASF34:
+ 2828 01f9 67325F79 		.ascii	"g2_ypos\000"
+ 2828      706F7300 
+ 2829              	.LASF28:
+ 2830 0201 67305F64 		.ascii	"g0_direction\000"
+ 2830      69726563 
+ 2830      74696F6E 
+ 2830      00
+ 2831              	.LASF71:
+ 2832 020e 72696768 		.ascii	"rightIsForward\000"
+ 2832      74497346 
+ 2832      6F727761 
+ 2832      726400
+ 2833              	.LASF45:
+ 2834 021d 50415353 		.ascii	"PASS\000"
+ 2834      00
+ 2835              	.LASF103:
+ 2836 0222 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2836      4320342E 
+ 2836      392E3320 
+ 2836      32303135 
+ 2836      30333033 
+ 2837 0255 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2837      20726576 
+ 2837      6973696F 
+ 2837      6E203232 
+ 2837      31323230 
+ 2838 0288 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2838      66756E63 
+ 2838      74696F6E 
+ 2838      2D736563 
+ 2838      74696F6E 
+ 2839              	.LASF42:
+ 2840 02b0 5455524E 		.ascii	"TURN_RIGHT\000"
+ 2840      5F524947 
+ 2840      485400
+ 2841              	.LASF92:
+ 2842 02bb 6C696E65 		.ascii	"line\000"
+ 2842      00
+ 2843              	.LASF85:
+ 2844 02c0 666C6167 		.ascii	"flag_ts_display\000"
+ 2844      5F74735F 
+ 2844      64697370 
+ 2844      6C617900 
+ 2845              	.LASF86:
+ 2846 02d0 666C6167 		.ascii	"flag_rx\000"
+ 2846      5F727800 
+ 2847              	.LASF98:
+ 2848 02d8 6164635F 		.ascii	"adc_readings\000"
+ 2848      72656164 
+ 2848      696E6773 
+ 2848      00
+ 2849              	.LASF48:
+ 2850 02e5 4144435F 		.ascii	"ADC_ISR\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 64
+
+
+ 2850      49535200 
+ 2851              	.LASF49:
+ 2852 02ed 70726576 		.ascii	"prevCountM1\000"
+ 2852      436F756E 
+ 2852      744D3100 
+ 2853              	.LASF1:
+ 2854 02f9 756E7369 		.ascii	"unsigned char\000"
+ 2854      676E6564 
+ 2854      20636861 
+ 2854      7200
+ 2855              	.LASF43:
+ 2856 0307 5455524E 		.ascii	"TURN_LEFT\000"
+ 2856      5F4C4546 
+ 2856      5400
+ 2857              	.LASF27:
+ 2858 0311 67305F73 		.ascii	"g0_speed\000"
+ 2858      70656564 
+ 2858      00
+ 2859              	.LASF72:
+ 2860 031a 7475726E 		.ascii	"turnLeft\000"
+ 2860      4C656674 
+ 2860      00
+ 2861              	.LASF47:
+ 2862 0323 454E434F 		.ascii	"ENCODER_ISR\000"
+ 2862      4445525F 
+ 2862      49535200 
+ 2863              	.LASF0:
+ 2864 032f 7369676E 		.ascii	"signed char\000"
+ 2864      65642063 
+ 2864      68617200 
+ 2865              	.LASF65:
+ 2866 033b 64657369 		.ascii	"desired_count\000"
+ 2866      7265645F 
+ 2866      636F756E 
+ 2866      7400
+ 2867              	.LASF7:
+ 2868 0349 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2868      206C6F6E 
+ 2868      6720756E 
+ 2868      7369676E 
+ 2868      65642069 
+ 2869              	.LASF93:
+ 2870 0360 656E7472 		.ascii	"entry\000"
+ 2870      7900
+ 2871              	.LASF8:
+ 2872 0366 756E7369 		.ascii	"unsigned int\000"
+ 2872      676E6564 
+ 2872      20696E74 
+ 2872      00
+ 2873              	.LASF88:
+ 2874 0373 666C6167 		.ascii	"flag_KB_string\000"
+ 2874      5F4B425F 
+ 2874      73747269 
+ 2874      6E6700
+ 2875              	.LASF5:
+ 2876 0382 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2876      20756E73 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 65
+
+
+ 2876      69676E65 
+ 2876      6420696E 
+ 2876      7400
+ 2877              	.LASF63:
+ 2878 0394 70726576 		.ascii	"prevCount\000"
+ 2878      436F756E 
+ 2878      7400
+ 2879              	.LASF35:
+ 2880 039e 67325F73 		.ascii	"g2_speed\000"
+ 2880      70656564 
+ 2880      00
+ 2881              	.LASF29:
+ 2882 03a7 67315F78 		.ascii	"g1_xpos\000"
+ 2882      706F7300 
+ 2883              	.LASF3:
+ 2884 03af 73686F72 		.ascii	"short unsigned int\000"
+ 2884      7420756E 
+ 2884      7369676E 
+ 2884      65642069 
+ 2884      6E7400
+ 2885              	.LASF106:
+ 2886 03c2 64617461 		.ascii	"data_main\000"
+ 2886      5F6D6169 
+ 2886      6E00
+ 2887              	.LASF24:
+ 2888 03cc 726F626F 		.ascii	"robot_orientation\000"
+ 2888      745F6F72 
+ 2888      69656E74 
+ 2888      6174696F 
+ 2888      6E00
+ 2889              	.LASF10:
+ 2890 03de 63686172 		.ascii	"char\000"
+ 2890      00
+ 2891              	.LASF97:
+ 2892 03e3 6164635F 		.ascii	"adc_flag\000"
+ 2892      666C6167 
+ 2892      00
+ 2893              	.LASF4:
+ 2894 03ec 6C6F6E67 		.ascii	"long int\000"
+ 2894      20696E74 
+ 2894      00
+ 2895              	.LASF22:
+ 2896 03f5 726F626F 		.ascii	"robot_xpos\000"
+ 2896      745F7870 
+ 2896      6F7300
+ 2897              	.LASF74:
+ 2898 0400 73686172 		.ascii	"sharpTurnLeft\000"
+ 2898      70547572 
+ 2898      6E4C6566 
+ 2898      7400
+ 2899              	.LASF12:
+ 2900 040e 696E7433 		.ascii	"int32_t\000"
+ 2900      325F7400 
+ 2901              	.LASF30:
+ 2902 0416 67315F79 		.ascii	"g1_ypos\000"
+ 2902      706F7300 
+ 2903              	.LASF36:
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 66
+
+
+ 2904 041e 67325F64 		.ascii	"g2_direction\000"
+ 2904      69726563 
+ 2904      74696F6E 
+ 2904      00
+ 2905              	.LASF99:
+ 2906 042b 73616D70 		.ascii	"sample_count\000"
+ 2906      6C655F63 
+ 2906      6F756E74 
+ 2906      00
+ 2907              	.LASF31:
+ 2908 0438 67315F73 		.ascii	"g1_speed\000"
+ 2908      70656564 
+ 2908      00
+ 2909              	.LASF67:
+ 2910 0441 64696666 		.ascii	"diff_count\000"
+ 2910      5F636F75 
+ 2910      6E7400
+ 2911              	.LASF46:
+ 2912 044c 726F626F 		.ascii	"robot_state\000"
+ 2912      745F7374 
+ 2912      61746500 
+ 2913              	.LASF91:
+ 2914 0458 64697370 		.ascii	"displaystring\000"
+ 2914      6C617973 
+ 2914      7472696E 
+ 2914      6700
+ 2915              	.LASF41:
+ 2916 0466 4D454449 		.ascii	"MEDIUM_LEFT\000"
+ 2916      554D5F4C 
+ 2916      45465400 
+ 2917              	.LASF56:
+ 2918 0472 72656164 		.ascii	"reading\000"
+ 2918      696E6700 
+ 2919              	.LASF25:
+ 2920 047a 67305F78 		.ascii	"g0_xpos\000"
+ 2920      706F7300 
+ 2921              	.LASF51:
+ 2922 0482 72696768 		.ascii	"right_wheel_count\000"
+ 2922      745F7768 
+ 2922      65656C5F 
+ 2922      636F756E 
+ 2922      7400
+ 2923              	.LASF52:
+ 2924 0494 6C656674 		.ascii	"left_wheel_count\000"
+ 2924      5F776865 
+ 2924      656C5F63 
+ 2924      6F756E74 
+ 2924      00
+ 2925              	.LASF17:
+ 2926 04a5 696E7433 		.ascii	"int32\000"
+ 2926      3200
+ 2927              	.LASF19:
+ 2928 04ab 646F7562 		.ascii	"double\000"
+ 2928      6C6500
+ 2929              	.LASF58:
+ 2930 04b2 6368616E 		.ascii	"changeLeftWheelSpeed\000"
+ 2930      67654C65 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 67
+
+
+ 2930      66745768 
+ 2930      65656C53 
+ 2930      70656564 
+ 2931              	.LASF89:
+ 2932 04c7 64617461 		.ascii	"dataready_flag\000"
+ 2932      72656164 
+ 2932      795F666C 
+ 2932      616700
+ 2933              	.LASF80:
+ 2934 04d6 74735F73 		.ascii	"ts_speed\000"
+ 2934      70656564 
+ 2934      00
+ 2935              	.LASF64:
+ 2936 04df 636F756E 		.ascii	"count\000"
+ 2936      7400
+ 2937              	.LASF44:
+ 2938 04e5 534C4F57 		.ascii	"SLOW\000"
+ 2938      00
+ 2939              	.LASF82:
+ 2940 04ea 666C6167 		.ascii	"flag_ts_enc\000"
+ 2940      5F74735F 
+ 2940      656E6300 
+ 2941              	.LASF11:
+ 2942 04f6 5F5F696E 		.ascii	"__int32_t\000"
+ 2942      7433325F 
+ 2942      7400
+ 2943              	.LASF100:
+ 2944 0500 636F756E 		.ascii	"countM1\000"
+ 2944      744D3100 
+ 2945              	.LASF101:
+ 2946 0508 636F756E 		.ascii	"countM2\000"
+ 2946      744D3200 
+ 2947              	.LASF53:
+ 2948 0510 706F6C6C 		.ascii	"polling_count\000"
+ 2948      696E675F 
+ 2948      636F756E 
+ 2948      7400
+ 2949              	.LASF60:
+ 2950 051e 6E65775F 		.ascii	"new_value\000"
+ 2950      76616C75 
+ 2950      6500
+ 2951              	.LASF26:
+ 2952 0528 67305F79 		.ascii	"g0_ypos\000"
+ 2952      706F7300 
+ 2953              	.LASF73:
+ 2954 0530 7475726E 		.ascii	"turnRight\000"
+ 2954      52696768 
+ 2954      7400
+ 2955              	.LASF81:
+ 2956 053a 74735F64 		.ascii	"ts_display\000"
+ 2956      6973706C 
+ 2956      617900
+ 2957              	.LASF79:
+ 2958 0545 74735F75 		.ascii	"ts_update\000"
+ 2958      70646174 
+ 2958      6500
+ 2959              	.LASF69:
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccz2B2At.s 			page 68
+
+
+ 2960 054f 73657457 		.ascii	"setWheelDirection\000"
+ 2960      6865656C 
+ 2960      44697265 
+ 2960      6374696F 
+ 2960      6E00
+ 2961              	.LASF90:
+ 2962 0561 666C6167 		.ascii	"flag_rf_transmission_active\000"
+ 2962      5F72665F 
+ 2962      7472616E 
+ 2962      736D6973 
+ 2962      73696F6E 
+ 2963              	.LASF23:
+ 2964 057d 726F626F 		.ascii	"robot_ypos\000"
+ 2964      745F7970 
+ 2964      6F7300
+ 2965              	.LASF55:
+ 2966 0588 70726576 		.ascii	"prev_state\000"
+ 2966      5F737461 
+ 2966      746500
+ 2967              	.LASF59:
+ 2968 0593 616D6F75 		.ascii	"amount\000"
+ 2968      6E7400
+ 2969              	.LASF96:
+ 2970 059a 73656E73 		.ascii	"sensor_readings\000"
+ 2970      6F725F72 
+ 2970      65616469 
+ 2970      6E677300 
+ 2971              	.LASF20:
+ 2972 05aa 72737369 		.ascii	"rssi\000"
+ 2972      00
+ 2973              	.LASF70:
+ 2974 05af 6C656674 		.ascii	"leftIsForward\000"
+ 2974      4973466F 
+ 2974      72776172 
+ 2974      6400
+ 2975              	.LASF75:
+ 2976 05bd 73686172 		.ascii	"sharpTurnRight\000"
+ 2976      70547572 
+ 2976      6E526967 
+ 2976      687400
+ 2977              	.LASF39:
+ 2978 05cc 534C4947 		.ascii	"SLIGHTLY_LEFT\000"
+ 2978      48544C59 
+ 2978      5F4C4546 
+ 2978      5400
+ 2979              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
