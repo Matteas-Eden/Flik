@@ -213,38 +213,23 @@ int main()
         if (sensor_readings[TOP_MID_SENSOR]) { // on line
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left; want to go right
                 state = SLIGHTLY_RIGHT;
-//                right_wheel_count = DESIRED_COUNT - ADJUST_SPEED_SMALL;
-//                left_wheel_count = DESIRED_COUNT + ADJUST_SPEED_SMALL;
                 right_wheel_count -= ADJUST_SPEED_SMALL;
                 left_wheel_count += ADJUST_SPEED_SMALL;
             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) { // Deviated right; want to go left
                 state = SLIGHTLY_LEFT;
-//                right_wheel_count = DESIRED_COUNT + ADJUST_SPEED_SMALL;
-//                left_wheel_count = DESIRED_COUNT - ADJUST_SPEED_SMALL;
                 right_wheel_count += ADJUST_SPEED_SMALL;
                 left_wheel_count -= ADJUST_SPEED_SMALL;
-            } else {
+            } else { // Correct speed
                 state = CORRECT;
-                // Correct speed
-//                right_wheel_count = DESIRED_COUNT;
-//                left_wheel_count = DESIRED_COUNT;
             }
         } else { // moved off
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left, but worse; want to go right
                 state = MEDIUM_RIGHT;
-//                right_wheel_count = DESIRED_COUNT - ADJUST_SPEED_LARGE;
-//                left_wheel_count = DESIRED_COUNT + ADJUST_SPEED_LARGE;
-//                right_wheel_count -= ADJUST_SPEED_LARGE;
-//                left_wheel_count += ADJUST_SPEED_LARGE;
-                sharpTurnRight();
+                turnRight();
             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated right, but worse; want to go left
                 state = MEDIUM_LEFT;
-//                right_wheel_count = DESIRED_COUNT + ADJUST_SPEED_LARGE;
-//                left_wheel_count = DESIRED_COUNT - ADJUST_SPEED_LARGE;
-//                right_wheel_count += ADJUST_SPEED_LARGE;
-//                left_wheel_count -= ADJUST_SPEED_LARGE;
-                sharpTurnLeft();
-            // for corners (hopefully)
+				turnLeft();
+            // for corners
             } else if (!sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {
                 if (sensor_readings[BOTTOM_LEFT_SENSOR]) {
                     state = TURN_LEFT;
@@ -328,31 +313,6 @@ void updateSensorValues(){
         }
         ADC_DEBUG_Write(1);
         sample_count = 0;
-//        
-//        // DEBUG
-//        // "F: 0 0 0 B: 0 0 1"
-//        char msg[20] = "F: ";
-//        char temp[3] = { 0 };
-//        itoa(sensor_readings[TOP_LEFT_SENSOR], temp, 10);
-//        strcat(msg, temp);
-//        strcat(msg, " ");
-//        itoa(sensor_readings[TOP_MID_SENSOR], temp, 10);
-//        strcat(msg, temp);
-//        strcat(msg, " ");
-//        itoa(sensor_readings[TOP_RIGHT_SENSOR], temp, 10);
-//        strcat(msg, temp);
-//        strcat(msg, " B: ");
-//        itoa(sensor_readings[BOTTOM_LEFT_SENSOR], temp, 10);
-//        strcat(msg, temp);
-//        strcat(msg, " ");
-//        itoa(sensor_readings[BOTTOM_MID_SENSOR], temp, 10);
-//        strcat(msg, temp);
-//        strcat(msg, " ");
-//        itoa(sensor_readings[BOTTOM_RIGHT_SENSOR], temp, 10);
-//        strcat(msg, temp);
-//        strcat(msg, " ");
-//        strcat(msg, "\r\n");
-//        usbPutString(msg);
     }
     else ADC_DEBUG_Write(0);
 }
@@ -465,31 +425,6 @@ void sharpTurnRight() {
 }
 //* ================== UNUSED FUNCTION ======================
 
-//float resetDecoderCount(float sum){//TODO: why are you taking in sum?
-//    sum = (countM1 + countM2) >> 1;
-//    
-//    // Reset
-//    QuadDec_M1_SetCounter(0);
-//    QuadDec_M2_SetCounter(0);
-//    
-//    return sum;
-//}
-
-
-//// Simple int maximum number function
-//int getMax(int *readings)
-//{
-//    int j;
-//    int max = readings[0];
-//    for (j = 1; j < ADC_READINGS_SIZE; j++) {
-//        if (readings[j] > max) {
-//           max = readings[j];
-//        }
-//    }
-//    return max;
-//}
-
-
 /*
 * Function for performing a 90 degree turn
 * returns true once finished
@@ -525,40 +460,12 @@ void sharpTurnRight() {
 //    return TRUE;
 //}
 
-/* Invert wheel direction
-* i.e. if going forwards, a call
-* to this makes it go backwards
-*/
-//void invertWheels(){
-//    INV1_Write(!!(INV1_Read() == 0));
-//    INV2_Write(!!(INV1_Read() == 0));
-//}
-//
 //float getDistance(int prevCountM1, int prevCountM2){
 //    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
 //    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
 //    return (m1_dist+m2_dist)/2;
 //};
 
-/*
-* Calculate speed of robot in cm/s
-* linear distance = (QuadDecoderCount / ticks for 1 revolution) * linear distance for 1 revolution
-* speed = linear distance / timer period
-*/
-//speed getSpeed(int prevCountM1, int prevCountM2){
-//    speed robot_speed;
-//    
-//    // Check casts to prevent integer division
-//    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-//    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-//    
-//    // Get speeds by dividing distance over timer period
-//    robot_speed.m1 = m1_dist / TIMER_PERIOD;
-//    robot_speed.m2 = m2_dist / TIMER_PERIOD;
-//
-//    return robot_speed;
-//   
-//}
 
 //* ========================================
 void usbPutString(char *s)
@@ -569,10 +476,7 @@ void usbPutString(char *s)
     
 #ifdef PUTTY
     
-    while (USBUART_CDCIsReady() == 0){
-    };
-    //s[63]='\0';
-    //s[62]='!';
+    while (USBUART_CDCIsReady() == 0){ };
     USBUART_PutData((uint8 *)s, strlen(s));
     
 #endif
