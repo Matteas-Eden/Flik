@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
   29:.\Generated_Source\PSoC5/ADC_PM.c **** * Summary:
   30:.\Generated_Source\PSoC5/ADC_PM.c **** *  Stops the ADC operation and saves the configuration registers and component
   31:.\Generated_Source\PSoC5/ADC_PM.c **** *  enable state. Should be called just prior to entering sleep
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 2
 
 
   32:.\Generated_Source\PSoC5/ADC_PM.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
   57              	.LFB1:
   56:.\Generated_Source\PSoC5/ADC_PM.c **** 
   57:.\Generated_Source\PSoC5/ADC_PM.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 3
 
 
   58:.\Generated_Source\PSoC5/ADC_PM.c **** /*******************************************************************************
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
   78 0016 FFF7FEFF 		bl	ADC_Enable
   92:.\Generated_Source\PSoC5/ADC_PM.c **** 
   93:.\Generated_Source\PSoC5/ADC_PM.c ****     #if(ADC_SAMPLE_MODE == ADC_SAMPLE_MODE_FREE_RUNNING)
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 4
 
 
   94:.\Generated_Source\PSoC5/ADC_PM.c ****         ADC_SAR_StartConvert();
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  104              		@ frame_needed = 1, uses_anonymous_args = 0
  105              		@ link register save eliminated.
  106 0000 80B4     		push	{r7}
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 5
 
 
  107              		.cfi_def_cfa_offset 4
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  135 0000 80B4     		push	{r7}
  136              		.cfi_def_cfa_offset 4
  137              		.cfi_offset 7, -4
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 6
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 6
 
 
  138 0002 00AF     		add	r7, sp, #0
@@ -328,15 +328,15 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  160 000b 01       		.uleb128 0x1
  161 000c 9C000000 		.4byte	.LASF19
  162 0010 01       		.byte	0x1
- 163 0011 EA010000 		.4byte	.LASF20
- 164 0015 2A010000 		.4byte	.LASF21
+ 163 0011 E0010000 		.4byte	.LASF20
+ 164 0015 50010000 		.4byte	.LASF21
  165 0019 00000000 		.4byte	.Ldebug_ranges0+0
  166 001d 00000000 		.4byte	0
  167 0021 00000000 		.4byte	.Ldebug_line0
  168 0025 02       		.uleb128 0x2
  169 0026 01       		.byte	0x1
  170 0027 06       		.byte	0x6
- 171 0028 D8010000 		.4byte	.LASF0
+ 171 0028 44010000 		.4byte	.LASF0
  172 002c 02       		.uleb128 0x2
  173 002d 01       		.byte	0x1
  174 002e 08       		.byte	0x8
@@ -344,11 +344,11 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  176 0033 02       		.uleb128 0x2
  177 0034 02       		.byte	0x2
  178 0035 05       		.byte	0x5
- 179 0036 0C020000 		.4byte	.LASF2
+ 179 0036 02020000 		.4byte	.LASF2
  180 003a 02       		.uleb128 0x2
  181 003b 02       		.byte	0x2
  182 003c 07       		.byte	0x7
- 183 003d C5010000 		.4byte	.LASF3
+ 183 003d 31010000 		.4byte	.LASF3
  184 0041 02       		.uleb128 0x2
  185 0042 04       		.byte	0x4
  186 0043 05       		.byte	0x5
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  190 004a 07       		.byte	0x7
  191 004b 21000000 		.4byte	.LASF5
  192 004f 02       		.uleb128 0x2
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 7
 
 
  193 0050 08       		.byte	0x8
@@ -384,17 +384,17 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  213 0077 02       		.uleb128 0x2
  214 0078 04       		.byte	0x4
  215 0079 04       		.byte	0x4
- 216 007a E4010000 		.4byte	.LASF9
+ 216 007a DA010000 		.4byte	.LASF9
  217 007e 02       		.uleb128 0x2
  218 007f 08       		.byte	0x8
  219 0080 04       		.byte	0x4
- 220 0081 BE010000 		.4byte	.LASF10
+ 220 0081 2A010000 		.4byte	.LASF10
  221 0085 02       		.uleb128 0x2
  222 0086 01       		.byte	0x1
  223 0087 08       		.byte	0x8
  224 0088 84000000 		.4byte	.LASF11
  225 008c 04       		.uleb128 0x4
- 226 008d 16020000 		.4byte	.LASF13
+ 226 008d 0C020000 		.4byte	.LASF13
  227 0091 02       		.byte	0x2
  228 0092 3C02     		.2byte	0x23c
  229 0094 98000000 		.4byte	0x98
@@ -403,7 +403,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  232 009d 02       		.uleb128 0x2
  233 009e 04       		.byte	0x4
  234 009f 07       		.byte	0x7
- 235 00a0 1B020000 		.4byte	.LASF14
+ 235 00a0 11020000 		.4byte	.LASF14
  236 00a4 06       		.uleb128 0x6
  237 00a5 89000000 		.4byte	.LASF15
  238 00a9 01       		.byte	0x1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  247 00bb 4F       		.byte	0x4f
  248 00bc 00000000 		.4byte	.LFB1
  249 00c0 28000000 		.4byte	.LFE1-.LFB1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 8
 
 
  250 00c4 01       		.uleb128 0x1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  304 0021 0B       		.uleb128 0xb
  305 0022 0B       		.uleb128 0xb
  306 0023 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 9
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 9
 
 
  307 0024 0B       		.uleb128 0xb
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  361 005b 0E       		.uleb128 0xe
  362 005c 3A       		.uleb128 0x3a
  363 005d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 10
 
 
  364 005e 3B       		.uleb128 0x3b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  413      206C6F6E 
  413      6720696E 
  413      7400
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 11
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 11
 
 
  414              	.LASF8:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  437      392E3320 
  437      32303135 
  437      30333033 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 12
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 12
 
 
  438 00cf 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
@@ -671,54 +671,54 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 1
  439      74696F6E 
  439      2D736563 
  439      74696F6E 
- 440              	.LASF21:
- 441 012a 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
- 441      54322043 
- 441      6F646520 
- 441      2D205365 
- 441      636F6E64 
- 442 015c 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
- 442      53333031 
- 442      5F436C61 
- 442      73732E63 
- 442      7970726A 
- 443 018e 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
- 443      3330315F 
- 443      436C6173 
- 443      732E6379 
- 443      70726A2E 
- 444              	.LASF10:
- 445 01be 646F7562 		.ascii	"double\000"
- 445      6C6500
- 446              	.LASF3:
- 447 01c5 73686F72 		.ascii	"short unsigned int\000"
- 447      7420756E 
- 447      7369676E 
- 447      65642069 
- 447      6E7400
- 448              	.LASF0:
- 449 01d8 7369676E 		.ascii	"signed char\000"
- 449      65642063 
- 449      68617200 
+ 440              	.LASF10:
+ 441 012a 646F7562 		.ascii	"double\000"
+ 441      6C6500
+ 442              	.LASF3:
+ 443 0131 73686F72 		.ascii	"short unsigned int\000"
+ 443      7420756E 
+ 443      7369676E 
+ 443      65642069 
+ 443      6E7400
+ 444              	.LASF0:
+ 445 0144 7369676E 		.ascii	"signed char\000"
+ 445      65642063 
+ 445      68617200 
+ 446              	.LASF21:
+ 447 0150 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Desktop\\Flik\\CS"
+ 447      6C65732E 
+ 447      6175636B 
+ 447      6C616E64 
+ 447      2E61632E 
+ 448 017d 3330315F 		.ascii	"301_Class.cyprj.Archive01-20190825T234813Z-001\\CS3"
+ 448      436C6173 
+ 448      732E6379 
+ 448      70726A2E 
+ 448      41726368 
+ 449 01af 30315F43 		.ascii	"01_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 449      6C617373 
+ 449      2E637970 
+ 449      726A2E41 
+ 449      72636869 
  450              	.LASF9:
- 451 01e4 666C6F61 		.ascii	"float\000"
+ 451 01da 666C6F61 		.ascii	"float\000"
  451      7400
  452              	.LASF20:
- 453 01ea 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\ADC_PM.c\000"
+ 453 01e0 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\ADC_PM.c\000"
  453      6E657261 
  453      7465645F 
  453      536F7572 
  453      63655C50 
  454              	.LASF2:
- 455 020c 73686F72 		.ascii	"short int\000"
+ 455 0202 73686F72 		.ascii	"short int\000"
  455      7420696E 
  455      7400
  456              	.LASF13:
- 457 0216 72656738 		.ascii	"reg8\000"
+ 457 020c 72656738 		.ascii	"reg8\000"
  457      00
  458              	.LASF14:
- 459 021b 73697A65 		.ascii	"sizetype\000"
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccLV1lYK.s 			page 13
+ 459 0211 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cctpN1Gm.s 			page 13
 
 
  459      74797065 

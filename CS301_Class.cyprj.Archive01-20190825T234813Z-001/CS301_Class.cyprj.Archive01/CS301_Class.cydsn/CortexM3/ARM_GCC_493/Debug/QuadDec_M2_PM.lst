@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
   25:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** * Function Name: QuadDec_M2_SaveConfig
   26:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** ********************************************************************************
   27:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** * Summary:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 2
 
 
   28:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** *  Saves the current user configuration of the component.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
   57:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** *  None.
   58:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** *
   59:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** * Return:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 3
 
 
   60:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** *  None.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
   89:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** * Global Variables:
   90:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** *  QuadDec_M2_backup - modified when non-retention registers are saved.
   91:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** *
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 4
 
 
   92:.\Generated_Source\PSoC5/QuadDec_M2_PM.c **** * Reentrant:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  117              	.L6:
  118 002c 98640040 		.word	1073767576
  119 0030 00000000 		.word	QuadDec_M2_backup
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 5
 
 
  120              		.cfi_endproc
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  136:.\Generated_Source\PSoC5/QuadDec_M2_PM.c ****             QuadDec_M2_Cnt8_Enable();
  137:.\Generated_Source\PSoC5/QuadDec_M2_PM.c ****         #else 
  138:.\Generated_Source\PSoC5/QuadDec_M2_PM.c ****             /* (QuadDec_M2_COUNTER_SIZE == QuadDec_M2_COUNTER_SIZE_16_BIT) || 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 6
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 6
 
 
  139:.\Generated_Source\PSoC5/QuadDec_M2_PM.c ****             *  (QuadDec_M2_COUNTER_SIZE == QuadDec_M2_COUNTER_SIZE_32_BIT) 
@@ -338,7 +338,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  173 000c DF000000 		.4byte	.LASF20
  174 0010 01       		.byte	0x1
  175 0011 39000000 		.4byte	.LASF21
- 176 0015 77010000 		.4byte	.LASF22
+ 176 0015 9D010000 		.4byte	.LASF22
  177 0019 00000000 		.4byte	.Ldebug_ranges0+0
  178 001d 00000000 		.4byte	0
  179 0021 00000000 		.4byte	.Ldebug_line0
@@ -353,12 +353,12 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  188 0033 03       		.uleb128 0x3
  189 0034 01       		.byte	0x1
  190 0035 06       		.byte	0x6
- 191 0036 25020000 		.4byte	.LASF1
+ 191 0036 91010000 		.4byte	.LASF1
  192 003a 03       		.uleb128 0x3
  193 003b 01       		.byte	0x1
  194 003c 08       		.byte	0x8
  195 003d C3000000 		.4byte	.LASF2
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 7
 
 
  196 0041 03       		.uleb128 0x3
@@ -368,7 +368,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  200 0048 03       		.uleb128 0x3
  201 0049 02       		.byte	0x2
  202 004a 07       		.byte	0x7
- 203 004b 12020000 		.4byte	.LASF4
+ 203 004b 7E010000 		.4byte	.LASF4
  204 004f 03       		.uleb128 0x3
  205 0050 04       		.byte	0x4
  206 0051 05       		.byte	0x5
@@ -388,7 +388,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  220 006b 03       		.uleb128 0x3
  221 006c 04       		.byte	0x4
  222 006d 07       		.byte	0x7
- 223 006e 64020000 		.4byte	.LASF9
+ 223 006e 5A020000 		.4byte	.LASF9
  224 0072 03       		.uleb128 0x3
  225 0073 01       		.byte	0x1
  226 0074 08       		.byte	0x8
@@ -401,13 +401,13 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  233 0085 03       		.uleb128 0x3
  234 0086 04       		.byte	0x4
  235 0087 04       		.byte	0x4
- 236 0088 31020000 		.4byte	.LASF11
+ 236 0088 27020000 		.4byte	.LASF11
  237 008c 03       		.uleb128 0x3
  238 008d 08       		.byte	0x8
  239 008e 04       		.byte	0x4
- 240 008f 0B020000 		.4byte	.LASF12
+ 240 008f 77010000 		.4byte	.LASF12
  241 0093 04       		.uleb128 0x4
- 242 0094 49020000 		.4byte	.LASF14
+ 242 0094 3F020000 		.4byte	.LASF14
  243 0098 02       		.byte	0x2
  244 0099 3C02     		.2byte	0x23c
  245 009b 9F000000 		.4byte	0x9f
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  250 00a6 03       		.byte	0x3
  251 00a7 3D       		.byte	0x3d
  252 00a8 B9000000 		.4byte	0xb9
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 8
 
 
  253 00ac 07       		.uleb128 0x7
@@ -434,7 +434,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  263 00bf 40       		.byte	0x40
  264 00c0 A4000000 		.4byte	0xa4
  265 00c4 09       		.uleb128 0x9
- 266 00c5 4E020000 		.4byte	.LASF16
+ 266 00c5 44020000 		.4byte	.LASF16
  267 00c9 01       		.byte	0x1
  268 00ca 25       		.byte	0x25
  269 00cb 00000000 		.4byte	.LFB0
@@ -450,7 +450,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  279 00e4 01       		.uleb128 0x1
  280 00e5 9C       		.byte	0x9c
  281 00e6 09       		.uleb128 0x9
- 282 00e7 6D020000 		.4byte	.LASF18
+ 282 00e7 63020000 		.4byte	.LASF18
  283 00eb 01       		.byte	0x1
  284 00ec 60       		.byte	0x60
  285 00ed 00000000 		.4byte	.LFB2
@@ -466,7 +466,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  295 0106 01       		.uleb128 0x1
  296 0107 9C       		.byte	0x9c
  297 0108 0A       		.uleb128 0xa
- 298 0109 37020000 		.4byte	.LASF24
+ 298 0109 2D020000 		.4byte	.LASF24
  299 010d 01       		.byte	0x1
  300 010e 15       		.byte	0x15
  301 010f B9000000 		.4byte	0xb9
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  307              	.Ldebug_abbrev0:
  308 0000 01       		.uleb128 0x1
  309 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 9
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 9
 
 
  310 0002 01       		.byte	0x1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  364 0038 00       		.byte	0
  365 0039 49       		.uleb128 0x49
  366 003a 13       		.uleb128 0x13
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 10
 
 
  367 003b 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  421 0071 27       		.uleb128 0x27
  422 0072 19       		.uleb128 0x19
  423 0073 11       		.uleb128 0x11
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 11
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 11
 
 
  424 0074 01       		.uleb128 0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  478 0024 00000000 		.4byte	0
  479              		.section	.debug_line,"",%progbits
  480              	.Ldebug_line0:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 12
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 12
 
 
  481 0000 AF000000 		.section	.debug_str,"MS",%progbits,1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  501      4465635F 
  501      4D325F42 
  501      41434B55 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 13
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 13
 
 
  501      505F5354 
@@ -754,62 +754,62 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 1
  513 016d 73686F72 		.ascii	"short int\000"
  513      7420696E 
  513      7400
- 514              	.LASF22:
- 515 0177 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
- 515      54322043 
- 515      6F646520 
- 515      2D205365 
- 515      636F6E64 
- 516 01a9 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
- 516      53333031 
- 516      5F436C61 
- 516      73732E63 
- 516      7970726A 
- 517 01db 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
- 517      3330315F 
- 517      436C6173 
- 517      732E6379 
- 517      70726A2E 
- 518              	.LASF12:
- 519 020b 646F7562 		.ascii	"double\000"
- 519      6C6500
- 520              	.LASF4:
- 521 0212 73686F72 		.ascii	"short unsigned int\000"
- 521      7420756E 
- 521      7369676E 
- 521      65642069 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccZJndYC.s 			page 14
+ 514              	.LASF12:
+ 515 0177 646F7562 		.ascii	"double\000"
+ 515      6C6500
+ 516              	.LASF4:
+ 517 017e 73686F72 		.ascii	"short unsigned int\000"
+ 517      7420756E 
+ 517      7369676E 
+ 517      65642069 
+ 517      6E7400
+ 518              	.LASF1:
+ 519 0191 7369676E 		.ascii	"signed char\000"
+ 519      65642063 
+ 519      68617200 
+ 520              	.LASF22:
+ 521 019d 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Desktop\\Flik\\CS"
+ 521      6C65732E 
+ 521      6175636B 
+ 521      6C616E64 
+ 521      2E61632E 
+ 522 01ca 3330315F 		.ascii	"301_Class.cyprj.Archive01-20190825T234813Z-001\\CS3"
+ 522      436C6173 
+ 522      732E6379 
+ 522      70726A2E 
+ 522      41726368 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cciumdT1.s 			page 14
 
 
- 521      6E7400
- 522              	.LASF1:
- 523 0225 7369676E 		.ascii	"signed char\000"
- 523      65642063 
- 523      68617200 
+ 523 01fc 30315F43 		.ascii	"01_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 523      6C617373 
+ 523      2E637970 
+ 523      726A2E41 
+ 523      72636869 
  524              	.LASF11:
- 525 0231 666C6F61 		.ascii	"float\000"
+ 525 0227 666C6F61 		.ascii	"float\000"
  525      7400
  526              	.LASF24:
- 527 0237 51756164 		.ascii	"QuadDec_M2_backup\000"
+ 527 022d 51756164 		.ascii	"QuadDec_M2_backup\000"
  527      4465635F 
  527      4D325F62 
  527      61636B75 
  527      7000
  528              	.LASF14:
- 529 0249 72656738 		.ascii	"reg8\000"
+ 529 023f 72656738 		.ascii	"reg8\000"
  529      00
  530              	.LASF16:
- 531 024e 51756164 		.ascii	"QuadDec_M2_SaveConfig\000"
+ 531 0244 51756164 		.ascii	"QuadDec_M2_SaveConfig\000"
  531      4465635F 
  531      4D325F53 
  531      61766543 
  531      6F6E6669 
  532              	.LASF9:
- 533 0264 73697A65 		.ascii	"sizetype\000"
+ 533 025a 73697A65 		.ascii	"sizetype\000"
  533      74797065 
  533      00
  534              	.LASF18:
- 535 026d 51756164 		.ascii	"QuadDec_M2_Sleep\000"
+ 535 0263 51756164 		.ascii	"QuadDec_M2_Sleep\000"
  535      4465635F 
  535      4D325F53 
  535      6C656570 

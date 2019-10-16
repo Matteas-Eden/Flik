@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
    8:.\Generated_Source\PSoC5/Cm3Start.c **** ********************************************************************************
    9:.\Generated_Source\PSoC5/Cm3Start.c **** * \copyright
   10:.\Generated_Source\PSoC5/Cm3Start.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation. All rights reserved.
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 2
 
 
   11:.\Generated_Source\PSoC5/Cm3Start.c **** * You may use this file only in accordance with the license, terms, conditions,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
   65:.\Generated_Source\PSoC5/Cm3Start.c **** 
   66:.\Generated_Source\PSoC5/Cm3Start.c **** 
   67:.\Generated_Source\PSoC5/Cm3Start.c **** /*******************************************************************************
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 3
 
 
   68:.\Generated_Source\PSoC5/Cm3Start.c **** * Default Ram Interrupt Vector table storage area. Must be 256-byte aligned.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
   58              		.weak	_exit
   59              		.thumb
   60              		.thumb_func
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 4
 
 
   61              		.type	_exit, %function
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  155:.\Generated_Source\PSoC5/Cm3Start.c **** * Function Name: $Sub$$main
  156:.\Generated_Source\PSoC5/Cm3Start.c **** ****************************************************************************//**
  157:.\Generated_Source\PSoC5/Cm3Start.c **** *
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 5
 
 
  158:.\Generated_Source\PSoC5/Cm3Start.c **** *  This function is called immediately before the users main
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  212:.\Generated_Source\PSoC5/Cm3Start.c **** *  this, it is best to avoid linking with subroutines that require it (exit,
  213:.\Generated_Source\PSoC5/Cm3Start.c **** *  system).
  214:.\Generated_Source\PSoC5/Cm3Start.c **** *
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 6
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 6
 
 
  215:.\Generated_Source\PSoC5/Cm3Start.c **** *  \param status: Status caused program exit.
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  237:.\Generated_Source\PSoC5/Cm3Start.c **** *
  238:.\Generated_Source\PSoC5/Cm3Start.c **** *  \param nbytes: The number of bytes requested (if the parameter value is positive)
  239:.\Generated_Source\PSoC5/Cm3Start.c **** *  from the heap or returned back to the heap (if the parameter value is
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 7
 
 
  240:.\Generated_Source\PSoC5/Cm3Start.c **** *  negative).
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  258:.\Generated_Source\PSoC5/Cm3Start.c ****     {
  259:.\Generated_Source\PSoC5/Cm3Start.c ****         errno = ENOMEM;
  132              		.loc 1 259 0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 8
 
 
  133 002e FFF7FEFF 		bl	__errno
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  170              		@ frame_needed = 1, uses_anonymous_args = 0
  171 0000 80B5     		push	{r7, lr}
  172              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 9
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 9
 
 
  173              		.cfi_offset 7, -8
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  304:.\Generated_Source\PSoC5/Cm3Start.c **** *  preparation for running the standard C code.  Once initialization is complete
  305:.\Generated_Source\PSoC5/Cm3Start.c **** *  it will call main(). This function will never return.
  306:.\Generated_Source\PSoC5/Cm3Start.c **** *
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 10
 
 
  307:.\Generated_Source\PSoC5/Cm3Start.c **** *******************************************************************************/
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  238 0028 7B60     		str	r3, [r7, #4]
  239 002a 0CE0     		b	.L16
  240              	.L17:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 11
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 11
 
 
  323:.\Generated_Source\PSoC5/Cm3Start.c ****         {
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  282 0066 7B68     		ldr	r3, [r7, #4]
  283 0068 0433     		adds	r3, r3, #4
  284 006a 7B60     		str	r3, [r7, #4]
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 12
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 12
 
 
  285              	.L18:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  323              		.type	RomVectors, %object
  324              		.size	RomVectors, 16
  325              	RomVectors:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 13
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 13
 
 
  326 0000 00000000 		.word	__cy_stack
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  388:.\Generated_Source\PSoC5/Cm3Start.c **** 
  389:.\Generated_Source\PSoC5/Cm3Start.c ****     initialize_psoc();
  390:.\Generated_Source\PSoC5/Cm3Start.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 14
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 14
 
 
  391:.\Generated_Source\PSoC5/Cm3Start.c ****     return 0;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  341              		@ frame_needed = 1, uses_anonymous_args = 0
  342 0000 80B5     		push	{r7, lr}
  343              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 15
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 15
 
 
  344              		.cfi_offset 7, -8
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  382              		.loc 1 451 0 is_stmt 1 discriminator 4
  383 0038 7B68     		ldr	r3, [r7, #4]
  384 003a 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 16
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 16
 
 
  385 003c 7B60     		str	r3, [r7, #4]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  414              		@ sp needed
  415 0066 80BD     		pop	{r7, pc}
  416              	.L30:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 17
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 17
 
 
  417              		.align	2
@@ -998,48 +998,48 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  451 0006 00000000 		.4byte	.Ldebug_abbrev0
  452 000a 04       		.byte	0x4
  453 000b 01       		.uleb128 0x1
- 454 000c AB010000 		.4byte	.LASF43
+ 454 000c A1010000 		.4byte	.LASF43
  455 0010 01       		.byte	0x1
  456 0011 00000000 		.4byte	.LASF44
- 457 0015 4C000000 		.4byte	.LASF45
+ 457 0015 17010000 		.4byte	.LASF45
  458 0019 00000000 		.4byte	.Ldebug_ranges0+0
  459 001d 00000000 		.4byte	0
  460 0021 00000000 		.4byte	.Ldebug_line0
  461 0025 02       		.uleb128 0x2
  462 0026 01       		.byte	0x1
  463 0027 06       		.byte	0x6
- 464 0028 EB020000 		.4byte	.LASF0
+ 464 0028 E1020000 		.4byte	.LASF0
  465 002c 02       		.uleb128 0x2
  466 002d 01       		.byte	0x1
  467 002e 08       		.byte	0x8
- 468 002f 35010000 		.4byte	.LASF1
+ 468 002f A1000000 		.4byte	.LASF1
  469 0033 02       		.uleb128 0x2
  470 0034 02       		.byte	0x2
  471 0035 05       		.byte	0x5
- 472 0036 CA020000 		.4byte	.LASF2
+ 472 0036 C0020000 		.4byte	.LASF2
  473 003a 02       		.uleb128 0x2
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 18
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 18
 
 
  474 003b 02       		.byte	0x2
  475 003c 07       		.byte	0x7
- 476 003d EC000000 		.4byte	.LASF3
+ 476 003d 58000000 		.4byte	.LASF3
  477 0041 02       		.uleb128 0x2
  478 0042 04       		.byte	0x4
  479 0043 05       		.byte	0x5
- 480 0044 D4020000 		.4byte	.LASF4
+ 480 0044 CA020000 		.4byte	.LASF4
  481 0048 02       		.uleb128 0x2
  482 0049 04       		.byte	0x4
  483 004a 07       		.byte	0x7
- 484 004b 5A010000 		.4byte	.LASF5
+ 484 004b CC000000 		.4byte	.LASF5
  485 004f 02       		.uleb128 0x2
  486 0050 08       		.byte	0x8
  487 0051 05       		.byte	0x5
- 488 0052 B7020000 		.4byte	.LASF6
+ 488 0052 AD020000 		.4byte	.LASF6
  489 0056 02       		.uleb128 0x2
  490 0057 08       		.byte	0x8
  491 0058 07       		.byte	0x7
- 492 0059 64020000 		.4byte	.LASF7
+ 492 0059 5A020000 		.4byte	.LASF7
  493 005d 03       		.uleb128 0x3
  494 005e 04       		.byte	0x4
  495 005f 05       		.byte	0x5
@@ -1047,38 +1047,38 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  497 0064 02       		.uleb128 0x2
  498 0065 04       		.byte	0x4
  499 0066 07       		.byte	0x7
- 500 0067 57020000 		.4byte	.LASF8
+ 500 0067 4D020000 		.4byte	.LASF8
  501 006b 04       		.uleb128 0x4
- 502 006c 81010000 		.4byte	.LASF9
+ 502 006c F3000000 		.4byte	.LASF9
  503 0070 02       		.byte	0x2
  504 0071 9201     		.2byte	0x192
  505 0073 2C000000 		.4byte	0x2c
  506 0077 04       		.uleb128 0x4
- 507 0078 50020000 		.4byte	.LASF10
+ 507 0078 46020000 		.4byte	.LASF10
  508 007c 02       		.byte	0x2
  509 007d 9401     		.2byte	0x194
  510 007f 48000000 		.4byte	0x48
  511 0083 02       		.uleb128 0x2
  512 0084 04       		.byte	0x4
  513 0085 04       		.byte	0x4
- 514 0086 2A010000 		.4byte	.LASF11
+ 514 0086 96000000 		.4byte	.LASF11
  515 008a 02       		.uleb128 0x2
  516 008b 08       		.byte	0x8
  517 008c 04       		.byte	0x4
- 518 008d 39020000 		.4byte	.LASF12
+ 518 008d 2F020000 		.4byte	.LASF12
  519 0091 02       		.uleb128 0x2
  520 0092 01       		.byte	0x1
  521 0093 08       		.byte	0x8
- 522 0094 C5020000 		.4byte	.LASF13
+ 522 0094 BB020000 		.4byte	.LASF13
  523 0098 04       		.uleb128 0x4
- 524 0099 A9020000 		.4byte	.LASF14
+ 524 0099 9F020000 		.4byte	.LASF14
  525 009d 02       		.byte	0x2
  526 009e 3C02     		.2byte	0x23c
  527 00a0 A4000000 		.4byte	0xa4
  528 00a4 05       		.uleb128 0x5
  529 00a5 6B000000 		.4byte	0x6b
  530 00a9 04       		.uleb128 0x4
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 19
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 19
 
 
  531 00aa 24000000 		.4byte	.LASF15
@@ -1088,7 +1088,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  535 00b5 05       		.uleb128 0x5
  536 00b6 77000000 		.4byte	0x77
  537 00ba 04       		.uleb128 0x4
- 538 00bb 81020000 		.4byte	.LASF16
+ 538 00bb 77020000 		.4byte	.LASF16
  539 00bf 02       		.byte	0x2
  540 00c0 4E02     		.2byte	0x24e
  541 00c2 C6000000 		.4byte	0xc6
@@ -1104,45 +1104,45 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  551 00d8 02       		.uleb128 0x2
  552 00d9 04       		.byte	0x4
  553 00da 07       		.byte	0x7
- 554 00db AE020000 		.4byte	.LASF18
+ 554 00db A4020000 		.4byte	.LASF18
  555 00df 09       		.uleb128 0x9
  556 00e0 04       		.byte	0x4
  557 00e1 0A       		.uleb128 0xa
  558 00e2 91000000 		.4byte	0x91
  559 00e6 08       		.uleb128 0x8
- 560 00e7 98020000 		.4byte	.LASF19
+ 560 00e7 8E020000 		.4byte	.LASF19
  561 00eb 01       		.byte	0x1
  562 00ec BB       		.byte	0xbb
  563 00ed 2C000000 		.4byte	0x2c
  564 00f1 0B       		.uleb128 0xb
- 565 00f2 13030000 		.4byte	.LASF46
+ 565 00f2 09030000 		.4byte	.LASF46
  566 00f6 10       		.byte	0x10
  567 00f7 01       		.byte	0x1
  568 00f8 BD       		.byte	0xbd
  569 00f9 2E010000 		.4byte	0x12e
  570 00fd 0C       		.uleb128 0xc
- 571 00fe 0F010000 		.4byte	.LASF20
+ 571 00fe 7B000000 		.4byte	.LASF20
  572 0102 01       		.byte	0x1
  573 0103 BF       		.byte	0xbf
  574 0104 2E010000 		.4byte	0x12e
  575 0108 00       		.byte	0
  576 0109 0C       		.uleb128 0xc
- 577 010a 30010000 		.4byte	.LASF21
+ 577 010a 9C000000 		.4byte	.LASF21
  578 010e 01       		.byte	0x1
  579 010f C0       		.byte	0xc0
  580 0110 2E010000 		.4byte	0x12e
  581 0114 04       		.byte	0x4
  582 0115 0C       		.uleb128 0xc
- 583 0116 8E020000 		.4byte	.LASF22
+ 583 0116 84020000 		.4byte	.LASF22
  584 011a 01       		.byte	0x1
  585 011b C1       		.byte	0xc1
  586 011c CD000000 		.4byte	0xcd
  587 0120 08       		.byte	0x8
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 20
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 20
 
 
  588 0121 0C       		.uleb128 0xc
- 589 0122 1B010000 		.4byte	.LASF23
+ 589 0122 87000000 		.4byte	.LASF23
  590 0126 01       		.byte	0x1
  591 0127 C2       		.byte	0xc2
  592 0128 CD000000 		.4byte	0xcd
@@ -1152,7 +1152,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  596 012f 04       		.byte	0x4
  597 0130 E6000000 		.4byte	0xe6
  598 0134 0D       		.uleb128 0xd
- 599 0135 93010000 		.4byte	.LASF28
+ 599 0135 05010000 		.4byte	.LASF28
  600 0139 01       		.byte	0x1
  601 013a 5B       		.byte	0x5b
  602 013b 00000000 		.4byte	.LFB0
@@ -1160,7 +1160,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  604 0143 01       		.uleb128 0x1
  605 0144 9C       		.byte	0x9c
  606 0145 0E       		.uleb128 0xe
- 607 0146 8D010000 		.4byte	.LASF30
+ 607 0146 FF000000 		.4byte	.LASF30
  608 014a 01       		.byte	0x1
  609 014b DB       		.byte	0xdb
  610 014c 00000000 		.4byte	.LFB1
@@ -1169,7 +1169,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  613 0155 9C       		.byte	0x9c
  614 0156 69010000 		.4byte	0x169
  615 015a 0F       		.uleb128 0xf
- 616 015b 14010000 		.4byte	.LASF24
+ 616 015b 80000000 		.4byte	.LASF24
  617 015f 01       		.byte	0x1
  618 0160 DB       		.byte	0xdb
  619 0161 5D000000 		.4byte	0x5d
@@ -1178,7 +1178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  622 0167 74       		.sleb128 -12
  623 0168 00       		.byte	0
  624 0169 10       		.uleb128 0x10
- 625 016a A5010000 		.4byte	.LASF47
+ 625 016a C6000000 		.4byte	.LASF47
  626 016e 01       		.byte	0x1
  627 016f F4       		.byte	0xf4
  628 0170 DF000000 		.4byte	0xdf
@@ -1188,7 +1188,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  632 017d 9C       		.byte	0x9c
  633 017e BB010000 		.4byte	0x1bb
  634 0182 0F       		.uleb128 0xf
- 635 0183 0C030000 		.4byte	.LASF25
+ 635 0183 02030000 		.4byte	.LASF25
  636 0187 01       		.byte	0x1
  637 0188 F4       		.byte	0xf4
  638 0189 5D000000 		.4byte	0x5d
@@ -1198,13 +1198,13 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  642 0190 11       		.uleb128 0x11
  643 0191 656E6400 		.ascii	"end\000"
  644 0195 01       		.byte	0x1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 21
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 21
 
 
  645 0196 F6       		.byte	0xf6
  646 0197 5D000000 		.4byte	0x5d
  647 019b 12       		.uleb128 0x12
- 648 019c 43010000 		.4byte	.LASF26
+ 648 019c AF000000 		.4byte	.LASF26
  649 01a0 01       		.byte	0x1
  650 01a1 F7       		.byte	0xf7
  651 01a2 DF000000 		.4byte	0xdf
@@ -1212,7 +1212,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  653 01a7 91       		.byte	0x91
  654 01a8 74       		.sleb128 -12
  655 01a9 12       		.uleb128 0x12
- 656 01aa E0000000 		.4byte	.LASF27
+ 656 01aa 4C000000 		.4byte	.LASF27
  657 01ae 01       		.byte	0x1
  658 01af FA       		.byte	0xfa
  659 01b0 DF000000 		.4byte	0xdf
@@ -1221,7 +1221,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  662 01b6 00000000 		.4byte	heapPointer.4940
  663 01ba 00       		.byte	0
  664 01bb 13       		.uleb128 0x13
- 665 01bc 87010000 		.4byte	.LASF29
+ 665 01bc F9000000 		.4byte	.LASF29
  666 01c0 01       		.byte	0x1
  667 01c1 1301     		.2byte	0x113
  668 01c3 00000000 		.4byte	.LFB3
@@ -1238,7 +1238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  679 01de 9C       		.byte	0x9c
  680 01df 48020000 		.4byte	0x248
  681 01e3 15       		.uleb128 0x15
- 682 01e4 04030000 		.4byte	.LASF32
+ 682 01e4 FA020000 		.4byte	.LASF32
  683 01e8 01       		.byte	0x1
  684 01e9 3701     		.2byte	0x137
  685 01eb 64000000 		.4byte	0x64
@@ -1246,7 +1246,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  687 01f0 91       		.byte	0x91
  688 01f1 74       		.sleb128 -12
  689 01f2 15       		.uleb128 0x15
- 690 01f3 25010000 		.4byte	.LASF33
+ 690 01f3 91000000 		.4byte	.LASF33
  691 01f7 01       		.byte	0x1
  692 01f8 3801     		.2byte	0x138
  693 01fa 48020000 		.4byte	0x248
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  699 0206 66000000 		.4byte	.LBE2-.LBB2
  700 020a 17       		.uleb128 0x17
  701 020b 73726300 		.ascii	"src\000"
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 22
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 22
 
 
  702 020f 01       		.byte	0x1
@@ -1276,7 +1276,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  714 0226 91       		.byte	0x91
  715 0227 68       		.sleb128 -24
  716 0228 15       		.uleb128 0x15
- 717 0229 7B020000 		.4byte	.LASF34
+ 717 0229 71020000 		.4byte	.LASF34
  718 022d 01       		.byte	0x1
  719 022e 3F01     		.2byte	0x13f
  720 0230 64000000 		.4byte	0x64
@@ -1302,7 +1302,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  740 0254 04       		.byte	0x4
  741 0255 77000000 		.4byte	0x77
  742 0259 14       		.uleb128 0x14
- 743 025a 40020000 		.4byte	.LASF36
+ 743 025a 36020000 		.4byte	.LASF36
  744 025e 01       		.byte	0x1
  745 025f B801     		.2byte	0x1b8
  746 0261 00000000 		.4byte	.LFB5
@@ -1318,12 +1318,12 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  756 0279 02       		.uleb128 0x2
  757 027a 91       		.byte	0x91
  758 027b 74       		.sleb128 -12
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 23
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 23
 
 
  759 027c 00       		.byte	0
  760 027d 12       		.uleb128 0x12
- 761 027e 6C010000 		.4byte	.LASF37
+ 761 027e DE000000 		.4byte	.LASF37
  762 0282 01       		.byte	0x1
  763 0283 3F       		.byte	0x3f
  764 0284 77000000 		.4byte	0x77
@@ -1331,7 +1331,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  766 0289 03       		.byte	0x3
  767 028a 00000000 		.4byte	cySysNoInitDataValid
  768 028e 18       		.uleb128 0x18
- 769 028f DD020000 		.4byte	.LASF38
+ 769 028f D3020000 		.4byte	.LASF38
  770 0293 04       		.byte	0x4
  771 0294 2C       		.byte	0x2c
  772 0295 6B000000 		.4byte	0x6b
@@ -1361,14 +1361,14 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  796 02ce 1C       		.uleb128 0x1c
  797 02cf 00       		.byte	0
  798 02d0 18       		.uleb128 0x18
- 799 02d1 F7020000 		.4byte	.LASF40
+ 799 02d1 ED020000 		.4byte	.LASF40
  800 02d5 01       		.byte	0x1
  801 02d6 C5       		.byte	0xc5
  802 02d7 DB020000 		.4byte	0x2db
  803 02db 0A       		.uleb128 0xa
  804 02dc C5020000 		.4byte	0x2c5
  805 02e0 18       		.uleb128 0x18
- 806 02e1 FF000000 		.4byte	.LASF41
+ 806 02e1 6B000000 		.4byte	.LASF41
  807 02e5 01       		.byte	0x1
  808 02e6 C6       		.byte	0xc6
  809 02e7 E1000000 		.4byte	0xe1
@@ -1378,12 +1378,12 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  813 02f4 1A       		.uleb128 0x1a
  814 02f5 D8000000 		.4byte	0xd8
  815 02f9 03       		.byte	0x3
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 24
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 24
 
 
  816 02fa 00       		.byte	0
  817 02fb 1D       		.uleb128 0x1d
- 818 02fc 4F010000 		.4byte	.LASF42
+ 818 02fc BB000000 		.4byte	.LASF42
  819 0300 01       		.byte	0x1
  820 0301 9C01     		.2byte	0x19c
  821 0303 0D030000 		.4byte	0x30d
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  870 0028 00       		.byte	0
  871 0029 04       		.uleb128 0x4
  872 002a 16       		.uleb128 0x16
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 25
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 25
 
 
  873 002b 00       		.byte	0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  927 0061 0A       		.uleb128 0xa
  928 0062 26       		.uleb128 0x26
  929 0063 00       		.byte	0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 26
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 26
 
 
  930 0064 49       		.uleb128 0x49
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  984 009b 19       		.uleb128 0x19
  985 009c 00       		.byte	0
  986 009d 00       		.byte	0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 27
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 27
 
 
  987 009e 0E       		.uleb128 0xe
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  1041 00d5 13       		.uleb128 0x13
  1042 00d6 11       		.uleb128 0x11
  1043 00d7 01       		.uleb128 0x1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 28
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 28
 
 
  1044 00d8 12       		.uleb128 0x12
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  1098 010f 19       		.uleb128 0x19
  1099 0110 11       		.uleb128 0x11
  1100 0111 01       		.uleb128 0x1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 29
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 29
 
 
  1101 0112 12       		.uleb128 0x12
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  1155 014a 06       		.uleb128 0x6
  1156 014b 00       		.byte	0
  1157 014c 00       		.byte	0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 30
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 30
 
 
  1158 014d 17       		.uleb128 0x17
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  1212 0183 0E       		.uleb128 0xe
  1213 0184 3A       		.uleb128 0x3a
  1214 0185 0B       		.uleb128 0xb
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 31
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 31
 
 
  1215 0186 3B       		.uleb128 0x3b
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  1269 0044 00000000 		.4byte	0
  1270              		.section	.debug_ranges,"",%progbits
  1271              	.Ldebug_ranges0:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 32
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 32
 
 
  1272 0000 00000000 		.4byte	.LFB0
@@ -1905,140 +1905,140 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  1299              	.LASF35:
  1300 0046 636F756E 		.ascii	"count\000"
  1300      7400
- 1301              	.LASF45:
- 1302 004c 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
- 1302      54322043 
- 1302      6F646520 
- 1302      2D205365 
- 1302      636F6E64 
- 1303 007e 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
- 1303      53333031 
- 1303      5F436C61 
- 1303      73732E63 
- 1303      7970726A 
- 1304 00b0 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
- 1304      3330315F 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 33
+ 1301              	.LASF27:
+ 1302 004c 68656170 		.ascii	"heapPointer\000"
+ 1302      506F696E 
+ 1302      74657200 
+ 1303              	.LASF3:
+ 1304 0058 73686F72 		.ascii	"short unsigned int\000"
+ 1304      7420756E 
+ 1304      7369676E 
+ 1304      65642069 
+ 1304      6E7400
+ 1305              	.LASF41:
+ 1306 006b 5F5F6379 		.ascii	"__cy_region_num\000"
+ 1306      5F726567 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 33
 
 
- 1304      436C6173 
- 1304      732E6379 
- 1304      70726A2E 
- 1305              	.LASF27:
- 1306 00e0 68656170 		.ascii	"heapPointer\000"
- 1306      506F696E 
- 1306      74657200 
- 1307              	.LASF3:
- 1308 00ec 73686F72 		.ascii	"short unsigned int\000"
- 1308      7420756E 
- 1308      7369676E 
- 1308      65642069 
- 1308      6E7400
- 1309              	.LASF41:
- 1310 00ff 5F5F6379 		.ascii	"__cy_region_num\000"
- 1310      5F726567 
- 1310      696F6E5F 
- 1310      6E756D00 
- 1311              	.LASF20:
- 1312 010f 696E6974 		.ascii	"init\000"
- 1312      00
- 1313              	.LASF24:
- 1314 0114 73746174 		.ascii	"status\000"
- 1314      757300
- 1315              	.LASF23:
- 1316 011b 7A65726F 		.ascii	"zero_size\000"
- 1316      5F73697A 
- 1316      6500
- 1317              	.LASF33:
- 1318 0125 72707472 		.ascii	"rptr\000"
+ 1306      696F6E5F 
+ 1306      6E756D00 
+ 1307              	.LASF20:
+ 1308 007b 696E6974 		.ascii	"init\000"
+ 1308      00
+ 1309              	.LASF24:
+ 1310 0080 73746174 		.ascii	"status\000"
+ 1310      757300
+ 1311              	.LASF23:
+ 1312 0087 7A65726F 		.ascii	"zero_size\000"
+ 1312      5F73697A 
+ 1312      6500
+ 1313              	.LASF33:
+ 1314 0091 72707472 		.ascii	"rptr\000"
+ 1314      00
+ 1315              	.LASF11:
+ 1316 0096 666C6F61 		.ascii	"float\000"
+ 1316      7400
+ 1317              	.LASF21:
+ 1318 009c 64617461 		.ascii	"data\000"
  1318      00
- 1319              	.LASF11:
- 1320 012a 666C6F61 		.ascii	"float\000"
- 1320      7400
- 1321              	.LASF21:
- 1322 0130 64617461 		.ascii	"data\000"
- 1322      00
- 1323              	.LASF1:
- 1324 0135 756E7369 		.ascii	"unsigned char\000"
- 1324      676E6564 
- 1324      20636861 
- 1324      7200
- 1325              	.LASF26:
- 1326 0143 72657475 		.ascii	"returnValue\000"
- 1326      726E5661 
- 1326      6C756500 
- 1327              	.LASF42:
- 1328 014f 526F6D56 		.ascii	"RomVectors\000"
- 1328      6563746F 
- 1328      727300
- 1329              	.LASF5:
- 1330 015a 6C6F6E67 		.ascii	"long unsigned int\000"
- 1330      20756E73 
- 1330      69676E65 
- 1330      6420696E 
- 1330      7400
- 1331              	.LASF37:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 34
+ 1319              	.LASF1:
+ 1320 00a1 756E7369 		.ascii	"unsigned char\000"
+ 1320      676E6564 
+ 1320      20636861 
+ 1320      7200
+ 1321              	.LASF26:
+ 1322 00af 72657475 		.ascii	"returnValue\000"
+ 1322      726E5661 
+ 1322      6C756500 
+ 1323              	.LASF42:
+ 1324 00bb 526F6D56 		.ascii	"RomVectors\000"
+ 1324      6563746F 
+ 1324      727300
+ 1325              	.LASF47:
+ 1326 00c6 5F736272 		.ascii	"_sbrk\000"
+ 1326      6B00
+ 1327              	.LASF5:
+ 1328 00cc 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1328      20756E73 
+ 1328      69676E65 
+ 1328      6420696E 
+ 1328      7400
+ 1329              	.LASF37:
+ 1330 00de 63795379 		.ascii	"cySysNoInitDataValid\000"
+ 1330      734E6F49 
+ 1330      6E697444 
+ 1330      61746156 
+ 1330      616C6964 
+ 1331              	.LASF9:
+ 1332 00f3 75696E74 		.ascii	"uint8\000"
+ 1332      3800
+ 1333              	.LASF29:
+ 1334 00f9 52657365 		.ascii	"Reset\000"
+ 1334      7400
+ 1335              	.LASF30:
+ 1336 00ff 5F657869 		.ascii	"_exit\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 34
 
 
- 1332 016c 63795379 		.ascii	"cySysNoInitDataValid\000"
- 1332      734E6F49 
- 1332      6E697444 
- 1332      61746156 
- 1332      616C6964 
- 1333              	.LASF9:
- 1334 0181 75696E74 		.ascii	"uint8\000"
- 1334      3800
- 1335              	.LASF29:
- 1336 0187 52657365 		.ascii	"Reset\000"
  1336      7400
- 1337              	.LASF30:
- 1338 018d 5F657869 		.ascii	"_exit\000"
- 1338      7400
- 1339              	.LASF28:
- 1340 0193 496E7444 		.ascii	"IntDefaultHandler\000"
- 1340      65666175 
- 1340      6C744861 
- 1340      6E646C65 
- 1340      7200
- 1341              	.LASF47:
- 1342 01a5 5F736272 		.ascii	"_sbrk\000"
- 1342      6B00
+ 1337              	.LASF28:
+ 1338 0105 496E7444 		.ascii	"IntDefaultHandler\000"
+ 1338      65666175 
+ 1338      6C744861 
+ 1338      6E646C65 
+ 1338      7200
+ 1339              	.LASF45:
+ 1340 0117 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Desktop\\Flik\\CS"
+ 1340      6C65732E 
+ 1340      6175636B 
+ 1340      6C616E64 
+ 1340      2E61632E 
+ 1341 0144 3330315F 		.ascii	"301_Class.cyprj.Archive01-20190825T234813Z-001\\CS3"
+ 1341      436C6173 
+ 1341      732E6379 
+ 1341      70726A2E 
+ 1341      41726368 
+ 1342 0176 30315F43 		.ascii	"01_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 1342      6C617373 
+ 1342      2E637970 
+ 1342      726A2E41 
+ 1342      72636869 
  1343              	.LASF43:
- 1344 01ab 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1344 01a1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  1344      4320342E 
  1344      392E3320 
  1344      32303135 
  1344      30333033 
- 1345 01de 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1345 01d4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  1345      20726576 
  1345      6973696F 
  1345      6E203232 
  1345      31323230 
- 1346 0211 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1346 0207 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
  1346      66756E63 
  1346      74696F6E 
  1346      2D736563 
  1346      74696F6E 
  1347              	.LASF12:
- 1348 0239 646F7562 		.ascii	"double\000"
+ 1348 022f 646F7562 		.ascii	"double\000"
  1348      6C6500
  1349              	.LASF36:
- 1350 0240 696E6974 		.ascii	"initialize_psoc\000"
+ 1350 0236 696E6974 		.ascii	"initialize_psoc\000"
  1350      69616C69 
  1350      7A655F70 
  1350      736F6300 
  1351              	.LASF10:
- 1352 0250 75696E74 		.ascii	"uint32\000"
+ 1352 0246 75696E74 		.ascii	"uint32\000"
  1352      333200
  1353              	.LASF8:
- 1354 0257 756E7369 		.ascii	"unsigned int\000"
+ 1354 024d 756E7369 		.ascii	"unsigned int\000"
  1354      676E6564 
  1354      20696E74 
  1354      00
  1355              	.LASF7:
- 1356 0264 6C6F6E67 		.ascii	"long long unsigned int\000"
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 35
+ 1356 025a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 35
 
 
  1356      206C6F6E 
@@ -2046,71 +2046,71 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 1
  1356      7369676E 
  1356      65642069 
  1357              	.LASF34:
- 1358 027b 6C696D69 		.ascii	"limit\000"
+ 1358 0271 6C696D69 		.ascii	"limit\000"
  1358      7400
  1359              	.LASF16:
- 1360 0281 63796973 		.ascii	"cyisraddress\000"
+ 1360 0277 63796973 		.ascii	"cyisraddress\000"
  1360      72616464 
  1360      72657373 
  1360      00
  1361              	.LASF22:
- 1362 028e 696E6974 		.ascii	"init_size\000"
+ 1362 0284 696E6974 		.ascii	"init_size\000"
  1362      5F73697A 
  1362      6500
  1363              	.LASF19:
- 1364 0298 5F5F6379 		.ascii	"__cy_byte_align8\000"
+ 1364 028e 5F5F6379 		.ascii	"__cy_byte_align8\000"
  1364      5F627974 
  1364      655F616C 
  1364      69676E38 
  1364      00
  1365              	.LASF14:
- 1366 02a9 72656738 		.ascii	"reg8\000"
+ 1366 029f 72656738 		.ascii	"reg8\000"
  1366      00
  1367              	.LASF18:
- 1368 02ae 73697A65 		.ascii	"sizetype\000"
+ 1368 02a4 73697A65 		.ascii	"sizetype\000"
  1368      74797065 
  1368      00
  1369              	.LASF6:
- 1370 02b7 6C6F6E67 		.ascii	"long long int\000"
+ 1370 02ad 6C6F6E67 		.ascii	"long long int\000"
  1370      206C6F6E 
  1370      6720696E 
  1370      7400
  1371              	.LASF13:
- 1372 02c5 63686172 		.ascii	"char\000"
+ 1372 02bb 63686172 		.ascii	"char\000"
  1372      00
  1373              	.LASF2:
- 1374 02ca 73686F72 		.ascii	"short int\000"
+ 1374 02c0 73686F72 		.ascii	"short int\000"
  1374      7420696E 
  1374      7400
  1375              	.LASF4:
- 1376 02d4 6C6F6E67 		.ascii	"long int\000"
+ 1376 02ca 6C6F6E67 		.ascii	"long int\000"
  1376      20696E74 
  1376      00
  1377              	.LASF38:
- 1378 02dd 43795265 		.ascii	"CyResetStatus\000"
+ 1378 02d3 43795265 		.ascii	"CyResetStatus\000"
  1378      73657453 
  1378      74617475 
  1378      7300
  1379              	.LASF0:
- 1380 02eb 7369676E 		.ascii	"signed char\000"
+ 1380 02e1 7369676E 		.ascii	"signed char\000"
  1380      65642063 
  1380      68617200 
  1381              	.LASF40:
- 1382 02f7 5F5F6379 		.ascii	"__cy_regions\000"
+ 1382 02ed 5F5F6379 		.ascii	"__cy_regions\000"
  1382      5F726567 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccC7OkA5.s 			page 36
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNhLBY1.s 			page 36
 
 
  1382      696F6E73 
  1382      00
  1383              	.LASF32:
- 1384 0304 72656769 		.ascii	"regions\000"
+ 1384 02fa 72656769 		.ascii	"regions\000"
  1384      6F6E7300 
  1385              	.LASF25:
- 1386 030c 6E627974 		.ascii	"nbytes\000"
+ 1386 0302 6E627974 		.ascii	"nbytes\000"
  1386      657300
  1387              	.LASF46:
- 1388 0313 5F5F6379 		.ascii	"__cy_region\000"
+ 1388 0309 5F5F6379 		.ascii	"__cy_region\000"
  1388      5F726567 
  1388      696F6E00 
  1389              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

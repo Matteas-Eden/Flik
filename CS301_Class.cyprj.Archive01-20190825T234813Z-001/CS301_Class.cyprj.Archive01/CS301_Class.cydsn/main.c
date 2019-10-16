@@ -42,8 +42,7 @@
 #define MIN_PWM_VAL 250
 
 // Straight line test
-#define DESIRED_DISTANCE 100
-#define DESIRED_SPEED 20 // cm/s
+#define CM_BETWEEN_COORDS 24
 
 // 90 degree turn - TODO: Calculate true values
 #define TICKS_FOR_TURN 190
@@ -86,10 +85,11 @@ void updateSensorValues();
 float getDistance(int prevCountM1, int prevCountM2);
 void turnRight();
 void turnLeft();
-void sharpTurnRight();
-void sharpTurnLeft();
+void sharpTurnRight(int *right_wheel_count, int *left_wheel_count);
+void sharpTurnLeft(int *right_wheel_count, int *left_wheel_count);
 int8 performTurn(int isLeft);
 
+void goStraight(int desired_distance, int *right_speed_count, int *left_wheel_count);
 void changeRightWheelSpeed(int amount);
 void changeLeftWheelSpeed(int amount);
 void invertWheels();
@@ -141,9 +141,9 @@ int main()
     // delay
     CyDelay(2000);
     
-// --------------------------------    
-// ----- INITIALIZATIONS ----------
-// ========================================
+    // --------------------------------
+    // ----- INITIALIZATIONS ----------
+    // ========================================
     CYGlobalIntEnable;
     
     // PWMs
@@ -165,10 +165,10 @@ int main()
     ADC_StartConvert(); // Start conversions
     isr_eoc_StartEx(ADC_ISR); // link interrupt for ADC
 
-// ---------- USB SETUP ------------    
-#ifdef USE_USB    
-    USBUART_Start(0, USBUART_5V_OPERATION);
-#endif            
+    // ---------- USB SETUP ------------    
+    #ifdef USE_USB    
+        USBUART_Start(0, USBUART_5V_OPERATION);
+    #endif            
     
     // To make sure wheels rotate in the same direction i.e. forward
     INV2_Write(1);
@@ -183,9 +183,127 @@ int main()
     robot_state state;
     robot_state prev_state = CORRECT;
     
-    while(1) { // Begin main control
-        polling_count++;
+    goStraight(CM_BETWEEN_COORDS, &right_wheel_count, &left_wheel_count);
+    sharpTurnLeft(&right_wheel_count, &left_wheel_count);
+    PWM_1_WriteCompare(0);
+    PWM_2_WriteCompare(0);
+    
+//    while(1) { // Begin main control
+//        polling_count++;
+//        
+//        if (adc_flag) {
+//            updateSensorValues();
+//            adc_flag = FALSE;
+//        }
+//        
+//         // New count values from encoder are ready
+//        if (timer_flag){
+//            isr_TS_Disable();
+//            
+//            // Correct speed
+//            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
+//            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
+//            
+//            // Update previous values
+//            prevCountM1 = countM1;
+//            prevCountM2 = countM2;
+//            
+//            // Reset flag
+//            timer_flag = FALSE;
+//            
+//            isr_TS_Enable();
+//        }
+//        
+//       // follow a line algorithm
+//        if (sensor_readings[TOP_MID_SENSOR]) { // on line
+//            if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left; want to go right
+//                state = SLIGHTLY_RIGHT;
+//                right_wheel_count -= ADJUST_SPEED_SMALL;
+//                left_wheel_count += ADJUST_SPEED_SMALL;
+//            } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) { // Deviated right; want to go left
+//                state = SLIGHTLY_LEFT;
+//                right_wheel_count += ADJUST_SPEED_SMALL;
+//                left_wheel_count -= ADJUST_SPEED_SMALL;
+//            } else { // Correct speed
+//                state = CORRECT;
+//            }
+//        } else { // moved off
+//            if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left, but worse; want to go right
+//                state = MEDIUM_RIGHT;
+//                turnRight();
+//            } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated right, but worse; want to go left
+//                state = MEDIUM_LEFT;
+//				turnLeft();
+//            // for corners
+//            } else if (!sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {
+//                if (sensor_readings[BOTTOM_LEFT_SENSOR]) {
+//                    state = TURN_LEFT;
+//                    sharpTurnLeft();
+//                } else if (sensor_readings[BOTTOM_RIGHT_SENSOR]) {
+//                    state = TURN_RIGHT;
+//                    sharpTurnRight();
+//                 // slow down in preperation for a sharp turn
+//                } else if (left_wheel_count > MIN_SPEED && right_wheel_count > MIN_SPEED) {
+//                    state = SLOW;
+//                    right_wheel_count -= SLOW_DOWN_SPEED;
+//                    left_wheel_count -= SLOW_DOWN_SPEED;
+//                } else {
+//                    state = PASS;
+//                }
+//            }
+//        }
+//        
+//        if (right_wheel_count > MAX_SPEED) {
+//            right_wheel_count = MAX_SPEED;
+//        }
+//        if (left_wheel_count > MAX_SPEED) {
+//            left_wheel_count = MAX_SPEED;
+//        }
+//        if (right_wheel_count < MIN_SPEED) {
+//            right_wheel_count = MIN_SPEED;
+//        }
+//        if (left_wheel_count < MIN_SPEED) {
+//            left_wheel_count = MIN_SPEED;
+//        }
+//        
+////        if (polling_count == PRINT_RATE) {
+//        if (prev_state != state) {
+//            if (state == SLIGHTLY_LEFT) {
+//                usbPutString("SLIGHTLY_LEFT\r\n");
+//            } else if (state == SLIGHTLY_RIGHT) {
+//                usbPutString("SLIGHTLY_RIGHT\r\n");
+//            } else if (state == MEDIUM_LEFT) {
+//                usbPutString("MEDIUM_LEFT\r\n");
+//            } else if (state == MEDIUM_RIGHT) {
+//                usbPutString("MEDIUM_RIGHT\r\n");
+//            } else if (state == TURN_LEFT) {
+//                usbPutString("TURN_LEFT\r\n");
+//            } else if (state == TURN_RIGHT) {
+//                usbPutString("TURN_RIGHT\r\n");
+//            } else if (state == SLOW) {
+//                usbPutString("SLOW\r\n");
+//            } else if (state == PASS) {
+//                usbPutString("PASS\r\n");
+//            } else if (state == CORRECT) {
+//                usbPutString("CORRECT\r\n");
+//            }
+//            prev_state = state;
+//        }
+//                
+//                
+//        if (polling_count == PRINT_RATE) polling_count = 0;
+//    }
+}
+
+void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_count) {
+    // Storing count values
+    int prevCountM1 = 0;
+    int prevCountM2 = 0;
+//    int right_wheel_count = DESIRED_COUNT;
+//    int left_wheel_count = DESIRED_COUNT;
+    float distance = 0;
         
+    while (distance < desired_distance) {
         if (adc_flag) {
             updateSensorValues();
             adc_flag = FALSE;
@@ -195,9 +313,11 @@ int main()
         if (timer_flag){
             isr_TS_Disable();
             
+            distance += getDistance(prevCountM1, prevCountM2);
+            
             // Correct speed
-            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
-            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
+            correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,*right_wheel_count,FALSE);
             
             // Update previous values
             prevCountM1 = countM1;
@@ -209,86 +329,55 @@ int main()
             isr_TS_Enable();
         }
         
-       // follow a line algorithm
+        // follow a line algorithm
         if (sensor_readings[TOP_MID_SENSOR]) { // on line
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left; want to go right
-                state = SLIGHTLY_RIGHT;
-                right_wheel_count -= ADJUST_SPEED_SMALL;
-                left_wheel_count += ADJUST_SPEED_SMALL;
+                *right_wheel_count -= ADJUST_SPEED_SMALL;
+                *left_wheel_count += ADJUST_SPEED_SMALL;
             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) { // Deviated right; want to go left
-                state = SLIGHTLY_LEFT;
-                right_wheel_count += ADJUST_SPEED_SMALL;
-                left_wheel_count -= ADJUST_SPEED_SMALL;
+                *right_wheel_count += ADJUST_SPEED_SMALL;
+                *left_wheel_count -= ADJUST_SPEED_SMALL;
             } else { // Correct speed
-                state = CORRECT;
             }
         } else { // moved off
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left, but worse; want to go right
-                state = MEDIUM_RIGHT;
                 turnRight();
             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated right, but worse; want to go left
-                state = MEDIUM_LEFT;
 				turnLeft();
-            // for corners
-            } else if (!sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {
-                if (sensor_readings[BOTTOM_LEFT_SENSOR]) {
-                    state = TURN_LEFT;
-                    sharpTurnLeft();
-                } else if (sensor_readings[BOTTOM_RIGHT_SENSOR]) {
-                    state = TURN_RIGHT;
-                    sharpTurnRight();
-                 // slow down in preperation for a sharp turn
-                } else if (left_wheel_count > MIN_SPEED && right_wheel_count > MIN_SPEED) {
-                    state = SLOW;
-                    right_wheel_count -= SLOW_DOWN_SPEED;
-                    left_wheel_count -= SLOW_DOWN_SPEED;
-                } else {
-                    state = PASS;
-                }
             }
         }
         
-        if (right_wheel_count > MAX_SPEED) {
-            right_wheel_count = MAX_SPEED;
+        if (*right_wheel_count > MAX_SPEED) {
+            *right_wheel_count = MAX_SPEED;
         }
-        if (left_wheel_count > MAX_SPEED) {
-            left_wheel_count = MAX_SPEED;
+        if (*left_wheel_count > MAX_SPEED) {
+            *left_wheel_count = MAX_SPEED;
         }
-        if (right_wheel_count < MIN_SPEED) {
-            right_wheel_count = MIN_SPEED;
+        if (*right_wheel_count < MIN_SPEED) {
+            *right_wheel_count = MIN_SPEED;
         }
-        if (left_wheel_count < MIN_SPEED) {
-            left_wheel_count = MIN_SPEED;
+        if (*left_wheel_count < MIN_SPEED) {
+            *left_wheel_count = MIN_SPEED;
         }
-        
-//        if (polling_count == PRINT_RATE) {
-        if (prev_state != state) {
-            if (state == SLIGHTLY_LEFT) {
-                usbPutString("SLIGHTLY_LEFT\r\n");
-            } else if (state == SLIGHTLY_RIGHT) {
-                usbPutString("SLIGHTLY_RIGHT\r\n");
-            } else if (state == MEDIUM_LEFT) {
-                usbPutString("MEDIUM_LEFT\r\n");
-            } else if (state == MEDIUM_RIGHT) {
-                usbPutString("MEDIUM_RIGHT\r\n");
-            } else if (state == TURN_LEFT) {
-                usbPutString("TURN_LEFT\r\n");
-            } else if (state == TURN_RIGHT) {
-                usbPutString("TURN_RIGHT\r\n");
-            } else if (state == SLOW) {
-                usbPutString("SLOW\r\n");
-            } else if (state == PASS) {
-                usbPutString("PASS\r\n");
-            } else if (state == CORRECT) {
-                usbPutString("CORRECT\r\n");
-            }
-            prev_state = state;
-        }
-                
-                
-        if (polling_count == PRINT_RATE) polling_count = 0;
     }
 }
+
+//char* itoa(int val, int base) {
+//    static char buf[32] = {0};
+//    
+//    int i = 30;
+//    for (; val && i ; --i, val /= base)
+//        buf[i] = "01234566789abcdef"[val % base];
+//        
+//    return &buf[i+1];
+//}
+
+float getDistance(int prevCountM1, int prevCountM2){
+    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
+    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
+    return (m1_dist+m2_dist)/2;
+};
+
 // Simple ADC conversion
 int32 getValForChannel(int16 n){
     return ADC_CountsTo_mVolts(ADC_GetResult16(n));
@@ -394,7 +483,43 @@ void turnRight() {
     PWM_2_WriteCompare(TURN_SPEED);
 }
 
-void sharpTurnLeft() {
+void sharpTurnLeft(int *right_wheel_count, int *left_wheel_count) {
+    int prevCountM1 = 0;
+    int prevCountM2 = 0;
+    
+    // go until we reach the line
+    while (!sensor_readings[BOTTOM_LEFT_SENSOR]) {
+        
+         // New count values from encoder are ready
+        if (timer_flag){
+            isr_TS_Disable();
+            
+            // Correct speed
+            correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,*right_wheel_count,FALSE);
+            
+            *left_wheel_count -= SLOW_DOWN_SPEED;
+            *right_wheel_count -= SLOW_DOWN_SPEED;
+            if (*right_wheel_count < MIN_SPEED) {
+                *right_wheel_count = MIN_SPEED;
+            }
+            if (*left_wheel_count < MIN_SPEED) {
+                *left_wheel_count = MIN_SPEED;
+            }
+            
+            // Update previous values
+            prevCountM1 = countM1;
+            prevCountM2 = countM2;
+            
+            // Reset flag
+            timer_flag = FALSE;
+            
+            isr_TS_Enable();
+        }
+        
+    }
+    
+    // make the turn
     setWheelDirection(FALSE, TRUE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
@@ -409,7 +534,42 @@ void sharpTurnLeft() {
     PWM_2_WriteCompare(TURN_SPEED);
 }
 
-void sharpTurnRight() {
+void sharpTurnRight(int *right_wheel_count, int *left_wheel_count) {
+    int prevCountM1 = 0;
+    int prevCountM2 = 0;
+    
+    // go until we reach the line
+    while (!sensor_readings[BOTTOM_RIGHT_SENSOR]) {
+        
+         // New count values from encoder are ready
+        if (timer_flag){
+            isr_TS_Disable();
+            
+            // Correct speed
+            correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,*right_wheel_count,FALSE);
+            
+            *left_wheel_count -= SLOW_DOWN_SPEED;
+            *right_wheel_count -= SLOW_DOWN_SPEED;
+            if (*right_wheel_count < MIN_SPEED) {
+                *right_wheel_count = MIN_SPEED;
+            }
+            if (*left_wheel_count < MIN_SPEED) {
+                *left_wheel_count = MIN_SPEED;
+            }
+            
+            // Update previous values
+            prevCountM1 = countM1;
+            prevCountM2 = countM2;
+            
+            // Reset flag
+            timer_flag = FALSE;
+            
+            isr_TS_Enable();
+        }
+    }
+    
+    // make the turn
     setWheelDirection(TRUE, FALSE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
@@ -423,7 +583,7 @@ void sharpTurnRight() {
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
 }
-//* ================== UNUSED FUNCTION ======================
+//* ================== UNUSED FUNCTIONS ======================
 
 /*
 * Function for performing a 90 degree turn
@@ -459,12 +619,6 @@ void sharpTurnRight() {
 //    
 //    return TRUE;
 //}
-
-//float getDistance(int prevCountM1, int prevCountM2){
-//    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-//    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-//    return (m1_dist+m2_dist)/2;
-//};
 
 
 //* ========================================

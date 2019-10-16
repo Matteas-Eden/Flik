@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
   25:.\Generated_Source\PSoC5/USBUART_pm.c **** /* `#END` */
   26:.\Generated_Source\PSoC5/USBUART_pm.c **** 
   27:.\Generated_Source\PSoC5/USBUART_pm.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 2
 
 
   28:.\Generated_Source\PSoC5/USBUART_pm.c **** /***************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
   54              	USBUART_SaveConfig:
   55              	.LFB1:
   59:.\Generated_Source\PSoC5/USBUART_pm.c **** #endif /* (USBUART_DP_ISR_ACTIVE) */
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 3
 
 
   60:.\Generated_Source\PSoC5/USBUART_pm.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
   85:.\Generated_Source\PSoC5/USBUART_pm.c **** *  No.
   86:.\Generated_Source\PSoC5/USBUART_pm.c **** *
   87:.\Generated_Source\PSoC5/USBUART_pm.c **** *******************************************************************************/
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 4
 
 
   88:.\Generated_Source\PSoC5/USBUART_pm.c **** void USBUART_RestoreConfig(void) 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  104:.\Generated_Source\PSoC5/USBUART_pm.c **** *  host drives resume condition. The pull-up is enabled on the Dp line while 
  105:.\Generated_Source\PSoC5/USBUART_pm.c **** *  device is in low power mode. The supported low power modes are Deep Sleep 
  106:.\Generated_Source\PSoC5/USBUART_pm.c **** *  (PSoC 4200L) and Sleep (PSoC 3/ PSoC 5LP).
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 5
 
 
  107:.\Generated_Source\PSoC5/USBUART_pm.c **** *  
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  133:.\Generated_Source\PSoC5/USBUART_pm.c **** 
  134:.\Generated_Source\PSoC5/USBUART_pm.c ****     #if (USBUART_EP_MANAGEMENT_DMA)
  135:.\Generated_Source\PSoC5/USBUART_pm.c ****         USBUART_Stop_DMA(USBUART_MAX_EP);
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 6
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 6
 
 
  136:.\Generated_Source\PSoC5/USBUART_pm.c ****     #endif /* (USBUART_EP_MANAGEMENT_DMA) */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  178              		.loc 1 162 0
  179 0058 0020     		movs	r0, #0
  180 005a FFF7FEFF 		bl	CyDelayUs
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 7
 
 
  163:.\Generated_Source\PSoC5/USBUART_pm.c ****         /* Store mode and disable VRegulator. */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  220 00aa DBB2     		uxtb	r3, r3
  221 00ac 23F00103 		bic	r3, r3, #1
  222 00b0 DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 8
 
 
  223 00b2 1370     		strb	r3, [r2]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  257 00ee 0837     		adds	r7, r7, #8
  258              		.cfi_def_cfa_offset 8
  259 00f0 BD46     		mov	sp, r7
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 9
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 9
 
 
  260              		.cfi_def_cfa_register 13
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  225:.\Generated_Source\PSoC5/USBUART_pm.c **** *
  226:.\Generated_Source\PSoC5/USBUART_pm.c **** *******************************************************************************/
  227:.\Generated_Source\PSoC5/USBUART_pm.c **** void USBUART_Resume(void) 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 10
 
 
  228:.\Generated_Source\PSoC5/USBUART_pm.c **** {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  257:.\Generated_Source\PSoC5/USBUART_pm.c ****         USBUART_INTR_LVL_SEL_REG = USBUART_DEFAULT_INTR_LVL_SEL;
  258:.\Generated_Source\PSoC5/USBUART_pm.c ****         
  259:.\Generated_Source\PSoC5/USBUART_pm.c ****         /* Store SIE interrupt sources. */
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 11
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 11
 
 
  260:.\Generated_Source\PSoC5/USBUART_pm.c ****         USBUART_INTR_SIE_MASK_REG = (uint32) USBUART_backup.intrSeiMask;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  339 0052 1B78     		ldrb	r3, [r3]
  340 0054 DBB2     		uxtb	r3, r3
  341 0056 43F00103 		orr	r3, r3, #1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 12
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 12
 
 
  342 005a DBB2     		uxtb	r3, r3
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  304:.\Generated_Source\PSoC5/USBUART_pm.c ****                 USBUART_ARB_INT_EN_REG = USBUART_DEFAULT_ARB_INT_EN;
  305:.\Generated_Source\PSoC5/USBUART_pm.c ****             #endif /* (USBUART_EP_MANAGEMENT_DMA) */
  306:.\Generated_Source\PSoC5/USBUART_pm.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 13
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 13
 
 
  307:.\Generated_Source\PSoC5/USBUART_pm.c ****             /* Configure arbiter for Manual or Auto DMA operation and clear 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  410              		@ sp needed
  411 00d4 80BD     		pop	{r7, pc}
  412              	.L15:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 14
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 14
 
 
  413 00d6 00BF     		.align	2
@@ -807,48 +807,48 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  436 0006 00000000 		.4byte	.Ldebug_abbrev0
  437 000a 04       		.byte	0x4
  438 000b 01       		.uleb128 0x1
- 439 000c DB010000 		.4byte	.LASF27
+ 439 000c D1010000 		.4byte	.LASF27
  440 0010 01       		.byte	0x1
- 441 0011 53010000 		.4byte	.LASF28
- 442 0015 15000000 		.4byte	.LASF29
+ 441 0011 49010000 		.4byte	.LASF28
+ 442 0015 A9000000 		.4byte	.LASF29
  443 0019 00000000 		.4byte	.Ldebug_ranges0+0
  444 001d 00000000 		.4byte	0
  445 0021 00000000 		.4byte	.Ldebug_line0
  446 0025 02       		.uleb128 0x2
  447 0026 01       		.byte	0x1
  448 0027 06       		.byte	0x6
- 449 0028 98020000 		.4byte	.LASF0
+ 449 0028 8E020000 		.4byte	.LASF0
  450 002c 02       		.uleb128 0x2
  451 002d 01       		.byte	0x1
  452 002e 08       		.byte	0x8
- 453 002f EB000000 		.4byte	.LASF1
+ 453 002f 57000000 		.4byte	.LASF1
  454 0033 02       		.uleb128 0x2
  455 0034 02       		.byte	0x2
  456 0035 05       		.byte	0x5
- 457 0036 69020000 		.4byte	.LASF2
+ 457 0036 5F020000 		.4byte	.LASF2
  458 003a 02       		.uleb128 0x2
  459 003b 02       		.byte	0x2
  460 003c 07       		.byte	0x7
- 461 003d A9000000 		.4byte	.LASF3
+ 461 003d 15000000 		.4byte	.LASF3
  462 0041 02       		.uleb128 0x2
  463 0042 04       		.byte	0x4
  464 0043 05       		.byte	0x5
- 465 0044 83020000 		.4byte	.LASF4
+ 465 0044 79020000 		.4byte	.LASF4
  466 0048 02       		.uleb128 0x2
  467 0049 04       		.byte	0x4
  468 004a 07       		.byte	0x7
- 469 004b 14010000 		.4byte	.LASF5
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 15
+ 469 004b 80000000 		.4byte	.LASF5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 15
 
 
  470 004f 02       		.uleb128 0x2
  471 0050 08       		.byte	0x8
  472 0051 05       		.byte	0x5
- 473 0052 C8010000 		.4byte	.LASF6
+ 473 0052 BE010000 		.4byte	.LASF6
  474 0056 02       		.uleb128 0x2
  475 0057 08       		.byte	0x8
  476 0058 07       		.byte	0x7
- 477 0059 8D010000 		.4byte	.LASF7
+ 477 0059 83010000 		.4byte	.LASF7
  478 005d 03       		.uleb128 0x3
  479 005e 04       		.byte	0x4
  480 005f 05       		.byte	0x5
@@ -856,31 +856,31 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  482 0064 02       		.uleb128 0x2
  483 0065 04       		.byte	0x4
  484 0066 07       		.byte	0x7
- 485 0067 80010000 		.4byte	.LASF8
+ 485 0067 76010000 		.4byte	.LASF8
  486 006b 04       		.uleb128 0x4
- 487 006c 26010000 		.4byte	.LASF9
+ 487 006c 92000000 		.4byte	.LASF9
  488 0070 02       		.byte	0x2
  489 0071 9201     		.2byte	0x192
  490 0073 2C000000 		.4byte	0x2c
  491 0077 04       		.uleb128 0x4
- 492 0078 79010000 		.4byte	.LASF10
+ 492 0078 6F010000 		.4byte	.LASF10
  493 007c 02       		.byte	0x2
  494 007d 9401     		.2byte	0x194
  495 007f 48000000 		.4byte	0x48
  496 0083 02       		.uleb128 0x2
  497 0084 04       		.byte	0x4
  498 0085 04       		.byte	0x4
- 499 0086 E5000000 		.4byte	.LASF11
+ 499 0086 51000000 		.4byte	.LASF11
  500 008a 02       		.uleb128 0x2
  501 008b 08       		.byte	0x8
  502 008c 04       		.byte	0x4
- 503 008d 4C010000 		.4byte	.LASF12
+ 503 008d 42010000 		.4byte	.LASF12
  504 0091 02       		.uleb128 0x2
  505 0092 01       		.byte	0x1
  506 0093 08       		.byte	0x8
- 507 0094 D6010000 		.4byte	.LASF13
+ 507 0094 CC010000 		.4byte	.LASF13
  508 0098 04       		.uleb128 0x4
- 509 0099 F9000000 		.4byte	.LASF14
+ 509 0099 65000000 		.4byte	.LASF14
  510 009d 02       		.byte	0x2
  511 009e 3C02     		.2byte	0x23c
  512 00a0 A4000000 		.4byte	0xa4
@@ -896,9 +896,9 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  522 00ba 02       		.uleb128 0x2
  523 00bb 04       		.byte	0x4
  524 00bc 07       		.byte	0x7
- 525 00bd A9010000 		.4byte	.LASF16
+ 525 00bd 9F010000 		.4byte	.LASF16
  526 00c1 06       		.uleb128 0x6
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 16
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 16
 
 
  527 00c2 02       		.byte	0x2
@@ -906,20 +906,20 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  529 00c4 B9       		.byte	0xb9
  530 00c5 E2000000 		.4byte	0xe2
  531 00c9 07       		.uleb128 0x7
- 532 00ca 8C020000 		.4byte	.LASF17
+ 532 00ca 82020000 		.4byte	.LASF17
  533 00ce 03       		.byte	0x3
  534 00cf BB       		.byte	0xbb
  535 00d0 6B000000 		.4byte	0x6b
  536 00d4 00       		.byte	0
  537 00d5 07       		.uleb128 0x7
- 538 00d6 A4010000 		.4byte	.LASF18
+ 538 00d6 9A010000 		.4byte	.LASF18
  539 00da 03       		.byte	0x3
  540 00db BC       		.byte	0xbc
  541 00dc 6B000000 		.4byte	0x6b
  542 00e0 01       		.byte	0x1
  543 00e1 00       		.byte	0
  544 00e2 08       		.uleb128 0x8
- 545 00e3 BC000000 		.4byte	.LASF19
+ 545 00e3 28000000 		.4byte	.LASF19
  546 00e7 03       		.byte	0x3
  547 00e8 C0       		.byte	0xc0
  548 00e9 C1000000 		.4byte	0xc1
@@ -932,7 +932,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  555 00fc 01       		.uleb128 0x1
  556 00fd 9C       		.byte	0x9c
  557 00fe 0A       		.uleb128 0xa
- 558 00ff D2000000 		.4byte	.LASF21
+ 558 00ff 3E000000 		.4byte	.LASF21
  559 0103 01       		.byte	0x1
  560 0104 48       		.byte	0x48
  561 0105 00000000 		.4byte	.LFB1
@@ -940,7 +940,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  563 010d 01       		.uleb128 0x1
  564 010e 9C       		.byte	0x9c
  565 010f 09       		.uleb128 0x9
- 566 0110 FE000000 		.4byte	.LASF22
+ 566 0110 6A000000 		.4byte	.LASF22
  567 0114 01       		.byte	0x1
  568 0115 58       		.byte	0x58
  569 0116 00000000 		.4byte	.LFB2
@@ -948,7 +948,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  571 011e 01       		.uleb128 0x1
  572 011f 9C       		.byte	0x9c
  573 0120 0B       		.uleb128 0xb
- 574 0121 73020000 		.4byte	.LASF23
+ 574 0121 69020000 		.4byte	.LASF23
  575 0125 01       		.byte	0x1
  576 0126 7B       		.byte	0x7b
  577 0127 00000000 		.4byte	.LFB3
@@ -957,8 +957,8 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  580 0130 9C       		.byte	0x9c
  581 0131 44010000 		.4byte	0x144
  582 0135 0C       		.uleb128 0xc
- 583 0136 2C010000 		.4byte	.LASF25
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 17
+ 583 0136 98000000 		.4byte	.LASF25
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 17
 
 
  584 013a 01       		.byte	0x1
@@ -969,7 +969,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  589 0142 77       		.sleb128 -9
  590 0143 00       		.byte	0
  591 0144 0B       		.uleb128 0xb
- 592 0145 A4020000 		.4byte	.LASF24
+ 592 0145 9A020000 		.4byte	.LASF24
  593 0149 01       		.byte	0x1
  594 014a E3       		.byte	0xe3
  595 014b 00000000 		.4byte	.LFB4
@@ -978,7 +978,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  598 0154 9C       		.byte	0x9c
  599 0155 68010000 		.4byte	0x168
  600 0159 0C       		.uleb128 0xc
- 601 015a 2C010000 		.4byte	.LASF25
+ 601 015a 98000000 		.4byte	.LASF25
  602 015e 01       		.byte	0x1
  603 015f E5       		.byte	0xe5
  604 0160 6B000000 		.4byte	0x6b
@@ -987,7 +987,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  607 0166 77       		.sleb128 -9
  608 0167 00       		.byte	0
  609 0168 0C       		.uleb128 0xc
- 610 0169 3D010000 		.4byte	.LASF26
+ 610 0169 33010000 		.4byte	.LASF26
  611 016d 01       		.byte	0x1
  612 016e 20       		.byte	0x20
  613 016f E2000000 		.4byte	0xe2
@@ -995,7 +995,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  615 0174 03       		.byte	0x3
  616 0175 00000000 		.4byte	USBUART_backup
  617 0179 0D       		.uleb128 0xd
- 618 017a B2010000 		.4byte	.LASF30
+ 618 017a A8010000 		.4byte	.LASF30
  619 017e 03       		.byte	0x3
  620 017f D502     		.2byte	0x2d5
  621 0181 A4000000 		.4byte	0xa4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  638 000d 11       		.uleb128 0x11
  639 000e 01       		.uleb128 0x1
  640 000f 10       		.uleb128 0x10
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 18
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 18
 
 
  641 0010 17       		.uleb128 0x17
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  695 0046 01       		.uleb128 0x1
  696 0047 13       		.uleb128 0x13
  697 0048 00       		.byte	0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 19
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 19
 
 
  698 0049 00       		.byte	0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  752 0080 00       		.byte	0
  753 0081 3F       		.uleb128 0x3f
  754 0082 19       		.uleb128 0x19
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 20
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 20
 
 
  755 0083 03       		.uleb128 0x3
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  809 00bb 02       		.uleb128 0x2
  810 00bc 18       		.uleb128 0x18
  811 00bd 00       		.byte	0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 21
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 21
 
 
  812 00be 00       		.byte	0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  866              	.Ldebug_line0:
  867 0000 E4000000 		.section	.debug_str,"MS",%progbits,1
  867      02005600 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 22
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 22
 
 
  867      00000201 
@@ -1272,113 +1272,113 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  870              	.LASF15:
  871 000f 72656733 		.ascii	"reg32\000"
  871      3200
- 872              	.LASF29:
- 873 0015 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
- 873      54322043 
- 873      6F646520 
- 873      2D205365 
- 873      636F6E64 
- 874 0047 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
- 874      53333031 
- 874      5F436C61 
- 874      73732E63 
- 874      7970726A 
- 875 0079 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
- 875      3330315F 
- 875      436C6173 
- 875      732E6379 
- 875      70726A2E 
- 876              	.LASF3:
- 877 00a9 73686F72 		.ascii	"short unsigned int\000"
- 877      7420756E 
- 877      7369676E 
- 877      65642069 
- 877      6E7400
- 878              	.LASF19:
- 879 00bc 55534255 		.ascii	"USBUART_BACKUP_STRUCT\000"
- 879      4152545F 
- 879      4241434B 
- 879      55505F53 
- 879      54525543 
- 880              	.LASF21:
- 881 00d2 55534255 		.ascii	"USBUART_SaveConfig\000"
- 881      4152545F 
- 881      53617665 
- 881      436F6E66 
- 881      696700
- 882              	.LASF11:
- 883 00e5 666C6F61 		.ascii	"float\000"
- 883      7400
- 884              	.LASF1:
- 885 00eb 756E7369 		.ascii	"unsigned char\000"
- 885      676E6564 
- 885      20636861 
- 885      7200
- 886              	.LASF14:
- 887 00f9 72656738 		.ascii	"reg8\000"
- 887      00
- 888              	.LASF22:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 23
+ 872              	.LASF3:
+ 873 0015 73686F72 		.ascii	"short unsigned int\000"
+ 873      7420756E 
+ 873      7369676E 
+ 873      65642069 
+ 873      6E7400
+ 874              	.LASF19:
+ 875 0028 55534255 		.ascii	"USBUART_BACKUP_STRUCT\000"
+ 875      4152545F 
+ 875      4241434B 
+ 875      55505F53 
+ 875      54525543 
+ 876              	.LASF21:
+ 877 003e 55534255 		.ascii	"USBUART_SaveConfig\000"
+ 877      4152545F 
+ 877      53617665 
+ 877      436F6E66 
+ 877      696700
+ 878              	.LASF11:
+ 879 0051 666C6F61 		.ascii	"float\000"
+ 879      7400
+ 880              	.LASF1:
+ 881 0057 756E7369 		.ascii	"unsigned char\000"
+ 881      676E6564 
+ 881      20636861 
+ 881      7200
+ 882              	.LASF14:
+ 883 0065 72656738 		.ascii	"reg8\000"
+ 883      00
+ 884              	.LASF22:
+ 885 006a 55534255 		.ascii	"USBUART_RestoreConfig\000"
+ 885      4152545F 
+ 885      52657374 
+ 885      6F726543 
+ 885      6F6E6669 
+ 886              	.LASF5:
+ 887 0080 6C6F6E67 		.ascii	"long unsigned int\000"
+ 887      20756E73 
+ 887      69676E65 
+ 887      6420696E 
+ 887      7400
+ 888              	.LASF9:
+ 889 0092 75696E74 		.ascii	"uint8\000"
+ 889      3800
+ 890              	.LASF25:
+ 891 0098 656E6162 		.ascii	"enableInterrupts\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 23
 
 
- 889 00fe 55534255 		.ascii	"USBUART_RestoreConfig\000"
- 889      4152545F 
- 889      52657374 
- 889      6F726543 
- 889      6F6E6669 
- 890              	.LASF5:
- 891 0114 6C6F6E67 		.ascii	"long unsigned int\000"
- 891      20756E73 
- 891      69676E65 
- 891      6420696E 
- 891      7400
- 892              	.LASF9:
- 893 0126 75696E74 		.ascii	"uint8\000"
- 893      3800
- 894              	.LASF25:
- 895 012c 656E6162 		.ascii	"enableInterrupts\000"
- 895      6C65496E 
- 895      74657272 
- 895      75707473 
- 895      00
+ 891      6C65496E 
+ 891      74657272 
+ 891      75707473 
+ 891      00
+ 892              	.LASF29:
+ 893 00a9 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Desktop\\Flik\\CS"
+ 893      6C65732E 
+ 893      6175636B 
+ 893      6C616E64 
+ 893      2E61632E 
+ 894 00d6 3330315F 		.ascii	"301_Class.cyprj.Archive01-20190825T234813Z-001\\CS3"
+ 894      436C6173 
+ 894      732E6379 
+ 894      70726A2E 
+ 894      41726368 
+ 895 0108 30315F43 		.ascii	"01_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 895      6C617373 
+ 895      2E637970 
+ 895      726A2E41 
+ 895      72636869 
  896              	.LASF26:
- 897 013d 55534255 		.ascii	"USBUART_backup\000"
+ 897 0133 55534255 		.ascii	"USBUART_backup\000"
  897      4152545F 
  897      6261636B 
  897      757000
  898              	.LASF12:
- 899 014c 646F7562 		.ascii	"double\000"
+ 899 0142 646F7562 		.ascii	"double\000"
  899      6C6500
  900              	.LASF28:
- 901 0153 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\USBUART_pm.c\000"
+ 901 0149 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\USBUART_pm.c\000"
  901      6E657261 
  901      7465645F 
  901      536F7572 
  901      63655C50 
  902              	.LASF10:
- 903 0179 75696E74 		.ascii	"uint32\000"
+ 903 016f 75696E74 		.ascii	"uint32\000"
  903      333200
  904              	.LASF8:
- 905 0180 756E7369 		.ascii	"unsigned int\000"
+ 905 0176 756E7369 		.ascii	"unsigned int\000"
  905      676E6564 
  905      20696E74 
  905      00
  906              	.LASF7:
- 907 018d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 907 0183 6C6F6E67 		.ascii	"long long unsigned int\000"
  907      206C6F6E 
  907      6720756E 
  907      7369676E 
  907      65642069 
  908              	.LASF18:
- 909 01a4 6D6F6465 		.ascii	"mode\000"
+ 909 019a 6D6F6465 		.ascii	"mode\000"
  909      00
  910              	.LASF16:
- 911 01a9 73697A65 		.ascii	"sizetype\000"
+ 911 019f 73697A65 		.ascii	"sizetype\000"
  911      74797065 
  911      00
  912              	.LASF30:
- 913 01b2 55534255 		.ascii	"USBUART_configuration\000"
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 24
+ 913 01a8 55534255 		.ascii	"USBUART_configuration\000"
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccngpL6f.s 			page 24
 
 
  913      4152545F 
@@ -1386,52 +1386,52 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccTm1jtv.s 			page 1
  913      69677572 
  913      6174696F 
  914              	.LASF6:
- 915 01c8 6C6F6E67 		.ascii	"long long int\000"
+ 915 01be 6C6F6E67 		.ascii	"long long int\000"
  915      206C6F6E 
  915      6720696E 
  915      7400
  916              	.LASF13:
- 917 01d6 63686172 		.ascii	"char\000"
+ 917 01cc 63686172 		.ascii	"char\000"
  917      00
  918              	.LASF27:
- 919 01db 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 919 01d1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  919      4320342E 
  919      392E3320 
  919      32303135 
  919      30333033 
- 920 020e 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 920 0204 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  920      20726576 
  920      6973696F 
  920      6E203232 
  920      31323230 
- 921 0241 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 921 0237 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
  921      66756E63 
  921      74696F6E 
  921      2D736563 
  921      74696F6E 
  922              	.LASF2:
- 923 0269 73686F72 		.ascii	"short int\000"
+ 923 025f 73686F72 		.ascii	"short int\000"
  923      7420696E 
  923      7400
  924              	.LASF23:
- 925 0273 55534255 		.ascii	"USBUART_Suspend\000"
+ 925 0269 55534255 		.ascii	"USBUART_Suspend\000"
  925      4152545F 
  925      53757370 
  925      656E6400 
  926              	.LASF4:
- 927 0283 6C6F6E67 		.ascii	"long int\000"
+ 927 0279 6C6F6E67 		.ascii	"long int\000"
  927      20696E74 
  927      00
  928              	.LASF17:
- 929 028c 656E6162 		.ascii	"enableState\000"
+ 929 0282 656E6162 		.ascii	"enableState\000"
  929      6C655374 
  929      61746500 
  930              	.LASF0:
- 931 0298 7369676E 		.ascii	"signed char\000"
+ 931 028e 7369676E 		.ascii	"signed char\000"
  931      65642063 
  931      68617200 
  932              	.LASF24:
- 933 02a4 55534255 		.ascii	"USBUART_Resume\000"
+ 933 029a 55534255 		.ascii	"USBUART_Resume\000"
  933      4152545F 
  933      52657375 
  933      6D6500

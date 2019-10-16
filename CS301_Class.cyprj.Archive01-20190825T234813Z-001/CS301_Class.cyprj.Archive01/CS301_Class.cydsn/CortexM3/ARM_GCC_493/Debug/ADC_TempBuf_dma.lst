@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
   23:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** 
   24:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** 
   25:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 2
 
 
   26:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** /****************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
   80:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** *       
   81:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** *       
   82:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** *   ReqestPerBurst.
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 3
 
 
   83:.\Generated_Source\PSoC5/ADC_TempBuf_dma.c **** *       
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
   65 0028 F979     		ldrb	r1, [r7, #7]	@ zero_extendqisi2
   66 002a BA79     		ldrb	r2, [r7, #6]	@ zero_extendqisi2
   67 002c 0023     		movs	r3, #0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 4
 
 
   68 002e 0093     		str	r3, [sp]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  108              		.global	ADC_TempBuf_DmaRelease
  109              		.thumb
  110              		.thumb_func
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 5
 
 
  111              		.type	ADC_TempBuf_DmaRelease, %function
@@ -298,15 +298,15 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  143 0000 10010000 		.4byte	0x110
  144 0004 0400     		.2byte	0x4
  145 0006 00000000 		.4byte	.Ldebug_abbrev0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 6
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 6
 
 
  146 000a 04       		.byte	0x4
  147 000b 01       		.uleb128 0x1
  148 000c AE000000 		.4byte	.LASF19
  149 0010 01       		.byte	0x1
- 150 0011 D7010000 		.4byte	.LASF20
- 151 0015 3C010000 		.4byte	.LASF21
+ 150 0011 43010000 		.4byte	.LASF20
+ 151 0015 8D010000 		.4byte	.LASF21
  152 0019 00000000 		.4byte	.Ldebug_ranges0+0
  153 001d 00000000 		.4byte	0
  154 0021 00000000 		.4byte	.Ldebug_line0
@@ -321,7 +321,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  163 0033 03       		.uleb128 0x3
  164 0034 01       		.byte	0x1
  165 0035 06       		.byte	0x6
- 166 0036 15020000 		.4byte	.LASF1
+ 166 0036 81010000 		.4byte	.LASF1
  167 003a 03       		.uleb128 0x3
  168 003b 01       		.byte	0x1
  169 003c 08       		.byte	0x8
@@ -329,11 +329,11 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  171 0041 03       		.uleb128 0x3
  172 0042 02       		.byte	0x2
  173 0043 05       		.byte	0x5
- 174 0044 61020000 		.4byte	.LASF3
+ 174 0044 57020000 		.4byte	.LASF3
  175 0048 03       		.uleb128 0x3
  176 0049 02       		.byte	0x2
  177 004a 07       		.byte	0x7
- 178 004b 02020000 		.4byte	.LASF4
+ 178 004b 6E010000 		.4byte	.LASF4
  179 004f 03       		.uleb128 0x3
  180 0050 04       		.byte	0x4
  181 0051 05       		.byte	0x5
@@ -353,12 +353,12 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  195 006b 03       		.uleb128 0x3
  196 006c 04       		.byte	0x4
  197 006d 07       		.byte	0x7
- 198 006e 72020000 		.4byte	.LASF9
+ 198 006e 68020000 		.4byte	.LASF9
  199 0072 03       		.uleb128 0x3
  200 0073 01       		.byte	0x1
  201 0074 08       		.byte	0x8
  202 0075 A0000000 		.4byte	.LASF10
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 7
 
 
  203 0079 04       		.uleb128 0x4
@@ -367,20 +367,20 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  206 007f 9201     		.2byte	0x192
  207 0081 3A000000 		.4byte	0x3a
  208 0085 04       		.uleb128 0x4
- 209 0086 6B020000 		.4byte	.LASF12
+ 209 0086 61020000 		.4byte	.LASF12
  210 008a 02       		.byte	0x2
  211 008b 9301     		.2byte	0x193
  212 008d 48000000 		.4byte	0x48
  213 0091 03       		.uleb128 0x3
  214 0092 04       		.byte	0x4
  215 0093 04       		.byte	0x4
- 216 0094 4A020000 		.4byte	.LASF13
+ 216 0094 40020000 		.4byte	.LASF13
  217 0098 03       		.uleb128 0x3
  218 0099 08       		.byte	0x8
  219 009a 04       		.byte	0x4
- 220 009b D0010000 		.4byte	.LASF14
+ 220 009b 3C010000 		.4byte	.LASF14
  221 009f 05       		.uleb128 0x5
- 222 00a0 21020000 		.4byte	.LASF22
+ 222 00a0 17020000 		.4byte	.LASF22
  223 00a4 01       		.byte	0x1
  224 00a5 61       		.byte	0x61
  225 00a6 79000000 		.4byte	0x79
@@ -398,7 +398,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  237 00c4 91       		.byte	0x91
  238 00c5 6F       		.sleb128 -17
  239 00c6 06       		.uleb128 0x6
- 240 00c7 3B020000 		.4byte	.LASF16
+ 240 00c7 31020000 		.4byte	.LASF16
  241 00cb 01       		.byte	0x1
  242 00cc 61       		.byte	0x61
  243 00cd 79000000 		.4byte	0x79
@@ -414,11 +414,11 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  253 00e0 91       		.byte	0x91
  254 00e1 6C       		.sleb128 -20
  255 00e2 06       		.uleb128 0x6
- 256 00e3 50020000 		.4byte	.LASF18
+ 256 00e3 46020000 		.4byte	.LASF18
  257 00e7 01       		.byte	0x1
  258 00e8 61       		.byte	0x61
  259 00e9 85000000 		.4byte	0x85
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 8
 
 
  260 00ed 02       		.uleb128 0x2
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  314 001f 24       		.uleb128 0x24
  315 0020 00       		.byte	0
  316 0021 0B       		.uleb128 0xb
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 9
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 9
 
 
  317 0022 0B       		.uleb128 0xb
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  371 0059 3B       		.uleb128 0x3b
  372 005a 0B       		.uleb128 0xb
  373 005b 49       		.uleb128 0x49
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 10
 
 
  374 005c 13       		.uleb128 0x13
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  428 0010 00000000 		.4byte	.LFB0
  429 0014 68000000 		.4byte	.LFE0-.LFB0
  430 0018 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 11
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 11
 
 
  431 001c 14000000 		.4byte	.LFE1-.LFB1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  460      206C6F6E 
  460      6720756E 
  460      7369676E 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 12
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 12
 
 
  460      65642069 
@@ -696,73 +696,73 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 1
  472      74696F6E 
  472      2D736563 
  472      74696F6E 
- 473              	.LASF21:
- 474 013c 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
- 474      54322043 
- 474      6F646520 
- 474      2D205365 
- 474      636F6E64 
- 475 016e 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
- 475      53333031 
- 475      5F436C61 
- 475      73732E63 
- 475      7970726A 
- 476 01a0 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
- 476      3330315F 
- 476      436C6173 
- 476      732E6379 
- 476      70726A2E 
- 477              	.LASF14:
- 478 01d0 646F7562 		.ascii	"double\000"
- 478      6C6500
- 479              	.LASF20:
- 480 01d7 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\ADC_TempBuf_dma.c\000"
- 480      6E657261 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccMsA6SD.s 			page 13
+ 473              	.LASF14:
+ 474 013c 646F7562 		.ascii	"double\000"
+ 474      6C6500
+ 475              	.LASF20:
+ 476 0143 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\ADC_TempBuf_dma.c\000"
+ 476      6E657261 
+ 476      7465645F 
+ 476      536F7572 
+ 476      63655C50 
+ 477              	.LASF4:
+ 478 016e 73686F72 		.ascii	"short unsigned int\000"
+ 478      7420756E 
+ 478      7369676E 
+ 478      65642069 
+ 478      6E7400
+ 479              	.LASF1:
+ 480 0181 7369676E 		.ascii	"signed char\000"
+ 480      65642063 
+ 480      68617200 
+ 481              	.LASF21:
+ 482 018d 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Desktop\\Flik\\CS"
+ 482      6C65732E 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cco9mMZM.s 			page 13
 
 
- 480      7465645F 
- 480      536F7572 
- 480      63655C50 
- 481              	.LASF4:
- 482 0202 73686F72 		.ascii	"short unsigned int\000"
- 482      7420756E 
- 482      7369676E 
- 482      65642069 
- 482      6E7400
- 483              	.LASF1:
- 484 0215 7369676E 		.ascii	"signed char\000"
- 484      65642063 
- 484      68617200 
+ 482      6175636B 
+ 482      6C616E64 
+ 482      2E61632E 
+ 483 01ba 3330315F 		.ascii	"301_Class.cyprj.Archive01-20190825T234813Z-001\\CS3"
+ 483      436C6173 
+ 483      732E6379 
+ 483      70726A2E 
+ 483      41726368 
+ 484 01ec 30315F43 		.ascii	"01_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 484      6C617373 
+ 484      2E637970 
+ 484      726A2E41 
+ 484      72636869 
  485              	.LASF22:
- 486 0221 4144435F 		.ascii	"ADC_TempBuf_DmaInitialize\000"
+ 486 0217 4144435F 		.ascii	"ADC_TempBuf_DmaInitialize\000"
  486      54656D70 
  486      4275665F 
  486      446D6149 
  486      6E697469 
  487              	.LASF16:
- 488 023b 52657165 		.ascii	"ReqestPerBurst\000"
+ 488 0231 52657165 		.ascii	"ReqestPerBurst\000"
  488      73745065 
  488      72427572 
  488      737400
  489              	.LASF13:
- 490 024a 666C6F61 		.ascii	"float\000"
+ 490 0240 666C6F61 		.ascii	"float\000"
  490      7400
  491              	.LASF18:
- 492 0250 55707065 		.ascii	"UpperDestAddress\000"
+ 492 0246 55707065 		.ascii	"UpperDestAddress\000"
  492      72446573 
  492      74416464 
  492      72657373 
  492      00
  493              	.LASF3:
- 494 0261 73686F72 		.ascii	"short int\000"
+ 494 0257 73686F72 		.ascii	"short int\000"
  494      7420696E 
  494      7400
  495              	.LASF12:
- 496 026b 75696E74 		.ascii	"uint16\000"
+ 496 0261 75696E74 		.ascii	"uint16\000"
  496      313600
  497              	.LASF9:
- 498 0272 73697A65 		.ascii	"sizetype\000"
+ 498 0268 73697A65 		.ascii	"sizetype\000"
  498      74797065 
  498      00
  499              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

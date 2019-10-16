@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
   25:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c ****     
   26:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** /*******************************************************************************
   27:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** * Function Name: RF_BT_SELECT_SaveConfig
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 2
 
 
   28:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** ********************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
   69              	RF_BT_SELECT_RestoreConfig:
   70              	.LFB1:
   44:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 3
 
 
   45:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  105              		.thumb
  106              		.thumb_func
  107              		.type	RF_BT_SELECT_Sleep, %function
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 4
 
 
  108              	RF_BT_SELECT_Sleep:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
   92:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** *  Restores the component after waking up from the low power mode.
   93:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** *
   94:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** * Parameters:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 5
 
 
   95:.\Generated_Source\PSoC5/RF_BT_SELECT_PM.c **** *  None
@@ -279,48 +279,48 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  160 0006 00000000 		.4byte	.Ldebug_abbrev0
  161 000a 04       		.byte	0x4
  162 000b 01       		.uleb128 0x1
- 163 000c 94000000 		.4byte	.LASF19
+ 163 000c 00000000 		.4byte	.LASF19
  164 0010 01       		.byte	0x1
- 165 0011 59020000 		.4byte	.LASF20
- 166 0015 00000000 		.4byte	.LASF21
+ 165 0011 4F020000 		.4byte	.LASF20
+ 166 0015 1B010000 		.4byte	.LASF21
  167 0019 00000000 		.4byte	.Ldebug_ranges0+0
  168 001d 00000000 		.4byte	0
  169 0021 00000000 		.4byte	.Ldebug_line0
  170 0025 02       		.uleb128 0x2
  171 0026 01       		.byte	0x1
  172 0027 06       		.byte	0x6
- 173 0028 4D020000 		.4byte	.LASF0
+ 173 0028 43020000 		.4byte	.LASF0
  174 002c 02       		.uleb128 0x2
  175 002d 01       		.byte	0x1
  176 002e 08       		.byte	0x8
- 177 002f 3B010000 		.4byte	.LASF1
+ 177 002f A7000000 		.4byte	.LASF1
  178 0033 02       		.uleb128 0x2
  179 0034 02       		.byte	0x2
  180 0035 05       		.byte	0x5
- 181 0036 34020000 		.4byte	.LASF2
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 6
+ 181 0036 2A020000 		.4byte	.LASF2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 6
 
 
  182 003a 02       		.uleb128 0x2
  183 003b 02       		.byte	0x2
  184 003c 07       		.byte	0x7
- 185 003d 8F010000 		.4byte	.LASF3
+ 185 003d FB000000 		.4byte	.LASF3
  186 0041 02       		.uleb128 0x2
  187 0042 04       		.byte	0x4
  188 0043 05       		.byte	0x5
- 189 0044 44020000 		.4byte	.LASF4
+ 189 0044 3A020000 		.4byte	.LASF4
  190 0048 02       		.uleb128 0x2
  191 0049 04       		.byte	0x4
  192 004a 07       		.byte	0x7
- 193 004b 62010000 		.4byte	.LASF5
+ 193 004b CE000000 		.4byte	.LASF5
  194 004f 02       		.uleb128 0x2
  195 0050 08       		.byte	0x8
  196 0051 05       		.byte	0x5
- 197 0052 21020000 		.4byte	.LASF6
+ 197 0052 17020000 		.4byte	.LASF6
  198 0056 02       		.uleb128 0x2
  199 0057 08       		.byte	0x8
  200 0058 07       		.byte	0x7
- 201 0059 0A020000 		.4byte	.LASF7
+ 201 0059 00020000 		.4byte	.LASF7
  202 005d 03       		.uleb128 0x3
  203 005e 04       		.byte	0x4
  204 005f 05       		.byte	0x5
@@ -328,26 +328,26 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  206 0064 02       		.uleb128 0x2
  207 0065 04       		.byte	0x4
  208 0066 07       		.byte	0x7
- 209 0067 FD010000 		.4byte	.LASF8
+ 209 0067 F3010000 		.4byte	.LASF8
  210 006b 04       		.uleb128 0x4
- 211 006c 3E020000 		.4byte	.LASF12
+ 211 006c 34020000 		.4byte	.LASF12
  212 0070 02       		.byte	0x2
  213 0071 9201     		.2byte	0x192
  214 0073 2C000000 		.4byte	0x2c
  215 0077 02       		.uleb128 0x2
  216 0078 04       		.byte	0x4
  217 0079 04       		.byte	0x4
- 218 007a 22010000 		.4byte	.LASF9
+ 218 007a 8E000000 		.4byte	.LASF9
  219 007e 02       		.uleb128 0x2
  220 007f 08       		.byte	0x8
  221 0080 04       		.byte	0x4
- 222 0081 AF010000 		.4byte	.LASF10
+ 222 0081 A5010000 		.4byte	.LASF10
  223 0085 02       		.uleb128 0x2
  224 0086 01       		.byte	0x1
  225 0087 08       		.byte	0x8
- 226 0088 2F020000 		.4byte	.LASF11
+ 226 0088 25020000 		.4byte	.LASF11
  227 008c 04       		.uleb128 0x4
- 228 008d 5D010000 		.4byte	.LASF13
+ 228 008d C9000000 		.4byte	.LASF13
  229 0091 02       		.byte	0x2
  230 0092 3C02     		.2byte	0x23c
  231 0094 98000000 		.4byte	0x98
@@ -358,23 +358,23 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  236 009f 03       		.byte	0x3
  237 00a0 1C       		.byte	0x1c
  238 00a1 B2000000 		.4byte	0xb2
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 7
 
 
  239 00a5 07       		.uleb128 0x7
- 240 00a6 A2010000 		.4byte	.LASF22
+ 240 00a6 0E010000 		.4byte	.LASF22
  241 00aa 03       		.byte	0x3
  242 00ab 1E       		.byte	0x1e
  243 00ac 6B000000 		.4byte	0x6b
  244 00b0 00       		.byte	0
  245 00b1 00       		.byte	0
  246 00b2 08       		.uleb128 0x8
- 247 00b3 74010000 		.4byte	.LASF14
+ 247 00b3 E0000000 		.4byte	.LASF14
  248 00b7 03       		.byte	0x3
  249 00b8 20       		.byte	0x20
  250 00b9 9D000000 		.4byte	0x9d
  251 00bd 09       		.uleb128 0x9
- 252 00be B6010000 		.4byte	.LASF15
+ 252 00be AC010000 		.4byte	.LASF15
  253 00c2 01       		.byte	0x1
  254 00c3 28       		.byte	0x28
  255 00c4 00000000 		.4byte	.LFB0
@@ -382,7 +382,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  257 00cc 01       		.uleb128 0x1
  258 00cd 9C       		.byte	0x9c
  259 00ce 09       		.uleb128 0x9
- 260 00cf CE010000 		.4byte	.LASF16
+ 260 00cf C4010000 		.4byte	.LASF16
  261 00d3 01       		.byte	0x1
  262 00d4 3D       		.byte	0x3d
  263 00d5 00000000 		.4byte	.LFB1
@@ -390,7 +390,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  265 00dd 01       		.uleb128 0x1
  266 00de 9C       		.byte	0x9c
  267 00df 0A       		.uleb128 0xa
- 268 00e0 28010000 		.4byte	.LASF17
+ 268 00e0 94000000 		.4byte	.LASF17
  269 00e4 01       		.byte	0x1
  270 00e5 51       		.byte	0x51
  271 00e6 00000000 		.4byte	.LFB2
@@ -398,7 +398,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  273 00ee 01       		.uleb128 0x1
  274 00ef 9C       		.byte	0x9c
  275 00f0 0A       		.uleb128 0xa
- 276 00f1 E9010000 		.4byte	.LASF18
+ 276 00f1 DF010000 		.4byte	.LASF18
  277 00f5 01       		.byte	0x1
  278 00f6 65       		.byte	0x65
  279 00f7 00000000 		.4byte	.LFB3
@@ -406,7 +406,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  281 00ff 01       		.uleb128 0x1
  282 0100 9C       		.byte	0x9c
  283 0101 0B       		.uleb128 0xb
- 284 0102 49010000 		.4byte	.LASF23
+ 284 0102 B5000000 		.4byte	.LASF23
  285 0106 01       		.byte	0x1
  286 0107 17       		.byte	0x17
  287 0108 B2000000 		.4byte	0xb2
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  293              	.Ldebug_abbrev0:
  294 0000 01       		.uleb128 0x1
  295 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 8
 
 
  296 0002 01       		.byte	0x1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  350 0038 00       		.byte	0
  351 0039 49       		.uleb128 0x49
  352 003a 13       		.uleb128 0x13
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 9
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 9
 
 
  353 003b 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  407 0071 27       		.uleb128 0x27
  408 0072 19       		.uleb128 0x19
  409 0073 11       		.uleb128 0x11
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 10
 
 
  410 0074 01       		.uleb128 0x1
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  464 000c 0000     		.2byte	0
  465 000e 0000     		.2byte	0
  466 0010 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 11
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 11
 
 
  467 0014 20000000 		.4byte	.LFE0-.LFB0
@@ -629,147 +629,147 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 1
  490      00000201 
  490      FB0E0D00 
  490      01010101 
- 491              	.LASF21:
- 492 0000 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
- 492      54322043 
- 492      6F646520 
- 492      2D205365 
- 492      636F6E64 
- 493 0032 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
- 493      53333031 
- 493      5F436C61 
- 493      73732E63 
- 493      7970726A 
- 494 0064 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
- 494      3330315F 
- 494      436C6173 
- 494      732E6379 
- 494      70726A2E 
- 495              	.LASF19:
- 496 0094 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 496      4320342E 
- 496      392E3320 
- 496      32303135 
- 496      30333033 
- 497 00c7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 497      20726576 
- 497      6973696F 
- 497      6E203232 
- 497      31323230 
- 498 00fa 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 498      66756E63 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 12
+ 491              	.LASF19:
+ 492 0000 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 492      4320342E 
+ 492      392E3320 
+ 492      32303135 
+ 492      30333033 
+ 493 0033 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 493      20726576 
+ 493      6973696F 
+ 493      6E203232 
+ 493      31323230 
+ 494 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 494      66756E63 
+ 494      74696F6E 
+ 494      2D736563 
+ 494      74696F6E 
+ 495              	.LASF9:
+ 496 008e 666C6F61 		.ascii	"float\000"
+ 496      7400
+ 497              	.LASF17:
+ 498 0094 52465F42 		.ascii	"RF_BT_SELECT_Sleep\000"
+ 498      545F5345 
+ 498      4C454354 
+ 498      5F536C65 
+ 498      657000
+ 499              	.LASF1:
+ 500 00a7 756E7369 		.ascii	"unsigned char\000"
+ 500      676E6564 
+ 500      20636861 
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 12
 
 
- 498      74696F6E 
- 498      2D736563 
- 498      74696F6E 
- 499              	.LASF9:
- 500 0122 666C6F61 		.ascii	"float\000"
- 500      7400
- 501              	.LASF17:
- 502 0128 52465F42 		.ascii	"RF_BT_SELECT_Sleep\000"
+ 500      7200
+ 501              	.LASF23:
+ 502 00b5 52465F42 		.ascii	"RF_BT_SELECT_backup\000"
  502      545F5345 
  502      4C454354 
- 502      5F536C65 
- 502      657000
- 503              	.LASF1:
- 504 013b 756E7369 		.ascii	"unsigned char\000"
- 504      676E6564 
- 504      20636861 
- 504      7200
- 505              	.LASF23:
- 506 0149 52465F42 		.ascii	"RF_BT_SELECT_backup\000"
- 506      545F5345 
- 506      4C454354 
- 506      5F626163 
- 506      6B757000 
- 507              	.LASF13:
- 508 015d 72656738 		.ascii	"reg8\000"
- 508      00
- 509              	.LASF5:
- 510 0162 6C6F6E67 		.ascii	"long unsigned int\000"
- 510      20756E73 
- 510      69676E65 
- 510      6420696E 
- 510      7400
- 511              	.LASF14:
- 512 0174 52465F42 		.ascii	"RF_BT_SELECT_BACKUP_STRUCT\000"
- 512      545F5345 
- 512      4C454354 
- 512      5F424143 
- 512      4B55505F 
- 513              	.LASF3:
- 514 018f 73686F72 		.ascii	"short unsigned int\000"
- 514      7420756E 
- 514      7369676E 
- 514      65642069 
- 514      6E7400
- 515              	.LASF22:
- 516 01a2 636F6E74 		.ascii	"controlState\000"
- 516      726F6C53 
- 516      74617465 
- 516      00
+ 502      5F626163 
+ 502      6B757000 
+ 503              	.LASF13:
+ 504 00c9 72656738 		.ascii	"reg8\000"
+ 504      00
+ 505              	.LASF5:
+ 506 00ce 6C6F6E67 		.ascii	"long unsigned int\000"
+ 506      20756E73 
+ 506      69676E65 
+ 506      6420696E 
+ 506      7400
+ 507              	.LASF14:
+ 508 00e0 52465F42 		.ascii	"RF_BT_SELECT_BACKUP_STRUCT\000"
+ 508      545F5345 
+ 508      4C454354 
+ 508      5F424143 
+ 508      4B55505F 
+ 509              	.LASF3:
+ 510 00fb 73686F72 		.ascii	"short unsigned int\000"
+ 510      7420756E 
+ 510      7369676E 
+ 510      65642069 
+ 510      6E7400
+ 511              	.LASF22:
+ 512 010e 636F6E74 		.ascii	"controlState\000"
+ 512      726F6C53 
+ 512      74617465 
+ 512      00
+ 513              	.LASF21:
+ 514 011b 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Desktop\\Flik\\CS"
+ 514      6C65732E 
+ 514      6175636B 
+ 514      6C616E64 
+ 514      2E61632E 
+ 515 0148 3330315F 		.ascii	"301_Class.cyprj.Archive01-20190825T234813Z-001\\CS3"
+ 515      436C6173 
+ 515      732E6379 
+ 515      70726A2E 
+ 515      41726368 
+ 516 017a 30315F43 		.ascii	"01_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 516      6C617373 
+ 516      2E637970 
+ 516      726A2E41 
+ 516      72636869 
  517              	.LASF10:
- 518 01af 646F7562 		.ascii	"double\000"
+ 518 01a5 646F7562 		.ascii	"double\000"
  518      6C6500
  519              	.LASF15:
- 520 01b6 52465F42 		.ascii	"RF_BT_SELECT_SaveConfig\000"
+ 520 01ac 52465F42 		.ascii	"RF_BT_SELECT_SaveConfig\000"
  520      545F5345 
  520      4C454354 
  520      5F536176 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccKjcuAQ.s 			page 13
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc6rbzUr.s 			page 13
 
 
  520      65436F6E 
  521              	.LASF16:
- 522 01ce 52465F42 		.ascii	"RF_BT_SELECT_RestoreConfig\000"
+ 522 01c4 52465F42 		.ascii	"RF_BT_SELECT_RestoreConfig\000"
  522      545F5345 
  522      4C454354 
  522      5F526573 
  522      746F7265 
  523              	.LASF18:
- 524 01e9 52465F42 		.ascii	"RF_BT_SELECT_Wakeup\000"
+ 524 01df 52465F42 		.ascii	"RF_BT_SELECT_Wakeup\000"
  524      545F5345 
  524      4C454354 
  524      5F57616B 
  524      65757000 
  525              	.LASF8:
- 526 01fd 756E7369 		.ascii	"unsigned int\000"
+ 526 01f3 756E7369 		.ascii	"unsigned int\000"
  526      676E6564 
  526      20696E74 
  526      00
  527              	.LASF7:
- 528 020a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 528 0200 6C6F6E67 		.ascii	"long long unsigned int\000"
  528      206C6F6E 
  528      6720756E 
  528      7369676E 
  528      65642069 
  529              	.LASF6:
- 530 0221 6C6F6E67 		.ascii	"long long int\000"
+ 530 0217 6C6F6E67 		.ascii	"long long int\000"
  530      206C6F6E 
  530      6720696E 
  530      7400
  531              	.LASF11:
- 532 022f 63686172 		.ascii	"char\000"
+ 532 0225 63686172 		.ascii	"char\000"
  532      00
  533              	.LASF2:
- 534 0234 73686F72 		.ascii	"short int\000"
+ 534 022a 73686F72 		.ascii	"short int\000"
  534      7420696E 
  534      7400
  535              	.LASF12:
- 536 023e 75696E74 		.ascii	"uint8\000"
+ 536 0234 75696E74 		.ascii	"uint8\000"
  536      3800
  537              	.LASF4:
- 538 0244 6C6F6E67 		.ascii	"long int\000"
+ 538 023a 6C6F6E67 		.ascii	"long int\000"
  538      20696E74 
  538      00
  539              	.LASF0:
- 540 024d 7369676E 		.ascii	"signed char\000"
+ 540 0243 7369676E 		.ascii	"signed char\000"
  540      65642063 
  540      68617200 
  541              	.LASF20:
- 542 0259 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\RF_BT_SELECT_PM.c\000"
+ 542 024f 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\RF_BT_SELECT_PM.c\000"
  542      6E657261 
  542      7465645F 
  542      536F7572 

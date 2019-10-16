@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
    8:.\Generated_Source\PSoC5/ADC.c **** * Note:
    9:.\Generated_Source\PSoC5/ADC.c **** *  None
   10:.\Generated_Source\PSoC5/ADC.c **** *
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 2
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 2
 
 
   11:.\Generated_Source\PSoC5/ADC.c **** ********************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
   59 0004 114A     		ldr	r2, .L2
   60 0006 114B     		ldr	r3, .L2
   61 0008 1B78     		ldrb	r3, [r3]
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 3
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 3
 
 
   62 000a DBB2     		uxtb	r3, r3
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  107              		.section	.text.ADC_Init,"ax",%progbits
  108              		.align	2
  109              		.global	ADC_Init
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 4
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 4
 
 
  110              		.thumb
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  136 001c 0C20     		movs	r0, #12
  137 001e 0121     		movs	r1, #1
  138 0020 41F6FF72 		movw	r2, #8191
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 5
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 5
 
 
  139 0024 41F6FF73 		movw	r3, #8191
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  114:.\Generated_Source\PSoC5/ADC.c **** *  None.
  115:.\Generated_Source\PSoC5/ADC.c **** *
  116:.\Generated_Source\PSoC5/ADC.c **** * Side Effects:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 6
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 6
 
 
  117:.\Generated_Source\PSoC5/ADC.c **** *  None.
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  199 0026 0346     		mov	r3, r0
  200 0028 1A46     		mov	r2, r3
  201 002a 3D4B     		ldr	r3, .L10+8
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 7
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 7
 
 
  202 002c 1A70     		strb	r2, [r3]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  162:.\Generated_Source\PSoC5/ADC.c ****     {
  163:.\Generated_Source\PSoC5/ADC.c ****         ADC_finalTD = CyDmaTdAllocate();
  236              		.loc 1 163 0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 8
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 8
 
 
  237 006e FFF7FEFF 		bl	CyDmaTdAllocate
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  277 00bc FFF7FEFF 		bl	CyDmaChEnable
  178:.\Generated_Source\PSoC5/ADC.c ****     (void) CyDmaChEnable(ADC_finalChan, 1u);
  278              		.loc 1 178 0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 9
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 9
 
 
  279 00c0 164B     		ldr	r3, .L10+4
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  192:.\Generated_Source\PSoC5/ADC.c ****     #endif   /* End ADC_IRQ_REMOVE */
  193:.\Generated_Source\PSoC5/ADC.c **** }
  320              		.loc 1 193 0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 10
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 10
 
 
  321 0112 0837     		adds	r7, r7, #8
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  350              		.loc 1 218 0
  351              		.cfi_startproc
  352              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 11
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 11
 
 
  353              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  396              	.LFB4:
  230:.\Generated_Source\PSoC5/ADC.c **** 
  231:.\Generated_Source\PSoC5/ADC.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 12
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 12
 
 
  232:.\Generated_Source\PSoC5/ADC.c **** /*******************************************************************************
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  259:.\Generated_Source\PSoC5/ADC.c **** 
  260:.\Generated_Source\PSoC5/ADC.c ****     /*******************************************************************************
  261:.\Generated_Source\PSoC5/ADC.c ****     * Function Name: ADC_StartConvert
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 13
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 13
 
 
  262:.\Generated_Source\PSoC5/ADC.c ****     ********************************************************************************
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  443              		.global	ADC_StopConvert
  444              		.thumb
  445              		.thumb_func
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 14
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 14
 
 
  446              		.type	ADC_StopConvert, %function
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  472              	ADC_IsEndConversion:
  473              	.LFB7:
  325:.\Generated_Source\PSoC5/ADC.c **** 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 15
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 15
 
 
  326:.\Generated_Source\PSoC5/ADC.c **** #endif /* ADC_SAMPLE_MODE != ADC_SAMPLE_MODE_HW_TRIGGERED */
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  490 000a 084B     		ldr	r3, .L23
  491 000c 1B78     		ldrb	r3, [r3]
  492 000e FB73     		strb	r3, [r7, #15]
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 16
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 16
 
 
  364:.\Generated_Source\PSoC5/ADC.c ****     } while ((status == 0u) && (retMode == ADC_WAIT_FOR_RESULT));
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  381:.\Generated_Source\PSoC5/ADC.c **** * Return:
  382:.\Generated_Source\PSoC5/ADC.c **** *  Returns converted data as a signed 16-bit integer
  383:.\Generated_Source\PSoC5/ADC.c **** *
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 17
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 17
 
 
  384:.\Generated_Source\PSoC5/ADC.c **** * Side Effects:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  573 0038 00000000 		.word	ADC_SAR_shift
  574              		.cfi_endproc
  575              	.LFE8:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 18
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 18
 
 
  576              		.size	ADC_GetResult16, .-ADC_GetResult16
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  604 000e 00BF     		.section	.text.ADC_SetOffset,"ax",%progbits
  605              		.align	2
  606              		.global	ADC_SetOffset
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 19
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 19
 
 
  607              		.thumb
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  451:.\Generated_Source\PSoC5/ADC.c **** }
  631              		.loc 1 451 0
  632 0014 0837     		adds	r7, r7, #8
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 20
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 20
 
 
  633              		.cfi_def_cfa_offset 8
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  490:.\Generated_Source\PSoC5/ADC.c **** *******************************************************************************/
  491:.\Generated_Source\PSoC5/ADC.c **** void ADC_SetResolution(uint8 resolution)
  492:.\Generated_Source\PSoC5/ADC.c **** {
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 21
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 21
 
 
  649              		.loc 1 492 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  511:.\Generated_Source\PSoC5/ADC.c **** *  None.
  512:.\Generated_Source\PSoC5/ADC.c **** *
  513:.\Generated_Source\PSoC5/ADC.c **** * Reentrant:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 22
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 22
 
 
  514:.\Generated_Source\PSoC5/ADC.c **** *  No.
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  531:.\Generated_Source\PSoC5/ADC.c **** *  input or if the ADC is using an external reference.
  532:.\Generated_Source\PSoC5/ADC.c **** *
  533:.\Generated_Source\PSoC5/ADC.c **** * Parameters:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 23
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 23
 
 
  534:.\Generated_Source\PSoC5/ADC.c **** *  int32  adcGain  counts per 10 volt
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  554:.\Generated_Source\PSoC5/ADC.c **** /*******************************************************************************
  555:.\Generated_Source\PSoC5/ADC.c **** * Function Name: ADC_CountsTo_mVolts
  556:.\Generated_Source\PSoC5/ADC.c **** ********************************************************************************
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 24
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 24
 
 
  557:.\Generated_Source\PSoC5/ADC.c **** *
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  789              		.thumb
  790              		.thumb_func
  791              		.type	ADC_CountsTo_uVolts, %function
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 25
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 25
 
 
  792              	ADC_CountsTo_uVolts:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  820 001c 80BD     		pop	{r7, pc}
  821              		.cfi_endproc
  822              	.LFE15:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 26
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 26
 
 
  823              		.size	ADC_CountsTo_uVolts, .-ADC_CountsTo_uVolts
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  851              		.loc 1 629 0
  852 0016 1846     		mov	r0, r3
  853 0018 0837     		adds	r7, r7, #8
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 27
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 27
 
 
  854              		.cfi_def_cfa_offset 8
@@ -1586,17 +1586,17 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  874 0006 00000000 		.4byte	.Ldebug_abbrev0
  875 000a 04       		.byte	0x4
  876 000b 01       		.uleb128 0x1
- 877 000c 32010000 		.4byte	.LASF53
+ 877 000c BC010000 		.4byte	.LASF53
  878 0010 01       		.byte	0x1
  879 0011 41000000 		.4byte	.LASF54
- 880 0015 BD020000 		.4byte	.LASF55
+ 880 0015 32010000 		.4byte	.LASF55
  881 0019 00000000 		.4byte	.Ldebug_ranges0+0
  882 001d 00000000 		.4byte	0
  883 0021 00000000 		.4byte	.Ldebug_line0
  884 0025 02       		.uleb128 0x2
  885 0026 01       		.byte	0x1
  886 0027 06       		.byte	0x6
- 887 0028 93030000 		.4byte	.LASF0
+ 887 0028 89030000 		.4byte	.LASF0
  888 002c 02       		.uleb128 0x2
  889 002d 01       		.byte	0x1
  890 002e 08       		.byte	0x8
@@ -1604,21 +1604,21 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  892 0033 02       		.uleb128 0x2
  893 0034 02       		.byte	0x2
  894 0035 05       		.byte	0x5
- 895 0036 D5010000 		.4byte	.LASF2
+ 895 0036 5F020000 		.4byte	.LASF2
  896 003a 02       		.uleb128 0x2
  897 003b 02       		.byte	0x2
  898 003c 07       		.byte	0x7
- 899 003d AB030000 		.4byte	.LASF3
+ 899 003d A1030000 		.4byte	.LASF3
  900 0041 02       		.uleb128 0x2
  901 0042 04       		.byte	0x4
  902 0043 05       		.byte	0x5
- 903 0044 7F030000 		.4byte	.LASF4
+ 903 0044 7A030000 		.4byte	.LASF4
  904 0048 02       		.uleb128 0x2
  905 0049 04       		.byte	0x4
  906 004a 07       		.byte	0x7
  907 004b EA000000 		.4byte	.LASF5
  908 004f 02       		.uleb128 0x2
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 28
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 28
 
 
  909 0050 08       		.byte	0x8
@@ -1627,7 +1627,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  912 0056 02       		.uleb128 0x2
  913 0057 08       		.byte	0x8
  914 0058 07       		.byte	0x7
- 915 0059 24020000 		.4byte	.LASF7
+ 915 0059 AE020000 		.4byte	.LASF7
  916 005d 03       		.uleb128 0x3
  917 005e 04       		.byte	0x4
  918 005f 05       		.byte	0x5
@@ -1635,24 +1635,24 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  920 0064 02       		.uleb128 0x2
  921 0065 04       		.byte	0x4
  922 0066 07       		.byte	0x7
- 923 0067 0C020000 		.4byte	.LASF8
+ 923 0067 96020000 		.4byte	.LASF8
  924 006b 04       		.uleb128 0x4
- 925 006c 6E030000 		.4byte	.LASF9
+ 925 006c 69030000 		.4byte	.LASF9
  926 0070 02       		.byte	0x2
  927 0071 9201     		.2byte	0x192
  928 0073 2C000000 		.4byte	0x2c
  929 0077 04       		.uleb128 0x4
- 930 0078 E7010000 		.4byte	.LASF10
+ 930 0078 71020000 		.4byte	.LASF10
  931 007c 02       		.byte	0x2
  932 007d 9301     		.2byte	0x193
  933 007f 3A000000 		.4byte	0x3a
  934 0083 04       		.uleb128 0x4
- 935 0084 05020000 		.4byte	.LASF11
+ 935 0084 8F020000 		.4byte	.LASF11
  936 0088 02       		.byte	0x2
  937 0089 9401     		.2byte	0x194
  938 008b 48000000 		.4byte	0x48
  939 008f 04       		.uleb128 0x4
- 940 0090 8D030000 		.4byte	.LASF12
+ 940 0090 83030000 		.4byte	.LASF12
  941 0094 02       		.byte	0x2
  942 0095 9601     		.2byte	0x196
  943 0097 33000000 		.4byte	0x33
@@ -1673,12 +1673,12 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  958 00ba 02       		.uleb128 0x2
  959 00bb 08       		.byte	0x8
  960 00bc 04       		.byte	0x4
- 961 00bd C0010000 		.4byte	.LASF16
+ 961 00bd 4A020000 		.4byte	.LASF16
  962 00c1 02       		.uleb128 0x2
  963 00c2 01       		.byte	0x1
  964 00c3 08       		.byte	0x8
- 965 00c4 88030000 		.4byte	.LASF17
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 29
+ 965 00c4 47030000 		.4byte	.LASF17
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 29
 
 
  966 00c8 04       		.uleb128 0x4
@@ -1698,7 +1698,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  980 00ea 02       		.uleb128 0x2
  981 00eb 04       		.byte	0x4
  982 00ec 07       		.byte	0x7
- 983 00ed 7C020000 		.4byte	.LASF20
+ 983 00ed 06030000 		.4byte	.LASF20
  984 00f1 06       		.uleb128 0x6
  985 00f2 12010000 		.4byte	.LASF21
  986 00f6 01       		.byte	0x1
@@ -1708,7 +1708,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  990 0100 01       		.uleb128 0x1
  991 0101 9C       		.byte	0x9c
  992 0102 06       		.uleb128 0x6
- 993 0103 62020000 		.4byte	.LASF22
+ 993 0103 EC020000 		.4byte	.LASF22
  994 0107 01       		.byte	0x1
  995 0108 53       		.byte	0x53
  996 0109 00000000 		.4byte	.LFB1
@@ -1716,7 +1716,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  998 0111 01       		.uleb128 0x1
  999 0112 9C       		.byte	0x9c
  1000 0113 07       		.uleb128 0x7
- 1001 0114 19020000 		.4byte	.LASF34
+ 1001 0114 A3020000 		.4byte	.LASF34
  1002 0118 01       		.byte	0x1
  1003 0119 7B       		.byte	0x7b
  1004 011a 00000000 		.4byte	.LFB2
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1020 013c 7F       		.byte	0x7f
  1021 013d 48010000 		.4byte	0x148
  1022 0141 05       		.uleb128 0x5
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 30
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 30
 
 
  1023 0142 03       		.byte	0x3
@@ -1752,7 +1752,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1031 0156 05       		.byte	0x5
  1032 0157 00       		.byte	0
  1033 0158 06       		.uleb128 0x6
- 1034 0159 58020000 		.4byte	.LASF25
+ 1034 0159 E2020000 		.4byte	.LASF25
  1035 015d 01       		.byte	0x1
  1036 015e D9       		.byte	0xd9
  1037 015f 00000000 		.4byte	.LFB3
@@ -1760,7 +1760,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1039 0167 01       		.uleb128 0x1
  1040 0168 9C       		.byte	0x9c
  1041 0169 06       		.uleb128 0x6
- 1042 016a BE030000 		.4byte	.LASF26
+ 1042 016a B4030000 		.4byte	.LASF26
  1043 016e 01       		.byte	0x1
  1044 016f FC       		.byte	0xfc
  1045 0170 00000000 		.4byte	.LFB4
@@ -1768,7 +1768,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1047 0178 01       		.uleb128 0x1
  1048 0179 9C       		.byte	0x9c
  1049 017a 0B       		.uleb128 0xb
- 1050 017b AC020000 		.4byte	.LASF27
+ 1050 017b 36030000 		.4byte	.LASF27
  1051 017f 01       		.byte	0x1
  1052 0180 1A01     		.2byte	0x11a
  1053 0182 00000000 		.4byte	.LFB5
@@ -1776,7 +1776,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1055 018a 01       		.uleb128 0x1
  1056 018b 9C       		.byte	0x9c
  1057 018c 0B       		.uleb128 0xb
- 1058 018d 5E030000 		.4byte	.LASF28
+ 1058 018d 59030000 		.4byte	.LASF28
  1059 0191 01       		.byte	0x1
  1060 0192 4101     		.2byte	0x141
  1061 0194 00000000 		.4byte	.LFB6
@@ -1794,11 +1794,11 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1073 01b3 9C       		.byte	0x9c
  1074 01b4 D7010000 		.4byte	0x1d7
  1075 01b8 0D       		.uleb128 0xd
- 1076 01b9 51030000 		.4byte	.LASF32
+ 1076 01b9 4C030000 		.4byte	.LASF32
  1077 01bd 01       		.byte	0x1
  1078 01be 6501     		.2byte	0x165
  1079 01c0 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 31
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 31
 
 
  1080 01c4 02       		.uleb128 0x2
@@ -1824,7 +1824,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1100 01ec 9C       		.byte	0x9c
  1101 01ed 01020000 		.4byte	0x201
  1102 01f1 0D       		.uleb128 0xd
- 1103 01f2 59030000 		.4byte	.LASF33
+ 1103 01f2 54030000 		.4byte	.LASF33
  1104 01f6 01       		.byte	0x1
  1105 01f7 8701     		.2byte	0x187
  1106 01f9 77000000 		.4byte	0x77
@@ -1833,7 +1833,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1109 01ff 76       		.sleb128 -10
  1110 0200 00       		.byte	0
  1111 0201 0F       		.uleb128 0xf
- 1112 0202 6B020000 		.4byte	.LASF56
+ 1112 0202 F5020000 		.4byte	.LASF56
  1113 0206 01       		.byte	0x1
  1114 0207 A101     		.2byte	0x1a1
  1115 0209 8F000000 		.4byte	0x8f
@@ -1858,12 +1858,12 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1134 0239 02       		.uleb128 0x2
  1135 023a 91       		.byte	0x91
  1136 023b 74       		.sleb128 -12
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 32
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 32
 
 
  1137 023c 00       		.byte	0
  1138 023d 10       		.uleb128 0x10
- 1139 023e 3B020000 		.4byte	.LASF37
+ 1139 023e C5020000 		.4byte	.LASF37
  1140 0242 01       		.byte	0x1
  1141 0243 EB01     		.2byte	0x1eb
  1142 0245 00000000 		.4byte	.LFB11
@@ -1872,7 +1872,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1145 024e 9C       		.byte	0x9c
  1146 024f 63020000 		.4byte	0x263
  1147 0253 0D       		.uleb128 0xd
- 1148 0254 74030000 		.4byte	.LASF38
+ 1148 0254 6F030000 		.4byte	.LASF38
  1149 0258 01       		.byte	0x1
  1150 0259 EB01     		.2byte	0x1eb
  1151 025b 6B000000 		.4byte	0x6b
@@ -1890,7 +1890,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1163 0274 9C       		.byte	0x9c
  1164 0275 89020000 		.4byte	0x289
  1165 0279 0D       		.uleb128 0xd
- 1166 027a DF010000 		.4byte	.LASF40
+ 1166 027a 69020000 		.4byte	.LASF40
  1167 027e 01       		.byte	0x1
  1168 027f 0502     		.2byte	0x205
  1169 0281 9B000000 		.4byte	0x9b
@@ -1908,7 +1908,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1181 029a 9C       		.byte	0x9c
  1182 029b AF020000 		.4byte	0x2af
  1183 029f 0D       		.uleb128 0xd
- 1184 02a0 DF010000 		.4byte	.LASF40
+ 1184 02a0 69020000 		.4byte	.LASF40
  1185 02a4 01       		.byte	0x1
  1186 02a5 2402     		.2byte	0x224
  1187 02a7 9B000000 		.4byte	0x9b
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1191 02ae 00       		.byte	0
  1192 02af 11       		.uleb128 0x11
  1193 02b0 2D000000 		.4byte	.LASF42
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 33
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 33
 
 
  1194 02b4 01       		.byte	0x1
@@ -1930,7 +1930,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1200 02c4 9C       		.byte	0x9c
  1201 02c5 D9020000 		.4byte	0x2d9
  1202 02c9 0D       		.uleb128 0xd
- 1203 02ca EE010000 		.4byte	.LASF43
+ 1203 02ca 78020000 		.4byte	.LASF43
  1204 02ce 01       		.byte	0x1
  1205 02cf 3E02     		.2byte	0x23e
  1206 02d1 8F000000 		.4byte	0x8f
@@ -1939,7 +1939,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1209 02d7 76       		.sleb128 -10
  1210 02d8 00       		.byte	0
  1211 02d9 11       		.uleb128 0x11
- 1212 02da 85020000 		.4byte	.LASF44
+ 1212 02da 0F030000 		.4byte	.LASF44
  1213 02de 01       		.byte	0x1
  1214 02df 5802     		.2byte	0x258
  1215 02e1 9B000000 		.4byte	0x9b
@@ -1949,7 +1949,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1219 02ee 9C       		.byte	0x9c
  1220 02ef 03030000 		.4byte	0x303
  1221 02f3 0D       		.uleb128 0xd
- 1222 02f4 EE010000 		.4byte	.LASF43
+ 1222 02f4 78020000 		.4byte	.LASF43
  1223 02f8 01       		.byte	0x1
  1224 02f9 5802     		.2byte	0x258
  1225 02fb 8F000000 		.4byte	0x8f
@@ -1958,7 +1958,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1228 0301 76       		.sleb128 -10
  1229 0302 00       		.byte	0
  1230 0303 11       		.uleb128 0x11
- 1231 0304 99020000 		.4byte	.LASF45
+ 1231 0304 23030000 		.4byte	.LASF45
  1232 0308 01       		.byte	0x1
  1233 0309 7202     		.2byte	0x272
  1234 030b A7000000 		.4byte	0xa7
@@ -1968,7 +1968,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1238 0318 9C       		.byte	0x9c
  1239 0319 2D030000 		.4byte	0x32d
  1240 031d 0D       		.uleb128 0xd
- 1241 031e EE010000 		.4byte	.LASF43
+ 1241 031e 78020000 		.4byte	.LASF43
  1242 0322 01       		.byte	0x1
  1243 0323 7202     		.2byte	0x272
  1244 0325 8F000000 		.4byte	0x8f
@@ -1977,8 +1977,8 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1247 032b 76       		.sleb128 -10
  1248 032c 00       		.byte	0
  1249 032d 08       		.uleb128 0x8
- 1250 032e F8010000 		.4byte	.LASF46
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 34
+ 1250 032e 82020000 		.4byte	.LASF46
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 34
 
 
  1251 0332 01       		.byte	0x1
@@ -1988,7 +1988,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1255 0339 03       		.byte	0x3
  1256 033a 04000000 		.4byte	ADC_tempChan
  1257 033e 08       		.uleb128 0x8
- 1258 033f C7010000 		.4byte	.LASF47
+ 1258 033f 51020000 		.4byte	.LASF47
  1259 0343 01       		.byte	0x1
  1260 0344 1A       		.byte	0x1a
  1261 0345 6B000000 		.4byte	0x6b
@@ -1996,7 +1996,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1263 034a 03       		.byte	0x3
  1264 034b 05000000 		.4byte	ADC_finalChan
  1265 034f 08       		.uleb128 0x8
- 1266 0350 4D020000 		.4byte	.LASF48
+ 1266 0350 D7020000 		.4byte	.LASF48
  1267 0354 01       		.byte	0x1
  1268 0355 1B       		.byte	0x1b
  1269 0356 6B000000 		.4byte	0x6b
@@ -2027,7 +2027,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1294 038d 03       		.byte	0x3
  1295 038e 00000000 		.4byte	ADC_finalArray
  1296 0392 13       		.uleb128 0x13
- 1297 0393 9F030000 		.4byte	.LASF52
+ 1297 0393 95030000 		.4byte	.LASF52
  1298 0397 01       		.byte	0x1
  1299 0398 18       		.byte	0x18
  1300 0399 83000000 		.4byte	0x83
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1305              		.section	.debug_abbrev,"",%progbits
  1306              	.Ldebug_abbrev0:
  1307 0000 01       		.uleb128 0x1
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 35
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 35
 
 
  1308 0001 11       		.uleb128 0x11
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1362 0037 35       		.uleb128 0x35
  1363 0038 00       		.byte	0
  1364 0039 49       		.uleb128 0x49
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 36
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 36
 
 
  1365 003a 13       		.uleb128 0x13
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1419 0072 03       		.uleb128 0x3
  1420 0073 0E       		.uleb128 0xe
  1421 0074 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 37
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 37
 
 
  1422 0075 0B       		.uleb128 0xb
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1476 00ac 19       		.uleb128 0x19
  1477 00ad 03       		.uleb128 0x3
  1478 00ae 0E       		.uleb128 0xe
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 38
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 38
 
 
  1479 00af 3A       		.uleb128 0x3a
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1533 00e6 19       		.uleb128 0x19
  1534 00e7 03       		.uleb128 0x3
  1535 00e8 0E       		.uleb128 0xe
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 39
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 39
 
 
  1536 00e9 3A       		.uleb128 0x3a
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1590 0121 27       		.uleb128 0x27
  1591 0122 19       		.uleb128 0x19
  1592 0123 49       		.uleb128 0x49
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 40
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 40
 
 
  1593 0124 13       		.uleb128 0x13
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1647 000c 0000     		.2byte	0
  1648 000e 0000     		.2byte	0
  1649 0010 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 41
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 41
 
 
  1650 0014 60000000 		.4byte	.LFE0-.LFB0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1704 0044 3C000000 		.4byte	.LFE8
  1705 0048 00000000 		.4byte	.LFB9
  1706 004c 0E000000 		.4byte	.LFE9
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 42
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 42
 
 
  1707 0050 00000000 		.4byte	.LFB10
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1739      66696E61 
  1739      6C544400 
  1740              	.LASF35:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 43
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 43
 
 
  1741 006c 4144435F 		.ascii	"ADC_SetOffset\000"
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1765      3200
  1766              	.LASF31:
  1767 0102 4144435F 		.ascii	"ADC_GetResult16\000"
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 44
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 44
 
 
  1767      47657452 
@@ -2594,182 +2594,182 @@ ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 1
  1771      64436F6E 
  1771      76657273 
  1771      696F6E00 
- 1772              	.LASF53:
- 1773 0132 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1773      4320342E 
- 1773      392E3320 
- 1773      32303135 
- 1773      30333033 
- 1774 0165 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1774      20726576 
- 1774      6973696F 
- 1774      6E203232 
- 1774      31323230 
- 1775 0198 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1775      66756E63 
- 1775      74696F6E 
- 1775      2D736563 
- 1775      74696F6E 
- 1776              	.LASF16:
- 1777 01c0 646F7562 		.ascii	"double\000"
- 1777      6C6500
- 1778              	.LASF47:
- 1779 01c7 4144435F 		.ascii	"ADC_finalChan\000"
- 1779      66696E61 
- 1779      6C436861 
- 1779      6E00
- 1780              	.LASF2:
- 1781 01d5 73686F72 		.ascii	"short int\000"
- 1781      7420696E 
- 1781      7400
- 1782              	.LASF40:
- 1783 01df 61646347 		.ascii	"adcGain\000"
- 1783      61696E00 
- 1784              	.LASF10:
- 1785 01e7 75696E74 		.ascii	"uint16\000"
- 1785      313600
- 1786              	.LASF43:
- 1787 01ee 61646343 		.ascii	"adcCounts\000"
- 1787      6F756E74 
- 1787      7300
- 1788              	.LASF46:
- 1789 01f8 4144435F 		.ascii	"ADC_tempChan\000"
- 1789      74656D70 
- 1789      4368616E 
- 1789      00
- 1790              	.LASF11:
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 45
+ 1772              	.LASF55:
+ 1773 0132 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Desktop\\Flik\\CS"
+ 1773      6C65732E 
+ 1773      6175636B 
+ 1773      6C616E64 
+ 1773      2E61632E 
+ 1774 015f 3330315F 		.ascii	"301_Class.cyprj.Archive01-20190825T234813Z-001\\CS3"
+ 1774      436C6173 
+ 1774      732E6379 
+ 1774      70726A2E 
+ 1774      41726368 
+ 1775 0191 30315F43 		.ascii	"01_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
+ 1775      6C617373 
+ 1775      2E637970 
+ 1775      726A2E41 
+ 1775      72636869 
+ 1776              	.LASF53:
+ 1777 01bc 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1777      4320342E 
+ 1777      392E3320 
+ 1777      32303135 
+ 1777      30333033 
+ 1778 01ef 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1778      20726576 
+ 1778      6973696F 
+ 1778      6E203232 
+ 1778      31323230 
+ 1779 0222 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1779      66756E63 
+ 1779      74696F6E 
+ 1779      2D736563 
+ 1779      74696F6E 
+ 1780              	.LASF16:
+ 1781 024a 646F7562 		.ascii	"double\000"
+ 1781      6C6500
+ 1782              	.LASF47:
+ 1783 0251 4144435F 		.ascii	"ADC_finalChan\000"
+ 1783      66696E61 
+ 1783      6C436861 
+ 1783      6E00
+ 1784              	.LASF2:
+ 1785 025f 73686F72 		.ascii	"short int\000"
+ 1785      7420696E 
+ 1785      7400
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 45
 
 
- 1791 0205 75696E74 		.ascii	"uint32\000"
- 1791      333200
- 1792              	.LASF8:
- 1793 020c 756E7369 		.ascii	"unsigned int\000"
- 1793      676E6564 
- 1793      20696E74 
+ 1786              	.LASF40:
+ 1787 0269 61646347 		.ascii	"adcGain\000"
+ 1787      61696E00 
+ 1788              	.LASF10:
+ 1789 0271 75696E74 		.ascii	"uint16\000"
+ 1789      313600
+ 1790              	.LASF43:
+ 1791 0278 61646343 		.ascii	"adcCounts\000"
+ 1791      6F756E74 
+ 1791      7300
+ 1792              	.LASF46:
+ 1793 0282 4144435F 		.ascii	"ADC_tempChan\000"
+ 1793      74656D70 
+ 1793      4368616E 
  1793      00
- 1794              	.LASF34:
- 1795 0219 4144435F 		.ascii	"ADC_Enable\000"
- 1795      456E6162 
- 1795      6C6500
- 1796              	.LASF7:
- 1797 0224 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1797      206C6F6E 
- 1797      6720756E 
- 1797      7369676E 
- 1797      65642069 
- 1798              	.LASF37:
- 1799 023b 4144435F 		.ascii	"ADC_SetResolution\000"
- 1799      53657452 
- 1799      65736F6C 
- 1799      7574696F 
- 1799      6E00
- 1800              	.LASF48:
- 1801 024d 4144435F 		.ascii	"ADC_tempTD\000"
- 1801      74656D70 
- 1801      544400
- 1802              	.LASF25:
- 1803 0258 4144435F 		.ascii	"ADC_Start\000"
- 1803      53746172 
- 1803      7400
- 1804              	.LASF22:
- 1805 0262 4144435F 		.ascii	"ADC_Init\000"
- 1805      496E6974 
- 1805      00
- 1806              	.LASF56:
- 1807 026b 4144435F 		.ascii	"ADC_GetAdcResult\000"
- 1807      47657441 
- 1807      64635265 
- 1807      73756C74 
- 1807      00
- 1808              	.LASF20:
- 1809 027c 73697A65 		.ascii	"sizetype\000"
- 1809      74797065 
+ 1794              	.LASF11:
+ 1795 028f 75696E74 		.ascii	"uint32\000"
+ 1795      333200
+ 1796              	.LASF8:
+ 1797 0296 756E7369 		.ascii	"unsigned int\000"
+ 1797      676E6564 
+ 1797      20696E74 
+ 1797      00
+ 1798              	.LASF34:
+ 1799 02a3 4144435F 		.ascii	"ADC_Enable\000"
+ 1799      456E6162 
+ 1799      6C6500
+ 1800              	.LASF7:
+ 1801 02ae 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1801      206C6F6E 
+ 1801      6720756E 
+ 1801      7369676E 
+ 1801      65642069 
+ 1802              	.LASF37:
+ 1803 02c5 4144435F 		.ascii	"ADC_SetResolution\000"
+ 1803      53657452 
+ 1803      65736F6C 
+ 1803      7574696F 
+ 1803      6E00
+ 1804              	.LASF48:
+ 1805 02d7 4144435F 		.ascii	"ADC_tempTD\000"
+ 1805      74656D70 
+ 1805      544400
+ 1806              	.LASF25:
+ 1807 02e2 4144435F 		.ascii	"ADC_Start\000"
+ 1807      53746172 
+ 1807      7400
+ 1808              	.LASF22:
+ 1809 02ec 4144435F 		.ascii	"ADC_Init\000"
+ 1809      496E6974 
  1809      00
- 1810              	.LASF44:
- 1811 0285 4144435F 		.ascii	"ADC_CountsTo_uVolts\000"
- 1811      436F756E 
- 1811      7473546F 
- 1811      5F75566F 
- 1811      6C747300 
- 1812              	.LASF45:
- 1813 0299 4144435F 		.ascii	"ADC_CountsTo_Volts\000"
- 1813      436F756E 
- 1813      7473546F 
- 1813      5F566F6C 
- 1813      747300
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 46
+ 1810              	.LASF56:
+ 1811 02f5 4144435F 		.ascii	"ADC_GetAdcResult\000"
+ 1811      47657441 
+ 1811      64635265 
+ 1811      73756C74 
+ 1811      00
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 46
 
 
- 1814              	.LASF27:
- 1815 02ac 4144435F 		.ascii	"ADC_StartConvert\000"
- 1815      53746172 
- 1815      74436F6E 
- 1815      76657274 
- 1815      00
- 1816              	.LASF55:
- 1817 02bd 443A5C54 		.ascii	"D:\\TT2 Code - Second Edition - light sensors worki"
- 1817      54322043 
- 1817      6F646520 
- 1817      2D205365 
- 1817      636F6E64 
- 1818 02ef 6E675C43 		.ascii	"ng\\CS301_Class.cyprj.Archive01-20190825T234813Z-00"
- 1818      53333031 
- 1818      5F436C61 
- 1818      73732E63 
- 1818      7970726A 
- 1819 0321 315C4353 		.ascii	"1\\CS301_Class.cyprj.Archive01\\CS301_Class.cydsn\000"
- 1819      3330315F 
- 1819      436C6173 
- 1819      732E6379 
- 1819      70726A2E 
- 1820              	.LASF32:
- 1821 0351 7265744D 		.ascii	"retMode\000"
- 1821      6F646500 
- 1822              	.LASF33:
- 1823 0359 6368616E 		.ascii	"chan\000"
- 1823      00
- 1824              	.LASF28:
- 1825 035e 4144435F 		.ascii	"ADC_StopConvert\000"
- 1825      53746F70 
- 1825      436F6E76 
- 1825      65727400 
- 1826              	.LASF9:
- 1827 036e 75696E74 		.ascii	"uint8\000"
- 1827      3800
- 1828              	.LASF38:
- 1829 0374 7265736F 		.ascii	"resolution\000"
- 1829      6C757469 
- 1829      6F6E00
- 1830              	.LASF4:
- 1831 037f 6C6F6E67 		.ascii	"long int\000"
- 1831      20696E74 
- 1831      00
- 1832              	.LASF17:
- 1833 0388 63686172 		.ascii	"char\000"
+ 1812              	.LASF20:
+ 1813 0306 73697A65 		.ascii	"sizetype\000"
+ 1813      74797065 
+ 1813      00
+ 1814              	.LASF44:
+ 1815 030f 4144435F 		.ascii	"ADC_CountsTo_uVolts\000"
+ 1815      436F756E 
+ 1815      7473546F 
+ 1815      5F75566F 
+ 1815      6C747300 
+ 1816              	.LASF45:
+ 1817 0323 4144435F 		.ascii	"ADC_CountsTo_Volts\000"
+ 1817      436F756E 
+ 1817      7473546F 
+ 1817      5F566F6C 
+ 1817      747300
+ 1818              	.LASF27:
+ 1819 0336 4144435F 		.ascii	"ADC_StartConvert\000"
+ 1819      53746172 
+ 1819      74436F6E 
+ 1819      76657274 
+ 1819      00
+ 1820              	.LASF17:
+ 1821 0347 63686172 		.ascii	"char\000"
+ 1821      00
+ 1822              	.LASF32:
+ 1823 034c 7265744D 		.ascii	"retMode\000"
+ 1823      6F646500 
+ 1824              	.LASF33:
+ 1825 0354 6368616E 		.ascii	"chan\000"
+ 1825      00
+ 1826              	.LASF28:
+ 1827 0359 4144435F 		.ascii	"ADC_StopConvert\000"
+ 1827      53746F70 
+ 1827      436F6E76 
+ 1827      65727400 
+ 1828              	.LASF9:
+ 1829 0369 75696E74 		.ascii	"uint8\000"
+ 1829      3800
+ 1830              	.LASF38:
+ 1831 036f 7265736F 		.ascii	"resolution\000"
+ 1831      6C757469 
+ 1831      6F6E00
+ 1832              	.LASF4:
+ 1833 037a 6C6F6E67 		.ascii	"long int\000"
+ 1833      20696E74 
  1833      00
  1834              	.LASF12:
- 1835 038d 696E7431 		.ascii	"int16\000"
+ 1835 0383 696E7431 		.ascii	"int16\000"
  1835      3600
  1836              	.LASF0:
- 1837 0393 7369676E 		.ascii	"signed char\000"
+ 1837 0389 7369676E 		.ascii	"signed char\000"
  1837      65642063 
  1837      68617200 
  1838              	.LASF52:
- 1839 039f 4144435F 		.ascii	"ADC_initVar\000"
+ 1839 0395 4144435F 		.ascii	"ADC_initVar\000"
  1839      696E6974 
-ARM GAS  C:\Users\keva419\AppData\Local\Temp\ccNYq04z.s 			page 47
+ARM GAS  C:\Users\keva419\AppData\Local\Temp\cc4mlXXd.s 			page 47
 
 
  1839      56617200 
  1840              	.LASF3:
- 1841 03ab 73686F72 		.ascii	"short unsigned int\000"
+ 1841 03a1 73686F72 		.ascii	"short unsigned int\000"
  1841      7420756E 
  1841      7369676E 
  1841      65642069 
  1841      6E7400
  1842              	.LASF26:
- 1843 03be 4144435F 		.ascii	"ADC_Stop\000"
+ 1843 03b4 4144435F 		.ascii	"ADC_Stop\000"
  1843      53746F70 
  1843      00
  1844              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
