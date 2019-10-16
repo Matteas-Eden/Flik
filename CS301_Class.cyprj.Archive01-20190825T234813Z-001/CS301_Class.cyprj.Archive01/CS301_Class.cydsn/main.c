@@ -183,7 +183,7 @@ int main()
     robot_state state;
     robot_state prev_state = CORRECT;
     
-    goStraight(CM_BETWEEN_COORDS, &right_wheel_count, &left_wheel_count);
+    //goStraight(CM_BETWEEN_COORDS, &right_wheel_count, &left_wheel_count);
     sharpTurnLeft(&right_wheel_count, &left_wheel_count);
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(0);
@@ -489,6 +489,10 @@ void sharpTurnLeft(int *right_wheel_count, int *left_wheel_count) {
     
     // go until we reach the line
     while (!sensor_readings[BOTTOM_LEFT_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
         
          // New count values from encoder are ready
         if (timer_flag){
@@ -540,6 +544,10 @@ void sharpTurnRight(int *right_wheel_count, int *left_wheel_count) {
     
     // go until we reach the line
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
         
          // New count values from encoder are ready
         if (timer_flag){
