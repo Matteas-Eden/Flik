@@ -56,7 +56,7 @@
 #define SLOW_DOWN_SPEED 1
 
 // Debug flag - uncomment when debugging
-#define PUTTY
+//#define PUTTY
 #define PRINT_RATE 0x8000
 //* ================= TPYE DEF =======================
 //typedef struct wheel_speed{
@@ -166,7 +166,7 @@ int main()
     ADC_StartConvert(); // Start conversions
     isr_eoc_StartEx(ADC_ISR); // link interrupt for ADC
 
-    // ---------- USB SETUP ------------    
+    // ------------ USB SETUP ------------    
     #ifdef USE_USB    
         USBUART_Start(0, USBUART_5V_OPERATION);
     #endif            
@@ -174,7 +174,6 @@ int main()
     // To make sure wheels rotate in the same direction i.e. forward
     INV2_Write(1);
     
-    // Storing count values
     int right_wheel_count = DESIRED_COUNT;
     int left_wheel_count = DESIRED_COUNT;
     int polling_count = 0;
@@ -182,19 +181,19 @@ int main()
     robot_state state;
     robot_state prev_state = CORRECT;
     
-    //char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
-    char directions[8] = {'4', 'R', '2'};
+    char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
+    //char directions[8] = {'4', 'R', '4'};
     int direction_index = 0;
     
     while (directions[direction_index] != 0) {
         if (directions[direction_index] == 'R') {
-            usbPutString("Sharp turn right");
+            usbPutString("Sharp turn right\r\n");
             sharpTurnRight(&right_wheel_count, &left_wheel_count);
         } else if (directions[direction_index] == 'L') {
-            usbPutString("Sharp turn left");
+            usbPutString("Sharp turn left\r\n");
             sharpTurnLeft(&right_wheel_count, &left_wheel_count);
         } else {
-            usbPutString("Straight");
+            usbPutString("Straight\r\n");
             int num_coords = directions[direction_index] - '0';
             goStraight(GRID_SIZE * num_coords - HALF_ROBOT_LENGTH, &right_wheel_count, &left_wheel_count);
         }
@@ -217,168 +216,14 @@ int main()
 //                break;
 //        }
         direction_index++;
-        
-//        PWM_1_WriteCompare(0);
-//        PWM_2_WriteCompare(0);
-//        // delay
-//        CyDelay(1000);
-//        PWM_1_WriteCompare(350);
-//        PWM_2_WriteCompare(350);
     }
-    LED_Write(1);
     
-    //goStraight(GRID_SIZE, &right_wheel_count, &left_wheel_count);
-    //sharpTurnLeft(&right_wheel_count, &left_wheel_count);
+    LED_Write(1);
     
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(0);
-    
-//    while(1) { // Begin main control
-//        polling_count++;
-//        
-//        if (adc_flag) {
-//            updateSensorValues();
-//            adc_flag = FALSE;
-//        }
-//        
-//         // New count values from encoder are ready
-//        if (timer_flag){
-//            isr_TS_Disable();
-//            
-//            // Correct speed
-//            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
-//            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
-//            
-//            // Update previous values
-//            prevCountM1 = countM1;
-//            prevCountM2 = countM2;
-//            
-//            // Reset flag
-//            timer_flag = FALSE;
-//            
-//            isr_TS_Enable();
-//        }
-//        
-//       // follow a line algorithm
-//        if (sensor_readings[TOP_MID_SENSOR]) { // on line
-//            if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left; want to go right
-//                state = SLIGHTLY_RIGHT;
-//                right_wheel_count -= ADJUST_SPEED_SMALL;
-//                left_wheel_count += ADJUST_SPEED_SMALL;
-//            } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) { // Deviated right; want to go left
-//                state = SLIGHTLY_LEFT;
-//                right_wheel_count += ADJUST_SPEED_SMALL;
-//                left_wheel_count -= ADJUST_SPEED_SMALL;
-//            } else { // Correct speed
-//                state = CORRECT;
-//            }
-//        } else { // moved off
-//            if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left, but worse; want to go right
-//                state = MEDIUM_RIGHT;
-//                turnRight();
-//            } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated right, but worse; want to go left
-//                state = MEDIUM_LEFT;
-//				turnLeft();
-//            // for corners
-//            } else if (!sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {
-//                if (sensor_readings[BOTTOM_LEFT_SENSOR]) {
-//                    state = TURN_LEFT;
-//                    sharpTurnLeft();
-//                } else if (sensor_readings[BOTTOM_RIGHT_SENSOR]) {
-//                    state = TURN_RIGHT;
-//                    sharpTurnRight();
-//                 // slow down in preperation for a sharp turn
-//                } else if (left_wheel_count > MIN_SPEED && right_wheel_count > MIN_SPEED) {
-//                    state = SLOW;
-//                    right_wheel_count -= SLOW_DOWN_SPEED;
-//                    left_wheel_count -= SLOW_DOWN_SPEED;
-//                } else {
-//                    state = PASS;
-//                }
-//            }
-//        }
-//        
-//        if (right_wheel_count > MAX_SPEED) {
-//            right_wheel_count = MAX_SPEED;
-//        }
-//        if (left_wheel_count > MAX_SPEED) {
-//            left_wheel_count = MAX_SPEED;
-//        }
-//        if (right_wheel_count < MIN_SPEED) {
-//            right_wheel_count = MIN_SPEED;
-//        }
-//        if (left_wheel_count < MIN_SPEED) {
-//            left_wheel_count = MIN_SPEED;
-//        }
-//        
-////        if (polling_count == PRINT_RATE) {
-//        if (prev_state != state) {
-//            if (state == SLIGHTLY_LEFT) {
-//                usbPutString("SLIGHTLY_LEFT\r\n");
-//            } else if (state == SLIGHTLY_RIGHT) {
-//                usbPutString("SLIGHTLY_RIGHT\r\n");
-//            } else if (state == MEDIUM_LEFT) {
-//                usbPutString("MEDIUM_LEFT\r\n");
-//            } else if (state == MEDIUM_RIGHT) {
-//                usbPutString("MEDIUM_RIGHT\r\n");
-//            } else if (state == TURN_LEFT) {
-//                usbPutString("TURN_LEFT\r\n");
-//            } else if (state == TURN_RIGHT) {
-//                usbPutString("TURN_RIGHT\r\n");
-//            } else if (state == SLOW) {
-//                usbPutString("SLOW\r\n");
-//            } else if (state == PASS) {
-//                usbPutString("PASS\r\n");
-//            } else if (state == CORRECT) {
-//                usbPutString("CORRECT\r\n");
-//            }
-//            prev_state = state;
-//        }
-//                
-//                
-//        if (polling_count == PRINT_RATE) polling_count = 0;
-//    }
 }
 
-
-/* Template code */
-/*
-    while(TRUE){
-        
-        // Update sensor values from ADC
-        if (adc_flag){
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-        // Update distance and speed of robot
-        if (timer_flag){
-            isr_TS_Disable();
-            
-            distance += getDistance(prevCountM1, prevCountM2);
-            
-            // Correct speed
-            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
-            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
-            
-            // Update previous values
-            prevCountM1 = countM1;
-            prevCountM2 = countM2;
-            
-            // Reset flag
-            timer_flag = FALSE;
-            
-            isr_TS_Enable();
-        }
-
-        // Execute next instruction in queue after reaching a certain distance
-        if (distance == NODE_DISTANCE){
-            // Execute the next instruction (uses function pointers)
-            instructions[instruction_count]();
-            instruction_count++;
-            distance = 0;
-        }
-    }
-*/
 
 void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_count) {
     usbPutString(" - desired  ");
@@ -386,17 +231,15 @@ void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_co
     itoa(desired_distance, buf, 10);
     usbPutString(buf);
     
-    PWM_1_WriteCompare(350);
-    PWM_2_WriteCompare(350);
     *right_wheel_count = DESIRED_COUNT;
     *left_wheel_count = DESIRED_COUNT;
-    // Storing count values
     
     float distance = 0;
     
-    usbPutString(" - distance ");
+    usbPutString("\r\n - distance ");
     itoa(distance, buf, 10);
     usbPutString(buf);
+    usbPutString("\r\n");
         
     while (distance < desired_distance) {
         if (adc_flag) {
@@ -436,10 +279,10 @@ void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_co
             }
         } else { // moved off
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left, but worse; want to go right
-                usbPutString(" - turn right");
+                usbPutString(" - turn right\r\n");
                 turnRight();
             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated right, but worse; want to go left
-                usbPutString(" - turn left");
+                usbPutString(" - turn left\r\n");
 				turnLeft();
             }
         }
@@ -468,9 +311,6 @@ float getDistance(int prevCountM1, int prevCountM2) {
 void turnForDegrees(int degrees) {
     float distance_to_turn = degrees / 13;
     float distance_turned = 0;
-    // Storing count values
-//    int prevCountM1 = 0;
-//    int prevCountM2 = 0;
     
     while (distance_turned < distance_to_turn) {
          // New count values from encoder are ready
@@ -598,7 +438,7 @@ void turnRight() {
 }
 
 void sharpTurnLeft() {
-    usbPutString(" - forward");
+    usbPutString(" - forward\r\n");
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_LEFT_SENSOR]) {
         if (adc_flag) {
@@ -607,7 +447,7 @@ void sharpTurnLeft() {
         }
     }
     
-    usbPutString(" - turn 45");
+    usbPutString(" - turn 45\r\n");
     
     // make the turn
     setWheelDirection(FALSE, TRUE);
@@ -616,7 +456,7 @@ void sharpTurnLeft() {
     
     turnForDegrees(45); // so that it doesn't stop if it's already on a line
     
-    usbPutString(" - finish turn");
+    usbPutString(" - finish turn\r\n");
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
@@ -628,7 +468,7 @@ void sharpTurnLeft() {
 }
 
 void sharpTurnRight() {
-    usbPutString(" - forward");
+    usbPutString(" - forward\r\n");
     
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR]) {
@@ -638,7 +478,7 @@ void sharpTurnRight() {
         }
     }
     
-    usbPutString(" - turn 45");
+    usbPutString(" - turn 45\r\n");
     
     // make the turn
     setWheelDirection(TRUE, FALSE);
@@ -647,7 +487,7 @@ void sharpTurnRight() {
     
     turnForDegrees(45); // so that it doesn't stop if it's already on a line
     
-    usbPutString(" - finish turn");
+    usbPutString(" - finish turn\r\n");
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {

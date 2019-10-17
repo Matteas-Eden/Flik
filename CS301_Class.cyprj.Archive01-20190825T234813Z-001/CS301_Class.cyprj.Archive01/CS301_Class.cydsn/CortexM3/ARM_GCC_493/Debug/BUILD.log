@@ -1,4 +1,4 @@
---------------- Build Started: 10/17/2019 18:33:29 Project: CS301_Class, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 10/17/2019 18:43:52 Project: CS301_Class, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c .\main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
 .\main.c: In function 'main':
@@ -12,7 +12,7 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\P
      int polling_count = 0;
          ^
 .\main.c: In function 'correctSpeed':
-.\main.c:547:10: warning: unused variable 'msg' [-Wunused-variable]
+.\main.c:548:10: warning: unused variable 'msg' [-Wunused-variable]
      char msg[64];
           ^
 .\main.c: In function 'main':
@@ -24,6 +24,6 @@ arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\CS301_Class.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM3\ARM_GCC_493\Debug\CS301_Class.elf .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\tacho.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\CS301_Class.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -ffat-lto-objects -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/CS301_Class.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C \\files.auckland.ac.nz\myhome\Desktop\Flik\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn\CortexM3\ARM_GCC_493\Debug\CS301_Class.elf --flash_row_size 256 --flash_size 262144
 cyelftool.exe -S \\files.auckland.ac.nz\myhome\Desktop\Flik\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn\CortexM3\ARM_GCC_493\Debug\CS301_Class.elf
-Flash used: 22528 of 262144 bytes (8.6%).
+Flash used: 22016 of 262144 bytes (8.4%).
 SRAM used: 2885 of 65536 bytes (4.4%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 10/17/2019 18:33:33 ---------------
+--------------- Build Succeeded: 10/17/2019 18:43:56 ---------------
