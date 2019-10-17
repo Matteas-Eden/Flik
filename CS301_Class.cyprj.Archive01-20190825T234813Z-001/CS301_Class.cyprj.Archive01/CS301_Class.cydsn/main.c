@@ -87,6 +87,7 @@ void turnRight();
 void turnLeft();
 void sharpTurnRight(int *right_wheel_count, int *left_wheel_count);
 void sharpTurnLeft(int *right_wheel_count, int *left_wheel_count);
+void turnForDegrees(int degrees);
 int8 performTurn(int isLeft);
 
 void goStraight(int desired_distance, int *right_speed_count, int *left_wheel_count);
@@ -185,6 +186,7 @@ int main()
     
     //goStraight(CM_BETWEEN_COORDS, &right_wheel_count, &left_wheel_count);
     sharpTurnLeft(&right_wheel_count, &left_wheel_count);
+    
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(0);
     
@@ -295,6 +297,46 @@ int main()
 //    }
 }
 
+
+/* Template code */
+/*
+    while(TRUE){
+        
+        // Update sensor values from ADC
+        if (adc_flag){
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+        // Update distance and speed of robot
+        if (timer_flag){
+            isr_TS_Disable();
+            
+            distance += getDistance(prevCountM1, prevCountM2);
+            
+            // Correct speed
+            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
+            
+            // Update previous values
+            prevCountM1 = countM1;
+            prevCountM2 = countM2;
+            
+            // Reset flag
+            timer_flag = FALSE;
+            
+            isr_TS_Enable();
+        }
+
+        // Execute next instruction in queue after reaching a certain distance
+        if (distance == NODE_DISTANCE){
+            // Execute the next instruction (uses function pointers)
+            instructions[instruction_count]();
+            instruction_count++;
+            distance = 0;
+        }
+    }
+*/
+
 void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_count) {
     // Storing count values
     int prevCountM1 = 0;
@@ -362,21 +404,38 @@ void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_co
     }
 }
 
-//char* itoa(int val, int base) {
-//    static char buf[32] = {0};
-//    
-//    int i = 30;
-//    for (; val && i ; --i, val /= base)
-//        buf[i] = "01234566789abcdef"[val % base];
-//        
-//    return &buf[i+1];
-//}
-
 float getDistance(int prevCountM1, int prevCountM2){
     float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
     float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-    return (m1_dist+m2_dist)/2;
+    return (m1_dist + m2_dist) / 2;
 };
+
+void turnForDegrees(int degrees) {
+    float distance_to_turn = degrees / 13;
+    float distance_turned = 0;
+    // Storing count values
+    int prevCountM1 = 0;
+    int prevCountM2 = 0;
+    
+    while (distance_turned < distance_to_turn) {
+         // New count values from encoder are ready
+        if (timer_flag){
+            isr_TS_Disable();
+            
+            distance_turned += getDistance(prevCountM1, prevCountM2);
+            
+            // Update previous values
+            prevCountM1 = countM1;
+            prevCountM2 = countM2;
+            
+            // Reset flag
+            timer_flag = FALSE;
+            
+            isr_TS_Enable();
+        }
+    }
+}
+    
 
 // Simple ADC conversion
 int32 getValForChannel(int16 n){
@@ -527,6 +586,9 @@ void sharpTurnLeft(int *right_wheel_count, int *left_wheel_count) {
     setWheelDirection(FALSE, TRUE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
+    
+    turnForDegrees(45); // so that it doesn't stop if it's already on a line
+    
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
             updateSensorValues();
@@ -581,6 +643,9 @@ void sharpTurnRight(int *right_wheel_count, int *left_wheel_count) {
     setWheelDirection(TRUE, FALSE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
+    
+    turnForDegrees(45); // so that it doesn't stop if it's already on a line
+    
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
             updateSensorValues();
