@@ -68,7 +68,7 @@ float getDistance(int prevCountM1, int prevCountM2);
 // straight
 void turnRight();
 void turnLeft();
-void goStraight(int desired_distance, int *right_speed_count, int *left_wheel_count);
+void goStraightForBlock(int desired_blocks, int *right_speed_count, int *left_wheel_count);
 
 // turning
 void turnForDegrees(int degrees);
@@ -156,7 +156,7 @@ int main()
     int right_wheel_count = DESIRED_COUNT;
     int left_wheel_count = DESIRED_COUNT;
     
-    goStraight(GRID_SIZE * 2 - HALF_ROBOT_LENGTH, &right_wheel_count, &left_wheel_count);
+    goStraightForBlock(2, &right_wheel_count, &left_wheel_count);
     uTurn(&right_wheel_count, &left_wheel_count);
     
 //    char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
@@ -173,7 +173,7 @@ int main()
 //        } else {
 //            usbPutString("Straight\r\n");
 //            int num_coords = directions[direction_index] - '0';
-//            goStraight(GRID_SIZE * num_coords - HALF_ROBOT_LENGTH, &right_wheel_count, &left_wheel_count);
+//            goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
 //        }
         
 //        int num_coords;
@@ -190,7 +190,7 @@ int main()
 //            default: 
 //                usbPutString("Straight");
 //                num_coords = directions[direction_index] - '0';
-//                goStraight(GRID_SIZE * num_coords - DESIRED_COUNT, &right_wheel_count, &left_wheel_count);
+//                goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
 //                break;
 //        }
 //        direction_index++;
@@ -234,18 +234,19 @@ void updateSensorValues(){
 }
 
 // --------------------------------------------- STRAIGHT ------------------------------------------
-void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_count) {
+void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wheel_count) {
     usbPutString("\r\n");
     usbPutString(" - desired  ");
-    char buf[32];
-    itoa(desired_distance, buf, 10);
-    usbPutString(buf);
     
     *right_wheel_count = DESIRED_COUNT;//TODO: check if needed
     *left_wheel_count = DESIRED_COUNT;
     
     float distance = 0;
+    int desired_distance = GRID_SIZE * desired_blocks - HALF_ROBOT_LENGTH;
     
+    char buf[32];
+    itoa(desired_distance, buf, 10);
+    usbPutString(buf);
     usbPutString("\r\n - distance ");
     itoa(distance, buf, 10);
     usbPutString(buf);
