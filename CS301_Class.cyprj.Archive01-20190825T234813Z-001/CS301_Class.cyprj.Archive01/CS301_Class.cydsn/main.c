@@ -15,6 +15,7 @@
 
 #include "defines.h"
 #include "vars.h"
+#include "BFS\bfs.h"
 //* =================== MACROS =====================
 // SENSOR MAPPINGS
 #define TOP_LEFT_SENSOR 0
