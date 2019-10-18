@@ -1,13 +1,9 @@
 /* ========================================
- * Copyright Univ of Auckland, 2016
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF Univ of Auckland.
- *
- * ================== INCLUDE ======================
+ * 2019 COMPSYS 
+ * 302 GROUP 2
+ * FLIK
 */
+// ================== INCLUDE ======================
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -15,7 +11,7 @@
 
 #include "defines.h"
 #include "vars.h"
-//* =================== MACROS =====================
+// =================== MACROS =====================
 // SENSOR MAPPINGS
 #define TOP_LEFT_SENSOR 0
 #define TOP_MID_SENSOR 1
@@ -159,9 +155,8 @@ int main()
     
     int right_wheel_count = DESIRED_COUNT;
     int left_wheel_count = DESIRED_COUNT;
-    int polling_count = 0;
     
-    goStraight(2, &right_wheel_count, &left_wheel_count);
+    goStraight(GRID_SIZE * 2 - HALF_ROBOT_LENGTH, &right_wheel_count, &left_wheel_count);
     uTurn(&right_wheel_count, &left_wheel_count);
     
 //    char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
@@ -205,6 +200,8 @@ int main()
     
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(0);
+    
+    return 0;
 }
 
 // --------------------------------------------- ADC ------------------------------------------
@@ -236,25 +233,9 @@ void updateSensorValues(){
     else ADC_DEBUG_Write(0);
 }
 
-// --------------------------------------------- HELPERS ------------------------------------------
-void changeLeftWheelSpeed(int amount) {
-    int new_value = PWM_1_ReadCompare() + amount;
-    PWM_1_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
-}
-
-void changeRightWheelSpeed(int amount){
-    int new_value = PWM_2_ReadCompare() + amount;
-    PWM_2_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
-}
-
-float getDistance(int prevCountM1, int prevCountM2) {
-    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-    return (m1_dist + m2_dist) / 2;
-};
-
 // --------------------------------------------- STRAIGHT ------------------------------------------
 void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_count) {
+    usbPutString("\r\n");
     usbPutString(" - desired  ");
     char buf[32];
     itoa(desired_distance, buf, 10);
@@ -269,6 +250,7 @@ void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_co
     itoa(distance, buf, 10);
     usbPutString(buf);
     usbPutString("\r\n");
+    usbPutString("\r\n");
     
     while (distance < desired_distance) {
         if (adc_flag) {
@@ -282,6 +264,14 @@ void goStraight(int desired_distance, int *right_wheel_count, int *left_wheel_co
             
             // update distance
             distance += getDistance(prevCountM1, prevCountM2);
+            
+            usbPutString("\r\n - desired - ");
+            itoa(desired_distance, buf, 10);
+            usbPutString(buf);
+            usbPutString(" - distance - ");
+            itoa(distance, buf, 10);
+            usbPutString(buf);
+            
             
             // Correct speed
             correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
@@ -336,6 +326,12 @@ void turnForDegrees(int degrees) {
     float distance_turned = 0;
     
     while (distance_turned < distance_to_turn) {
+        // update sensor values so they're not 'stuck' when we leave function
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+        
          // New count values from encoder are ready
         if (timer_flag){
             isr_TS_Disable();
@@ -352,123 +348,6 @@ void turnForDegrees(int degrees) {
             isr_TS_Enable();
         }
     }
-}
-    
-void uTurn(int *left_wheel_count, int *right_wheel_count) {
-    usbPutString(" - U turn\r\n");
-    
-    // go forward slightly
-    float distance = 0;
-    while (distance < SMALL_FORWARD_DISTANCE) {
-         // New count values from encoder are ready
-        if (timer_flag){
-            isr_TS_Disable();
-            
-            // update distance
-            distance += getDistance(prevCountM1, prevCountM2);
-            
-            // Correct speed
-            correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
-            correctSpeed(prevCountM2,countM2,*right_wheel_count,FALSE);
-            
-            // Update previous values
-            prevCountM1 = countM1;
-            prevCountM2 = countM2;
-            
-            // Reset flag
-            timer_flag = FALSE;
-            
-            isr_TS_Enable();
-        }
-    }
-    
-    usbPutString(" - turn 135\r\n");
-    
-    // make the turn
-    setWheelDirection(TRUE, FALSE);
-    PWM_1_WriteCompare(TURN_SPEED);
-    PWM_2_WriteCompare(TURN_SPEED);
-    
-    // the number 180 is roughly a 135 degree turn
-    turnForDegrees(180); // so that it doesn't stop if it's already on a line
-    
-    usbPutString(" - finish turn\r\n");
-    
-    // finish turn
-    while (!sensor_readings[TOP_MID_SENSOR]) {
-        if (adc_flag) {
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-    }
-    setWheelDirection(TRUE, TRUE);
-}
-
-/* ## SPEED CONTROL ## 
-* Algorithm: Get difference between counts, compare to
-* the difference we expect. Add the correction to the PWM.
-*/
-void correctSpeed(int prevCount, int count, int desired_count, int isLeftWheel){    
-    
-    // Account for overflow edge or other unknown error
-    if (prevCount > count) return;
-    
-    int diff_count = abs(count - prevCount);
-    
-    // Account for a situation where PSoc is powered but wheels aren't moving
-    if (diff_count == 0) return;
-    
-    char msg[64];
-        
-    /* Determine correction that must be applied to the wheel
-    * desired_count > diff_count :-> wheel is slow; increase PWM
-    * desired_count < diff_count :-> wheel is fast; decrease PWM
-    * desired_count == diff_count :-> wheel is stable; do nothing
-    */
-    int correction = desired_count-diff_count;
-    
-    // Apply the speed correction to the appropriate wheel          
-    if (isLeftWheel){
-        changeLeftWheelSpeed(correction);
-    }
-    else{
-        changeRightWheelSpeed(correction);
-    }
-    
-    return;
-}
-
-/* Set wheel direction explicitly
-* Parameters are boolean, UNKNOWN can be passed
-* in if you wish the value to be unchanged
-*/
-void setWheelDirection(int leftIsForward, int rightIsForward){
-    INV1_Write(!leftIsForward);
-    INV2_Write(rightIsForward);
-}
-
-void turnLeft() {
-    PWM_1_WriteCompare(0);
-    PWM_2_WriteCompare(TURN_SPEED);
-    while (!sensor_readings[TOP_MID_SENSOR]) {
-        if (adc_flag) {
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-    }
-    PWM_1_WriteCompare(TURN_SPEED);
-}
-
-void turnRight() {
-    PWM_1_WriteCompare(TURN_SPEED);
-    PWM_2_WriteCompare(0);
-    while (!sensor_readings[TOP_MID_SENSOR]) {
-        if (adc_flag) {
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-    }
-    PWM_2_WriteCompare(TURN_SPEED);
 }
 
 void sharpTurnLeft() {
@@ -530,6 +409,126 @@ void sharpTurnRight() {
         }
     }
     setWheelDirection(TRUE, TRUE);
+}
+    
+void uTurn(int *left_wheel_count, int *right_wheel_count) {
+    usbPutString(" - U turn\r\n");
+    
+    // go forward slightly
+    float distance = 0;
+    while (distance < SMALL_FORWARD_DISTANCE) {
+         // New count values from encoder are ready
+        if (timer_flag){
+            isr_TS_Disable();
+            
+            // update distance
+            distance += getDistance(prevCountM1, prevCountM2);
+            
+            // Correct speed
+            correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,*right_wheel_count,FALSE);
+            
+            // Update previous values
+            prevCountM1 = countM1;
+            prevCountM2 = countM2;
+            
+            // Reset flag
+            timer_flag = FALSE;
+            
+            isr_TS_Enable();
+        }
+    }
+    
+    usbPutString(" - turn 135\r\n");
+    
+    // make the turn
+    setWheelDirection(TRUE, FALSE);
+    PWM_1_WriteCompare(TURN_SPEED);
+    PWM_2_WriteCompare(TURN_SPEED);
+    
+    // the number 180 is roughly a 135 degree turn
+    turnForDegrees(180); // so that it doesn't stop if it's already on a line
+    
+    usbPutString(" - finish turn\r\n");
+    
+    // finish turn
+    while (!sensor_readings[TOP_MID_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+    }
+    setWheelDirection(TRUE, TRUE);
+}
+
+// --------------------------------------------- HELPERS ------------------------------------------
+void changeLeftWheelSpeed(int amount) {
+    int new_value = PWM_1_ReadCompare() + amount;
+    PWM_1_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
+}
+
+void changeRightWheelSpeed(int amount){
+    int new_value = PWM_2_ReadCompare() + amount;
+    PWM_2_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
+}
+
+float getDistance(int prevCountM1, int prevCountM2) {
+    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
+    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
+    return (m1_dist + m2_dist) / 2;
+};
+
+/* ## SPEED CONTROL ## 
+* Gets difference between counts, compares to difference we expect. Add correction to PWM.*/
+void correctSpeed(int prevCount, int count, int desired_count, int isLeftWheel){    
+    // Account for overflow edge or other unknown error
+    if (prevCount > count) return;
+    
+    // Account for when PSoc is powered but wheels aren't moving
+    int diff_count = abs(count - prevCount);
+    if (diff_count == 0) return;
+        
+    /* Determine correction that must be applied to the wheel
+    * desired_count > diff_count :-> wheel is slow; increase PWM
+    * desired_count < diff_count :-> wheel is fast; decrease PWM
+    * desired_count == diff_count :-> wheel is stable; do nothing
+    */
+    int correction = desired_count-diff_count;
+    
+    // Apply the speed correction to the appropriate wheel          
+    if (isLeftWheel) changeLeftWheelSpeed(correction);
+    else changeRightWheelSpeed(correction);
+    
+    return;
+}
+
+void setWheelDirection(int leftIsForward, int rightIsForward){
+    INV1_Write(!leftIsForward);
+    INV2_Write(rightIsForward);
+}
+
+void turnLeft() {
+    PWM_1_WriteCompare(0);
+    PWM_2_WriteCompare(TURN_SPEED);
+    while (!sensor_readings[TOP_MID_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+    }
+    PWM_1_WriteCompare(TURN_SPEED);
+}
+
+void turnRight() {
+    PWM_1_WriteCompare(TURN_SPEED);
+    PWM_2_WriteCompare(0);
+    while (!sensor_readings[TOP_MID_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+    }
+    PWM_2_WriteCompare(TURN_SPEED);
 }
 
 //* ========================================
