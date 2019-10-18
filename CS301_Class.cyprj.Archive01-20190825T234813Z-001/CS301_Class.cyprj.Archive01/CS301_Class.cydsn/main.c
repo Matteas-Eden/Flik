@@ -156,45 +156,53 @@ int main()
     int right_wheel_count = DESIRED_COUNT;
     int left_wheel_count = DESIRED_COUNT;
     
-    goStraightForBlock(2, &right_wheel_count, &left_wheel_count);
-    uTurn(&right_wheel_count, &left_wheel_count);
+    char directions[32] = {'4', 'L', '6', 'L', '2', 'L', '4', 'R', '4', 'L', '2', 'R', '6', 'R', '2', 'R', '2', 'L', '2', 'R', '2', 'L', '5', '5', 'L', '4', 'L', '2', 'U'};
+    //char directions[8] = {'4', 'L', '6', 'U', '6', 'R', '4'};
+    //char directions[8] = {'4', 'U'};
+    //char directions[8] = {'2', 'R', '2', 'R', '4', 'L', '4', 'U'};
+    //char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
+    //char directions[8] = {'4', 'R', '4'};
+    int direction_index = 0;
     
-//    char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
-//    //char directions[8] = {'4', 'R', '4'};
-//    int direction_index = 0;
-//    
-//    while (directions[direction_index] != 0) {
-//        if (directions[direction_index] == 'R') {
-//            usbPutString("Sharp turn right\r\n");
-//            sharpTurnRight(&right_wheel_count, &left_wheel_count);
-//        } else if (directions[direction_index] == 'L') {
-//            usbPutString("Sharp turn left\r\n");
-//            sharpTurnLeft(&right_wheel_count, &left_wheel_count);
-//        } else {
-//            usbPutString("Straight\r\n");
-//            int num_coords = directions[direction_index] - '0';
-//            goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
-//        }
+    while (directions[direction_index] != 0) {
+        if (directions[direction_index] == 'R') {
+            usbPutString("Sharp turn right\r\n");
+            sharpTurnRight(&right_wheel_count, &left_wheel_count);
+        } else if (directions[direction_index] == 'L') {
+            usbPutString("Sharp turn left\r\n");
+            sharpTurnLeft(&right_wheel_count, &left_wheel_count);
+        } else if (directions[direction_index] == 'U') {
+            usbPutString("U turn\r\n");
+            uTurn(&right_wheel_count, &left_wheel_count);
+        } else {
+            usbPutString("Straight\r\n");
+            int num_coords = directions[direction_index] - '0';
+            goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
+        }
         
 //        int num_coords;
 //            
 //        switch(directions[direction_index]) {
 //            case 'R':
 //                sharpTurnRight(&right_wheel_count, &left_wheel_count);
-//                usbPutString("Sharp turn right");
+//                usbPutString("Sharp turn right\r\n");
 //                break;
 //            case 'L':
 //                sharpTurnLeft(&right_wheel_count, &left_wheel_count);
-//                usbPutString("Sharp turn left");
+//                usbPutString("Sharp turn left\r\n");
+//                break;
+//            case 'U':
+//                uTurn(&right_wheel_count, &left_wheel_count);
+//                usbPutString("U turn\r\n");
 //                break;
 //            default: 
-//                usbPutString("Straight");
+//                usbPutString("Straight\r\n");
 //                num_coords = directions[direction_index] - '0';
 //                goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
 //                break;
 //        }
-//        direction_index++;
-//    }
+        direction_index++;
+    }
     
     LED_Write(1);
     
@@ -235,8 +243,8 @@ void updateSensorValues(){
 
 // --------------------------------------------- STRAIGHT ------------------------------------------
 void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wheel_count) {
-    usbPutString("\r\n");
-    usbPutString(" - desired  ");
+//    usbPutString("\r\n");
+//    usbPutString(" - desired  ");
     
     *right_wheel_count = DESIRED_COUNT;//TODO: check if needed
     *left_wheel_count = DESIRED_COUNT;
@@ -244,14 +252,14 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
     float distance = 0;
     int desired_distance = GRID_SIZE * desired_blocks - HALF_ROBOT_LENGTH;
     
-    char buf[32];
-    itoa(desired_distance, buf, 10);
-    usbPutString(buf);
-    usbPutString("\r\n - distance ");
-    itoa(distance, buf, 10);
-    usbPutString(buf);
-    usbPutString("\r\n");
-    usbPutString("\r\n");
+//    char buf[32];
+//    itoa(desired_distance, buf, 10);
+//    usbPutString(buf);
+//    usbPutString("\r\n - distance ");
+//    itoa(distance, buf, 10);
+//    usbPutString(buf);
+//    usbPutString("\r\n");
+//    usbPutString("\r\n");
     
     while (distance < desired_distance) {
         if (adc_flag) {
@@ -266,12 +274,12 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
             // update distance
             distance += getDistance(prevCountM1, prevCountM2);
             
-            usbPutString("\r\n - desired - ");
-            itoa(desired_distance, buf, 10);
-            usbPutString(buf);
-            usbPutString(" - distance - ");
-            itoa(distance, buf, 10);
-            usbPutString(buf);
+//            usbPutString("\r\n - desired - ");
+//            itoa(desired_distance, buf, 10);
+//            usbPutString(buf);
+//            usbPutString(" - distance - ");
+//            itoa(distance, buf, 10);
+//            usbPutString(buf);
             
             
             // Correct speed
@@ -413,11 +421,18 @@ void sharpTurnRight() {
 }
     
 void uTurn(int *left_wheel_count, int *right_wheel_count) {
-    usbPutString(" - U turn\r\n");
+    usbPutString("U turn\r\n");
     
+    usbPutString(" - forward slightly\r\n");
     // go forward slightly
     float distance = 0;
     while (distance < SMALL_FORWARD_DISTANCE) {
+        
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+        
          // New count values from encoder are ready
         if (timer_flag){
             isr_TS_Disable();
@@ -440,6 +455,15 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
         }
     }
     
+    usbPutString(" - forward till junction\r\n");
+    // go until we reach the junction
+    while (!sensor_readings[BOTTOM_RIGHT_SENSOR] && !sensor_readings[BOTTOM_LEFT_SENSOR] && sensor_readings[BOTTOM_MID_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+    }
+    
     usbPutString(" - turn 135\r\n");
     
     // make the turn
@@ -448,7 +472,7 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
     PWM_2_WriteCompare(TURN_SPEED);
     
     // the number 180 is roughly a 135 degree turn
-    turnForDegrees(180); // so that it doesn't stop if it's already on a line
+    turnForDegrees(230); // so that it doesn't stop if it's already on a line
     
     usbPutString(" - finish turn\r\n");
     
