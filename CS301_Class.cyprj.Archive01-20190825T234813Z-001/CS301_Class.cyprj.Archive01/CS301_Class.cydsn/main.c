@@ -11,6 +11,7 @@
 
 #include "defines.h"
 #include "vars.h"
+#include "BFS/bfs.h"
 // =================== MACROS =====================
 // SENSOR MAPPINGS
 #define TOP_LEFT_SENSOR 0
@@ -47,6 +48,12 @@
 #define MAX_SPEED 9
 #define MIN_SPEED 4
 #define SLOW_DOWN_SPEED 1
+
+// algorithms
+#define BFS_ROUTE_SIZE 68
+#define L -1
+#define R -2
+#define U -3
 
 // Debug flag - uncomment when debugging
 //#define PUTTY
@@ -118,6 +125,21 @@ CY_ISR(ADC_ISR) {
 
 int main()
 {
+
+    point start = {.x=1, .y=1};
+    point destination = {.x = 13, .y = 17};
+    point route[BFS_ROUTE_SIZE];
+
+    int i;
+    for (i = 0; i++; i < BFS_ROUTE_SIZE) {
+        route[i] = {.x=-1, .y=-1};
+    }
+
+    BFS(start, destination, &route);
+
+    int directions[BFS_ROUTE_SIZE] = {};
+    convertCoordinatesToCommands(&route, &directions);
+    
     // delay
     CyDelay(2000);
     
@@ -156,7 +178,7 @@ int main()
     int right_wheel_count = DESIRED_COUNT;
     int left_wheel_count = DESIRED_COUNT;
     
-    char directions[32] = {'4', 'L', '6', 'L', '2', 'L', '4', 'R', '4', 'L', '2', 'R', '6', 'R', '2', 'R', '2', 'L', '2', 'R', '2', 'L', '5', '5', 'L', '4', 'L', '2', 'U'};
+    //char directions[32] = {'4', 'L', '6', 'L', '2', 'L', '4', 'R', '4', 'L', '2', 'R', '6', 'R', '2', 'R', '2', 'L', '2', 'R', '2', 'L', '5', '5', 'L', '4', 'L', '2', 'U'};
     //char directions[8] = {'4', 'L', '6', 'U', '6', 'R', '4'};
     //char directions[8] = {'4', 'U'};
     //char directions[8] = {'2', 'R', '2', 'R', '4', 'L', '4', 'U'};
@@ -165,13 +187,13 @@ int main()
     int direction_index = 0;
     
     while (directions[direction_index] != 0) {
-        if (directions[direction_index] == 'R') {
+        if (directions[direction_index] == R) {
             usbPutString("Sharp turn right\r\n");
             sharpTurnRight(&right_wheel_count, &left_wheel_count);
-        } else if (directions[direction_index] == 'L') {
+        } else if (directions[direction_index] == L) {
             usbPutString("Sharp turn left\r\n");
             sharpTurnLeft(&right_wheel_count, &left_wheel_count);
-        } else if (directions[direction_index] == 'U') {
+        } else if (directions[direction_index] == U) {
             usbPutString("U turn\r\n");
             uTurn(&right_wheel_count, &left_wheel_count);
         } else {

@@ -28,6 +28,7 @@
 // Command Macros
 #define LEFT_TURN -1
 #define RIGHT_TURN -2
+#define U_TURN -3
 
 // Parameters for creating the command list
 #define MAX_COMMAND_LENGTH 50
@@ -243,6 +244,7 @@ void convertCoordinatesToCommands(point * concurrent_path, int *commands){
         // A turn has been encountered, add it the commands
         if (diffMod4 == TURN_LEFT_1 || diffMod4 == TURN_LEFT_2) { commands[cmd_length++] = LEFT_TURN; } 
         else if (diffMod4 == TURN_RIGHT_1 || diffMod4 == TURN_RIGHT_2) { commands[cmd_length++] = RIGHT_TURN; }
+        else { commands[cmd_length++] = U_TURN; }
 
         // Reset the count
         straight_count = 0;
