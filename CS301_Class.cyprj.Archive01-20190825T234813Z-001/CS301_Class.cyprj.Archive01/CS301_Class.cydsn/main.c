@@ -23,7 +23,7 @@
 
 // LIGHT SENSORS
 #define NUM_SENSORS 6
-#define LIGHT_LEVEL 300
+#define LIGHT_LEVEL 250
 
 // ADC
 #define ADC_READINGS_SIZE 90
@@ -130,19 +130,19 @@ CY_ISR(ADC_ISR) {
 int main()
 {
     // Change these for pathing
-//    point start = {.x=7, .y=1};
-//    point destination = {.x = 11, .y = 13};
-//    point route[BFS_ROUTE_SIZE];
-//
-//    int i;
-//    for (i = 0; i < BFS_ROUTE_SIZE; i++) {
-//        route[i] = (point){.x=-1, .y=-1};
-//    }
-//
-//    BFS(start, destination, route);
-//
-//    int directions[MAX_COMMAND_LENGTH];
-//    convertCoordinatesToCommands(route, directions);
+    point start = {.x=7, .y=1};
+    point destination = {.x = 11, .y = 13};
+    point route[BFS_ROUTE_SIZE];
+
+    int i;
+    for (i = 0; i < BFS_ROUTE_SIZE; i++) {
+        route[i] = (point){.x=-1, .y=-1};
+    }
+
+    BFS(start, destination, route);
+
+    int directions[MAX_COMMAND_LENGTH];
+    convertCoordinatesToCommands(route, directions);
     
     // delay
     CyDelay(2000);
@@ -182,22 +182,25 @@ int main()
     int right_wheel_count = DESIRED_COUNT;
     int left_wheel_count = DESIRED_COUNT;
     
-    //char directions[32] = {'4', 'L', '6', 'L', '2', 'L', '4', 'R', '4', 'L', '2', 'R', '6', 'R', '2', 'R', '2', 'L', '2', 'R', '2', 'L', '5', '5', 'L', '4', 'L', '2', 'U'};
-    //char directions[8] = {'4', 'L', '6', 'U', '6', 'R', '4'};
-    //char directions[8] = {'4', 'U'};
-    //char directions[8] = {'2', 'R', '2', 'R', '4', 'L', '4', 'U'};
-    //char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
-    //char directions[8] = {'4', 'R', '4'};
     int direction_index = 0;
-    int directions[5] = {4, LEFT_TURN, 8, LEFT_TURN, 0};
+    //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
     
-    sharpTurnRight(&right_wheel_count, &left_wheel_count);
-    LED_Write(1);
+    //sharpTurnRight(&right_wheel_count, &left_wheel_count);
     
-    PWM_1_WriteCompare(0);
-    PWM_2_WriteCompare(0);
+//    while(1){
+//        if (adc_flag) {
+//            updateSensorValues();
+//            adc_flag = FALSE;
+//        }
+//    }
+        
     
-    return 0;
+//    LED_Write(1);
+//    
+//    PWM_1_WriteCompare(0);
+//    PWM_2_WriteCompare(0);
+//    
+//    return 0;
     
     
     usbPutString("## Testing Algorithm ##\r\n");
@@ -277,17 +280,26 @@ void updateSensorValues(){
         }
     }
 
+    char buff[32];
+    
     sample_count++;
     if (sample_count == ADC_READINGS_SIZE){
         // Black = 1 (high voltage level)
         for (i = 0; i < NUM_SENSORS; i++){
+            itoa(adc_readings[i], buff, 10);
+            usbPutString(buff);
+            usbPutString(" ");
             sensor_readings[i] = !!(adc_readings[i] < LIGHT_LEVEL);
             adc_readings[i] = 0; // Reset max value from samples
         }
+        
+        usbPutString("\r\n");
+        
         ADC_DEBUG_Write(1);
         sample_count = 0;
     }
     else ADC_DEBUG_Write(0);
+    
 }
 
 // --------------------------------------------- STRAIGHT ------------------------------------------
@@ -378,6 +390,42 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
     }
 }
 
+void turnLeft() {
+    isr_TS_Disable();
+    int prevCountM1 = QuadDec_M1_GetCounter();
+    int prevCountM2 = QuadDec_M2_GetCounter();
+    PWM_1_WriteCompare(0);
+    PWM_2_WriteCompare(TURN_SPEED);
+    while (!sensor_readings[TOP_MID_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+    }
+    PWM_1_WriteCompare(TURN_SPEED);
+    QuadDec_M1_SetCounter(prevCountM1);
+    QuadDec_M2_SetCounter(prevCountM2);
+    isr_TS_Enable();
+}
+
+void turnRight() {
+    isr_TS_Disable();
+    int prevCountM1 = QuadDec_M1_GetCounter();
+    int prevCountM2 = QuadDec_M2_GetCounter();
+    PWM_1_WriteCompare(TURN_SPEED);
+    PWM_2_WriteCompare(0);
+    while (!sensor_readings[TOP_MID_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+    }
+    PWM_2_WriteCompare(TURN_SPEED);
+    QuadDec_M1_SetCounter(prevCountM1);
+    QuadDec_M2_SetCounter(prevCountM2);
+    isr_TS_Enable();
+}
+
 // --------------------------------------------- TURNS ------------------------------------------
 void turnForDegrees(int degrees) {
     float distance_to_turn = degrees / 13;
@@ -458,28 +506,28 @@ void sharpTurnRight() {
         }
     }
     
-//    usbPutString(" - turn 45\r\n");
-//    
-//    // make the turn
-//    setWheelDirection(TRUE, FALSE);
-//    PWM_1_WriteCompare(TURN_SPEED);
-//    PWM_2_WriteCompare(TURN_SPEED);
-//    
-//    QuadDec_M1_SetCounter(prevCountM1);
-//    QuadDec_M2_SetCounter(prevCountM2);
-//    isr_TS_Enable();
-//    
-//    turnForDegrees(45); // so that it doesn't stop if it's already on a line
-//    
-//    usbPutString(" - finish turn\r\n");
-//    
-//    while (!sensor_readings[TOP_MID_SENSOR]) {
-//        if (adc_flag) {
-//            updateSensorValues();
-//            adc_flag = FALSE;
-//        }
-//    }
-//    setWheelDirection(TRUE, TRUE);
+    usbPutString(" - turn 45\r\n");
+    
+    // make the turn
+    setWheelDirection(TRUE, FALSE);
+    PWM_1_WriteCompare(TURN_SPEED);
+    PWM_2_WriteCompare(TURN_SPEED);
+    
+    QuadDec_M1_SetCounter(prevCountM1);
+    QuadDec_M2_SetCounter(prevCountM2);
+    isr_TS_Enable();
+    
+    turnForDegrees(45); // so that it doesn't stop if it's already on a line
+    
+    usbPutString(" - finish turn\r\n");
+    
+    while (!sensor_readings[TOP_MID_SENSOR]) {
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+    }
+    setWheelDirection(TRUE, TRUE);
 }
     
 void uTurn(int *left_wheel_count, int *right_wheel_count) {
@@ -568,12 +616,12 @@ void changeRightWheelSpeed(int amount){
     PWM_2_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
 }
 
-void startWheels(){
+void startWheels() {
     PWM_1_WriteCompare(400);
     PWM_2_WriteCompare(400);
 }
 
-void stopWheels(){
+void stopWheels() {
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(0);
 }
@@ -611,42 +659,6 @@ void correctSpeed(int prevCount, int count, int desired_count, int isLeftWheel){
 void setWheelDirection(int leftIsForward, int rightIsForward){
     INV1_Write(!leftIsForward);
     INV2_Write(rightIsForward);
-}
-
-void turnLeft() {
-    isr_TS_Disable();
-    int prevCountM1 = QuadDec_M1_GetCounter();
-    int prevCountM2 = QuadDec_M2_GetCounter();
-    PWM_1_WriteCompare(0);
-    PWM_2_WriteCompare(TURN_SPEED);
-    while (!sensor_readings[TOP_MID_SENSOR]) {
-        if (adc_flag) {
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-    }
-    PWM_1_WriteCompare(TURN_SPEED);
-    QuadDec_M1_SetCounter(prevCountM1);
-    QuadDec_M2_SetCounter(prevCountM2);
-    isr_TS_Enable();
-}
-
-void turnRight() {
-    isr_TS_Disable();
-    int prevCountM1 = QuadDec_M1_GetCounter();
-    int prevCountM2 = QuadDec_M2_GetCounter();
-    PWM_1_WriteCompare(TURN_SPEED);
-    PWM_2_WriteCompare(0);
-    while (!sensor_readings[TOP_MID_SENSOR]) {
-        if (adc_flag) {
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-    }
-    PWM_2_WriteCompare(TURN_SPEED);
-    QuadDec_M1_SetCounter(prevCountM1);
-    QuadDec_M2_SetCounter(prevCountM2);
-    isr_TS_Enable();
 }
 
 //* ========================================
