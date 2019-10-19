@@ -23,7 +23,7 @@
 
 // LIGHT SENSORS
 #define NUM_SENSORS 6
-#define LIGHT_LEVEL 250
+#define LIGHT_LEVEL 300
 
 // ADC
 #define ADC_READINGS_SIZE 90
