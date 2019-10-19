@@ -9,6 +9,9 @@
  *
  * ========================================
 */
+
+#ifndef DEFINES_H
+#define DEFINES_H
 // Code setup
 #define USE_USB
 
@@ -60,4 +63,5 @@
 #define SOP 0xaa
 #define PACKETSIZE 32    
 #define RXSTRINGSIZE 64 // 4+3+[4+4+4]+[4+4+4+4]+[4+4+4+4]+[4+4+4+4]+delimiters, i.e. no more than 64
+#endif
 /* [] END OF FILE */

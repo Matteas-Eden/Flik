@@ -42,6 +42,20 @@
           <File BuildType="BUILD" Toolchain="">.\vars.h</File>
         </Files>
       </Folder>
+      <Folder BuildType="BUILD" Path="\\files.auckland.ac.nz\myhome\Desktop\Flik\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn\BFS">
+        <Files Root="\\files.auckland.ac.nz\myhome\Desktop\Flik\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn">
+          <File BuildType="BUILD" Toolchain="">.\BFS\bfs.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\helper.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\line_map.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\map_addons.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\point.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\map.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\map2.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\map3.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\map4.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\map5.h</File>
+        </Files>
+      </Folder>
       <Folder BuildType="STRICT" Path="\\files.auckland.ac.nz\myhome\Desktop\Flik\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn\Generated_Source\PSoC5">
         <Files Root="\\files.auckland.ac.nz\myhome\Desktop\Flik\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn">
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\cyfitter_cfg.h</File>

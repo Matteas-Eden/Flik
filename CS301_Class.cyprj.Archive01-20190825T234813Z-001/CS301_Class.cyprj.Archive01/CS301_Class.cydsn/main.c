@@ -39,7 +39,7 @@
 
 // Distances
 #define GRID_SIZE 12
-#define HALF_ROBOT_LENGTH 10
+#define HALF_ROBOT_LENGTH 8
 #define SMALL_FORWARD_DISTANCE 8
 
 // Line following macros - require calibration
@@ -51,9 +51,7 @@
 
 // algorithms
 #define BFS_ROUTE_SIZE 68
-#define L -1
-#define R -2
-#define U -3
+#define DISTANCE_THRESHOLD 20
 
 // Debug flag - uncomment when debugging
 //#define PUTTY
@@ -68,6 +66,8 @@ void updateSensorValues();
 void changeRightWheelSpeed(int amount);
 void changeLeftWheelSpeed(int amount);
 void invertWheels();
+void startWheels();
+void stopWheels();
 void setWheelDirection(int isLeftForward, int isRightForward);
 void correctSpeed(int prevCount, int count, int desired_count, int isLeftWheel);
 float getDistance(int prevCountM1, int prevCountM2);
@@ -82,6 +82,10 @@ void turnForDegrees(int degrees);
 void sharpTurnRight();
 void sharpTurnLeft();
 void uTurn(int *left_wheel_count, int *right_wheel_count);
+
+// debugging
+void printCommandsUSB(int *commands);
+void printSingleCommandUSB(int command);
 //* ================= GLOBAL VARIABLES =======================
 // ADC
 volatile int adc_flag = FALSE;
@@ -125,28 +129,33 @@ CY_ISR(ADC_ISR) {
 
 int main()
 {
-
-    point start = {.x=1, .y=1};
-    point destination = {.x = 13, .y = 17};
-    point route[BFS_ROUTE_SIZE];
-
-    int i;
-    for (i = 0; i++; i < BFS_ROUTE_SIZE) {
-        route[i] = {.x=-1, .y=-1};
-    }
-
-    BFS(start, destination, &route);
-
-    int directions[BFS_ROUTE_SIZE] = {};
-    convertCoordinatesToCommands(&route, &directions);
+    // Change these for pathing
+//    point start = {.x=7, .y=1};
+//    point destination = {.x = 11, .y = 13};
+//    point route[BFS_ROUTE_SIZE];
+//
+//    int i;
+//    for (i = 0; i < BFS_ROUTE_SIZE; i++) {
+//        route[i] = (point){.x=-1, .y=-1};
+//    }
+//
+//    BFS(start, destination, route);
+//
+//    int directions[MAX_COMMAND_LENGTH];
+//    convertCoordinatesToCommands(route, directions);
     
     // delay
     CyDelay(2000);
     
     // --------------------------------
     // ----- INITIALIZATIONS ----------
-    // ========================================
+    // ================================
     CYGlobalIntEnable;
+    
+    // ------------ USB SETUP ------------    
+    #ifdef USE_USB    
+        USBUART_Start(0, USBUART_5V_OPERATION);
+    #endif
     
     // PWMs
     PWM_1_Start();
@@ -166,11 +175,6 @@ int main()
     ADC_IRQ_Enable(); // Enable ADC interrupts
     ADC_StartConvert(); // Start conversions
     isr_eoc_StartEx(ADC_ISR); // link interrupt for ADC
-
-    // ------------ USB SETUP ------------    
-    #ifdef USE_USB    
-        USBUART_Start(0, USBUART_5V_OPERATION);
-    #endif            
     
     // To make sure wheels rotate in the same direction i.e. forward
     INV2_Write(1);
@@ -185,22 +189,45 @@ int main()
     //char directions[8] = {'4', 'L', '4', 'R', '2', 'R'};
     //char directions[8] = {'4', 'R', '4'};
     int direction_index = 0;
+    int directions[5] = {4, LEFT_TURN, 8, LEFT_TURN, 0};
     
+    sharpTurnRight(&right_wheel_count, &left_wheel_count);
+    LED_Write(1);
+    
+    PWM_1_WriteCompare(0);
+    PWM_2_WriteCompare(0);
+    
+    return 0;
+    
+    
+    usbPutString("## Testing Algorithm ##\r\n");
+    printCommandsUSB(directions);
+        
     while (directions[direction_index] != 0) {
-        if (directions[direction_index] == R) {
+        startWheels();
+        //usbPutString("Test!\n");
+        
+        if (directions[direction_index] > DISTANCE_THRESHOLD) break;
+        
+        if (directions[direction_index] == RIGHT_TURN) {
             usbPutString("Sharp turn right\r\n");
             sharpTurnRight(&right_wheel_count, &left_wheel_count);
-        } else if (directions[direction_index] == L) {
+        } else if (directions[direction_index] == LEFT_TURN) {
             usbPutString("Sharp turn left\r\n");
             sharpTurnLeft(&right_wheel_count, &left_wheel_count);
-        } else if (directions[direction_index] == U) {
+        } else if (directions[direction_index] == U_TURN) {
             usbPutString("U turn\r\n");
             uTurn(&right_wheel_count, &left_wheel_count);
-        } else {
+        } else if (directions[direction_index] <= DISTANCE_THRESHOLD){
             usbPutString("Straight\r\n");
-            int num_coords = directions[direction_index] - '0';
+            // Change this for int array
+            //int num_coords = directions[direction_index] - '0';
+            int num_coords = directions[direction_index];
             goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
         }
+        stopWheels();
+        printSingleCommandUSB(directions[direction_index]);
+        CyDelay(1000);
         
 //        int num_coords;
 //            
@@ -382,6 +409,9 @@ void turnForDegrees(int degrees) {
 }
 
 void sharpTurnLeft() {
+    isr_TS_Disable();
+    int prevCountM1 = QuadDec_M1_GetCounter();
+    int prevCountM2 = QuadDec_M2_GetCounter();
     usbPutString(" - forward\r\n");
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_LEFT_SENSOR]) {
@@ -397,6 +427,9 @@ void sharpTurnLeft() {
     setWheelDirection(FALSE, TRUE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
+    QuadDec_M1_SetCounter(prevCountM1);
+    QuadDec_M2_SetCounter(prevCountM2);
+    isr_TS_Enable();
     
     turnForDegrees(45); // so that it doesn't stop if it's already on a line
     
@@ -412,6 +445,9 @@ void sharpTurnLeft() {
 }
 
 void sharpTurnRight() {
+    isr_TS_Disable();
+    int prevCountM1 = QuadDec_M1_GetCounter();
+    int prevCountM2 = QuadDec_M2_GetCounter();
     usbPutString(" - forward\r\n");
     
     // go until we reach the junction
@@ -422,24 +458,28 @@ void sharpTurnRight() {
         }
     }
     
-    usbPutString(" - turn 45\r\n");
-    
-    // make the turn
-    setWheelDirection(TRUE, FALSE);
-    PWM_1_WriteCompare(TURN_SPEED);
-    PWM_2_WriteCompare(TURN_SPEED);
-    
-    turnForDegrees(45); // so that it doesn't stop if it's already on a line
-    
-    usbPutString(" - finish turn\r\n");
-    
-    while (!sensor_readings[TOP_MID_SENSOR]) {
-        if (adc_flag) {
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-    }
-    setWheelDirection(TRUE, TRUE);
+//    usbPutString(" - turn 45\r\n");
+//    
+//    // make the turn
+//    setWheelDirection(TRUE, FALSE);
+//    PWM_1_WriteCompare(TURN_SPEED);
+//    PWM_2_WriteCompare(TURN_SPEED);
+//    
+//    QuadDec_M1_SetCounter(prevCountM1);
+//    QuadDec_M2_SetCounter(prevCountM2);
+//    isr_TS_Enable();
+//    
+//    turnForDegrees(45); // so that it doesn't stop if it's already on a line
+//    
+//    usbPutString(" - finish turn\r\n");
+//    
+//    while (!sensor_readings[TOP_MID_SENSOR]) {
+//        if (adc_flag) {
+//            updateSensorValues();
+//            adc_flag = FALSE;
+//        }
+//    }
+//    setWheelDirection(TRUE, TRUE);
 }
     
 void uTurn(int *left_wheel_count, int *right_wheel_count) {
@@ -477,6 +517,10 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
         }
     }
     
+    isr_TS_Disable();
+    int prevCountM1 = QuadDec_M1_GetCounter();
+    int prevCountM2 = QuadDec_M2_GetCounter();
+    
     usbPutString(" - forward till junction\r\n");
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR] && !sensor_readings[BOTTOM_LEFT_SENSOR] && sensor_readings[BOTTOM_MID_SENSOR]) {
@@ -493,8 +537,13 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
     
+    QuadDec_M1_SetCounter(prevCountM1);
+    QuadDec_M2_SetCounter(prevCountM2);
+    isr_TS_Enable();
+    
+    
     // the number 180 is roughly a 135 degree turn
-    turnForDegrees(230); // so that it doesn't stop if it's already on a line
+    turnForDegrees(180); // so that it doesn't stop if it's already on a line
     
     usbPutString(" - finish turn\r\n");
     
@@ -517,6 +566,16 @@ void changeLeftWheelSpeed(int amount) {
 void changeRightWheelSpeed(int amount){
     int new_value = PWM_2_ReadCompare() + amount;
     PWM_2_WriteCompare((new_value > 0) ? new_value:0); // account for underflow
+}
+
+void startWheels(){
+    PWM_1_WriteCompare(400);
+    PWM_2_WriteCompare(400);
+}
+
+void stopWheels(){
+    PWM_1_WriteCompare(0);
+    PWM_2_WriteCompare(0);
 }
 
 float getDistance(int prevCountM1, int prevCountM2) {
@@ -555,6 +614,9 @@ void setWheelDirection(int leftIsForward, int rightIsForward){
 }
 
 void turnLeft() {
+    isr_TS_Disable();
+    int prevCountM1 = QuadDec_M1_GetCounter();
+    int prevCountM2 = QuadDec_M2_GetCounter();
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(TURN_SPEED);
     while (!sensor_readings[TOP_MID_SENSOR]) {
@@ -564,9 +626,15 @@ void turnLeft() {
         }
     }
     PWM_1_WriteCompare(TURN_SPEED);
+    QuadDec_M1_SetCounter(prevCountM1);
+    QuadDec_M2_SetCounter(prevCountM2);
+    isr_TS_Enable();
 }
 
 void turnRight() {
+    isr_TS_Disable();
+    int prevCountM1 = QuadDec_M1_GetCounter();
+    int prevCountM2 = QuadDec_M2_GetCounter();
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(0);
     while (!sensor_readings[TOP_MID_SENSOR]) {
@@ -576,6 +644,9 @@ void turnRight() {
         }
     }
     PWM_2_WriteCompare(TURN_SPEED);
+    QuadDec_M1_SetCounter(prevCountM1);
+    QuadDec_M2_SetCounter(prevCountM2);
+    isr_TS_Enable();
 }
 
 //* ========================================
@@ -590,6 +661,57 @@ void usbPutString(char *s) {
 #endif
     (void)s;
     return;
+}
+
+/* Prints the commands */
+void printCommandsUSB(int *commands){
+    //fputs("Commands: (",stdout);
+    usbPutString("Commands: (");
+    int i;
+    char buff[32];
+    for (i = 0; i < MAX_COMMAND_LENGTH; i++){
+        if (commands[i] == EMPTY_COMMAND){
+            if (i > 0) break;
+            return;
+        }
+        switch(commands[i]){
+            case LEFT_TURN:
+                usbPutString("L");
+                break;
+            case RIGHT_TURN:
+                usbPutString("R");
+                break;
+            case U_TURN:
+                usbPutString("U");
+                break;
+            default:
+                itoa(commands[i], buff, 10);
+                usbPutString(buff);
+                break;
+        };
+        if (commands[i+1] != EMPTY_COMMAND) usbPutString(",");
+    }
+    usbPutString(")\r\n");
+}
+
+void printSingleCommandUSB(int command){
+    char buff[32];
+    switch(command){
+        case LEFT_TURN:
+            usbPutString("L");
+            break;
+        case RIGHT_TURN:
+            usbPutString("R");
+            break;
+        case U_TURN:
+            usbPutString("U");
+            break;
+        default:
+            itoa(command, buff, 10);
+            usbPutString(buff);
+            break;
+    };
+    usbPutString("\r\n");
 }
 
 /* [] END OF FILE */
