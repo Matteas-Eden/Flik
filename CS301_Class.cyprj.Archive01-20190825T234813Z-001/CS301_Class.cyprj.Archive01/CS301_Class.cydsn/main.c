@@ -130,19 +130,19 @@ CY_ISR(ADC_ISR) {
 int main()
 {
     // Change these for pathing
-    point start = {.x=17, .y=5};
-    point destination = {.x = 3, .y = 13};
-    point route[BFS_ROUTE_SIZE];
-
-    int i;
-    for (i = 0; i < BFS_ROUTE_SIZE; i++) {
-        route[i] = (point){.x=-1, .y=-1};
-    }
-
-    BFS(start, destination, route);
-
-    int directions[MAX_COMMAND_LENGTH];
-    convertCoordinatesToCommands(route, directions);
+//    point start = {.x=3, .y=13};//17,5; 1,1; 3,13
+//    point destination = {.x = 11, .y = 13};//3,13; 17,13;11,13
+//    point route[BFS_ROUTE_SIZE];        //facing up; right; 
+//
+//    int i;
+//    for (i = 0; i < BFS_ROUTE_SIZE; i++) {
+//        route[i] = (point){.x=-1, .y=-1};
+//    }
+//
+//    BFS(start, destination, route);
+//
+//    int directions[MAX_COMMAND_LENGTH];
+//    convertCoordinatesToCommands(route, directions);
     
     // delay
     CyDelay(2000);
@@ -183,34 +183,14 @@ int main()
     int left_wheel_count = DESIRED_COUNT;
     
     int direction_index = 0;
-    //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
-    
+    int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
     //int directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
-    
-    //sharpTurnRight(&right_wheel_count, &left_wheel_count);
-    
-//    while(1){
-//        if (adc_flag) {
-//            updateSensorValues();
-//            adc_flag = FALSE;
-//        }
-//    }
-        
-    
-//    LED_Write(1);
-//    
-//    PWM_1_WriteCompare(0);
-//    PWM_2_WriteCompare(0);
-//    
-//    return 0;
-    
     
     usbPutString("## Testing Algorithm ##\r\n");
     printCommandsUSB(directions);
         
     while (directions[direction_index] != 0) {
         startWheels();
-        //usbPutString("Test!\n");
         
         if (directions[direction_index] > DISTANCE_THRESHOLD) break;
         
@@ -262,6 +242,9 @@ int main()
     
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(0);
+    
+    // delay
+    CyDelay(20000);
     
     return 0;
 }
@@ -481,7 +464,7 @@ void sharpTurnLeft() {
     QuadDec_M2_SetCounter(prevCountM2);
     isr_TS_Enable();
     
-    turnForDegrees(45); // so that it doesn't stop if it's already on a line
+    turnForDegrees(55); // so that it doesn't stop if it's already on a line
     
     usbPutString(" - finish turn\r\n");
     
@@ -513,6 +496,9 @@ void sharpTurnRight() {
     usbPutString("---------------------------\r\n");
     usbPutString("-------- turn 45 ----------\r\n");
     usbPutString("---------------------------\r\n");
+//    stopWheels();
+//    CyDelay(1000);
+//    startWheels();
     
     // make the turn
     setWheelDirection(TRUE, FALSE);
@@ -523,11 +509,15 @@ void sharpTurnRight() {
     QuadDec_M2_SetCounter(prevCountM2);
     isr_TS_Enable();
     
-    turnForDegrees(45); // so that it doesn't stop if it's already on a line
+    //45 may be too small.  Will try 55
+    turnForDegrees(55); // so that it doesn't stop if it's already on a line
     
     usbPutString("---------------------------\r\n");
     usbPutString("-------- finish turn ------\r\n");
     usbPutString("---------------------------\r\n");
+//    stopWheels();
+//    CyDelay(1000);
+//    startWheels();
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
