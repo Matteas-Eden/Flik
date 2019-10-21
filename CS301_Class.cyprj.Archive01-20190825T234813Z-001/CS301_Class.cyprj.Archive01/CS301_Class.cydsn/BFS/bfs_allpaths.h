@@ -7,7 +7,7 @@
 #include "bfs.h"
 
 // #define DEBUG_ALLPATH
-// #define DISPLAY_ALLPATH
+#define DISPLAY_ALLPATH
 
 int generateTargetPoints(point *targets){
 
@@ -71,6 +71,7 @@ point getNextTarget(int map[MAP_ROW][MAP_COL], point * targets){
 
 }
 
+/* Just a simple filter to remove garbage values */
 void filterPoints(point * points){
     int i = 0;
     while (TRUE){
@@ -89,27 +90,34 @@ void filterPoints(point * points){
 }
 
 /* Try and eliminate consecutive start/end points */
-//void optimisePath(int map[MAP_ROW][MAP_COL], point * originalPath, point * optimisedPath){
-//    //TODO: Implement
-//    int i;
-//    while (TRUE){
-//        if (originalPath[i].x == EMPTY_VAL && originalPath[i].y == EMPTY_VAL) break;
-//        i++;
-//    }
-//}
+void optimisePath(int map[MAP_ROW][MAP_COL], point * originalPath, point * optimisedPath){
+    //TODO: Implement
+    int i;
+    while (TRUE){
+        if (originalPath[i].x == EMPTY_VAL && originalPath[i].y == EMPTY_VAL) break;
+        i++;
+    }
+}
 
 /* BFS to go everywhere */
 /*
 * Generates a list of targets from a map to move through. The algorithm
 * then creates paths to a series of points (choosing points smartly),
-* all the while appending this paths to a final, large 'allPath'
+* all the while appending these paths to a final, large 'allPath'
 */
 void getAllPath(point allPath[MAX_PATH_LENGTH]){
 
     point targets[MAX_PATH_LENGTH];
-    int num_points = generateTargetPoints(targets);
 
-    printf("## Generated points ##\n");
+    #ifdef SHOW_TARGETS
+        int num_points = generateTargetPoints(targets);
+    #else
+        generateTargetPoints(targets);
+    #endif
+
+    #ifdef DEBUG_ALLPATH
+        printf("## Generated points ##\n");
+    #endif
 
     int i;
 
@@ -144,8 +152,9 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
     while (!(curr_point.x == EMPTY_VAL && curr_point.y == EMPTY_VAL)){
 
         point next_point = getNextTarget(marked_map,targets);
+
         if (next_point.x == EMPTY_VAL && next_point.y == EMPTY_VAL){
-            printf("Hey, I'm null!\n");
+            // printf("Hey, I'm null!\n");
             break;
         }
 

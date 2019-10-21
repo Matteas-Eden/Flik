@@ -56,7 +56,7 @@
 #define PUTTY
 //* ================= FUNCTIONS =======================
 void usbPutString(char *s);
-void food(point start, point * concurrent_path);
+void getRouteToFood(point start, point path[MAX_PATH_LENGTH]);
 
 // sensors
 int32 getValForChannel(int16 n);
@@ -84,8 +84,8 @@ void sharpTurnLeft();
 void uTurn(int *left_wheel_count, int *right_wheel_count);
 
 // debugging
-void printCommandsUSB(int *commands);
-void printSingleCommandUSB(int command);
+void printCommandsUSB(int8_t *commands);
+void printSingleCommandUSB(int8_t command);
 //* ================= GLOBAL VARIABLES =======================
 // ADC
 volatile int adc_flag = FALSE;
@@ -140,17 +140,20 @@ int main()
 //    }
 //    BFS(start, destination, route);
     
-    point route[MAX_PATH_LENGTH]; //facing up; right; left
-    int i;
-    for (i = 0; i < MAX_PATH_LENGTH; i++) {
-        route[i] = (point){.x=EMPTY_VAL, .y=EMPTY_VAL};
-    }
+    point route[MAX_PATH_LENGTH] = { 0 }; //facing up; right; left
+    route[0] = (point){.x=-1, .y=-1};
+//    int i;
+//    for (i = 0; i < MAX_PATH_LENGTH; i++) {
+//        route[i] = (point){.x=EMPTY_VAL, .y=EMPTY_VAL};
+//    }
 
-    //food(start, route);
-    BFS((point){.x=3,.y=9}, (point){.x=16,.y=11}, route);
+//    getRouteToFood((point){.x=1,.y=1},route);
+//    BFS((point){.x=3,.y=9}, (point){.x=16,.y=11}, route);
 
-    int directions[MAX_COMMAND_LENGTH] = {0};
-    convertCoordinatesToCommands(route, directions);
+    int8_t directions[MAX_COMMAND_LENGTH] = { 0 };
+//    convertCoordinatesToCommands(route, directions);
+    
+    stopWheels();
     
     // delay
     CyDelay(2000);
@@ -192,13 +195,19 @@ int main()
     
     int direction_index = 0;
     //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
-    //int directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
+    //uint8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
     
     usbPutString("## Testing Algorithm ##\r\n");
+    
+    getRouteToFood((point){.x=1,.y=1},route);
+//    BFS((point){.x = 1, .y = 1},(point){.x = 9, .y = 13},route);
+//    
+    convertCoordinatesToCommands(route, directions);
+    
     printCommandsUSB(directions);
         
     while (directions[direction_index] != 0) {
-//        startWheels();
+        startWheels();
         
         if (directions[direction_index] > DISTANCE_THRESHOLD) break;
         
@@ -218,31 +227,10 @@ int main()
             int num_coords = directions[direction_index];
             goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
         }
-//        stopWheels();
-//        printSingleCommandUSB(directions[direction_index]);
-//        CyDelay(1000);
+        stopWheels();
+        printSingleCommandUSB(directions[direction_index]);
+        CyDelay(1000);
         
-//        int num_coords;
-//            
-//        switch(directions[direction_index]) {
-//            case 'R':
-//                sharpTurnRight(&right_wheel_count, &left_wheel_count);
-//                usbPutString("Sharp turn right\r\n");
-//                break;
-//            case 'L':
-//                sharpTurnLeft(&right_wheel_count, &left_wheel_count);
-//                usbPutString("Sharp turn left\r\n");
-//                break;
-//            case 'U':
-//                uTurn(&right_wheel_count, &left_wheel_count);
-//                usbPutString("U turn\r\n");
-//                break;
-//            default: 
-//                usbPutString("Straight\r\n");
-//                num_coords = directions[direction_index] - '0';
-//                goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
-//                break;
-//        }
         direction_index++;
     }
     
@@ -682,7 +670,7 @@ void usbPutString(char *s) {
 }
 
 /* Prints the commands */
-void printCommandsUSB(int *commands){
+void printCommandsUSB(int8_t *commands){
     //fputs("Commands: (",stdout);
     usbPutString("Commands: (");
     int i;
@@ -712,7 +700,7 @@ void printCommandsUSB(int *commands){
     usbPutString(")\r\n");
 }
 
-void printSingleCommandUSB(int command){
+void printSingleCommandUSB(int8_t command){
     char buff[32];
     switch(command){
         case LEFT_TURN:
@@ -732,42 +720,70 @@ void printSingleCommandUSB(int command){
     usbPutString("\r\n");
 }
 
-void food(point start, point * concurrent_path){
+/* Wrapper for BFS that gets a route connecting all food pellets in order */
+void getRouteToFood(point start, point path[MAX_PATH_LENGTH]){
     
-    point locations[6];
-    int i, k;
+    #ifdef PUTTY
+        usbPutString("Navigating food\r\n");
+    #endif
     
-    int clean_map[MAP_ROW][MAP_COL];
-    
-    /* Create copy of map */
-    for (i = 0; i < MAP_ROW; i++){
-        memcpy(clean_map[i],map[i],sizeof(int)*MAP_COL);
-    }
+    uint8_t i; // C90 is outdated smh
 
-    /* Populate locations with food pellets */
-    locations[0] = (point) {.x = start.x, .y = start.y};
+    /* Setup locations to use for BFS */
+    point locations[6] = { 0 };
+    locations[0] = (point){.x = start.x, .y = start.y};
     
-    for (i = 1; i < 6; i++) {
-        locations[i] = (point) {.x = food_list[i][0], .y = food_list[i][1]};
+    #ifdef PUTTY
+        usbPutString("-- Locations set up\r\n");
+    #endif
+
+    /* Intialise path */
+    memset(path,EMPTY_VAL,MAX_PATH_LENGTH*sizeof(point));
+
+    /* Setup map for cleaning after BFS is done */
+    uint8_t clean_map[MAP_ROW][MAP_COL] = { 0 };
+
+    for (i = 0; i < MAP_ROW; i++){
+        memcpy(clean_map[i],map[i],sizeof(uint8_t)*MAP_COL);
     }
     
-    char buff[64];
+    #ifdef PUTTY
+        usbPutString("-- Clean map initialised\r\n");
+    #endif
     
-    for (i = 0; i < 5; i++) {
+    uint8_t k; // Wishing it wasn't C90
+
+    #ifdef PUTTY
+        char buff[32];
+    #endif
+    
+    for (i = 0; i < 5; i++){
         
-        point path[MAX_PATH_LENGTH];
-        
-        BFS(locations[i], locations[i+1], path);
-        
+        #ifdef PUTTY
+            itoa(i,buff,10);
+    //        sprintf(buff,"(%d,%d)->(%d,%d)\r\n",locations[i].x,locations[i].y,locations[i+1].x,locations[i+1].y);
+            usbPutString(buff);
+            usbPutString("\r\n");
+        #endif
+
+        // Take next location from the food_list
+        locations[i+1] = (point){.x = food_list[i][0], .y = food_list[i][1]};
+
+        // Setup the path to store the BFS result
+        point temp_path[MAX_PATH_LENGTH] = { 0 };
+        memset(temp_path,EMPTY_VAL,MAX_PATH_LENGTH*sizeof(point));
+
+        // Big Fat Search
+        BFS(locations[i],locations[i+1],temp_path);
+
         /* Clean up map from BFS */
         for (k = 0; k < MAP_ROW; k++){
             memcpy(map[k], clean_map[k], sizeof(int)*MAP_COL);
         }
-                
-        return;
-        
-        appendPath(concurrent_path, len(concurrent_path), path);
+
+        appendPath(path,len(path),temp_path);
     }
+
 }
 
 /* [] END OF FILE */

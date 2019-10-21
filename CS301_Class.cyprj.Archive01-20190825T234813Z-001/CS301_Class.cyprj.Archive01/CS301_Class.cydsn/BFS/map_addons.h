@@ -4,12 +4,11 @@
 // Dimensions of map and paths in map
 #define MAP_ROW 15
 #define MAP_COL 19
-#define MAX_PATH_LENGTH 200
-#define MAX_NUM_PATHS 10
+#define MAX_PATH_LENGTH 500
+#define MAX_NUM_PATHS 15
 #define MAX_NODES 30
 #define MAX_STACK_SIZE 20
 #define MAX_EDGES 15
-#define BFS_ROUTE_SIZE 68
 
 // Colours for printing
 #define RED "\033[0;31m"
@@ -32,14 +31,14 @@
 #define U_TURN -3
 
 // Parameters for creating the command list
-#define MAX_COMMAND_LENGTH 60
+#define MAX_COMMAND_LENGTH 100
 #define EMPTY_COMMAND 0
 #define CMD_NULL -1
 #define CMD_RIGHT 0
 #define CMD_DOWN 1
 #define CMD_LEFT 2
 #define CMD_UP 3
-#define START_FACING CMD_RIGHT //-------------------Change Orientation here---------------------------------
+#define START_FACING CMD_RIGHT /*------------------ CHANGE THIS FOR STARTING ORIENATATION -----------------------*/
 
 // Values that decide turning behaviour
 #define GO_STRAIGHT 0
@@ -47,6 +46,9 @@
 #define TURN_LEFT_2 3
 #define TURN_RIGHT_1 1
 #define TURN_RIGHT_2 -3
+
+// Debug
+// #define DEBUG_CMD
 
 // Includes
 #include <stdio.h>
@@ -58,8 +60,8 @@
 /* Get the length of a path*/
 int len(point * path){
     int len = 0;
-    int i;
-    for (i = 0; i < MAX_PATH_LENGTH; i++){
+    int i = 0;
+    for (; i < MAX_PATH_LENGTH; i++){
         if (path[i].x == EMPTY_VAL && path[i].y == EMPTY_VAL) break;
         len++;
     }
@@ -68,16 +70,16 @@ int len(point * path){
 
 /* Check if a path is empty i.e. full of EMPTY_VAL */
 int isEmpty(point * path, int size){
-    int i;
-    for (i = 0;i<size;i++){
+    int i = 0;
+    for (;i<size;i++){
         if (path[i].x != EMPTY_VAL && path[i].y != EMPTY_VAL) return FALSE;
     }
     return TRUE;
 }
 
 int isPointOnPath(point p, point * path, int size){
-    int i;
-    for (i = 0; i < size; i++){
+    int i = 0;
+    for (; i < size; i++){
         if (path[i].x == p.x && path[i].y == p.y) return TRUE;   
     }
     return FALSE;
@@ -85,8 +87,8 @@ int isPointOnPath(point p, point * path, int size){
 
 /* Print a path */
 void printPath(point * path){
-    int i;
-    for (i = 0; i < MAX_PATH_LENGTH; i++){
+    int i = 0;
+    for (; i < MAX_PATH_LENGTH; i++){
         if (path[i].x == EMPTY_VAL && path[i].y == EMPTY_VAL){
             if (i > 0) break;
             return;
@@ -98,9 +100,9 @@ void printPath(point * path){
 
 /* Prints the commands */
 void printCommands(int *commands){
+    int i = 0;
     fputs("Commands: (",stdout);
-    int i;
-    for (i = 0; i < MAX_COMMAND_LENGTH; i++){
+    for (; i < MAX_COMMAND_LENGTH; i++){
         if (commands[i] == EMPTY_COMMAND){
             if (i > 0) break;
             return;
@@ -112,6 +114,9 @@ void printCommands(int *commands){
             case RIGHT_TURN:
                 printf("R");
                 break;
+            case U_TURN:
+                printf("U");
+                break;
             default:
                 printf("%d", commands[i]);
                 break;
@@ -121,15 +126,15 @@ void printCommands(int *commands){
     puts(")");
 }
 
-/* Now in colour! :O */
+/* Now in colour! */
 void printMap(int map[MAP_ROW][MAP_COL]){
+
+    int m, n;
 
     printf("////////////////BEGIN MAP////////////////\n");
 
-    int m;
-    int n;
     for (m = 0; m < MAP_ROW; m++){
-        for (n=0; n < MAP_COL; n++){
+        for (n = 0; n < MAP_COL; n++){
             switch (map[m][n]){
                 case UNVISITED:
                     printf("%d ", map[m][n]);
@@ -164,11 +169,12 @@ void printMap(int map[MAP_ROW][MAP_COL]){
 /* Modify the map with the final path */
 void updateMapWithPath(int map[MAP_ROW][MAP_COL], point * path, int path_length){
 
+    int i;
+
     // Set starting position
     map[path[0].y][path[0].x] = 4;
 
     // Fill up path
-    int i;
     for (i = 1; i < path_length-1; i++){
         map[path[i].y][path[i].x] = 3;
     }
@@ -188,21 +194,33 @@ int getMapValAtPoint(point p){
 void markPointAsVisited(point p){ map[p.y][p.x] = VISITED; }
 
 /* Interpret coordinates of the final path and convert to commands for robot */
-void convertCoordinatesToCommands(point *concurrent_path, int *commands){
+void convertCoordinatesToCommands(point * concurrent_path, int8_t *commands){
 
-    int straight_count = -1;
+    int8_t straight_count = -1;
     point current, next;
-    int current_orientation = START_FACING;
-    int next_orientation = CMD_NULL;
+    int8_t current_orientation = START_FACING;
+    int8_t next_orientation = CMD_NULL;
+    int i;
 
     int cmd_length = 0;
     int path_length = len(concurrent_path);
 
-    int i;
+    #ifdef DEBUG_CMD
+        puts("## BEGIN CONVERT ##");
+    #endif
+
     for (i = 0; i < path_length - 1; i++){
+
+        #ifdef DEBUG_CMD
+            printf("[%d]\n",i);
+        #endif
 
         current = concurrent_path[i];
         next = concurrent_path[i+1];
+
+        #ifdef DEBUG_CMD
+            printf("-- Current: (%d, %d)\n-- Next: (%d,%d)\n",current.x,current.y,next.x,next.y);
+        #endif
 
         // Since the robot only moves one coord at a time, one of the following branches must evaluate
         if (current.x == next.x){
@@ -212,8 +230,22 @@ void convertCoordinatesToCommands(point *concurrent_path, int *commands){
             next_orientation = (current.x > next.x) ? CMD_LEFT:CMD_RIGHT;
         }
 
+        #ifdef DEBUG_CMD
+            if (next_orientation != CMD_NULL){
+                printf("-- Current Orientation: %c\n", "RDLU"[current_orientation]);
+                printf("-- Next Orientation: %c\n", "RDLU"[next_orientation]);
+            }
+        #endif
+
         // Evaluate change (or lack of change) in orientation based on diff
         int diffMod4 = (next_orientation - current_orientation) % 4;
+
+        #ifdef DEBUG_CMD
+            printf("-- Diff \% 4\: %d\n",diffMod4);
+            if (diffMod4 == 1 || diffMod4 == -3) printf("-/- RIGHT TURN\n");
+            else if (diffMod4 == -1 || diffMod4 == 3) printf("-/- LEFT TURN\n");
+            else if (diffMod4 == 0) printf("-/- GO STRAIGHT\n");
+        #endif
 
         // Every iteration of the loop, the robot moves one square
         straight_count++;
@@ -245,9 +277,7 @@ void convertCoordinatesToCommands(point *concurrent_path, int *commands){
 
 /* Get the number of valid points surrounding a given point on the map */
 int getNumOfSurroundingPoints(point p){
-    int num, mapval;
-    int i;
-    int j;
+    int num, mapval, i, j;
     for (i = p.x-1; i < p.x+2; i++){
         for (j = p.y-1; j < p.y+2; j++){
             if (i == p.x && j == p.y) continue;
@@ -258,6 +288,33 @@ int getNumOfSurroundingPoints(point p){
     }
 
     return num;
+}
+
+/* Chuck one path onto the end of another */
+int appendPath(point *path, int path_length, point *path_to_append){
+
+    int i = 0;
+    int k = (path_length) ? 1:0;
+    
+    while (TRUE){
+        // Exit once end of path is reached
+        if (path_to_append[k].x == EMPTY_VAL && path_to_append[k].y == EMPTY_VAL) break;
+
+        // Overlap between end of one path and start of the other,
+        // so append to 1 less than expected
+        path[path_length + i] = path_to_append[k];
+
+        i++;
+        k++;
+    }
+
+    path[path_length + i] = (point){.x = -1, .y = -1};
+
+    #ifdef DEBUG_APPEND
+        printf("path_length: %d -> %d\n", path_length, path_length+i);
+    #endif
+
+    return path_length + i;
 }
 
 #endif
