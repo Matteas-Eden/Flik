@@ -38,7 +38,7 @@
 #define CMD_DOWN 1
 #define CMD_LEFT 2
 #define CMD_UP 3
-#define START_FACING CMD_LEFT
+#define START_FACING CMD_UP //-------------------Change Orientation here---------------------------------
 
 // Values that decide turning behaviour
 #define GO_STRAIGHT 0

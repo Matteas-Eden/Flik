@@ -26,7 +26,7 @@
 #define LIGHT_LEVEL 300
 
 // ADC
-#define ADC_READINGS_SIZE 90
+#define ADC_READINGS_SIZE 200
 
 // Speed calculations
 #define LINEAR_DISTANCE_PER_REV 20.42035225
@@ -130,8 +130,8 @@ CY_ISR(ADC_ISR) {
 int main()
 {
     // Change these for pathing
-    point start = {.x=7, .y=1};
-    point destination = {.x = 11, .y = 13};
+    point start = {.x=17, .y=5};
+    point destination = {.x = 3, .y = 13};
     point route[BFS_ROUTE_SIZE];
 
     int i;
@@ -184,6 +184,8 @@ int main()
     
     int direction_index = 0;
     //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
+    
+    //int directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
     
     //sharpTurnRight(&right_wheel_count, &left_wheel_count);
     
@@ -496,7 +498,9 @@ void sharpTurnRight() {
     isr_TS_Disable();
     int prevCountM1 = QuadDec_M1_GetCounter();
     int prevCountM2 = QuadDec_M2_GetCounter();
-    usbPutString(" - forward\r\n");
+    usbPutString("---------------------------\r\n");
+    usbPutString("-------- forward -----------\r\n");
+    usbPutString("---------------------------\r\n");
     
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR]) {
@@ -506,7 +510,9 @@ void sharpTurnRight() {
         }
     }
     
-    usbPutString(" - turn 45\r\n");
+    usbPutString("---------------------------\r\n");
+    usbPutString("-------- turn 45 ----------\r\n");
+    usbPutString("---------------------------\r\n");
     
     // make the turn
     setWheelDirection(TRUE, FALSE);
@@ -519,7 +525,9 @@ void sharpTurnRight() {
     
     turnForDegrees(45); // so that it doesn't stop if it's already on a line
     
-    usbPutString(" - finish turn\r\n");
+    usbPutString("---------------------------\r\n");
+    usbPutString("-------- finish turn ------\r\n");
+    usbPutString("---------------------------\r\n");
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
