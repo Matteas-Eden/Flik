@@ -50,13 +50,13 @@
 #define SLOW_DOWN_SPEED 1
 
 // algorithms
-#define BFS_ROUTE_SIZE 68
 #define DISTANCE_THRESHOLD 20
 
 // Debug flag - uncomment when debugging
-//#define PUTTY
+#define PUTTY
 //* ================= FUNCTIONS =======================
 void usbPutString(char *s);
+void food(point start, point * concurrent_path);
 
 // sensors
 int32 getValForChannel(int16 n);
@@ -130,19 +130,27 @@ CY_ISR(ADC_ISR) {
 int main()
 {
     // Change these for pathing
-//    point start = {.x=3, .y=13};//17,5; 1,1; 3,13
-//    point destination = {.x = 11, .y = 13};//3,13; 17,13;11,13
-//    point route[BFS_ROUTE_SIZE];        //facing up; right; 
-//
+    point start = {.x = 1, .y = 1};        //17,5; 1,1; 3,13
+//    point destination = {.x = 3, .y = 13};//3,13; 17,13;11,13
+    
+//    point route[BFS_ROUTE_SIZE];        //facing up; right; left
 //    int i;
 //    for (i = 0; i < BFS_ROUTE_SIZE; i++) {
 //        route[i] = (point){.x=-1, .y=-1};
 //    }
-//
 //    BFS(start, destination, route);
-//
-//    int directions[MAX_COMMAND_LENGTH];
-//    convertCoordinatesToCommands(route, directions);
+    
+    point route[MAX_PATH_LENGTH]; //facing up; right; left
+    int i;
+    for (i = 0; i < MAX_PATH_LENGTH; i++) {
+        route[i] = (point){.x=EMPTY_VAL, .y=EMPTY_VAL};
+    }
+
+    //food(start, route);
+    BFS((point){.x=3,.y=9}, (point){.x=16,.y=11}, route);
+
+    int directions[MAX_COMMAND_LENGTH] = {0};
+    convertCoordinatesToCommands(route, directions);
     
     // delay
     CyDelay(2000);
@@ -183,14 +191,14 @@ int main()
     int left_wheel_count = DESIRED_COUNT;
     
     int direction_index = 0;
-    int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
+    //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
     //int directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
     
     usbPutString("## Testing Algorithm ##\r\n");
     printCommandsUSB(directions);
         
     while (directions[direction_index] != 0) {
-        startWheels();
+//        startWheels();
         
         if (directions[direction_index] > DISTANCE_THRESHOLD) break;
         
@@ -210,9 +218,9 @@ int main()
             int num_coords = directions[direction_index];
             goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
         }
-        stopWheels();
-        printSingleCommandUSB(directions[direction_index]);
-        CyDelay(1000);
+//        stopWheels();
+//        printSingleCommandUSB(directions[direction_index]);
+//        CyDelay(1000);
         
 //        int num_coords;
 //            
@@ -722,6 +730,44 @@ void printSingleCommandUSB(int command){
             break;
     };
     usbPutString("\r\n");
+}
+
+void food(point start, point * concurrent_path){
+    
+    point locations[6];
+    int i, k;
+    
+    int clean_map[MAP_ROW][MAP_COL];
+    
+    /* Create copy of map */
+    for (i = 0; i < MAP_ROW; i++){
+        memcpy(clean_map[i],map[i],sizeof(int)*MAP_COL);
+    }
+
+    /* Populate locations with food pellets */
+    locations[0] = (point) {.x = start.x, .y = start.y};
+    
+    for (i = 1; i < 6; i++) {
+        locations[i] = (point) {.x = food_list[i][0], .y = food_list[i][1]};
+    }
+    
+    char buff[64];
+    
+    for (i = 0; i < 5; i++) {
+        
+        point path[MAX_PATH_LENGTH];
+        
+        BFS(locations[i], locations[i+1], path);
+        
+        /* Clean up map from BFS */
+        for (k = 0; k < MAP_ROW; k++){
+            memcpy(map[k], clean_map[k], sizeof(int)*MAP_COL);
+        }
+                
+        return;
+        
+        appendPath(concurrent_path, len(concurrent_path), path);
+    }
 }
 
 /* [] END OF FILE */

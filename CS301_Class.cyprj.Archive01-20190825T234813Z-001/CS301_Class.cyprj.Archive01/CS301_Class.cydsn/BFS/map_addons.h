@@ -4,11 +4,12 @@
 // Dimensions of map and paths in map
 #define MAP_ROW 15
 #define MAP_COL 19
-#define MAX_PATH_LENGTH 140
+#define MAX_PATH_LENGTH 200
 #define MAX_NUM_PATHS 10
 #define MAX_NODES 30
 #define MAX_STACK_SIZE 20
 #define MAX_EDGES 15
+#define BFS_ROUTE_SIZE 68
 
 // Colours for printing
 #define RED "\033[0;31m"
@@ -31,14 +32,14 @@
 #define U_TURN -3
 
 // Parameters for creating the command list
-#define MAX_COMMAND_LENGTH 50
+#define MAX_COMMAND_LENGTH 60
 #define EMPTY_COMMAND 0
 #define CMD_NULL -1
 #define CMD_RIGHT 0
 #define CMD_DOWN 1
 #define CMD_LEFT 2
 #define CMD_UP 3
-#define START_FACING CMD_LEFT //-------------------Change Orientation here---------------------------------
+#define START_FACING CMD_RIGHT //-------------------Change Orientation here---------------------------------
 
 // Values that decide turning behaviour
 #define GO_STRAIGHT 0
