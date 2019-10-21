@@ -197,14 +197,78 @@ int main()
     //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
     //uint8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
     
-    usbPutString("## Testing Algorithm ##\r\n");
+    #ifdef PUTTY
+        usbPutString("## Testing Algorithm ##\r\n");
+    #endif
     
     getRouteToFood((point){.x=1,.y=1},route);
-//    BFS((point){.x = 1, .y = 1},(point){.x = 9, .y = 13},route);
-//    
-    convertCoordinatesToCommands(route, directions);
     
+    convertCoordinatesToCommands(route,directions);
     printCommandsUSB(directions);
+    
+//    int k, i;
+//    
+//    /* Setup map for cleaning after BFS is done */
+//    int8_t clean_map[MAP_ROW][MAP_COL] = { 0 };
+//
+//    for (i = 0; i < MAP_ROW; i++){
+//        memcpy(clean_map[i], map[i], sizeof(int8_t)*MAP_COL);
+//    }
+//    
+//    
+//    // Test 1
+//    memset(route,EMPTY_VAL,sizeof(point)*MAX_PATH_LENGTH);
+//    memset(directions,EMPTY_COMMAND,sizeof(point)*MAX_COMMAND_LENGTH);
+//    BFS((point){.x = 1, .y = 1},(point){.x = 6, .y = 3},route);
+//    convertCoordinatesToCommands(route, directions);
+//    printCommandsUSB(directions);
+//    
+//    /* Clean up map from BFS */
+//    for (k = 0; k < MAP_ROW; k++){
+//        memcpy(map[k], clean_map[k], sizeof(int8_t)*MAP_COL);
+//    }
+//    
+//    // Test 2
+//    point route2[MAX_PATH_LENGTH] = { 0 };
+//    route2[0] = (point){.x=-1, .y=-1};
+//    int8_t directions2[MAX_COMMAND_LENGTH] = { 0 };
+//    
+//    memset(route2,EMPTY_VAL,sizeof(point)*MAX_PATH_LENGTH);
+//    memset(directions2,EMPTY_COMMAND,sizeof(point)*MAX_COMMAND_LENGTH);
+//    BFS((point){.x = 6, .y = 3},(point){.x = 10, .y = 5},route2);
+//    convertCoordinatesToCommands(route2, directions2);
+//    printCommandsUSB(directions2);
+//    
+//    /* Clean up map from BFS */
+//    for (k = 0; k < MAP_ROW; k++){
+//        memcpy(map[k], clean_map[k], sizeof(int8_t)*MAP_COL);
+//    }
+//    
+//    // Test 3
+//    memset(route,EMPTY_VAL,sizeof(point)*MAX_PATH_LENGTH);
+//    memset(directions,EMPTY_COMMAND,sizeof(point)*MAX_COMMAND_LENGTH);
+//    BFS((point){.x = 10, .y = 5},(point){.x = 9, .y = 13},route);
+//    convertCoordinatesToCommands(route, directions);
+//    printCommandsUSB(directions);
+//    
+//    /* Clean up map from BFS */
+//    for (k = 0; k < MAP_ROW; k++){
+//        memcpy(map[k], clean_map[k], sizeof(int8_t)*MAP_COL);
+//    }
+//    
+//    // Test 4
+//    memset(route,EMPTY_VAL,sizeof(point)*MAX_PATH_LENGTH);
+//    memset(directions,EMPTY_COMMAND,sizeof(point)*MAX_COMMAND_LENGTH);
+//    BFS((point){.x = 9, .y = 13},(point){.x = 16, .y = 13},route);
+//    convertCoordinatesToCommands(route, directions);
+//    printCommandsUSB(directions);
+//    
+//    // Test 5
+//    memset(route,EMPTY_VAL,sizeof(point)*MAX_PATH_LENGTH);
+//    memset(directions,EMPTY_COMMAND,sizeof(point)*MAX_COMMAND_LENGTH);
+//    BFS((point){.x = 16, .y = 13},(point){.x = 17, .y = 1},route);
+//    convertCoordinatesToCommands(route, directions);
+//    printCommandsUSB(directions);
         
     while (directions[direction_index] != 0) {
         startWheels();
@@ -213,10 +277,10 @@ int main()
         
         if (directions[direction_index] == RIGHT_TURN) {
             usbPutString("Sharp turn right\r\n");
-            sharpTurnRight(&right_wheel_count, &left_wheel_count);
+            sharpTurnRight();
         } else if (directions[direction_index] == LEFT_TURN) {
             usbPutString("Sharp turn left\r\n");
-            sharpTurnLeft(&right_wheel_count, &left_wheel_count);
+            sharpTurnLeft();
         } else if (directions[direction_index] == U_TURN) {
             usbPutString("U turn\r\n");
             uTurn(&right_wheel_count, &left_wheel_count);
@@ -738,13 +802,13 @@ void getRouteToFood(point start, point path[MAX_PATH_LENGTH]){
     #endif
 
     /* Intialise path */
-    memset(path,EMPTY_VAL,MAX_PATH_LENGTH*sizeof(point));
+    memset(path, EMPTY_VAL, MAX_PATH_LENGTH*sizeof(point));
 
     /* Setup map for cleaning after BFS is done */
-    uint8_t clean_map[MAP_ROW][MAP_COL] = { 0 };
+    int clean_map[MAP_ROW][MAP_COL] = { 0 };
 
     for (i = 0; i < MAP_ROW; i++){
-        memcpy(clean_map[i],map[i],sizeof(uint8_t)*MAP_COL);
+        memcpy(clean_map[i], map[i], sizeof(int)*MAP_COL);
     }
     
     #ifdef PUTTY
@@ -761,7 +825,6 @@ void getRouteToFood(point start, point path[MAX_PATH_LENGTH]){
         
         #ifdef PUTTY
             itoa(i,buff,10);
-    //        sprintf(buff,"(%d,%d)->(%d,%d)\r\n",locations[i].x,locations[i].y,locations[i+1].x,locations[i+1].y);
             usbPutString(buff);
             usbPutString("\r\n");
         #endif
@@ -771,10 +834,15 @@ void getRouteToFood(point start, point path[MAX_PATH_LENGTH]){
 
         // Setup the path to store the BFS result
         point temp_path[MAX_PATH_LENGTH] = { 0 };
-        memset(temp_path,EMPTY_VAL,MAX_PATH_LENGTH*sizeof(point));
+        temp_path[0] = (point){.x = EMPTY_VAL, .y = EMPTY_VAL};
+        memset(temp_path, EMPTY_VAL, MAX_PATH_LENGTH*sizeof(point));
 
         // Big Fat Search
         BFS(locations[i],locations[i+1],temp_path);
+        
+        #ifdef PUTTY
+            usbPutString("BFS Finished\r\n");
+        #endif
 
         /* Clean up map from BFS */
         for (k = 0; k < MAP_ROW; k++){

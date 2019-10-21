@@ -167,9 +167,9 @@ void printMap(int map[MAP_ROW][MAP_COL]){
 }
 
 /* Modify the map with the final path */
-void updateMapWithPath(int map[MAP_ROW][MAP_COL], point * path, int path_length){
+void updateMapWithPath(int8_t map[MAP_ROW][MAP_COL], point * path, int path_length){
 
-    int i;
+    uint8_t i;
 
     // Set starting position
     map[path[0].y][path[0].x] = 4;
@@ -277,7 +277,7 @@ void convertCoordinatesToCommands(point * concurrent_path, int8_t *commands){
 
 /* Get the number of valid points surrounding a given point on the map */
 int getNumOfSurroundingPoints(point p){
-    int num, mapval, i, j;
+    int8_t num, mapval, i, j;
     for (i = p.x-1; i < p.x+2; i++){
         for (j = p.y-1; j < p.y+2; j++){
             if (i == p.x && j == p.y) continue;

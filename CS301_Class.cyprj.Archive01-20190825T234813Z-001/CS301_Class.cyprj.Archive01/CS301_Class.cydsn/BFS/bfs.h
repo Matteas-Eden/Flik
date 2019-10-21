@@ -34,10 +34,10 @@ void BFS(point start, point finish, point * concurrent_path){
     uint8_t i; // For C90 compatibility
 
     // Initialise all paths as empty
-    memset(concurrent_path,EMPTY_VAL,MAX_PATH_LENGTH*sizeof(point));
+    memset(concurrent_path, EMPTY_VAL, MAX_PATH_LENGTH*sizeof(point));
     for (i = 0; i < MAX_NUM_PATHS; i++){
-        memset(paths[i],EMPTY_VAL,MAX_PATH_LENGTH*sizeof(point));
-        memset(new_paths[i],EMPTY_VAL,MAX_PATH_LENGTH*sizeof(point));
+        memset(paths[i], EMPTY_VAL, MAX_PATH_LENGTH*sizeof(point));
+        memset(new_paths[i], EMPTY_VAL, MAX_PATH_LENGTH*sizeof(point));
     }
 
     #ifdef DEBUG
