@@ -53,7 +53,8 @@
 #define DISTANCE_THRESHOLD 20
 
 // Debug flag - uncomment when debugging
-#define PUTTY
+//#define PUTTY
+//#define GO_SLOW
 //* ================= FUNCTIONS =======================
 void usbPutString(char *s);
 void getRouteToFood(point start, point path[MAX_PATH_LENGTH]);
@@ -132,28 +133,12 @@ int main()
     // Change these for pathing
     point start = {.x = 1, .y = 1};        //17,5; 1,1; 3,13
 //    point destination = {.x = 3, .y = 13};//3,13; 17,13;11,13
-    
-//    point route[BFS_ROUTE_SIZE];        //facing up; right; left
-//    int i;
-//    for (i = 0; i < BFS_ROUTE_SIZE; i++) {
-//        route[i] = (point){.x=-1, .y=-1};
-//    }
 //    BFS(start, destination, route);
     
     point route[MAX_PATH_LENGTH] = { 0 }; //facing up; right; left
     route[0] = (point){.x=-1, .y=-1};
-//    int i;
-//    for (i = 0; i < MAX_PATH_LENGTH; i++) {
-//        route[i] = (point){.x=EMPTY_VAL, .y=EMPTY_VAL};
-//    }
-
-//    getRouteToFood((point){.x=1,.y=1},route);
-//    BFS((point){.x=3,.y=9}, (point){.x=16,.y=11}, route);
 
     int8_t directions[MAX_COMMAND_LENGTH] = { 0 };
-//    convertCoordinatesToCommands(route, directions);
-    
-    stopWheels();
     
     // delay
     CyDelay(2000);
@@ -171,6 +156,8 @@ int main()
     // PWMs
     PWM_1_Start();
     PWM_2_Start();
+    
+    stopWheels();
     
     // Timer for encoder
     Timer_TS_Start();
@@ -195,7 +182,7 @@ int main()
     
     int direction_index = 0;
     //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
-    //uint8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
+//    int8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
     
     #ifdef PUTTY
         usbPutString("## Testing Algorithm ##\r\n");
@@ -205,9 +192,18 @@ int main()
     
     convertCoordinatesToCommands(route,directions);
     printCommandsUSB(directions);
+    
+    LED_ON;
+    
+    CyDelay(1000);
+    
+    LED_OFF;
+    
+    CyDelay(500);
+    
+    startWheels();
         
     while (directions[direction_index] != 0) {
-        startWheels();
         
         if (directions[direction_index] > DISTANCE_THRESHOLD) break;
         
@@ -227,11 +223,47 @@ int main()
             int num_coords = directions[direction_index];
             goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
         }
-        stopWheels();
-        printSingleCommandUSB(directions[direction_index]);
-        CyDelay(1000);
+        
+        #ifdef GO_SLOW
+            stopWheels();
+            printSingleCommandUSB(directions[direction_index]);
+            CyDelay(1000);
+            startWheels();
+        #endif
         
         direction_index++;
+    }
+    usbPutString(" - forward slightly\r\n");
+    
+    // go forward slightly
+    float distance = 0;
+    while (distance < SMALL_FORWARD_DISTANCE) {
+        
+        if (adc_flag) {
+            updateSensorValues();
+            adc_flag = FALSE;
+        }
+        
+         // New count values from encoder are ready
+        if (timer_flag){
+            isr_TS_Disable();
+            
+            // update distance
+            distance += getDistance(prevCountM1, prevCountM2);
+            
+            // Correct speed
+            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
+            
+            // Update previous values
+            prevCountM1 = countM1;
+            prevCountM2 = countM2;
+            
+            // Reset flag
+            timer_flag = FALSE;
+            
+            isr_TS_Enable();
+        }
     }
     
     LED_Write(1);
@@ -611,8 +643,8 @@ void changeRightWheelSpeed(int amount){
 }
 
 void startWheels() {
-    PWM_1_WriteCompare(400);
-    PWM_2_WriteCompare(400);
+    PWM_1_WriteCompare(300);
+    PWM_2_WriteCompare(300);
 }
 
 void stopWheels() {
