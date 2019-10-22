@@ -93,31 +93,12 @@ void filterPoints(point * points){
 
 /* BFS to go everywhere */
 /*
-* Generates a list of targets from a map to move through. The algorithm
-* then creates paths to a series of points (choosing points smartly),
-* all the while appending these paths to a final, large 'allPath'
+* Leverages an alternate version of BFS, which goes until it hits an unvisited point.
+* This algorithm then repeats BFS until there are no unvisited points left in the map.
 */
-void getAllPath(point allPath[MAX_PATH_LENGTH]){
-
-    point targets[MAX_PATH_LENGTH];
-
-    #ifdef SHOW_TARGETS
-        int num_points = generateTargetPoints(targets);
-    #else
-        generateTargetPoints(targets);
-    #endif
-
-    #ifdef DEBUG_ALLPATH
-        printf("## Generated points ##\n");
-    #endif
+void getAllPath(point start, point allPath[MAX_PATH_LENGTH]){
 
     int i;
-
-    #ifdef SHOW_TARGETS
-        for (i = 0; i < num_points; i++){
-            printf("(%d,%d)\n",targets[i].x,targets[i].y);
-        }
-    #endif
 
     // blockAndWait();
 
@@ -125,7 +106,6 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
         printf("## Plotting paths through map ##\n");
     #endif
 
-    
     int marked_map[MAP_ROW][MAP_COL];
     int clean_map[MAP_ROW][MAP_COL];
 
@@ -135,24 +115,16 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
         memcpy(clean_map[i],map[i],sizeof(int)*MAP_COL);
     }
 
-    filterPoints(targets);
-
     /* Iterate through all points and update the path */
-    uint8_t k;
-    point curr_point = getNextTarget(marked_map,targets);
+    int k;
+    point curr_point = start;//getNextTarget(marked_map,targets);
+    point next_point;
     markPointAsVisited(curr_point);
 
-    while (!(curr_point.x == EMPTY_VAL && curr_point.y == EMPTY_VAL)){
-
-        point next_point = getNextTarget(marked_map,targets);
-
-        if (next_point.x == EMPTY_VAL && next_point.y == EMPTY_VAL){
-            // printf("Hey, I'm null!\n");
-            break;
-        }
+    while (hasUnvisitedPoints(marked_map)) {
 
         point path[MAX_PATH_LENGTH] = { 0 };
-        BFS(curr_point, next_point, path);
+        next_point = BFS_alternate(curr_point, marked_map, path);
 
         #ifdef DEBUG_ALLPATH
             printf("### Map w/ (%d,%d)->(%d,%d) ###\n",curr_point.x,curr_point.y,next_point.x,next_point.y);
@@ -167,13 +139,13 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
             memcpy(map[k], clean_map[k], sizeof(int)*MAP_COL);
         }
 
-        #ifdef DEBUG_ALLPATH
-            puts("## Targets ##");
-            printPath(targets);
-        #endif
+        // #ifdef DEBUG_ALLPATH
+        //     puts("## Targets ##");
+        //     printPath(targets);
+        // #endif
 
         updateMapWithPath(marked_map, path, len(path));
-        
+        // num_points = updateTargets(marked_map, targets, i);
         appendPath(allPath, len(allPath), path);
 
         #ifdef DEBUG_ALLPATH
@@ -184,6 +156,9 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
         #endif
         
     }
+
+    //blockAndWait();
+    //optimisePath(targets);
 
     #ifdef DISPLAY_ALLPATH
         printMap(marked_map);

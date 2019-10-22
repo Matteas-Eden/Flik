@@ -31,7 +31,7 @@
 #define U_TURN -3
 
 // Parameters for creating the command list
-#define MAX_COMMAND_LENGTH 100
+#define MAX_COMMAND_LENGTH 200
 #define EMPTY_COMMAND 0
 #define CMD_NULL -1
 #define CMD_RIGHT 0
@@ -315,6 +315,19 @@ int appendPath(point *path, int path_length, point *path_to_append){
     #endif
 
     return path_length + i;
+}
+
+uint8_t hasUnvisitedPoints(int map[MAP_ROW][MAP_COL]){
+    uint8_t i = 0;
+    uint8_t j = 0;
+    for (; i < MAP_ROW; i++){
+        for(j = 0; j < MAP_COL; j++){
+            
+            if (map[i][j] == UNVISITED) return TRUE;
+            
+        }
+    }
+    return FALSE;
 }
 
 #endif

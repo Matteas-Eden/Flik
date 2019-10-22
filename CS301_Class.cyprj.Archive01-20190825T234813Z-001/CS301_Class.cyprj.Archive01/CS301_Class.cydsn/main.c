@@ -55,14 +55,16 @@
 #define BFS_TEST 1
 #define FOOD_ROUTE 2
 #define TRAVERSE_ALL 3
+#define DEBUG_MODE 4
 #define CURRENT_MODE TRAVERSE_ALL
+
 #define START_X 1
 #define START_Y 1
 #define FINISH_X 17
 #define FINISH_Y 13
 
 // Debug flag - uncomment when debugging
-//#define PUTTY
+#define PUTTY
 //#define GO_SLOW
 //* ================= FUNCTIONS =======================
 void usbPutString(char *s);
@@ -86,6 +88,7 @@ float getDistance(int prevCountM1, int prevCountM2);
 void turnRight();
 void turnLeft();
 void goStraightForBlock(int desired_blocks, int *right_speed_count, int *left_wheel_count);
+void goForwardWithoutTracking(int *left_wheel_count, int *right_wheel_count, int distance_to_travel);
 
 // turning
 void turnForDegrees(int degrees);
@@ -180,9 +183,8 @@ int main()
     int right_wheel_count = DESIRED_COUNT;
     int left_wheel_count = DESIRED_COUNT;
     
-    int direction_index = 0;
     //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
-//    int8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
+    //int8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
     
     #ifdef PUTTY
         usbPutString("## Testing Algorithm ##\r\n");
@@ -197,28 +199,40 @@ int main()
     
     uint8_t mode = CURRENT_MODE;
     
+    LED_ON; // Indicates algorithm starting
+    CyDelay(500);
+    
     switch (mode){
         case BFS_TEST:
+            usbPutString("## Selected BFS_TEST\r\n");
             BFS(start, destination, route);
             break;
         case FOOD_ROUTE:
+            usbPutString("## Selected FOOD_ROUTE\r\n");
             getRouteToFood(start,route);
             break;
         case TRAVERSE_ALL:
-            getAllPath(route);
+            usbPutString("## Selected TRAVERSE_ALL\r\n");
+            getAllPath(start,route);
+            break;
+        case DEBUG_MODE:
+            startWheels();
+            sharpTurnRight();
+            PWM_1_WriteCompare(0);
+            PWM_2_WriteCompare(0);
+            return 0;
             break;
     }
     
     convertCoordinatesToCommands(route,directions);
     printCommandsUSB(directions);
     
-    LED_ON;
-    CyDelay(1000);
-    LED_OFF;
+    LED_OFF; // Indicates algorithm finishing
     CyDelay(500);
     
     startWheels();
         
+    int direction_index = 0;
     while (directions[direction_index] != 0) {
         
         if (directions[direction_index] > DISTANCE_THRESHOLD) break;
@@ -230,8 +244,6 @@ int main()
         } else if (directions[direction_index] == U_TURN) {
             uTurn(&right_wheel_count, &left_wheel_count);
         } else if (directions[direction_index] <= DISTANCE_THRESHOLD){
-            // Change this for int array
-            //int num_coords = directions[direction_index] - '0';
             int num_coords = directions[direction_index];
             goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
         }
@@ -246,36 +258,7 @@ int main()
         direction_index++;
     }
     
-    // go forward slightly
-    float distance = 0;
-    while (distance < SMALL_FORWARD_DISTANCE) {
-        
-        if (adc_flag) {
-            updateSensorValues();
-            adc_flag = FALSE;
-        }
-        
-         // New count values from encoder are ready
-        if (timer_flag){
-            isr_TS_Disable();
-            
-            // update distance
-            distance += getDistance(prevCountM1, prevCountM2);
-            
-            // Correct speed
-            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
-            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
-            
-            // Update previous values
-            prevCountM1 = countM1;
-            prevCountM2 = countM2;
-            
-            // Reset flag
-            timer_flag = FALSE;
-            
-            isr_TS_Enable();
-        }
-    }
+    goForwardWithoutTracking(&left_wheel_count, &right_wheel_count, SMALL_FORWARD_DISTANCE);
     
     LED_Write(1);
     
@@ -475,7 +458,7 @@ void sharpTurnLeft() {
     QuadDec_M2_SetCounter(prevCountM2);
     isr_TS_Enable();
     
-    turnForDegrees(55); // so that it doesn't stop if it's already on a line
+    turnForDegrees(60); // so that it doesn't stop if it's already on a line
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
@@ -508,8 +491,8 @@ void sharpTurnRight() {
     QuadDec_M2_SetCounter(prevCountM2);
     isr_TS_Enable();
     
-    //45 may be too small.  Will try 55
-    turnForDegrees(55); // so that it doesn't stop if it's already on a line
+    //45 may be too small.  Will try 60
+    turnForDegrees(60); // so that it doesn't stop if it's already on a line
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
@@ -519,11 +502,11 @@ void sharpTurnRight() {
     }
     setWheelDirection(TRUE, TRUE);
 }
-    
-void uTurn(int *left_wheel_count, int *right_wheel_count) {
+
+void goForwardWithoutTracking(int *left_wheel_count, int *right_wheel_count, int distance_to_travel) {
     // go forward slightly
     float distance = 0;
-    while (distance < SMALL_FORWARD_DISTANCE) {
+    while (distance < distance_to_travel) {
         
         if (adc_flag) {
             updateSensorValues();
@@ -551,6 +534,10 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
             isr_TS_Enable();
         }
     }
+}
+    
+void uTurn(int *left_wheel_count, int *right_wheel_count) {
+    goForwardWithoutTracking(left_wheel_count, right_wheel_count, SMALL_FORWARD_DISTANCE);
     
     isr_TS_Disable();
     int prevCountM1 = QuadDec_M1_GetCounter();
