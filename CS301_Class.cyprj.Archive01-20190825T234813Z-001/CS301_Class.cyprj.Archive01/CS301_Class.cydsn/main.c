@@ -12,6 +12,7 @@
 #include "defines.h"
 #include "vars.h"
 #include "BFS/bfs.h"
+#include "BFS/bfs_allpaths.h"
 // =================== MACROS =====================
 // SENSOR MAPPINGS
 #define TOP_LEFT_SENSOR 0
@@ -51,6 +52,14 @@
 
 // algorithms
 #define DISTANCE_THRESHOLD 20
+#define BFS_TEST 1
+#define FOOD_ROUTE 2
+#define TRAVERSE_ALL 3
+#define CURRENT_MODE TRAVERSE_ALL
+#define START_X 1
+#define START_Y 1
+#define FINISH_X 17
+#define FINISH_Y 13
 
 // Debug flag - uncomment when debugging
 //#define PUTTY
@@ -130,16 +139,7 @@ CY_ISR(ADC_ISR) {
 
 int main()
 {
-    // Change these for pathing
-    point start = {.x = 1, .y = 1};        //17,5; 1,1; 3,13
-//    point destination = {.x = 3, .y = 13};//3,13; 17,13;11,13
-//    BFS(start, destination, route);
-    
-    point route[MAX_PATH_LENGTH] = { 0 }; //facing up; right; left
-    route[0] = (point){.x=-1, .y=-1};
 
-    int8_t directions[MAX_COMMAND_LENGTH] = { 0 };
-    
     // delay
     CyDelay(2000);
     
@@ -188,17 +188,33 @@ int main()
         usbPutString("## Testing Algorithm ##\r\n");
     #endif
     
-    getRouteToFood((point){.x=1,.y=1},route);
+    // Change these for pathing
+    point start = {.x = START_X, .y = START_Y};         //17,5; 1,1; 3,13
+    point destination = {.x = FINISH_X, .y = FINISH_Y}; //3,13; 17,13;11,13
+    point route[MAX_PATH_LENGTH] = { 0 };               //facing up; right; left
+    route[0] = (point){.x = EMPTY_VAL, .y = EMPTY_VAL};
+    int8_t directions[MAX_COMMAND_LENGTH] = { 0 };
+    
+    uint8_t mode = CURRENT_MODE;
+    
+    switch (mode){
+        case BFS_TEST:
+            BFS(start, destination, route);
+            break;
+        case FOOD_ROUTE:
+            getRouteToFood(start,route);
+            break;
+        case TRAVERSE_ALL:
+            getAllPath(route);
+            break;
+    }
     
     convertCoordinatesToCommands(route,directions);
     printCommandsUSB(directions);
     
     LED_ON;
-    
     CyDelay(1000);
-    
     LED_OFF;
-    
     CyDelay(500);
     
     startWheels();
@@ -208,16 +224,12 @@ int main()
         if (directions[direction_index] > DISTANCE_THRESHOLD) break;
         
         if (directions[direction_index] == RIGHT_TURN) {
-            usbPutString("Sharp turn right\r\n");
             sharpTurnRight();
         } else if (directions[direction_index] == LEFT_TURN) {
-            usbPutString("Sharp turn left\r\n");
             sharpTurnLeft();
         } else if (directions[direction_index] == U_TURN) {
-            usbPutString("U turn\r\n");
             uTurn(&right_wheel_count, &left_wheel_count);
         } else if (directions[direction_index] <= DISTANCE_THRESHOLD){
-            usbPutString("Straight\r\n");
             // Change this for int array
             //int num_coords = directions[direction_index] - '0';
             int num_coords = directions[direction_index];
@@ -233,7 +245,6 @@ int main()
         
         direction_index++;
     }
-    usbPutString(" - forward slightly\r\n");
     
     // go forward slightly
     float distance = 0;
@@ -299,14 +310,9 @@ void updateSensorValues(){
     if (sample_count == ADC_READINGS_SIZE){
         // Black = 1 (high voltage level)
         for (i = 0; i < NUM_SENSORS; i++){
-            itoa(adc_readings[i], buff, 10);
-            usbPutString(buff);
-            usbPutString(" ");
             sensor_readings[i] = !!(adc_readings[i] < LIGHT_LEVEL);
             adc_readings[i] = 0; // Reset max value from samples
         }
-        
-        usbPutString("\r\n");
         
         ADC_DEBUG_Write(1);
         sample_count = 0;
@@ -317,23 +323,12 @@ void updateSensorValues(){
 
 // --------------------------------------------- STRAIGHT ------------------------------------------
 void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wheel_count) {
-//    usbPutString("\r\n");
-//    usbPutString(" - desired  ");
     
     *right_wheel_count = DESIRED_COUNT;//TODO: check if needed
     *left_wheel_count = DESIRED_COUNT;
     
     float distance = 0;
     int desired_distance = GRID_SIZE * desired_blocks - HALF_ROBOT_LENGTH;
-    
-//    char buf[32];
-//    itoa(desired_distance, buf, 10);
-//    usbPutString(buf);
-//    usbPutString("\r\n - distance ");
-//    itoa(distance, buf, 10);
-//    usbPutString(buf);
-//    usbPutString("\r\n");
-//    usbPutString("\r\n");
     
     while (distance < desired_distance) {
         if (adc_flag) {
@@ -347,14 +342,6 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
             
             // update distance
             distance += getDistance(prevCountM1, prevCountM2);
-            
-//            usbPutString("\r\n - desired - ");
-//            itoa(desired_distance, buf, 10);
-//            usbPutString(buf);
-//            usbPutString(" - distance - ");
-//            itoa(distance, buf, 10);
-//            usbPutString(buf);
-            
             
             // Correct speed
             correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
@@ -380,10 +367,8 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
             }
         } else { // moved off
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left, but worse; want to go right
-                usbPutString(" - turn right\r\n");
                 turnRight();
             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated right, but worse; want to go left
-                usbPutString(" - turn left\r\n");
 				turnLeft();
             }
         }
@@ -473,7 +458,7 @@ void sharpTurnLeft() {
     isr_TS_Disable();
     int prevCountM1 = QuadDec_M1_GetCounter();
     int prevCountM2 = QuadDec_M2_GetCounter();
-    usbPutString(" - forward\r\n");
+    
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_LEFT_SENSOR]) {
         if (adc_flag) {
@@ -481,8 +466,6 @@ void sharpTurnLeft() {
             adc_flag = FALSE;
         }
     }
-    
-    usbPutString(" - turn 45\r\n");
     
     // make the turn
     setWheelDirection(FALSE, TRUE);
@@ -493,8 +476,6 @@ void sharpTurnLeft() {
     isr_TS_Enable();
     
     turnForDegrees(55); // so that it doesn't stop if it's already on a line
-    
-    usbPutString(" - finish turn\r\n");
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
@@ -509,9 +490,6 @@ void sharpTurnRight() {
     isr_TS_Disable();
     int prevCountM1 = QuadDec_M1_GetCounter();
     int prevCountM2 = QuadDec_M2_GetCounter();
-    usbPutString("---------------------------\r\n");
-    usbPutString("-------- forward -----------\r\n");
-    usbPutString("---------------------------\r\n");
     
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR]) {
@@ -520,13 +498,6 @@ void sharpTurnRight() {
             adc_flag = FALSE;
         }
     }
-    
-    usbPutString("---------------------------\r\n");
-    usbPutString("-------- turn 45 ----------\r\n");
-    usbPutString("---------------------------\r\n");
-//    stopWheels();
-//    CyDelay(1000);
-//    startWheels();
     
     // make the turn
     setWheelDirection(TRUE, FALSE);
@@ -540,13 +511,6 @@ void sharpTurnRight() {
     //45 may be too small.  Will try 55
     turnForDegrees(55); // so that it doesn't stop if it's already on a line
     
-    usbPutString("---------------------------\r\n");
-    usbPutString("-------- finish turn ------\r\n");
-    usbPutString("---------------------------\r\n");
-//    stopWheels();
-//    CyDelay(1000);
-//    startWheels();
-    
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
             updateSensorValues();
@@ -557,9 +521,6 @@ void sharpTurnRight() {
 }
     
 void uTurn(int *left_wheel_count, int *right_wheel_count) {
-    usbPutString("U turn\r\n");
-    
-    usbPutString(" - forward slightly\r\n");
     // go forward slightly
     float distance = 0;
     while (distance < SMALL_FORWARD_DISTANCE) {
@@ -595,7 +556,6 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
     int prevCountM1 = QuadDec_M1_GetCounter();
     int prevCountM2 = QuadDec_M2_GetCounter();
     
-    usbPutString(" - forward till junction\r\n");
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR] && !sensor_readings[BOTTOM_LEFT_SENSOR] && sensor_readings[BOTTOM_MID_SENSOR]) {
         if (adc_flag) {
@@ -603,8 +563,6 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
             adc_flag = FALSE;
         }
     }
-    
-    usbPutString(" - turn 135\r\n");
     
     // make the turn
     setWheelDirection(TRUE, FALSE);
@@ -618,8 +576,6 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
     
     // the number 180 is roughly a 135 degree turn
     turnForDegrees(180); // so that it doesn't stop if it's already on a line
-    
-    usbPutString(" - finish turn\r\n");
     
     // finish turn
     while (!sensor_readings[TOP_MID_SENSOR]) {

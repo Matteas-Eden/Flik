@@ -3,15 +3,16 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 #include "bfs.h"
 
 // #define DEBUG_ALLPATH
-#define DISPLAY_ALLPATH
+// #define DISPLAY_ALLPATH
 
 int generateTargetPoints(point *targets){
 
-    int i, j;
-    int size = 0;
+    uint8_t i, j;
+    uint16_t size = 0;
 
     for (i = 0; i < MAP_ROW; i++){
         for (j = 0; j < MAP_COL; j++){
@@ -53,7 +54,7 @@ int generateTargetPoints(point *targets){
 /* Get the next point from a pre-generated pool */
 point getNextTarget(int map[MAP_ROW][MAP_COL], point * targets){
 
-    int i = 0;
+    uint16_t i = 0;
 
     while (TRUE){
 
@@ -72,7 +73,9 @@ point getNextTarget(int map[MAP_ROW][MAP_COL], point * targets){
 
 /* Just a simple filter to remove garbage values */
 void filterPoints(point * points){
-    int i = 0;
+    
+    uint16_t i = 0;
+    
     while (TRUE){
 
         if (points[i].x >= MAP_COL || points[i].y >= MAP_ROW
@@ -84,16 +87,6 @@ void filterPoints(point * points){
 
         if (points[i].x == EMPTY_VAL && points[i].y == EMPTY_VAL) break;
 
-        i++;
-    }
-}
-
-/* Try and eliminate consecutive start/end points */
-void optimisePath(int map[MAP_ROW][MAP_COL], point * originalPath, point * optimisedPath){
-    //TODO: Implement
-    int i;
-    while (TRUE){
-        if (originalPath[i].x == EMPTY_VAL && originalPath[i].y == EMPTY_VAL) break;
         i++;
     }
 }
@@ -132,6 +125,7 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
         printf("## Plotting paths through map ##\n");
     #endif
 
+    
     int marked_map[MAP_ROW][MAP_COL];
     int clean_map[MAP_ROW][MAP_COL];
 
@@ -144,7 +138,7 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
     filterPoints(targets);
 
     /* Iterate through all points and update the path */
-    int k;
+    uint8_t k;
     point curr_point = getNextTarget(marked_map,targets);
     markPointAsVisited(curr_point);
 
@@ -179,7 +173,7 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
         #endif
 
         updateMapWithPath(marked_map, path, len(path));
-        // num_points = updateTargets(marked_map, targets, i);
+        
         appendPath(allPath, len(allPath), path);
 
         #ifdef DEBUG_ALLPATH
@@ -190,9 +184,6 @@ void getAllPath(point allPath[MAX_PATH_LENGTH]){
         #endif
         
     }
-
-    //blockAndWait();
-    //optimisePath(targets);
 
     #ifdef DISPLAY_ALLPATH
         printMap(marked_map);

@@ -167,7 +167,7 @@ void printMap(int map[MAP_ROW][MAP_COL]){
 }
 
 /* Modify the map with the final path */
-void updateMapWithPath(int8_t map[MAP_ROW][MAP_COL], point * path, int path_length){
+void updateMapWithPath(int map[MAP_ROW][MAP_COL], point * path, int path_length){
 
     uint8_t i;
 
