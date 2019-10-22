@@ -54,6 +54,7 @@
           <File BuildType="BUILD" Toolchain="">.\BFS\map3.h</File>
           <File BuildType="BUILD" Toolchain="">.\BFS\map4.h</File>
           <File BuildType="BUILD" Toolchain="">.\BFS\map5.h</File>
+          <File BuildType="BUILD" Toolchain="">.\BFS\bfs_allpaths.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="\\files.auckland.ac.nz\myhome\Desktop\Flik\CS301_Class.cyprj.Archive01-20190825T234813Z-001\CS301_Class.cyprj.Archive01\CS301_Class.cydsn\Generated_Source\PSoC5">

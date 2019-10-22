@@ -44,11 +44,9 @@
 #define SMALL_FORWARD_DISTANCE 8
 
 // Line following macros - require calibration
-#define ADJUST_SPEED_LARGE 3
 #define ADJUST_SPEED_SMALL 1
 #define MAX_SPEED 9
 #define MIN_SPEED 4
-#define SLOW_DOWN_SPEED 1
 
 // algorithms
 #define DISTANCE_THRESHOLD 20
@@ -56,7 +54,7 @@
 #define FOOD_ROUTE 2
 #define TRAVERSE_ALL 3
 #define DEBUG_MODE 4
-#define CURRENT_MODE TRAVERSE_ALL
+#define CURRENT_MODE FOOD_ROUTE
 
 #define START_X 1
 #define START_Y 1
@@ -64,7 +62,7 @@
 #define FINISH_Y 13
 
 // Debug flag - uncomment when debugging
-#define PUTTY
+//#define PUTTY
 //#define GO_SLOW
 //* ================= FUNCTIONS =======================
 void usbPutString(char *s);
@@ -216,11 +214,13 @@ int main()
             getAllPath(start,route);
             break;
         case DEBUG_MODE:
-            startWheels();
-            sharpTurnRight();
-            PWM_1_WriteCompare(0);
-            PWM_2_WriteCompare(0);
-            return 0;
+//            startWheels();
+//            sharpTurnRight();
+//            PWM_1_WriteCompare(0);
+//            PWM_2_WriteCompare(0);
+//            return 0;
+            directions[0] = 8;
+            directions[1] = EMPTY_COMMAND;
             break;
     }
     
@@ -307,13 +307,16 @@ void updateSensorValues(){
 // --------------------------------------------- STRAIGHT ------------------------------------------
 void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wheel_count) {
     
-    *right_wheel_count = DESIRED_COUNT;//TODO: check if needed
+    *right_wheel_count = DESIRED_COUNT;
     *left_wheel_count = DESIRED_COUNT;
     
     float distance = 0;
     int desired_distance = GRID_SIZE * desired_blocks - HALF_ROBOT_LENGTH;
     
+    char buff[32];
+    
     while (distance < desired_distance) {
+        
         if (adc_flag) {
             updateSensorValues();
             adc_flag = FALSE;
@@ -605,7 +608,7 @@ float getDistance(int prevCountM1, int prevCountM2) {
 * Gets difference between counts, compares to difference we expect. Add correction to PWM.*/
 void correctSpeed(int prevCount, int count, int desired_count, int isLeftWheel){    
     // Account for overflow edge or other unknown error
-    if (prevCount > count) return;
+//    if (prevCount > count) return;
     
     // Account for when PSoc is powered but wheels aren't moving
     int diff_count = abs(count - prevCount);

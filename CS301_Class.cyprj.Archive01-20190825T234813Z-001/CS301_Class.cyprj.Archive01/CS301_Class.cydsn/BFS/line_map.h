@@ -2,6 +2,6 @@
 #define LINE_MAP_H
 
 /* Just a wrapper for the map file they give us to make things easier */
-#include "map3.h"
+#include "map4.h"
 
 #endif
