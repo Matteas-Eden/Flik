@@ -213,15 +213,9 @@ int main()
             getAllPath(start,route);
             break;
         case DEBUG_MODE:
-//            startWheels();
-//            sharpTurnRight();
-//            PWM_1_WriteCompare(0);
-//            PWM_2_WriteCompare(0);
-//            return 0;
-            directions[0] = 4;
-            directions[1] = RIGHT_TURN;
-            directions[2] = 4;
-            directions[3] = EMPTY_COMMAND;
+            directions[0] = RIGHT_TURN;
+            directions[1] = 4;
+            directions[2] = EMPTY_COMMAND;
             break;
     }
     
@@ -531,7 +525,7 @@ void sharpTurnLeft() {
     PWM_2_WriteCompare(TURN_SPEED);
     
     // Turn to a specific angle
-    turnForDegrees(60); // so that it doesn't stop if it's already on a line
+    turnForDegrees(70); // so that it doesn't stop if it's already on a line
     
     // Continue turning until the line is hit
     while (!sensor_readings[TOP_MID_SENSOR]) {
@@ -560,7 +554,7 @@ void sharpTurnRight() {
     PWM_2_WriteCompare(TURN_SPEED);
     
     //45 may be too small.  Will try 60
-    turnForDegrees(60); // so that it doesn't stop if it's already on a line
+    turnForDegrees(70); // so that it doesn't stop if it's already on a line
     
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
