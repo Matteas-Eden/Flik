@@ -85,14 +85,14 @@ float getDistance(int prevCountM1, int prevCountM2);
 // straight
 void turnRight();
 void turnLeft();
-void goStraightForBlock(int desired_blocks, int *right_speed_count, int *left_wheel_count);
-void goForwardWithoutTracking(int *left_wheel_count, int *right_wheel_count, int distance_to_travel);
+void goStraightForBlock(int desired_blocks);
+void goForwardWithoutTracking(int distance_to_travel);
 
 // turning
 void turnForDegrees(int degrees);
 void sharpTurnRight();
 void sharpTurnLeft();
-void uTurn(int *left_wheel_count, int *right_wheel_count);
+void uTurn();
 
 // debugging
 void printCommandsUSB(int8_t *commands);
@@ -107,8 +107,10 @@ int sample_count = 0;
 volatile int timer_flag = FALSE;
 volatile int countM1 = 0;
 volatile int countM2 = 0;
-int prevCountM1 = 0;
-int prevCountM2 = 0;
+volatile int prevCountM1 = 0;
+volatile int prevCountM2 = 0;
+int8_t right_wheel_count = DESIRED_COUNT; // Made global
+int8_t left_wheel_count = DESIRED_COUNT;
 //* ================== ISR ======================
 CY_ISR(ENCODER_ISR) {
     countM1 = QuadDec_M1_GetCounter();
@@ -166,8 +168,8 @@ int main()
     isr_TS_StartEx(ENCODER_ISR);
     
     // Quad Decoders
-    QuadDec_M1_Start();
-    QuadDec_M2_Start();
+    // QuadDec_M1_Start();
+    // QuadDec_M2_Start();
     
     // ADC
     ADC_Start(); // Start ADC
@@ -178,11 +180,8 @@ int main()
     // To make sure wheels rotate in the same direction i.e. forward
     INV2_Write(1);
     
-    int right_wheel_count = DESIRED_COUNT;
-    int left_wheel_count = DESIRED_COUNT;
-    
-    //int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
-    //int8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
+    // int directions[30] = {2, RIGHT_TURN, 2, RIGHT_TURN, 4, RIGHT_TURN,2, LEFT_TURN, 4, LEFT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 4, U_TURN, 2, LEFT_TURN, 4, RIGHT_TURN, 2, LEFT_TURN, 2 , RIGHT_TURN, 2 , LEFT_TURN, 4 };
+    // int8_t directions[2] = {RIGHT_TURN, EMPTY_COMMAND};
     
     #ifdef PUTTY
         usbPutString("## Testing Algorithm ##\r\n");
@@ -233,6 +232,7 @@ int main()
     startWheels();
         
     int direction_index = 0;
+
     while (directions[direction_index] != 0) {
         
         if (directions[direction_index] > DISTANCE_THRESHOLD) break;
@@ -242,10 +242,10 @@ int main()
         } else if (directions[direction_index] == LEFT_TURN) {
             sharpTurnLeft();
         } else if (directions[direction_index] == U_TURN) {
-            uTurn(&right_wheel_count, &left_wheel_count);
+            uTurn();
         } else if (directions[direction_index] <= DISTANCE_THRESHOLD){
             int num_coords = directions[direction_index];
-            goStraightForBlock(num_coords, &right_wheel_count, &left_wheel_count);
+            goStraightForBlock(num_coords);
         }
         
         #ifdef GO_SLOW
@@ -258,12 +258,11 @@ int main()
         direction_index++;
     }
     
-    goForwardWithoutTracking(&left_wheel_count, &right_wheel_count, SMALL_FORWARD_DISTANCE);
+    goForwardWithoutTracking(SMALL_FORWARD_DISTANCE);
     
     LED_Write(1);
     
-    PWM_1_WriteCompare(0);
-    PWM_2_WriteCompare(0);
+    stopWheels();
     
     // delay
     CyDelay(20000);
@@ -287,7 +286,9 @@ void updateSensorValues(){
         }
     }
 
-    char buff[32];
+    #ifdef PUTTY
+        char buff[32];
+    #endif
     
     sample_count++;
     if (sample_count == ADC_READINGS_SIZE){
@@ -305,15 +306,21 @@ void updateSensorValues(){
 }
 
 // --------------------------------------------- STRAIGHT ------------------------------------------
-void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wheel_count) {
-    
-    *right_wheel_count = DESIRED_COUNT;
-    *left_wheel_count = DESIRED_COUNT;
+void goStraightForBlock(int desired_blocks) {
     
     float distance = 0;
     int desired_distance = GRID_SIZE * desired_blocks - HALF_ROBOT_LENGTH;
-    
-    char buff[32];
+
+    /* 
+    * Enable quadrature decoder 
+    * Enable timer
+    * Reset quad count
+    */
+    QuadDec_M1_Start();
+    QuadDec_M2_Start();
+    isr_TS_Enable();
+    prevCountM1 = 0;
+    prevCountM2 = 0;
     
     while (distance < desired_distance) {
         
@@ -330,8 +337,8 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
             distance += getDistance(prevCountM1, prevCountM2);
             
             // Correct speed
-            correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
-            correctSpeed(prevCountM2,countM2,*right_wheel_count,FALSE);
+            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
             
             // Update previous values
             prevCountM1 = countM1;
@@ -342,14 +349,14 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
             isr_TS_Enable();
         }
         
-        // follow a line algorithm
+        /* --------------- LINE FOLLOWING ----------------- */
         if (sensor_readings[TOP_MID_SENSOR]) { // on line
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left; want to go right
-                *right_wheel_count -= ADJUST_SPEED_SMALL;
-                *left_wheel_count += ADJUST_SPEED_SMALL;
+                right_wheel_count -= ADJUST_SPEED_SMALL;
+                left_wheel_count += ADJUST_SPEED_SMALL;
             } else if (sensor_readings[TOP_LEFT_SENSOR] && !sensor_readings[TOP_RIGHT_SENSOR]) { // Deviated right; want to go left
-                *right_wheel_count += ADJUST_SPEED_SMALL;
-                *left_wheel_count -= ADJUST_SPEED_SMALL;
+                right_wheel_count += ADJUST_SPEED_SMALL;
+                left_wheel_count -= ADJUST_SPEED_SMALL;
             }
         } else { // moved off
             if (!sensor_readings[TOP_LEFT_SENSOR] && sensor_readings[TOP_RIGHT_SENSOR]) {// Deviated left, but worse; want to go right
@@ -359,27 +366,40 @@ void goStraightForBlock(int desired_blocks, int *right_wheel_count, int *left_wh
             }
         }
         
-        if (*right_wheel_count > MAX_SPEED) {
-            *right_wheel_count = MAX_SPEED;
+        if (right_wheel_count > MAX_SPEED) {
+            right_wheel_count = MAX_SPEED;
         }
-        if (*left_wheel_count > MAX_SPEED) {
-            *left_wheel_count = MAX_SPEED;
+        if (left_wheel_count > MAX_SPEED) {
+            left_wheel_count = MAX_SPEED;
         }
-        if (*right_wheel_count < MIN_SPEED) {
-            *right_wheel_count = MIN_SPEED;
+        if (right_wheel_count < MIN_SPEED) {
+            right_wheel_count = MIN_SPEED;
         }
-        if (*left_wheel_count < MIN_SPEED) {
-            *left_wheel_count = MIN_SPEED;
+        if (left_wheel_count < MIN_SPEED) {
+            left_wheel_count = MIN_SPEED;
         }
     }
+
+    /*
+    * Stop decoders
+    * Stop timer
+    */
+    QuadDec_M1_Stop();
+    QuadDec_M2_Stop();
+    isr_TS_Disable();
+
 }
 
 void turnLeft() {
+
+    // Store decoder count
     isr_TS_Disable();
     int prevCountM1 = QuadDec_M1_GetCounter();
     int prevCountM2 = QuadDec_M2_GetCounter();
+
     PWM_1_WriteCompare(0);
     PWM_2_WriteCompare(TURN_SPEED);
+
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
             updateSensorValues();
@@ -387,24 +407,33 @@ void turnLeft() {
         }
     }
     PWM_1_WriteCompare(TURN_SPEED);
+
+    // Reset back
     QuadDec_M1_SetCounter(prevCountM1);
     QuadDec_M2_SetCounter(prevCountM2);
     isr_TS_Enable();
 }
 
 void turnRight() {
+
+    // Store decoder count
     isr_TS_Disable();
     int prevCountM1 = QuadDec_M1_GetCounter();
     int prevCountM2 = QuadDec_M2_GetCounter();
+
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(0);
+
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
             updateSensorValues();
             adc_flag = FALSE;
         }
     }
+
     PWM_2_WriteCompare(TURN_SPEED);
+
+    // Reset back
     QuadDec_M1_SetCounter(prevCountM1);
     QuadDec_M2_SetCounter(prevCountM2);
     isr_TS_Enable();
@@ -412,8 +441,20 @@ void turnRight() {
 
 // --------------------------------------------- TURNS ------------------------------------------
 void turnForDegrees(int degrees) {
+
     float distance_to_turn = degrees / 13;
     float distance_turned = 0;
+
+    /* 
+    * Enable quadrature decoder 
+    * Enable timer
+    * Reset quad count
+    */
+    QuadDec_M1_Start();
+    QuadDec_M2_Start();
+    isr_TS_Enable();
+    prevCountM1 = 0;
+    prevCountM2 = 0;
     
     while (distance_turned < distance_to_turn) {
         // update sensor values so they're not 'stuck' when we leave function
@@ -438,12 +479,18 @@ void turnForDegrees(int degrees) {
             isr_TS_Enable();
         }
     }
+
+    /*
+    * Stop decoders
+    * Stop timer
+    */
+    QuadDec_M1_Stop();
+    QuadDec_M2_Stop();
+    isr_TS_Disable();
+
 }
 
 void sharpTurnLeft() {
-    isr_TS_Disable();
-    int prevCountM1 = QuadDec_M1_GetCounter();
-    int prevCountM2 = QuadDec_M2_GetCounter();
     
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_LEFT_SENSOR]) {
@@ -457,25 +504,22 @@ void sharpTurnLeft() {
     setWheelDirection(FALSE, TRUE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
-    QuadDec_M1_SetCounter(prevCountM1);
-    QuadDec_M2_SetCounter(prevCountM2);
-    isr_TS_Enable();
     
+    // Turn to a specific angle
     turnForDegrees(60); // so that it doesn't stop if it's already on a line
     
+    // Continue turning until the line is hit
     while (!sensor_readings[TOP_MID_SENSOR]) {
         if (adc_flag) {
             updateSensorValues();
             adc_flag = FALSE;
         }
     }
+
     setWheelDirection(TRUE, TRUE);
 }
 
 void sharpTurnRight() {
-    isr_TS_Disable();
-    int prevCountM1 = QuadDec_M1_GetCounter();
-    int prevCountM2 = QuadDec_M2_GetCounter();
     
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR]) {
@@ -485,14 +529,10 @@ void sharpTurnRight() {
         }
     }
     
-    // make the turn
+    // setup for turn
     setWheelDirection(TRUE, FALSE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
-    
-    QuadDec_M1_SetCounter(prevCountM1);
-    QuadDec_M2_SetCounter(prevCountM2);
-    isr_TS_Enable();
     
     //45 may be too small.  Will try 60
     turnForDegrees(60); // so that it doesn't stop if it's already on a line
@@ -503,12 +543,27 @@ void sharpTurnRight() {
             adc_flag = FALSE;
         }
     }
+
     setWheelDirection(TRUE, TRUE);
+
 }
 
-void goForwardWithoutTracking(int *left_wheel_count, int *right_wheel_count, int distance_to_travel) {
+void goForwardWithoutTracking(int distance_to_travel) {
+
     // go forward slightly
     float distance = 0;
+
+    /* 
+    * Enable quadrature decoder 
+    * Enable timer
+    * Reset quad count
+    */
+    QuadDec_M1_Start();
+    QuadDec_M2_Start();
+    isr_TS_Enable();
+    prevCountM1 = 0;
+    prevCountM2 = 0;
+
     while (distance < distance_to_travel) {
         
         if (adc_flag) {
@@ -524,8 +579,8 @@ void goForwardWithoutTracking(int *left_wheel_count, int *right_wheel_count, int
             distance += getDistance(prevCountM1, prevCountM2);
             
             // Correct speed
-            correctSpeed(prevCountM1,countM1,*left_wheel_count,TRUE);
-            correctSpeed(prevCountM2,countM2,*right_wheel_count,FALSE);
+            correctSpeed(prevCountM1,countM1,left_wheel_count,TRUE);
+            correctSpeed(prevCountM2,countM2,right_wheel_count,FALSE);
             
             // Update previous values
             prevCountM1 = countM1;
@@ -537,14 +592,20 @@ void goForwardWithoutTracking(int *left_wheel_count, int *right_wheel_count, int
             isr_TS_Enable();
         }
     }
+
+    /*
+    * Stop decoders
+    * Stop timer
+    */
+    QuadDec_M1_Stop();
+    QuadDec_M2_Stop();
+    isr_TS_Disable();
+
 }
     
-void uTurn(int *left_wheel_count, int *right_wheel_count) {
-    goForwardWithoutTracking(left_wheel_count, right_wheel_count, SMALL_FORWARD_DISTANCE);
-    
-    isr_TS_Disable();
-    int prevCountM1 = QuadDec_M1_GetCounter();
-    int prevCountM2 = QuadDec_M2_GetCounter();
+void uTurn() {
+
+    goForwardWithoutTracking(SMALL_FORWARD_DISTANCE);
     
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR] && !sensor_readings[BOTTOM_LEFT_SENSOR] && sensor_readings[BOTTOM_MID_SENSOR]) {
@@ -554,15 +615,10 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
         }
     }
     
-    // make the turn
+    // setup for turn
     setWheelDirection(TRUE, FALSE);
     PWM_1_WriteCompare(TURN_SPEED);
     PWM_2_WriteCompare(TURN_SPEED);
-    
-    QuadDec_M1_SetCounter(prevCountM1);
-    QuadDec_M2_SetCounter(prevCountM2);
-    isr_TS_Enable();
-    
     
     // the number 180 is roughly a 135 degree turn
     turnForDegrees(180); // so that it doesn't stop if it's already on a line
@@ -574,7 +630,9 @@ void uTurn(int *left_wheel_count, int *right_wheel_count) {
             adc_flag = FALSE;
         }
     }
+
     setWheelDirection(TRUE, TRUE);
+    
 }
 
 // --------------------------------------------- HELPERS ------------------------------------------
@@ -599,8 +657,8 @@ void stopWheels() {
 }
 
 float getDistance(int prevCountM1, int prevCountM2) {
-    float m1_dist = ((float)abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
-    float m2_dist = ((float)abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
+    float m1_dist = ((float) abs(countM1 - prevCountM1) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
+    float m2_dist = ((float) abs(countM2 - prevCountM2) / TICKS_PER_REV) * LINEAR_DISTANCE_PER_REV;
     return (m1_dist + m2_dist) / 2;
 };
 
