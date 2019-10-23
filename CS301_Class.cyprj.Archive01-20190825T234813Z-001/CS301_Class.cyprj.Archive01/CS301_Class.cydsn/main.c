@@ -24,7 +24,7 @@
 
 // LIGHT SENSORS
 #define NUM_SENSORS 6
-#define LIGHT_LEVEL 300
+#define LIGHT_LEVEL 350
 
 // ADC
 #define ADC_READINGS_SIZE 200
@@ -36,7 +36,7 @@
 
 // Speed control
 #define DESIRED_COUNT 8
-#define TURN_SPEED 450
+#define TURN_SPEED 400
 
 // Distances
 #define GRID_SIZE 12
@@ -54,7 +54,7 @@
 #define FOOD_ROUTE 2
 #define TRAVERSE_ALL 3
 #define DEBUG_MODE 4
-#define CURRENT_MODE FOOD_ROUTE
+#define CURRENT_MODE TRAVERSE_ALL
 
 #define START_X 1
 #define START_Y 1
@@ -63,7 +63,7 @@
 
 // Debug flag - uncomment when debugging
 //#define PUTTY
-//#define GO_SLOW
+#define GO_SLOW
 //* ================= FUNCTIONS =======================
 void usbPutString(char *s);
 void getRouteToFood(point start, point path[MAX_PATH_LENGTH]);
@@ -86,7 +86,7 @@ float getDistance(int prevCountM1, int prevCountM2);
 void turnRight();
 void turnLeft();
 void goStraightForBlock(int desired_blocks);
-void goForwardWithoutTracking(int distance_to_travel);
+void goForwardWithoutTracking(int distance_to_travel, int8_t lean);
 
 // turning
 void turnForDegrees(int degrees);
@@ -218,8 +218,10 @@ int main()
 //            PWM_1_WriteCompare(0);
 //            PWM_2_WriteCompare(0);
 //            return 0;
-            directions[0] = 8;
-            directions[1] = EMPTY_COMMAND;
+            directions[0] = 4;
+            directions[1] = RIGHT_TURN;
+            directions[2] = 4;
+            directions[3] = EMPTY_COMMAND;
             break;
     }
     
@@ -244,8 +246,7 @@ int main()
         } else if (directions[direction_index] == U_TURN) {
             uTurn();
         } else if (directions[direction_index] <= DISTANCE_THRESHOLD){
-            int num_coords = directions[direction_index];
-            goStraightForBlock(num_coords);
+            goStraightForBlock(directions[direction_index]);
         }
         
         #ifdef GO_SLOW
@@ -258,7 +259,7 @@ int main()
         direction_index++;
     }
     
-    goForwardWithoutTracking(SMALL_FORWARD_DISTANCE);
+    goForwardWithoutTracking(SMALL_FORWARD_DISTANCE, directions[direction_index-2]);
     
     LED_Write(1);
     
@@ -308,6 +309,8 @@ void updateSensorValues(){
 // --------------------------------------------- STRAIGHT ------------------------------------------
 void goStraightForBlock(int desired_blocks) {
     
+    usbPutString("Going straight\r\n");
+    
     float distance = 0;
     int desired_distance = GRID_SIZE * desired_blocks - HALF_ROBOT_LENGTH;
 
@@ -321,8 +324,19 @@ void goStraightForBlock(int desired_blocks) {
     isr_TS_Enable();
     prevCountM1 = 0;
     prevCountM2 = 0;
+    countM1 = 0;
+    countM2 = 0;
+    
+    char buff[32];
     
     while (distance < desired_distance) {
+        
+        #ifdef PUTTY
+            itoa(distance,buff,10);
+            usbPutString(buff);
+            usbPutString("\r\n");
+            usbPutString("Travelling\r\n");
+        #endif
         
         if (adc_flag) {
             updateSensorValues();
@@ -344,10 +358,19 @@ void goStraightForBlock(int desired_blocks) {
             prevCountM1 = countM1;
             prevCountM2 = countM2;
             
+            #ifdef PUTTY
+                itoa(countM1,buff,10);
+                usbPutString("Count: ");
+                usbPutString(buff);
+                usbPutString("\r\n");
+            #endif
+            
             // Reset flag
             timer_flag = FALSE;
             isr_TS_Enable();
         }
+        
+        usbPutString("Checking sensors\r\n");
         
         /* --------------- LINE FOLLOWING ----------------- */
         if (sensor_readings[TOP_MID_SENSOR]) { // on line
@@ -455,6 +478,8 @@ void turnForDegrees(int degrees) {
     isr_TS_Enable();
     prevCountM1 = 0;
     prevCountM2 = 0;
+    countM1 = 0;
+    countM2 = 0;
     
     while (distance_turned < distance_to_turn) {
         // update sensor values so they're not 'stuck' when we leave function
@@ -548,7 +573,7 @@ void sharpTurnRight() {
 
 }
 
-void goForwardWithoutTracking(int distance_to_travel) {
+void goForwardWithoutTracking(int distance_to_travel, int8_t lean) {
 
     // go forward slightly
     float distance = 0;
@@ -563,6 +588,19 @@ void goForwardWithoutTracking(int distance_to_travel) {
     isr_TS_Enable();
     prevCountM1 = 0;
     prevCountM2 = 0;
+    countM1 = 0;
+    countM2 = 0;
+    
+    switch(lean){
+        case LEFT_TURN:
+            changeRightWheelSpeed(-50);
+            break;
+        case RIGHT_TURN:
+            changeLeftWheelSpeed(-50);
+            break;
+        default:
+            break;
+    }
 
     while (distance < distance_to_travel) {
         
@@ -605,7 +643,7 @@ void goForwardWithoutTracking(int distance_to_travel) {
     
 void uTurn() {
 
-    goForwardWithoutTracking(SMALL_FORWARD_DISTANCE);
+    goForwardWithoutTracking(SMALL_FORWARD_DISTANCE, EMPTY_COMMAND);
     
     // go until we reach the junction
     while (!sensor_readings[BOTTOM_RIGHT_SENSOR] && !sensor_readings[BOTTOM_LEFT_SENSOR] && sensor_readings[BOTTOM_MID_SENSOR]) {
